@@ -58,18 +58,22 @@
           pRipple
           class="flex p-3 px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150"
         >
-          <i class="pi pi-truck mr-3 text-3xl"></i>
-          <span class="font-bold">Seguimiento de Pedido</span>
+          <i class="pi pi-car mr-3 text-3xl"></i>
+          <!--<div class="flex flex-column">
+        <span>!Hola!</span>
+        <span class="font-bold">Inicia sesión o regístrate</span>
+      </div> -->
+          <div class="flex flex-column">
+            <span>Selecciona</span>
+            <span class="font-bold">Tu vehículo</span>
+          </div>
         </a>
       </li>
-      <li>
-        <a
-          pRipple
-          class="flex p-3 px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150"
-        >
-          <i class="pi pi-shopping-cart lg:mr-3 text-3xl"></i>
-          <span class="hidden lg:inline font-bold">Mi carro</span>
-        </a>
+      <li class="flex align-items-center">
+        <div
+          style="width: 1px; height: 35px"
+          class="border-right-1 surface-border"
+        ></div>
       </li>
       <li class="hidden lg:inline">
         <a
@@ -78,13 +82,39 @@
         >
           <i class="pi pi-user mr-3 text-3xl"></i>
           <!--<div class="flex flex-column">
-            <span>!Hola!</span>
-            <span class="font-bold">Inicia sesión o regístrate</span>
-          </div> -->
+          <span>!Hola!</span>
+          <span class="font-bold">Inicia sesión o regístrate</span>
+        </div> -->
           <div class="flex flex-column">
-            <span>!Hola, Cristian!</span>
+            <span>Hola Cristian</span>
             <span class="font-bold">Mi cuenta</span>
           </div>
+        </a>
+      </li>
+      <li class="flex align-items-center">
+        <div
+          style="width: 1px; height: 35px"
+          class="border-right-1 surface-border"
+        ></div>
+      </li>
+
+      <!--
+      <li class="hidden lg:inline">
+        <a
+          pRipple
+          class="flex p-3 px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150"
+        >
+          <i class="pi pi-truck mr-3 text-3xl"></i>
+          <span class="font-bold">Seguimiento de Pedido</span>
+        </a>
+      </li> -->
+      <li>
+        <a
+          pRipple
+          class="flex p-3 px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150"
+        >
+          <i class="pi pi-shopping-cart text-3xl"></i>
+          <!-- <span class="hidden lg:inline font-bold">Carrito</span> -->
         </a>
       </li>
     </ul>

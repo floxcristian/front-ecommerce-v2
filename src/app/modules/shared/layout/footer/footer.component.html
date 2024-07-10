@@ -1,0 +1,91 @@
+<!--<div class="flex justify-content-between align-items-center">
+    <div class="flex align-items-center">
+      <i class="pi pi-shopping-cart mr-2"></i>
+      <span>Carrito</span>
+    </div>
+    <div class="flex align-items-center">
+      <i class="pi pi-heart mr-2"></i>
+      <span>Favoritos</span>
+    </div>
+    <div class="flex align-items-center">
+      <i class="pi pi-user mr-2"></i>
+      <span>Perfil</span>
+    </div>
+  </div> -->
+
+<footer class="fixed bottom-0 w-full lg:hidden">
+  <ul
+    class="surface-card p-0 m-0 list-none flex overflow-x-auto select-none shadow-2"
+  >
+    <li class="flex-1">
+      <a
+        pRipple
+        class="cursor-pointer px-2 py-3 flex align-items-center justify-content-center hover:border-500 transition-colors transition-duration-150 flex-column"
+        [ngClass]="{
+          'border-blue-500 text-blue-500 hover:border-blue-500': active5 === 0,
+          'text-700 border-transparent': active5 !== 0
+        }"
+        (click)="active5 = 0"
+      >
+        <i class="pi pi-home mb-2 text-2xl"></i>
+        <span class="font-medium text-xs">Inicio</span>
+      </a>
+    </li>
+    <li class="flex-1">
+      <a
+        pRipple
+        class="cursor-pointer px-2 py-3 flex align-items-center justify-content-center hover:border-500 transition-colors transition-duration-150 flex-column"
+        [ngClass]="{
+          'border-blue-500 text-blue-500 hover:border-blue-500': active5 === 1,
+          'text-700 border-transparent': active5 !== 1
+        }"
+        (click)="active5 = 1"
+      >
+        <i class="pi pi-objects-column mb-2 text-2xl"></i>
+        <span class="font-medium text-xs">Categorías</span>
+      </a>
+    </li>
+    <li class="flex-1">
+      <a
+        pRipple
+        class="cursor-pointer px-2 py-3 flex align-items-center justify-content-center hover:border-500 transition-colors transition-duration-150 flex-column"
+        [ngClass]="{
+          'border-blue-500 text-blue-500 hover:border-blue-500': active5 === 2,
+          'text-700 border-transparent': active5 !== 2
+        }"
+        (click)="active5 = 2"
+      >
+        <i class="pi pi-user mb-2 text-2xl"></i>
+        <span class="font-medium text-xs">Mi cuenta</span>
+      </a>
+    </li>
+    <li class="flex-1">
+      <a
+        pRipple
+        class="cursor-pointer px-2 py-3 flex align-items-center justify-content-center hover:border-500 transition-colors transition-duration-150 flex-column"
+        [ngClass]="{
+          'border-blue-500 text-blue-500 hover:border-blue-500': active5 === 3,
+          'text-700 border-transparent': active5 !== 3
+        }"
+        (click)="active5 = 3"
+      >
+        <i class="pi pi-bars mb-2 text-2xl"></i>
+        <span class="font-medium text-xs">Menú</span>
+      </a>
+    </li>
+    <li class="flex-1">
+      <a
+        pRipple
+        class="cursor-pointer px-2 py-3 flex align-items-center justify-content-center hover:border-500 transition-colors transition-duration-150 flex-column"
+        [ngClass]="{
+          'border-blue-500 text-blue-500 hover:border-blue-500': active5 === 4,
+          'text-700 border-transparent': active5 !== 4
+        }"
+        (click)="active5 = 4"
+      >
+        <i class="pi pi-comments mb-2 text-2xl"></i>
+        <span class="font-medium text-xs">Chat</span>
+      </a>
+    </li>
+  </ul>
+</footer>

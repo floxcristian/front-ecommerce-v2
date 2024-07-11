@@ -29,7 +29,7 @@
       <li class="hidden lg:inline">
         <a
           pRipple
-          class="flex p-3 px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150"
+          class="flex p-3 px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem"
         >
           <i class="pi pi-bars mr-3 text-3xl"></i>
           <span class="font-bold">Categorías</span>
@@ -38,7 +38,7 @@
       <li class="hidden lg:inline">
         <a
           pRipple
-          class="flex p-3 px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150"
+          class="flex p-3 px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem"
         >
           <i class="pi pi-map-marker mr-3 text-3xl"></i>
           <div class="flex flex-column">
@@ -56,7 +56,7 @@
       <li class="hidden lg:inline">
         <a
           pRipple
-          class="flex p-3 px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150"
+          class="flex p-3 px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem"
         >
           <i class="pi pi-car mr-3 text-3xl"></i>
           <!--<div class="flex flex-column">
@@ -69,16 +69,16 @@
           </div>
         </a>
       </li>
-      <li class="flex align-items-center">
+      <li class="align-items-center hidden lg:flex">
         <div
           style="width: 1px; height: 35px"
-          class="border-right-1 surface-border"
+          class="border-right-1 surface-border mx-2"
         ></div>
       </li>
       <li class="hidden lg:inline">
         <a
           pRipple
-          class="flex p-3 px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150"
+          class="flex p-3 px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem"
         >
           <i class="pi pi-user mr-3 text-3xl"></i>
           <!--<div class="flex flex-column">
@@ -91,10 +91,10 @@
           </div>
         </a>
       </li>
-      <li class="flex align-items-center">
+      <li class="align-items-center hidden lg:flex">
         <div
           style="width: 1px; height: 35px"
-          class="border-right-1 surface-border"
+          class="border-right-1 surface-border mx-2"
         ></div>
       </li>
 
@@ -111,9 +111,14 @@
       <li>
         <a
           pRipple
-          class="flex p-3 px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150"
+          class="flex p-3 px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-4rem"
         >
-          <i class="pi pi-shopping-cart text-3xl"></i>
+          <i
+            class="pi pi-shopping-cart text-3xl"
+            pBadge
+            severity="danger"
+            value="2"
+          ></i>
           <!-- <span class="hidden lg:inline font-bold">Carrito</span> -->
         </a>
       </li>

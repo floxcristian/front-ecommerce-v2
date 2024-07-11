@@ -6,6 +6,7 @@ import { AccountHeaderComponent } from './components/account-header/account-head
 import { MainHeader1Component } from './components/main-header-1/main-header-1.component';
 import { MainHeader2Component } from './components/main-header-2/main-header-2.component';
 import { PromoHeader2Component } from './components/promo-header-2/promo-header-2.component';
+import { ShippingHeaderComponent } from './components/shipping-header/shipping-header.component';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +17,7 @@ import { PromoHeader2Component } from './components/promo-header-2/promo-header-
     AccountHeaderComponent,
     MainHeader1Component,
     MainHeader2Component,
+    ShippingHeaderComponent,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',

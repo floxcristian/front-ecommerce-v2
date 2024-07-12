@@ -7,6 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { HeaderComponent } from './modules/shared/layout/header/header.component';
 import { FooterComponent } from './modules/shared/layout/footer/footer.component';
+import { HeroComponent } from './modules/shared/components/blocks/hero/hero.component';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ import { FooterComponent } from './modules/shared/layout/footer/footer.component
     InputGroupModule,
     HeaderComponent,
     FooterComponent,
+    HeroComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

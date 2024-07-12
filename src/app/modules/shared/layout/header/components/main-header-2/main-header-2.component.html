@@ -24,7 +24,7 @@
     class="align-items-center flex-grow-1 justify-content-between hidden flex static w-full surface-overlay z-1"
   >
     <ul
-      class="list-none p-0 m-0 flex lg:align-items-center select-none flex-column lg:flex-row"
+      class="list-none p-0 m-0 flex lg:align-items-center select-none flex-column lg:flex-row mr-4"
     >
       <li class="hidden lg:inline">
         <a
@@ -51,13 +51,84 @@
       </li>-->
     </ul>
 
+    <!--
+    <div class="flex align-items-center flex-auto">
+      <div class="p-input-icon-left w-full p-input-filled">
+        <i class="pi pi-search"></i>
+        <input
+          pInputText
+          type="text"
+          class="w-full"
+          placeholder="Product search"
+        />
+      </div>
+    </div> -->
+
+    <div class="flex px-6 p-3 lg:px-3 lg:py-2 w-full">
+      <p-inputGroup>
+        <!-- <p-dropdown [options]="options" placeholder="Todos"></p-dropdown> -->
+        <!-- <p-splitButton label="Todos" [model]="items" class="border-noround" /> -->
+        <button
+          type="button"
+          pButton
+          label="Todos"
+          icon="pi pi-angle-down"
+          class="p-button-primary text-sm surface-200 hover:surface-300 text-600 hover:text-900 surface-border border-right-none"
+          iconPos="right"
+        ></button>
+
+        <input
+          type="text"
+          class="surface-border"
+          pInputText
+          placeholder="¿Qué estás buscando?"
+          variant="filled"
+        />
+        <button
+          type="button"
+          pButton
+          icon="pi pi-search"
+          class="p-button-primary"
+        ></button>
+      </p-inputGroup>
+      <!--
+      <p-inputGroup>
+        <button
+          type="button"
+          pButton
+          icon="pi pi-check"
+          class="p-button-success"
+        ></button>
+        <input
+          type="text"
+          pInputText
+          variant="filled"
+          placeholder="¿Qué estás buscando?"
+          class="font-medium surface-border"
+        />
+        <button
+          type="button"
+          pButton
+          icon="pi pi-search"
+          class="p-button-contrast"
+        ></button>
+      </p-inputGroup> -->
+      <!--<span class="p-input-icon-left w-full"
+        ><i class="pi pi-search text-600"></i
+        ><input
+          type="text"
+          pinputtext=""
+          placeholder="¿Qué estas buscando?"
+          class="p-inputtext p-component p-element surface-section text-600 surface-border w-full"
+      /></span>-->
+    </div>
     <ul
-      class="list-none p-0 m-0 flex lg:align-items-center select-none flex-column lg:flex-row"
+      class="list-none p-0 m-0 flex lg:align-items-center select-none flex-column lg:flex-row ml-4"
     >
       <li class="hidden lg:inline">
         <a
           pRipple
-          class="flex p-3 px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem"
+          class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-max"
         >
           <i class="pi pi-car mr-3 text-3xl"></i>
           <!--<div class="flex flex-column">
@@ -79,7 +150,7 @@
       <li class="hidden lg:inline">
         <a
           pRipple
-          class="flex p-3 px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem"
+          class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-max"
         >
           <i class="pi pi-user mr-3 text-3xl"></i>
           <!--<div class="flex flex-column">
@@ -112,7 +183,7 @@
       <li>
         <a
           pRipple
-          class="flex p-3 px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-4rem"
+          class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-4rem w-max"
         >
           <i
             class="pi pi-shopping-cart text-3xl"
@@ -126,227 +197,3 @@
     </ul>
   </div>
 </div>
-
-<!--
-<div class="relative p-8 overflow-hidden">
-  <img
-    src="assets/images/logos/hero-2.jpg"
-    alt="Image"
-    class="absolute top-0 left-0 w-auto h-full block md:w-full"
-  />
-
-  <div class="text-center my-6 relative">
-    <div class="text-6xl text-white font-bold mb-1">The Platform For</div>
-    <div class="text-6xl text-primary font-bold mb-4">Today's Generation</div>
-    <p
-      class="mt-0 mb-4 line-height-3 text-center mx-auto text-white"
-      style="max-width: 500px"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-
-    <button pButton pRipple label="Learn More" type="button"></button>
-
-    <p class="text-sm mt-4 mb-4 line-height-3 text-white">
-      Available for MacOS, Web and Google accounts only
-    </p>
-    <div class="flex justify-content-center align-items-center">
-      <a href="https://www.apple.com" class="text-white mr-3">
-        <i class="pi pi-apple text-2xl"></i>
-      </a>
-      <a href="https://play.google.com" class="text-white mr-3">
-        <i class="pi pi-android text-2xl"></i>
-      </a>
-      <a href="https://www.facebook.com" class="text-white">
-        <i class="pi pi-facebook text-2xl"></i>
-      </a>
-    </div>
-  </div>
-</div>
-
-<div class="relative p-8 overflow-hidden">
-  <img
-    src="assets/images/logos/hero-2.jpg"
-    alt="Image"
-    class="absolute top-0 left-0 w-auto h-full block md:w-full"
-  />
-
-  <div class="text-center my-6 relative">
-    <div class="text-6xl text-white font-bold mb-1">The Platform For</div>
-    <div class="text-6xl text-primary font-bold mb-4">Today's Generation</div>
-    <p
-      class="mt-0 mb-4 line-height-3 text-center mx-auto text-white"
-      style="max-width: 500px"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-
-    <button pButton pRipple label="Learn More" type="button"></button>
-
-    <p class="text-sm mt-4 mb-4 line-height-3 text-white">
-      Available for MacOS, Web and Google accounts only
-    </p>
-    <div class="flex justify-content-center align-items-center">
-      <a href="https://www.apple.com" class="text-white mr-3">
-        <i class="pi pi-apple text-2xl"></i>
-      </a>
-      <a href="https://play.google.com" class="text-white mr-3">
-        <i class="pi pi-android text-2xl"></i>
-      </a>
-      <a href="https://www.facebook.com" class="text-white">
-        <i class="pi pi-facebook text-2xl"></i>
-      </a>
-    </div>
-  </div>
-</div>
-
-<div class="relative p-8 overflow-hidden">
-  <img
-    src="assets/images/logos/hero-2.jpg"
-    alt="Image"
-    class="absolute top-0 left-0 w-auto h-full block md:w-full"
-  />
-
-  <div class="text-center my-6 relative">
-    <div class="text-6xl text-white font-bold mb-1">The Platform For</div>
-    <div class="text-6xl text-primary font-bold mb-4">Today's Generation</div>
-    <p
-      class="mt-0 mb-4 line-height-3 text-center mx-auto text-white"
-      style="max-width: 500px"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-
-    <button pButton pRipple label="Learn More" type="button"></button>
-
-    <p class="text-sm mt-4 mb-4 line-height-3 text-white">
-      Available for MacOS, Web and Google accounts only
-    </p>
-    <div class="flex justify-content-center align-items-center">
-      <a href="https://www.apple.com" class="text-white mr-3">
-        <i class="pi pi-apple text-2xl"></i>
-      </a>
-      <a href="https://play.google.com" class="text-white mr-3">
-        <i class="pi pi-android text-2xl"></i>
-      </a>
-      <a href="https://www.facebook.com" class="text-white">
-        <i class="pi pi-facebook text-2xl"></i>
-      </a>
-    </div>
-  </div>
-</div>
-
-<div class="relative p-8 overflow-hidden">
-  <img
-    src="assets/images/logos/hero-2.jpg"
-    alt="Image"
-    class="absolute top-0 left-0 w-auto h-full block md:w-full"
-  />
-
-  <div class="text-center my-6 relative">
-    <div class="text-6xl text-white font-bold mb-1">The Platform For</div>
-    <div class="text-6xl text-primary font-bold mb-4">Today's Generation</div>
-    <p
-      class="mt-0 mb-4 line-height-3 text-center mx-auto text-white"
-      style="max-width: 500px"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-
-    <button pButton pRipple label="Learn More" type="button"></button>
-
-    <p class="text-sm mt-4 mb-4 line-height-3 text-white">
-      Available for MacOS, Web and Google accounts only
-    </p>
-    <div class="flex justify-content-center align-items-center">
-      <a href="https://www.apple.com" class="text-white mr-3">
-        <i class="pi pi-apple text-2xl"></i>
-      </a>
-      <a href="https://play.google.com" class="text-white mr-3">
-        <i class="pi pi-android text-2xl"></i>
-      </a>
-      <a href="https://www.facebook.com" class="text-white">
-        <i class="pi pi-facebook text-2xl"></i>
-      </a>
-    </div>
-  </div>
-</div>
-
-<div class="relative p-8 overflow-hidden">
-  <img
-    src="assets/images/logos/hero-2.jpg"
-    alt="Image"
-    class="absolute top-0 left-0 w-auto h-full block md:w-full"
-  />
-
-  <div class="text-center my-6 relative">
-    <div class="text-6xl text-white font-bold mb-1">The Platform For</div>
-    <div class="text-6xl text-primary font-bold mb-4">Today's Generation</div>
-    <p
-      class="mt-0 mb-4 line-height-3 text-center mx-auto text-white"
-      style="max-width: 500px"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-
-    <button pButton pRipple label="Learn More" type="button"></button>
-
-    <p class="text-sm mt-4 mb-4 line-height-3 text-white">
-      Available for MacOS, Web and Google accounts only
-    </p>
-    <div class="flex justify-content-center align-items-center">
-      <a href="https://www.apple.com" class="text-white mr-3">
-        <i class="pi pi-apple text-2xl"></i>
-      </a>
-      <a href="https://play.google.com" class="text-white mr-3">
-        <i class="pi pi-android text-2xl"></i>
-      </a>
-      <a href="https://www.facebook.com" class="text-white">
-        <i class="pi pi-facebook text-2xl"></i>
-      </a>
-    </div>
-  </div>
-</div>
-
-<div class="relative p-8 overflow-hidden">
-  <img
-    src="assets/images/logos/hero-2.jpg"
-    alt="Image"
-    class="absolute top-0 left-0 w-auto h-full block md:w-full"
-  />
-
-  <div class="text-center my-6 relative">
-    <div class="text-6xl text-white font-bold mb-1">The Platform For</div>
-    <div class="text-6xl text-primary font-bold mb-4">Today's Generation</div>
-    <p
-      class="mt-0 mb-4 line-height-3 text-center mx-auto text-white"
-      style="max-width: 500px"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.
-    </p>
-
-    <button pButton pRipple label="Learn More" type="button"></button>
-
-    <p class="text-sm mt-4 mb-4 line-height-3 text-white">
-      Available for MacOS, Web and Google accounts only
-    </p>
-    <div class="flex justify-content-center align-items-center">
-      <a href="https://www.apple.com" class="text-white mr-3">
-        <i class="pi pi-apple text-2xl"></i>
-      </a>
-      <a href="https://play.google.com" class="text-white mr-3">
-        <i class="pi pi-android text-2xl"></i>
-      </a>
-      <a href="https://www.facebook.com" class="text-white">
-        <i class="pi pi-facebook text-2xl"></i>
-      </a>
-    </div>
-  </div>
-</div>
--->

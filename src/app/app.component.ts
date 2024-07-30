@@ -8,6 +8,7 @@ import { InputGroupModule } from 'primeng/inputgroup';
 import { HeaderComponent } from './modules/shared/layout/header/header.component';
 import { FooterComponent } from './modules/shared/layout/footer/footer.component';
 import { HeroComponent } from './modules/shared/components/blocks/hero/hero.component';
+import { FeatureSectionComponent } from './modules/home/sections/feature-section/feature-section.component';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,7 @@ import { HeroComponent } from './modules/shared/components/blocks/hero/hero.comp
     HeaderComponent,
     FooterComponent,
     HeroComponent,
+    FeatureSectionComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

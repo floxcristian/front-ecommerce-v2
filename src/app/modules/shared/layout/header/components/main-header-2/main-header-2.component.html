@@ -6,7 +6,7 @@
     src="assets/images/logos/logox.svg"
     alt="Image"
     height="50px"
-    class="mr-0 lg:mr-6"
+    class="mr-4 xl:mr-4 hidden lg:inline"
   />
   <!--
   <a
@@ -24,7 +24,7 @@
     class="align-items-center flex-grow-1 justify-content-between hidden flex static w-full surface-overlay z-1"
   >
     <ul
-      class="list-none p-0 m-0 flex lg:align-items-center select-none flex-column lg:flex-row mr-4"
+      class="list-none p-0 m-0 hidden lg:flex align-items-center select-none flex-row mr-4"
     >
       <li class="hidden lg:inline">
         <a
@@ -64,7 +64,7 @@
       </div>
     </div> -->
 
-    <div class="flex px-6 p-3 lg:px-3 lg:py-2 w-full">
+    <div class="flex px-2 lg:px-3 py-3 lg:py-2 w-full">
       <p-inputGroup>
         <!-- <p-dropdown [options]="options" placeholder="Todos"></p-dropdown> -->
         <!-- <p-splitButton label="Todos" [model]="items" class="border-noround" /> -->
@@ -73,13 +73,13 @@
           pButton
           label="Todos"
           icon="pi pi-angle-down"
-          class="p-button-primary text-sm surface-200 hover:surface-300 text-600 hover:text-900 surface-border border-right-none"
+          class="p-button-primary text-sm surface-200 hover:surface-300 text-600 hover:text-900 surface-border border-right-none hidden xl:flex"
           iconPos="right"
         ></button>
 
         <input
           type="text"
-          class="surface-border"
+          class="surface-border border-round-left xl:border-noround-left"
           pInputText
           placeholder="¿Qué estás buscando?"
           variant="filled"
@@ -123,7 +123,7 @@
       /></span>-->
     </div>
     <ul
-      class="list-none p-0 m-0 flex lg:align-items-center select-none flex-column lg:flex-row ml-4"
+      class="list-none p-0 m-0 flex lg:align-items-center select-none flex-column lg:flex-row lg:ml-4"
     >
       <li class="hidden lg:inline">
         <a
@@ -180,6 +180,21 @@
           <span class="font-bold">Seguimiento de Pedido</span>
         </a>
       </li> -->
+      <li class="hidden lg:flex">
+        <a
+          pRipple
+          class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-4rem w-max"
+        >
+          <i class="pi pi-bell text-3xl" pBadge severity="danger" value="2"></i>
+          <!-- <span class="hidden lg:inline font-bold">Carrito</span> -->
+        </a>
+      </li>
+      <li class="align-items-center hidden lg:flex">
+        <div
+          style="width: 1px; height: 35px"
+          class="border-right-1 surface-border mx-2"
+        ></div>
+      </li>
       <li>
         <a
           pRipple

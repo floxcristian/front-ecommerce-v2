@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider';
+import { InputMaskModule } from 'primeng/inputmask';
 
 @Component({
   selector: 'app-signup-page',
@@ -27,6 +28,7 @@ import { DividerModule } from 'primeng/divider';
     KeyFilterModule,
     PasswordModule,
     DividerModule,
+    InputMaskModule,
   ],
   templateUrl: './signup-page.component.html',
   styleUrl: './signup-page.component.scss',

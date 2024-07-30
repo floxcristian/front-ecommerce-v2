@@ -7,41 +7,11 @@
   <div class="surface-card p-4 shadow-2 border-round">
     <div class="grid formgrid p-fluid">
       <div class="field mb-4 col-12">
-        <label for="nickname2" class="font-medium text-900">Nickname</label>
+        <label for="nickname2" class="font-medium text-900">RUT</label>
         <input id="nickname2" type="text" pInputText />
       </div>
-      <div class="surface-border border-top-1 opacity-50 mb-3 col-12"></div>
-      <div class="field mb-4 col-12 md:col-6">
-        <label for="bio2" class="font-medium text-900">Bio</label>
-        <textarea
-          id="bio2"
-          type="text"
-          pInputTextarea
-          rows="5"
-          [autoResize]="true"
-        ></textarea>
-      </div>
-      <div class="field mb-4 col-12 md:col-6">
-        <label for="avatar2" class="font-medium text-900">Avatar</label>
-        <div class="flex align-items-center">
-          <img
-            src="assets/images/blocks/avatars/circle/avatar-f-4.png"
-            class="mr-4"
-          />
-          <!--
-          <p-fileUpload
-            id="avatar2"
-            mode="basic"
-            name="avatar"
-            url="./upload.php"
-            accept="image/*"
-            maxFileSize="1000000"
-            styleClass="p-button-outlined p-button-plain"
-            chooseLabel="Upload Image"
-            chooseIcon="pi pi-upload"
-          ></p-fileUpload> -->
-        </div>
-      </div>
+      <!-- <div class="surface-border border-top-1 opacity-50 mb-3 col-12"></div> -->
+
       <div class="surface-border border-top-1 opacity-50 mb-3 col-12"></div>
       <div class="field mb-4 col-12 md:col-6">
         <label for="city2" class="font-medium text-900">Nombre</label>
@@ -68,7 +38,7 @@
             />
           </div>
           <div class="flex-1">
-            <input pInputText class="border-noround-left" />
+            <input pInputText pKeyFilter="int" class="border-noround-left" />
           </div>
         </div>
         <!-- <p-inputGroup> -->
@@ -87,7 +57,33 @@
                     </ng-template>
                 </p-dropdown>-->
       </div>
-
+      <div class="field mb-4 col-12 md:col-6">
+        <label for="city2" class="font-medium text-900">Contraseña</label>
+        <!-- <input id="city2" type="text" pInputText /> -->
+        <!-- <p-password [(ngModel)]="password" [toggleMask]="true" /> -->
+        <p-password [(ngModel)]="password" [toggleMask]="true">
+          <ng-template pTemplate="header">
+            <h6>Pick a password</h6>
+          </ng-template>
+          <ng-template pTemplate="footer">
+            <p-divider />
+            <p class="mt-2">Suggestions</p>
+            <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+              <li>Al menos una minúscula</li>
+              <li>Al menos una mayúscula</li>
+              <li>Al menos un número</li>
+              <li>Mínimo 8 caracteres</li>
+            </ul>
+          </ng-template>
+        </p-password>
+      </div>
+      <div class="field mb-4 col-12 md:col-6">
+        <label for="state2" class="font-medium text-900"
+          >Repita Contraseña</label
+        >
+        <input id="state2" type="text" pInputText />
+      </div>
+      <!--
       <div class="surface-border border-top-1 opacity-50 mb-3 col-12"></div>
       <div class="field mb-4 col-12">
         <label for="website2" class="font-medium text-900">Website</label>
@@ -97,13 +93,14 @@
         </div>
       </div>
       <div class="surface-border border-top-1 opacity-50 mb-3 col-12"></div>
+
       <div class="field mb-4 col-12">
         <label for="privacy2" class="font-medium text-900">Privacy</label>
         <div class="flex align-items-center">
           <p-inputSwitch inputId="privacy2"></p-inputSwitch>
           <span class="ml-2 text-900">Share my data with contacts</span>
         </div>
-      </div>
+      </div> -->
       <div class="surface-border border-top-1 opacity-50 mb-3 col-12"></div>
       <div class="col-12">
         <button

@@ -3,6 +3,7 @@
   style="min-height: 80px"
 >
   <img
+    [routerLink]="['/']"
     src="assets/images/logos/logox.svg"
     alt="Image"
     height="50px"
@@ -153,14 +154,14 @@
           class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-max"
         >
           <i class="pi pi-user mr-3 text-3xl"></i>
+          <div class="flex flex-column" [routerLink]="['signup']">
+            <span>!Hola!</span>
+            <span class="font-bold">Inicia sesión o regístrate</span>
+          </div>
           <!--<div class="flex flex-column">
-          <span>!Hola!</span>
-          <span class="font-bold">Inicia sesión o regístrate</span>
-        </div> -->
-          <div class="flex flex-column">
             <span>Hola Cristian</span>
             <span class="font-bold">Tu cuenta</span>
-          </div>
+          </div> -->
         </a>
       </li>
       <li class="align-items-center hidden lg:flex">

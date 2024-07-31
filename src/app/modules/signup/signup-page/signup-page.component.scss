@@ -4,3 +4,13 @@
   bottom: 0;
   top: 0;
 }
+
+/**
+Usar color success de primeng
+*/
+/*::ng-deep .p-dropdown-trigger .p-dropdown-label {
+  color: var(--success-color);
+}*/
+.text-success {
+  color: var(--successButtonHoverBorderColor);
+}

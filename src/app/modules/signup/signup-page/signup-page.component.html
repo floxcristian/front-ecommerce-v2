@@ -39,30 +39,34 @@
       </div>
       <div class="surface-border border-top-1 opacity-50 mb-3 col-12"></div> -->
       <div class="field mb-4 col-12">
-        <label for="city2" class="font-medium text-900">Nombre</label>
-        <input id="city2" type="text" pInputText maxlength="20" />
+        <label for="name" class="font-medium text-900">Nombre</label>
+        <input id="name" type="text" pInputText maxlength="20" />
+        <small id="name-help"> Ej: Nicolás </small>
       </div>
       <div class="field mb-4 col-12">
-        <label for="state2" class="font-medium text-900">Apellido</label>
-        <input id="state2" type="text" pInputText maxlength="20" />
+        <label for="lastname" class="font-medium text-900">Apellido</label>
+        <input id="lastname" type="text" pInputText maxlength="20" />
+        <small id="lastname-help"> Ej: Rojas </small>
       </div>
 
       <div class="field mb-4 col-12">
-        <label for="nickname2" class="font-medium text-900">RUT</label>
+        <label for="documentId" class="font-medium text-900">RUT</label>
         <input
-          id="nickname2"
+          id="documentId"
           type="text"
           pInputText
           maxlength="9"
           pKeyFilter="alphanum"
         />
+        <small id="documentId-help"> Ej: 12345678-9 </small>
         <!-- <p-inputMask mask="99999999-*" slotChar="" /> -->
       </div>
       <div class="field mb-4 col-12">
-        <label for="email2" class="font-medium text-900"
+        <label for="email" class="font-medium text-900"
           >Correo eletrónico</label
         >
-        <input id="email2" type="text" pInputText maxlength="30" />
+        <input id="email" type="text" pInputText maxlength="30" />
+        <small id="email-help"> Ej: micorreo&#64;gmail.com </small>
       </div>
       <div class="field mb-4 col-12">
         <label for="country2" class="font-medium text-900">Teléfono</label>
@@ -83,13 +87,14 @@
         <div class="p-inputgroup">
           <span class="p-inputgroup-addon">+56</span>
           <input
-            id="website2"
+            id="phone"
             type="text"
             pInputText
             pKeyFilter="int"
             maxlength="8"
           />
         </div>
+        <small id="phone-help"> Ej: 9 1234 9876 </small>
       </div>
       <div class="field mb-4 col-12">
         <label for="city2" class="font-medium text-900">Contraseña</label>
@@ -115,7 +120,10 @@
               <li>Al menos una letra minúscula</li>
               <li>Al menos una letra mayúscula</li>
               <li>Al menos un número</li>
-              <li class="text-red-500">Mínimo 8 caracteres</li>
+
+              <li class="text-red-500">
+                <i class="pi pi-times"></i> Mínimo 8 caracteres
+              </li>
             </ul>
           </ng-template>
         </p-password>

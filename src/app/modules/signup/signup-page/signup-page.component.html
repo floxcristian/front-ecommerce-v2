@@ -7,15 +7,44 @@
   <div class="surface-card p-4 shadow-2 border-round">
     <div class="grid formgrid p-fluid">
       <!-- <div class="surface-border border-top-1 opacity-50 mb-3 col-12"></div> -->
-
-      <div class="surface-border border-top-1 opacity-50 mb-3 col-12"></div>
+      <!--
+      <div
+        class="flex flex-wrap justify-content-center align-items-center gap-3"
+      >
+        <div class="font-medium text-900 text-lg">
+          Seleccione el tipo de cuenta
+        </div>
+        <div class="flex justify-content-center flex-wrap gap-3">
+          <div
+            class="inline-flex align-items-center justify-content-center px-3 py-2 text-900 text-lg cursor-pointer border-round border-1 surface-border transition-colors transition-duration-150"
+            (click)="amount = 0"
+            [ngClass]="{
+              'surface-card surface-border hover:surface-hover ': amount !== 0,
+              'bg-primary border-primary': amount === 0
+            }"
+          >
+            Persona
+          </div>
+          <div
+            class="inline-flex align-items-center justify-content-center px-3 py-2 text-900 text-lg cursor-pointer border-round border-1 surface-border transition-colors transition-duration-150"
+            (click)="amount = 1"
+            [ngClass]="{
+              'surface-card surface-border hover:surface-hover ': amount !== 1,
+              'bg-primary border-primary': amount === 1
+            }"
+          >
+            Empresa
+          </div>
+        </div>
+      </div>
+      <div class="surface-border border-top-1 opacity-50 mb-3 col-12"></div> -->
       <div class="field mb-4 col-12">
         <label for="city2" class="font-medium text-900">Nombre</label>
-        <input id="city2" type="text" pInputText />
+        <input id="city2" type="text" pInputText maxlength="20" />
       </div>
       <div class="field mb-4 col-12">
         <label for="state2" class="font-medium text-900">Apellido</label>
-        <input id="state2" type="text" pInputText />
+        <input id="state2" type="text" pInputText maxlength="20" />
       </div>
 
       <div class="field mb-4 col-12">
@@ -27,13 +56,13 @@
         <label for="email2" class="font-medium text-900"
           >Correo eletrónico</label
         >
-        <input id="email2" type="text" pInputText />
+        <input id="email2" type="text" pInputText maxlength="30" />
       </div>
       <div class="field mb-4 col-12">
         <label for="country2" class="font-medium text-900">Teléfono</label>
-        <div class="flex">
+        <!--<div class="flex">
           <div class="flex">
-            <!-- border-right-none -->
+             border-right-none 
             <p-dropdown
               styleClass="w-6rem border-noround-right "
               variant="filled"
@@ -44,22 +73,17 @@
           <div class="flex-1">
             <input pInputText pKeyFilter="int" class="border-noround-left" />
           </div>
+        </div>-->
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">+569</span>
+          <input
+            id="website2"
+            type="text"
+            pInputText
+            pKeyFilter="int"
+            maxlength="8"
+          />
         </div>
-        <!-- <p-inputGroup> -->
-        <!-- <p-inputGroupAddon> -->
-
-        <!-- </p-inputGroupAddon> -->
-
-        <!-- </p-inputGroup> -->
-        <!--
-                <p-dropdown inputId="country2" [options]="countries" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" placeholder="Select a Country">
-                    <ng-template let-country pTemplate="item">
-                        <div class="flex align-items-center">
-                            <img src="assets/images/blocks/flag/flag_placeholder.png" [class]="'mr-2 flag flag-' + country.code.toLowerCase()" style="width:18px"/>
-                            <div>{{country.name}}</div>
-                        </div>
-                    </ng-template>
-                </p-dropdown>-->
       </div>
       <div class="field mb-4 col-12">
         <label for="city2" class="font-medium text-900">Contraseña</label>
@@ -72,6 +96,7 @@
           weakLabel="Too simple"
           mediumLabel="Average complexity"
           strongLabel="Complex password"
+          maxlength="30"
         >
           <!--
           <ng-template pTemplate="header">
@@ -114,7 +139,7 @@
         </div>
       </div> -->
       <div class="surface-border border-top-1 opacity-50 mb-3 col-12"></div>
-      <div class="col-12">
+      <div class="col-12 text-right">
         <button
           pButton
           pRipple

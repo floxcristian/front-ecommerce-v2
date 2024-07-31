@@ -12,6 +12,8 @@ import { KeyFilterModule } from 'primeng/keyfilter';
 import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider';
 import { InputMaskModule } from 'primeng/inputmask';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-signup-page',
@@ -29,6 +31,8 @@ import { InputMaskModule } from 'primeng/inputmask';
     PasswordModule,
     DividerModule,
     InputMaskModule,
+    InputNumberModule,
+    CommonModule,
   ],
   templateUrl: './signup-page.component.html',
   styleUrl: './signup-page.component.scss',
@@ -37,4 +41,5 @@ export class SignupPageComponent {
   phoneCodes = ['+569', '+56'];
   selectedPhoneCode = '+569';
   password: string = '';
+  amount: number = 0;
 }

@@ -22,6 +22,7 @@ import { DividerModule } from 'primeng/divider';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CheckboxModule } from 'primeng/checkbox';
+import { CarouselModule } from 'primeng/carousel';
 import { PasswordValidator } from '../validators/password.validator';
 
 @Component({
@@ -45,6 +46,7 @@ import { PasswordValidator } from '../validators/password.validator';
     RippleModule,
     ReactiveFormsModule,
     CheckboxModule,
+    CarouselModule,
   ],
   templateUrl: './signup-page.component.html',
   styleUrl: './signup-page.component.scss',
@@ -56,6 +58,39 @@ export class SignupPageComponent {
   amount: number = 0;
 
   signupForm!: FormGroup;
+
+  features = [
+    {
+      title: 'Title 1',
+      description: 'Description 1',
+      icon: 'pi pi-check',
+    },
+    {
+      title: 'Title 2',
+      description: 'Description 2',
+      icon: 'pi pi-check',
+    },
+    {
+      title: 'Title 3',
+      description: 'Description 3',
+      icon: 'pi pi-check',
+    },
+    {
+      title: 'Title 4',
+      description: 'Description 4',
+      icon: 'pi pi-check',
+    },
+    {
+      title: 'Title 5',
+      description: 'Description 5',
+      icon: 'pi pi-check',
+    },
+    {
+      title: 'Title 6',
+      description: 'Description 6',
+      icon: 'pi pi-check',
+    },
+  ];
 
   constructor(private readonly fb: FormBuilder) {
     this.buildForm();

@@ -59,41 +59,10 @@ export class SignupPageComponent {
 
   signupForm!: FormGroup;
 
-  features = [
-    {
-      title: 'Title 1',
-      description: 'Description 1',
-      icon: 'pi pi-check',
-    },
-    {
-      title: 'Title 2',
-      description: 'Description 2',
-      icon: 'pi pi-check',
-    },
-    {
-      title: 'Title 3',
-      description: 'Description 3',
-      icon: 'pi pi-check',
-    },
-    {
-      title: 'Title 4',
-      description: 'Description 4',
-      icon: 'pi pi-check',
-    },
-    {
-      title: 'Title 5',
-      description: 'Description 5',
-      icon: 'pi pi-check',
-    },
-    {
-      title: 'Title 6',
-      description: 'Description 6',
-      icon: 'pi pi-check',
-    },
-  ];
-
   constructor(private readonly fb: FormBuilder) {
     this.buildForm();
+    // FIXME:
+    //  this.validationMessageService.validationErrors = [];
   }
 
   private buildForm(): void {

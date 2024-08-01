@@ -14,3 +14,8 @@ Usar color success de primeng
 .text-success {
   color: var(--successButtonHoverBorderColor);
 }
+
+.container {
+  max-inline-size: 80rem;
+  margin-inline: auto;
+}

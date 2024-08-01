@@ -24,6 +24,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CarouselModule } from 'primeng/carousel';
 import { PasswordValidator } from '../validators/password.validator';
+import { SelectButtonModule } from 'primeng/selectbutton';
 
 @Component({
   selector: 'app-signup-page',
@@ -47,6 +48,7 @@ import { PasswordValidator } from '../validators/password.validator';
     ReactiveFormsModule,
     CheckboxModule,
     CarouselModule,
+    SelectButtonModule,
   ],
   templateUrl: './signup-page.component.html',
   styleUrl: './signup-page.component.scss',
@@ -56,8 +58,14 @@ export class SignupPageComponent {
   selectedPhoneCode = '+569';
   password: string = '';
   amount: number = 0;
+  step: number = 1;
 
   signupForm!: FormGroup;
+  roleOptions = [
+    { label: 'Empresa', value: 'enterprise', icon: 'pi-building' },
+    { label: 'Persona', value: 'customer', icon: 'pi pi-user' },
+  ];
+  selectedRole = 'customer';
 
   constructor(private readonly fb: FormBuilder) {
     this.buildForm();
@@ -68,7 +76,7 @@ export class SignupPageComponent {
   private buildForm(): void {
     this.signupForm = this.fb.group(
       {
-        role: ['customer', Validators.required],
+        role: ['enterprise', Validators.required],
         companyName: [null, Validators.required],
         name: [
           null,

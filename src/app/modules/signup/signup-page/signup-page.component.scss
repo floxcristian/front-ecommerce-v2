@@ -11,11 +11,45 @@ Usar color success de primeng
 /*::ng-deep .p-dropdown-trigger .p-dropdown-label {
   color: var(--success-color);
 }*/
+
+/**
+* Utilizado en texto del password.
+**/
 .text-success {
   color: var(--successButtonHoverBorderColor);
 }
 
+/**
+* Utilizado para el ancho del contenedor principal.
+**/
 .container {
   max-inline-size: 80rem;
   margin-inline: auto;
 }
+
+::ng-deep .p-selectbutton {
+  display: flex;
+  gap: 1rem;
+}
+
+::ng-deep .p-selectbutton .p-button {
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  border: 1px solid var(--surface-300);
+  // Test
+  /*background-color: var(--surface-100);*/
+}
+
+/*
+::ng-deep .p-selectbutton .p-button .p-button-icon {
+  font-size: 2rem;
+  margin: 0;
+}*/
+
+/*
+::ng-deep .p-selectbutton .p-button:hover {
+  background-color: var(--surface-200);
+}*/

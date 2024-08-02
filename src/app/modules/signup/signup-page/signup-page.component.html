@@ -4,7 +4,7 @@
       <div class="flex flex-wrap">
         <!-- Izquierda -->
         <div
-          class="w-full lg:w-6 p-4 lg:p-7 surface-card md:border-right-1 surface-border"
+          class="w-full lg:w-6 px-4 py-7 lg:px-7 surface-card border-bottom-1 md:border-bottom-none md:border-right-1 surface-border"
         >
           <!--
         <div class="text-xl text-900 font-500 mb-3">Welcome to Bastion</div>
@@ -154,14 +154,31 @@
         <!-- Formulario -->
         <div class="w-full lg:w-6 p-4 lg:p-7 surface-card">
           <div class="border-bottom-1 surface-border mb-5">
+            @if(step === 1){
+            <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">Comencemos</h2>
+            <p class="mt-0 mb-5 text-700 font-normal text-base">
+              Ingresa tus datos personales y disfruta de una experiencia de
+              compra más rápida.
+              <!--Selecciona un rol y conoce todos los beneficios que tenemos para
+              ti.-->
+            </p>
+            } @else if(step === 2){
             <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">
-              Únete a la familia de
-              <span class="text-blue-600">Implementos</span>
+              Datos personales
             </h2>
             <p class="mt-0 mb-5 text-700 font-normal text-base">
               Ingresa tus datos personales y disfruta de una experiencia de
               compra más rápida.
             </p>
+            } @else if(step === 3){
+            <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">
+              Dirección de despacho
+            </h2>
+            <p class="mt-0 mb-5 text-700 font-normal text-base">
+              Ingresa tus datos personales y disfruta de una experiencia de
+              compra más rápida.
+            </p>
+            }
           </div>
 
           <form [formGroup]="signupForm" (ngSubmit)="register($event)">
@@ -195,8 +212,11 @@
                 optionValue="value"
               /> -->
 
+            @if(step === 1){
             <div class="field mb-4 flex flex-column">
-              <label for="name" class="font-medium text-900">Rol</label>
+              <label for="name" class="font-medium text-900"
+                >Tipo de usuario</label
+              >
 
               <p-selectButton
                 [options]="roleOptions"
@@ -212,6 +232,7 @@
                 </ng-template>
               </p-selectButton>
             </div>
+            } @else if(step == 2){
             <div class="field mb-4 flex flex-column">
               <label for="name" class="font-medium text-900">Nombre</label>
               <input
@@ -356,13 +377,29 @@
                 >
               </div>
             </div>
+            }
 
-            <button
-              pButton
-              pRipple
-              label="Continuar"
-              class="w-full py-3 font-medium"
-            ></button>
+            <div class="flex gap-3">
+              @if(step !== 1){
+
+              <button
+                type="button"
+                severity="secondary"
+                pButton
+                pRipple
+                label="Volver"
+                class="w-full py-3 font-medium"
+                (click)="step = step - 1"
+              ></button>
+              }
+              <button
+                type="submit"
+                pButton
+                pRipple
+                label="Continuar"
+                class="w-full py-3 font-medium"
+              ></button>
+            </div>
           </form>
         </div>
 

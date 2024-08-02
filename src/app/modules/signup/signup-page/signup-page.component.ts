@@ -25,6 +25,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { CarouselModule } from 'primeng/carousel';
 import { PasswordValidator } from '../validators/password.validator';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { StepsModule } from 'primeng/steps';
 
 @Component({
   selector: 'app-signup-page',
@@ -49,6 +50,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     CheckboxModule,
     CarouselModule,
     SelectButtonModule,
+    StepsModule,
   ],
   templateUrl: './signup-page.component.html',
   styleUrl: './signup-page.component.scss',
@@ -128,6 +130,7 @@ export class SignupPageComponent {
 
   register($event: any) {
     console.log('register: ', $event);
+    this.step++;
     if (this.signupForm.valid) {
       console.log('Formulario válido');
     } else {

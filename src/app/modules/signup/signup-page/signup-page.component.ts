@@ -67,7 +67,6 @@ export class SignupPageComponent {
     { label: 'Empresa', value: 'enterprise', icon: 'pi-building' },
     { label: 'Persona', value: 'customer', icon: 'pi pi-user' },
   ];
-  selectedRole = 'customer';
 
   constructor(private readonly fb: FormBuilder) {
     this.buildForm();
@@ -79,29 +78,35 @@ export class SignupPageComponent {
     this.signupForm = this.fb.group(
       {
         role: ['enterprise', Validators.required],
-        companyName: [null, Validators.required],
-        name: [
-          null,
-          [
-            Validators.required,
-            Validators.minLength(3),
-            Validators.maxLength(50),
+        enterprise: this.fb.group({
+          documentId: [null, [Validators.required]],
+          businessName: [null, [Validators.required]],
+          businessLine: [null, [Validators.required]],
+        }),
+        customer: this.fb.group({
+          name: [
+            null,
+            [
+              Validators.required,
+              Validators.minLength(3),
+              Validators.maxLength(50),
+            ],
           ],
-        ],
-        lastname: [null, Validators.required],
-        documentId: [null, Validators.required],
-        email: [null, [Validators.required, Validators.email]],
-        phone: [null, Validators.required],
-        password: [
-          null,
-          [
-            Validators.required,
-            Validators.minLength(8),
-            Validators.maxLength(20),
-            PasswordValidator.isValidPassword,
+          lastname: [null, Validators.required],
+          documentId: [null, Validators.required],
+          email: [null, [Validators.required, Validators.email]],
+          phone: [null, Validators.required],
+          password: [
+            null,
+            [
+              Validators.required,
+              Validators.minLength(8),
+              Validators.maxLength(20),
+              PasswordValidator.isValidPassword,
+            ],
           ],
-        ],
-        confirmPassword: [null, [Validators.required]],
+          confirmPassword: [null, [Validators.required]],
+        }),
         address: this.fb.group({
           street: [null, Validators.required],
           number: [null, Validators.required],
@@ -138,5 +143,9 @@ export class SignupPageComponent {
       console.log('Formulario inválido');
       this.signupForm.markAllAsTouched();
     }
+  }
+
+  get roleField(): string {
+    return this.signupForm.get('role')?.value;
   }
 }

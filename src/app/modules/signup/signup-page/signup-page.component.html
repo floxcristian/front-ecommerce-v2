@@ -162,10 +162,16 @@
               <!--Selecciona un rol y conoce todos los beneficios que tenemos para
               ti.-->
             </p>
-            } @else if(step === 2){
+            } @else if(step === 2 && roleField === 'customer'){
             <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">
               Datos personales
             </h2>
+            <p class="mt-0 mb-5 text-700 font-normal text-base">
+              Ingresa tus datos personales y disfruta de una experiencia de
+              compra más rápida.
+            </p>
+            } @else if(step === 2 && roleField === 'enterprise'){
+            <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">Datos empresa</h2>
             <p class="mt-0 mb-5 text-700 font-normal text-base">
               Ingresa tus datos personales y disfruta de una experiencia de
               compra más rápida.
@@ -232,156 +238,210 @@
                 </ng-template>
               </p-selectButton>
             </div>
-            } @else if(step == 2){
-            <div class="field mb-4 flex flex-column">
-              <label for="name" class="font-medium text-900">Nombre</label>
-              <input
-                id="name"
-                type="text"
-                pInputText
-                maxlength="20"
-                formControlName="name"
-                pKeyFilter="alpha"
-              />
-              <small id="name-help"> Ej: Nicolás </small>
-            </div>
-
-            <div class="field mb-4 flex flex-column">
-              <label for="lastname" class="font-medium text-900"
-                >Apellido</label
-              >
-              <input
-                id="lastname"
-                type="text"
-                pInputText
-                maxlength="20"
-                formControlName="lastname"
-                pKeyFilter="alpha"
-              />
-              <small id="lastname-help"> Ej: Rojas </small>
-            </div>
-
-            <div class="field mb-4 flex flex-column">
-              <label for="documentId" class="font-medium text-900">RUT</label>
-              <input
-                id="documentId"
-                type="text"
-                pInputText
-                maxlength="9"
-                pKeyFilter="alphanum"
-                formControlName="documentId"
-              />
-              <small id="documentId-help"> Ej: 12345678-9 </small>
-            </div>
-            <div class="field mb-4 flex flex-column">
-              <label for="email" class="font-medium text-900"
-                >Correo eletrónico</label
-              >
-              <input
-                id="email"
-                type="text"
-                pInputText
-                maxlength="30"
-                formControlName="email"
-              />
-              <small id="email-help"> Ej: micorreo&#64;gmail.com </small>
-            </div>
-            <div class="field mb-4 flex flex-column">
-              <label for="phone" class="font-medium text-900">Teléfono</label>
-              <div class="p-inputgroup">
-                <span class="p-inputgroup-addon">+56</span>
+            } @else if(step == 2 && roleField === 'customer'){
+            <div formGroupName="customer">
+              <div class="field mb-4 flex flex-column">
+                <label for="name" class="font-medium text-900">Nombre</label>
                 <input
-                  id="phone"
+                  id="name"
                   type="text"
                   pInputText
-                  pKeyFilter="int"
-                  maxlength="8"
-                  formControlName="phone"
+                  maxlength="20"
+                  formControlName="name"
+                  pKeyFilter="alpha"
+                />
+                <small id="name-help"> Ej: Nicolás </small>
+              </div>
+
+              <div class="field mb-4 flex flex-column">
+                <label for="lastname" class="font-medium text-900"
+                  >Apellido</label
+                >
+                <input
+                  id="lastname"
+                  type="text"
+                  pInputText
+                  maxlength="20"
+                  formControlName="lastname"
+                  pKeyFilter="alpha"
+                />
+                <small id="lastname-help"> Ej: Rojas </small>
+              </div>
+
+              <div class="field mb-4 flex flex-column">
+                <label for="documentId" class="font-medium text-900">RUT</label>
+                <input
+                  id="documentId"
+                  type="text"
+                  pInputText
+                  maxlength="9"
+                  pKeyFilter="alphanum"
+                  formControlName="documentId"
+                />
+                <small id="documentId-help"> Ej: 12345678-9 </small>
+              </div>
+              <div class="field mb-4 flex flex-column">
+                <label for="email" class="font-medium text-900"
+                  >Correo eletrónico</label
+                >
+                <input
+                  id="email"
+                  type="text"
+                  pInputText
+                  maxlength="30"
+                  formControlName="email"
+                />
+                <small id="email-help"> Ej: micorreo&#64;gmail.com </small>
+              </div>
+              <div class="field mb-4 flex flex-column">
+                <label for="phone" class="font-medium text-900">Teléfono</label>
+                <div class="p-inputgroup">
+                  <span class="p-inputgroup-addon">+56</span>
+                  <input
+                    id="phone"
+                    type="text"
+                    pInputText
+                    pKeyFilter="int"
+                    maxlength="8"
+                    formControlName="phone"
+                  />
+                </div>
+                <small id="phone-help"> Ej: 9 1234 9876 </small>
+              </div>
+              <div class="field mb-4 flex flex-column w-full">
+                <label for="password" class="font-medium text-900"
+                  >Contraseña</label
+                >
+                <p-password
+                  id="password"
+                  [toggleMask]="true"
+                  promptLabel="Ingresa una constraseña"
+                  weakLabel="Débil"
+                  mediumLabel="Fuerte"
+                  strongLabel="Muy fuerte"
+                  maxlength="30"
+                  formControlName="password"
+                  inputStyleClass="w-full"
+                  styleClass="w-full"
+                >
+                  <ng-template pTemplate="footer">
+                    <p-divider />
+                    <p class="mt-2 font-bold">Tu contraseña debe contener:</p>
+                    <ul
+                      class="pl-2 ml-2 mt-0 list-none"
+                      style="line-height: 1.5"
+                    >
+                      <li>Al menos una letra minúscula</li>
+                      <li>Al menos una letra mayúscula</li>
+                      <li class="">
+                        <i class="pi pi-check text-green-500"></i>
+                        Al menos un número
+                      </li>
+
+                      <li class="">
+                        <i class="pi pi-times text-red-500"></i> Mínimo 8
+                        caracteres
+                      </li>
+                    </ul>
+                  </ng-template>
+                </p-password>
+              </div>
+              <div class="field mb-5 flex flex-column">
+                <label for="password2" class="font-medium text-900"
+                  >Repita Contraseña</label
+                >
+                <input
+                  id="password2"
+                  type="text"
+                  pInputText
+                  maxlength="30"
+                  formControlName="confirmPassword"
                 />
               </div>
-              <small id="phone-help"> Ej: 9 1234 9876 </small>
-            </div>
-            <div class="field mb-4 flex flex-column w-full">
-              <label for="password" class="font-medium text-900"
-                >Contraseña</label
-              >
-              <p-password
-                id="password"
-                [toggleMask]="true"
-                promptLabel="Ingresa una constraseña"
-                weakLabel="Débil"
-                mediumLabel="Fuerte"
-                strongLabel="Muy fuerte"
-                maxlength="30"
-                formControlName="password"
-                inputStyleClass="w-full"
-                styleClass="w-full"
-              >
-                <ng-template pTemplate="footer">
-                  <p-divider />
-                  <p class="mt-2 font-bold">Tu contraseña debe contener:</p>
-                  <ul class="pl-2 ml-2 mt-0 list-none" style="line-height: 1.5">
-                    <li>Al menos una letra minúscula</li>
-                    <li>Al menos una letra mayúscula</li>
-                    <li class="">
-                      <i class="pi pi-check text-green-500"></i>
-                      Al menos un número
-                    </li>
-
-                    <li class="">
-                      <i class="pi pi-times text-red-500"></i> Mínimo 8
-                      caracteres
-                    </li>
-                  </ul>
-                </ng-template>
-              </p-password>
-            </div>
-            <div class="field mb-5 flex flex-column">
-              <label for="password2" class="font-medium text-900"
-                >Repita Contraseña</label
-              >
-              <input
-                id="password2"
-                type="text"
-                pInputText
-                maxlength="30"
-                formControlName="confirmPassword"
-              />
-            </div>
-            <div class="field flex">
-              <div class="flex align-items-center">
-                <p-checkbox inputId="privacy" [binary]="true"></p-checkbox>
-                <span class="ml-3 text-900"
-                  >Acepto recibir información de ofertas y promociones de
-                  implementos.cl.</span
-                >
+              <div class="field flex">
+                <div class="flex align-items-center">
+                  <p-checkbox inputId="privacy" [binary]="true"></p-checkbox>
+                  <span class="ml-3 text-900"
+                    >Acepto recibir información de ofertas y promociones de
+                    implementos.cl.</span
+                  >
+                </div>
+              </div>
+              <div class="field mb-6 flex">
+                <div class="flex align-items-center">
+                  <p-checkbox
+                    inputId="privacy"
+                    [binary]="true"
+                    formControlName="disclaimer"
+                  ></p-checkbox>
+                  <span class="ml-3 text-900"
+                    >He leído y acepto los
+                    <a
+                      target="_blank"
+                      href="#"
+                      class="font-medium text-blue-500"
+                      >Términos y condiciones</a
+                    >
+                    y la
+                    <a
+                      target="_blank"
+                      href="#"
+                      class="font-medium text-blue-500"
+                      >Política de privacidad de tratamiento de datos
+                      personales</a
+                    >.</span
+                  >
+                </div>
               </div>
             </div>
-            <div class="field mb-6 flex">
-              <div class="flex align-items-center">
-                <p-checkbox
-                  inputId="privacy"
-                  [binary]="true"
-                  formControlName="disclaimer"
-                ></p-checkbox>
-                <span class="ml-3 text-900"
-                  >He leído y acepto los
-                  <a target="_blank" href="#" class="font-medium text-blue-500"
-                    >Términos y condiciones</a
-                  >
-                  y la
-                  <a target="_blank" href="#" class="font-medium text-blue-500"
-                    >Política de privacidad de tratamiento de datos
-                    personales</a
-                  >.</span
+            } @else if(step == 2 && roleField === 'enterprise'){
+            <div formGroupName="enterprise">
+              <div class="field mb-4 flex flex-column">
+                <label for="documentId" class="font-medium text-900">RUT</label>
+                <input
+                  id="documentId"
+                  type="text"
+                  pInputText
+                  maxlength="9"
+                  pKeyFilter="alphanum"
+                  formControlName="documentId"
+                />
+                <small id="documentId-help"> Ej: 12345678-9 </small>
+              </div>
+              <div class="field mb-4 flex flex-column">
+                <label for="businessName" class="font-medium text-900"
+                  >Razón social</label
                 >
+                <input
+                  id="businessName"
+                  type="text"
+                  pInputText
+                  maxlength="20"
+                  formControlName="businessName"
+                  pKeyFilter="alpha"
+                />
+                <small id="businessName-help"> Ej: Nicolás </small>
+              </div>
+
+              <div class="field mb-4 flex flex-column">
+                <label for="businessLine" class="font-medium text-900"
+                  >Giro</label
+                >
+                <input
+                  id="businessLine"
+                  type="text"
+                  pInputText
+                  maxlength="20"
+                  formControlName="businessLine"
+                  pKeyFilter="alpha"
+                />
+                <small id="businessLine-help"> Ej: Rojas </small>
               </div>
             </div>
             }
 
             <div class="flex gap-3">
               @if(step !== 1){
-
               <button
                 type="button"
                 severity="secondary"

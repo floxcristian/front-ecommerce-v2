@@ -150,11 +150,12 @@
       </li>
       <li class="hidden lg:inline">
         <a
+          [routerLink]="['signup']"
           pRipple
           class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-max"
         >
           <i class="pi pi-user mr-3 text-3xl"></i>
-          <div class="flex flex-column" [routerLink]="['signup']">
+          <div class="flex flex-column">
             <span>!Hola!</span>
             <span class="font-bold">Inicia sesión o regístrate</span>
           </div>

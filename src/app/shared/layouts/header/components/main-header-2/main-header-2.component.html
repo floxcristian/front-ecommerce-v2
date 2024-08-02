@@ -127,20 +127,16 @@
       class="list-none p-0 m-0 flex lg:align-items-center select-none flex-column lg:flex-row lg:ml-4"
     >
       <li class="hidden lg:inline">
-        <a
+        <div
           pRipple
           class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-max"
         >
           <i class="pi pi-car mr-3 text-3xl"></i>
-          <!--<div class="flex flex-column">
-        <span>!Hola!</span>
-        <span class="font-bold">Inicia sesión o regístrate</span>
-      </div> -->
           <div class="flex flex-column">
             <span>Selecciona</span>
             <span class="font-bold">Tu vehículo</span>
           </div>
-        </a>
+        </div>
       </li>
       <li class="align-items-center hidden lg:flex">
         <div
@@ -152,7 +148,7 @@
         <a
           [routerLink]="['signup']"
           pRipple
-          class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-max"
+          class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-max no-underline"
         >
           <i class="pi pi-user mr-3 text-3xl"></i>
           <div class="flex flex-column">
@@ -183,13 +179,13 @@
         </a>
       </li> -->
       <li class="hidden lg:flex">
-        <a
+        <div
           pRipple
           class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-4rem w-max"
         >
           <i class="pi pi-bell text-3xl" pBadge severity="danger" value="2"></i>
           <!-- <span class="hidden lg:inline font-bold">Carrito</span> -->
-        </a>
+        </div>
       </li>
       <li class="align-items-center hidden lg:flex">
         <div
@@ -198,7 +194,7 @@
         ></div>
       </li>
       <li>
-        <a
+        <div
           pRipple
           class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-4rem w-max"
         >
@@ -209,7 +205,7 @@
             value="2"
           ></i>
           <!-- <span class="hidden lg:inline font-bold">Carrito</span> -->
-        </a>
+        </div>
       </li>
     </ul>
   </div>

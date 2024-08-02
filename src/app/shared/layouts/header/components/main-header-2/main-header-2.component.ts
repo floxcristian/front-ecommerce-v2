@@ -1,4 +1,6 @@
+// Angular
 import { Component } from '@angular/core';
+// PrimeNG
 import { BadgeModule } from 'primeng/badge';
 import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
@@ -9,20 +11,22 @@ import { RippleModule } from 'primeng/ripple';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { StyleClassModule } from 'primeng/styleclass';
 
+const PRIME_MODULES = [
+  StyleClassModule,
+  RippleModule,
+  BadgeModule,
+  ButtonModule,
+  InputTextModule,
+  InputGroupModule,
+  DropdownModule,
+  InputGroupAddonModule,
+  SplitButtonModule,
+];
+
 @Component({
   selector: 'app-main-header-2',
   standalone: true,
-  imports: [
-    StyleClassModule,
-    RippleModule,
-    BadgeModule,
-    ButtonModule,
-    InputTextModule,
-    InputGroupModule,
-    DropdownModule,
-    InputGroupAddonModule,
-    SplitButtonModule,
-  ],
+  imports: [...PRIME_MODULES],
   templateUrl: './main-header-2.component.html',
   styleUrl: './main-header-2.component.scss',
 })

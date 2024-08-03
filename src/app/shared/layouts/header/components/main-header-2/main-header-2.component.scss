@@ -4,10 +4,11 @@
   justify-content: center;
 }
 
+/****************************************************
+* Start::Sombrado del header al hacer scroll.
+****************************************************/
 .main-header {
   --shadow: hsla(0 0% 0% / 0.1) 0 0.5rem 1rem;
-  position: sticky;
-  top: 0;
 }
 
 @supports (animation-timeline: scroll()) {
@@ -27,3 +28,6 @@
     }
   }
 }
+/****************************************************
+* End::Sombrado del header al hacer scroll.
+****************************************************/

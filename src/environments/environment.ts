@@ -1,5 +1,5 @@
 export const environment = {
   country: 'PE',
-  localeId: 'CLP',
-  currencyCode: 'CLP',
+  localeId: 'PEN',
+  currencyCode: 'PEN',
 };

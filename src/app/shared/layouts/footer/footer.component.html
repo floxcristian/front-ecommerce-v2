@@ -28,7 +28,8 @@
         }"
         (click)="active5 = 0"
       >
-        <i class="pi pi-home mb-2 text-2xl"></i>
+        <!-- <i class="pi pi-home mb-2 text-2xl"></i> -->
+        <i class="fa-sharp fa-regular fa-house mb-2 text-2xl"></i>
         <span class="font-medium text-xs">Inicio</span>
       </a>
     </li>
@@ -43,7 +44,8 @@
         [routerLink]="['/']"
         (click)="active5 = 1"
       >
-        <i class="pi pi-objects-column mb-2 text-2xl"></i>
+        <!-- <i class="pi pi-objects-column mb-2 text-2xl"></i> -->
+        <i class="fa-sharp fa-regular fa-objects-column mb-2 text-2xl"></i>
         <span class="font-medium text-xs">Categorías</span>
       </a>
     </li>
@@ -58,7 +60,8 @@
         [routerLink]="['signup']"
         (click)="active5 = 2"
       >
-        <i class="pi pi-user mb-2 text-2xl"></i>
+        <!-- <i class="pi pi-user mb-2 text-2xl"></i> -->
+        <i class="fa-sharp fa-regular fa-user mb-2 text-2xl"></i>
         <span class="font-medium text-xs">Mi cuenta</span>
       </a>
     </li>
@@ -73,7 +76,8 @@
         [routerLink]="['/']"
         (click)="active5 = 3"
       >
-        <i class="pi pi-bars mb-2 text-2xl"></i>
+        <!-- <i class="pi pi-bars mb-2 text-2xl"></i> -->
+        <i class="fa-sharp fa-regular fa-bars mb-2 text-2xl"></i>
         <span class="font-medium text-xs">Menú</span>
       </a>
     </li>
@@ -87,8 +91,14 @@
         }"
         (click)="active5 = 4"
       >
-        <i class="pi pi-comments mb-2 text-2xl"></i>
-        <span class="font-medium text-xs">Chat</span>
+        <!-- <i class="pi pi-comments mb-2 text-2xl"></i> -->
+        <i
+          class="fa-sharp fa-regular fa-cart-shopping mb-2 text-2xl"
+          pBadge
+          severity="danger"
+          value="2"
+        ></i>
+        <span class="font-medium text-xs">Carro</span>
       </a>
     </li>
   </ul>

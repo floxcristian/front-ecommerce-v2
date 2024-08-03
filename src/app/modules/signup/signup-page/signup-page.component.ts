@@ -64,8 +64,16 @@ export class SignupPageComponent {
 
   signupForm!: FormGroup;
   roleOptions = [
-    { label: 'Empresa', value: 'enterprise', icon: 'pi-building' },
-    { label: 'Persona', value: 'customer', icon: 'pi pi-user' },
+    {
+      label: 'Empresa',
+      value: 'enterprise',
+      icon: 'fa-sharp-duotone fa-solid fa-building',
+    },
+    {
+      label: 'Persona',
+      value: 'customer',
+      icon: 'fa-sharp-duotone fa-solid fa-user',
+    },
   ];
 
   constructor(private readonly fb: FormBuilder) {

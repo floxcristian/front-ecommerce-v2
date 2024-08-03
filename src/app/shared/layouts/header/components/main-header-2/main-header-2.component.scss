@@ -3,3 +3,27 @@
   align-items: center;
   justify-content: center;
 }
+
+.main-header {
+  --shadow: hsla(0 0% 0% / 0.1) 0 0.5rem 1rem;
+  position: sticky;
+  top: 0;
+}
+
+@supports (animation-timeline: scroll()) {
+  .main-header {
+    animation: scroll-shadow linear both;
+    animation-timeline: scroll();
+    animation-range: 0ex 5ex;
+  }
+
+  @keyframes scroll-shadow {
+    from {
+      box-shadow: none;
+    }
+
+    to {
+      box-shadow: var(--shadow);
+    }
+  }
+}

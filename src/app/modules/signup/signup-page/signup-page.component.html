@@ -171,8 +171,8 @@
               Elige tu tipo de cuenta
             </h2>
             <p class="mt-0 mb-5 text-700 font-normal text-base">
-              Ingresa tus datos personales y disfruta de una experiencia de
-              compra más rápida.
+              Selecciona un tipo de cuenta para conocer todos los beneficios que
+              tenemos para ti.
               <!--Selecciona un rol y conoce todos los beneficios que tenemos para
               ti.-->
             </p>
@@ -187,7 +187,7 @@
             } @else if(step === 2 && roleField === 'enterprise'){
             <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">Datos empresa</h2>
             <p class="mt-0 mb-5 text-700 font-normal text-base">
-              Ingresa tus datos personales y disfruta de una experiencia de
+              Ingresa los datos de tu empresa y disfruta de una experiencia de
               compra más rápida.
             </p>
             } @else if(step === 3){
@@ -233,7 +233,7 @@
               /> -->
 
             @if(step === 1){
-            <div class="field mb-4 flex flex-column">
+            <div class="field mb-6 flex flex-column">
               <!--<label for="name" class="font-medium text-900"
                 >Tipo de usuario</label
               >-->
@@ -247,7 +247,6 @@
                 <ng-template let-item pTemplate>
                   <div class="flex flex-column align-items-center gap-3">
                     <i class="text-4xl" [class]="item.icon"></i>
-
                     <span class="font-medium">{{ item.label }}</span>
                   </div>
                 </ng-template>

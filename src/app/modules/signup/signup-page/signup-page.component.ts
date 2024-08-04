@@ -125,7 +125,7 @@ export class SignupPageComponent {
         disclaimer: [null, Validators.requiredTrue],
       },
       {
-        Validators: [PasswordValidator.matchPasswords],
+        validators: [PasswordValidator.matchPasswords],
       }
     );
 

@@ -19,3 +19,13 @@
   text-align: center;
 }
 */
+/**
+* Remover fondo azul en móvil.
+**/
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+}

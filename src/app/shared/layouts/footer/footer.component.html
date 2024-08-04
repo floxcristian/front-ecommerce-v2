@@ -29,7 +29,10 @@
         (click)="active5 = 0"
       >
         <!-- <i class="pi pi-home mb-2 text-2xl"></i> -->
-        <i class="fa-sharp fa-regular fa-house mb-2 text-2xl"></i>
+        <i
+          class="fa-sharp fa-house mb-2 text-2xl"
+          [ngClass]="active5 === 0 ? 'fa-solid' : 'fa-regular'"
+        ></i>
         <span class="font-medium text-xs">Inicio</span>
       </a>
     </li>
@@ -45,7 +48,10 @@
         (click)="active5 = 1"
       >
         <!-- <i class="pi pi-objects-column mb-2 text-2xl"></i> -->
-        <i class="fa-sharp fa-regular fa-objects-column mb-2 text-2xl"></i>
+        <i
+          class="fa-sharp fa-objects-column mb-2 text-2xl"
+          [ngClass]="active5 === 1 ? 'fa-solid' : 'fa-regular'"
+        ></i>
         <span class="font-medium text-xs">Categorías</span>
       </a>
     </li>
@@ -61,7 +67,10 @@
         (click)="active5 = 2"
       >
         <!-- <i class="pi pi-user mb-2 text-2xl"></i> -->
-        <i class="fa-sharp fa-regular fa-user mb-2 text-2xl"></i>
+        <i
+          class="fa-sharp fa-user mb-2 text-2xl"
+          [ngClass]="active5 === 2 ? 'fa-solid' : 'fa-regular'"
+        ></i>
         <span class="font-medium text-xs">Mi cuenta</span>
       </a>
     </li>
@@ -77,7 +86,10 @@
         (click)="active5 = 3"
       >
         <!-- <i class="pi pi-bars mb-2 text-2xl"></i> -->
-        <i class="fa-sharp fa-regular fa-bars mb-2 text-2xl"></i>
+        <i
+          class="fa-sharp fa-bars mb-2 text-2xl"
+          [ngClass]="active5 === 3 ? 'fa-solid' : 'fa-regular'"
+        ></i>
         <span class="font-medium text-xs">Menú</span>
       </a>
     </li>
@@ -93,10 +105,11 @@
       >
         <!-- <i class="pi pi-comments mb-2 text-2xl"></i> -->
         <i
-          class="fa-sharp fa-regular fa-cart-shopping mb-2 text-2xl"
+          class="fa-sharp fa-cart-shopping mb-2 text-2xl"
           pBadge
           severity="danger"
           value="2"
+          [ngClass]="active5 === 4 ? 'fa-solid' : 'fa-regular'"
         ></i>
         <span class="font-medium text-xs">Carro</span>
       </a>

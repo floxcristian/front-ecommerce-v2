@@ -299,6 +299,7 @@
                   >Correo eletrónico</label
                 >
                 <input
+                  spellcheck="false"
                   id="email"
                   type="text"
                   pInputText
@@ -374,7 +375,7 @@
               </div>
               <div class="field flex">
                 <div class="flex align-items-center">
-                  <p-checkbox inputId="privacy" [binary]="true"></p-checkbox>
+                  <p-checkbox inputId="newsletter" [binary]="true"></p-checkbox>
                   <span class="ml-3 text-900"
                     >Acepto recibir información de ofertas y promociones de
                     implementos.cl.</span
@@ -384,7 +385,7 @@
               <div class="field mb-6 flex">
                 <div class="flex align-items-center">
                   <p-checkbox
-                    inputId="privacy"
+                    inputId="disclaimer"
                     [binary]="true"
                     formControlName="disclaimer"
                   ></p-checkbox>
@@ -408,7 +409,7 @@
                 </div>
               </div>
             </div>
-            } @else if(step == 2 && roleField === 'enterprise'){
+            } @else if(step === 2 && roleField === 'enterprise'){
             <div formGroupName="enterprise">
               <div class="field mb-4 flex flex-column">
                 <label for="documentId" class="font-medium text-900">RUT</label>
@@ -434,7 +435,7 @@
                   formControlName="businessName"
                   pKeyFilter="alpha"
                 />
-                <small id="businessName-help"> Ej: Nicolás </small>
+                <!-- <small id="businessName-help"> Ej: Nicolás </small> -->
               </div>
 
               <div class="field mb-4 flex flex-column">
@@ -449,7 +450,83 @@
                   formControlName="businessLine"
                   pKeyFilter="alpha"
                 />
-                <small id="businessLine-help"> Ej: Rojas </small>
+                <!-- <small id="businessLine-help"> Ej: Rojas </small> -->
+              </div>
+            </div>
+            } @else if(step === 3) {
+
+            <div formGroupName="address">
+              <div class="field mb-4 flex flex-column">
+                <label class="font-medium text-900">Ingresa tu dirección</label>
+                <input type="text" pInputText />
+                <!-- <small id="documentId-help"> Ej: 12345678-9 </small> -->
+              </div>
+              <div class="field mb-4 flex flex-column">
+                <google-map height="600px" width="auto" [options]="options">
+                </google-map>
+              </div>
+
+              <div class="field mb-4 flex flex-column">
+                <label for="street" class="font-medium text-900">Calle</label>
+                <input
+                  id="street"
+                  type="text"
+                  pInputText
+                  formControlName="street"
+                />
+                <!-- <small id="documentId-help"> Ej: 12345678-9 </small> -->
+              </div>
+              <div class="field mb-4 flex flex-column">
+                <label for="number" class="font-medium text-900">Número</label>
+                <input
+                  id="number"
+                  type="text"
+                  pInputText
+                  formControlName="number"
+                />
+                <!-- <small id="documentId-help"> Ej: 12345678-9 </small> -->
+              </div>
+              <div class="field mb-4 flex flex-column">
+                <label for="city" class="font-medium text-900">Comuna</label>
+                <input
+                  id="city"
+                  type="text"
+                  pInputText
+                  formControlName="city"
+                />
+                <!-- <small id="documentId-help"> Ej: 12345678-9 </small> -->
+              </div>
+              <div class="field mb-4 flex flex-column">
+                <label for="department" class="font-medium text-900"
+                  >Departamento</label
+                >
+                <input
+                  spellcheck="false"
+                  id="department"
+                  type="text"
+                  pInputText
+                  formControlName="department"
+                />
+                <!-- <small id="documentId-help"> Ej: 12345678-9 </small> -->
+              </div>
+              <div class="field mb-6 flex flex-column">
+                <label for="reference" class="font-medium text-900"
+                  >Referencia</label
+                >
+                <textarea
+                  spellcheck="false"
+                  id="reference"
+                  formControlName="reference"
+                  pInputTextarea
+                  [autoResize]="true"
+                ></textarea>
+                <!--<input
+                  id="reference"
+                  type="text"
+                  pInputText
+                  formControlName="reference"
+                />-->
+                <!-- <small id="documentId-help"> Ej: 12345678-9 </small> -->
               </div>
             </div>
             }
@@ -465,7 +542,7 @@
                 class="w-full py-3 font-medium"
                 (click)="step = step - 1"
               ></button>
-              }
+              } @if([1,2].includes(step)){
               <button
                 type="submit"
                 pButton
@@ -473,6 +550,15 @@
                 label="Continuar"
                 class="w-full py-3 font-medium"
               ></button>
+              } @else if(step === 3){
+              <button
+                type="submit"
+                pButton
+                pRipple
+                label="Crear Cuenta"
+                class="w-full py-3 font-medium"
+              ></button>
+              }
             </div>
           </form>
         </div>

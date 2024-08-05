@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+// Angular
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
@@ -7,6 +8,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { GoogleMapsModule } from '@angular/google-maps';
 // Prime
 import { RippleModule } from 'primeng/ripple';
 import { InputTextareaModule } from 'primeng/inputtextarea';
@@ -26,36 +28,44 @@ import { CarouselModule } from 'primeng/carousel';
 import { PasswordValidator } from '../validators/password.validator';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { StepsModule } from 'primeng/steps';
+// Services
+import { ScriptService } from '../../../core/services/script/script.service';
+import { environment } from '../../../../environments/environment';
+
+const NG_MODULES = [
+  CommonModule,
+  FormsModule,
+  ReactiveFormsModule,
+  GoogleMapsModule,
+];
+const PRIME_MODULES = [
+  InputTextareaModule,
+  FileUploadModule,
+  DropdownModule,
+  InputSwitchModule,
+  InputTextModule,
+  InputGroupModule,
+  InputGroupAddonModule,
+  KeyFilterModule,
+  PasswordModule,
+  DividerModule,
+  InputMaskModule,
+  InputNumberModule,
+  RippleModule,
+  CheckboxModule,
+  CarouselModule,
+  SelectButtonModule,
+  StepsModule,
+];
 
 @Component({
   selector: 'app-signup-page',
   standalone: true,
-  imports: [
-    FormsModule,
-    InputTextareaModule,
-    FileUploadModule,
-    DropdownModule,
-    InputSwitchModule,
-    InputTextModule,
-    InputGroupModule,
-    InputGroupAddonModule,
-    KeyFilterModule,
-    PasswordModule,
-    DividerModule,
-    InputMaskModule,
-    InputNumberModule,
-    CommonModule,
-    RippleModule,
-    ReactiveFormsModule,
-    CheckboxModule,
-    CarouselModule,
-    SelectButtonModule,
-    StepsModule,
-  ],
+  imports: [...NG_MODULES, ...PRIME_MODULES],
   templateUrl: './signup-page.component.html',
   styleUrl: './signup-page.component.scss',
 })
-export class SignupPageComponent {
+export class SignupPageComponent implements OnInit {
   phoneCodes = ['+569', '+56'];
   selectedPhoneCode = '+569';
   password: string = '';
@@ -76,10 +86,26 @@ export class SignupPageComponent {
     },
   ];
 
-  constructor(private readonly fb: FormBuilder) {
+  isMapLoaded: boolean = false;
+  options: google.maps.MapOptions = {
+    mapId: 'DEMO_MAP_ID',
+    center: { lat: -31, lng: 147 },
+    zoom: 4,
+  };
+
+  constructor(
+    private readonly fb: FormBuilder,
+    private readonly scriptService: ScriptService
+  ) {
     this.buildForm();
     // FIXME:
     //  this.validationMessageService.validationErrors = [];
+  }
+
+  ngOnInit(): void {
+    /*this.scriptService.loadScript(environment.gmapScript).then(() => {
+      this.isMapLoaded = true;
+    });*/
   }
 
   private buildForm(): void {
@@ -114,6 +140,8 @@ export class SignupPageComponent {
             ],
           ],
           confirmPassword: [null, [Validators.required]],
+          newsletter: [false],
+          disclaimer: [false, [Validators.requiredTrue]],
         }),
         address: this.fb.group({
           street: [null, Validators.required],
@@ -121,8 +149,8 @@ export class SignupPageComponent {
           department: [null],
           city: [null, Validators.required],
           region: [null, Validators.required],
+          reference: [null],
         }),
-        disclaimer: [null, Validators.requiredTrue],
       },
       {
         validators: [PasswordValidator.matchPasswords],
@@ -142,13 +170,13 @@ export class SignupPageComponent {
   }
 
   register($event: any) {
-    console.log('register: ', $event);
+    //console.log('register: ', $event);
     this.step++;
     if (this.signupForm.valid) {
-      console.log('Formulario válido');
+      //console.log('Formulario válido');
     } else {
       // Nicolas molina. 2021-09-29. Se agrega el método markAllAsTouched para marcar todos los campos como tocados y mostrar errores.
-      console.log('Formulario inválido');
+      //console.log('Formulario inválido');
       this.signupForm.markAllAsTouched();
     }
   }

@@ -4,7 +4,7 @@
       <div class="flex flex-wrap">
         <!-- Izquierda -->
         <div
-          class="w-full lg:w-6 px-4 py-7 lg:px-7 surface-card border-bottom-1 md:border-bottom-none md:border-right-1 surface-border"
+          class="hidden md:block w-full lg:w-6 py-7 px-4 lg:px-7 surface-card md:border-right-1 surface-border"
         >
           <!--
         <div class="text-xl text-900 font-500 mb-3">Welcome to Bastion</div>
@@ -164,7 +164,7 @@
           </ul>-->
         </div>
         <!-- Formulario -->
-        <div class="w-full lg:w-6 p-4 lg:p-7 surface-card">
+        <div class="w-full lg:w-6 py-7 px-4 lg:px-7 surface-card">
           <div class="border-bottom-1 surface-border mb-5">
             @if(step === 1){
             <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">
@@ -261,6 +261,12 @@
                 </ng-template>
               </p-selectButton>
             </div>
+            <!--<p class="mt-0 mb-5 text-700 font-normal text-base">
+              ¿Ya tienes una cuenta?
+              <a target="_blank" href="#" class="font-medium text-blue-500"
+                >Inicia sesión aquí</a
+              >
+            </p>-->
             } @else if((step == 2 && roleField === 'customer') || (step === 3 &&
             roleField === 'enterprise')){
             <div formGroupName="customer">

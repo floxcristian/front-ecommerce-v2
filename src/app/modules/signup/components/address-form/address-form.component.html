@@ -1,0 +1,68 @@
+<div class="border-bottom-1 surface-border mb-5">
+  <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">Dirección de despacho</h2>
+  <p class="mt-0 mb-5 text-700 font-normal text-base">
+    Ingresa tus datos personales y disfruta de una experiencia de compra más
+    rápida.
+  </p>
+</div>
+<form [formGroup]="addressForm" (ngSubmit)="submit(addressForm.value)">
+  <div class="field mb-4 flex flex-column">
+    <label class="font-medium text-900">Ingresa tu dirección</label>
+    <input type="text" pInputText />
+  </div>
+  <div class="field mb-4 flex flex-column">
+    <google-map height="600px" width="auto" [options]="options"> </google-map>
+  </div>
+  <div class="field mb-4 flex flex-column">
+    <label for="street" class="font-medium text-900">Calle</label>
+    <input id="street" type="text" pInputText formControlName="street" />
+  </div>
+  <div class="field mb-4 flex flex-column">
+    <label for="number" class="font-medium text-900">Número</label>
+    <input id="number" type="text" pInputText formControlName="number" />
+  </div>
+  <div class="field mb-4 flex flex-column">
+    <label for="city" class="font-medium text-900">Comuna</label>
+    <input id="city" type="text" pInputText formControlName="city" />
+  </div>
+  <div class="field mb-4 flex flex-column">
+    <label for="department" class="font-medium text-900"
+      >Departamento / Oficina</label
+    >
+    <input
+      spellcheck="false"
+      id="department"
+      type="text"
+      pInputText
+      formControlName="department"
+    />
+  </div>
+  <div class="field mb-6 flex flex-column">
+    <label for="reference" class="font-medium text-900">Referencia</label>
+    <textarea
+      spellcheck="false"
+      id="reference"
+      formControlName="reference"
+      pInputTextarea
+      [autoResize]="true"
+    ></textarea>
+  </div>
+  <div class="flex gap-3">
+    <button
+      type="button"
+      severity="secondary"
+      pButton
+      pRipple
+      label="Volver"
+      class="w-full py-3 font-medium"
+      (click)="onGoBack.emit()"
+    ></button>
+    <button
+      type="submit"
+      pButton
+      pRipple
+      label="Crear Cuenta"
+      class="w-full py-3 font-medium"
+    ></button>
+  </div>
+</form>

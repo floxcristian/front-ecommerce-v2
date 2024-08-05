@@ -1,0 +1,33 @@
+<div class="border-bottom-1 surface-border mb-5">
+  <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">Elige un tipo de cuenta</h2>
+  <p class="mt-0 mb-5 text-700 font-normal text-base">
+    Selecciona un tipo de cuenta para conocer todos los beneficios que tenemos
+    para ti.
+  </p>
+</div>
+<form [formGroup]="accountTypeForm" (ngSubmit)="submit($event)">
+  <div class="field mb-6 flex flex-column">
+    <p-selectButton
+      [options]="roleOptions"
+      optionLabel="label"
+      formControlName="role"
+      optionValue="value"
+    >
+      <ng-template let-item pTemplate>
+        <div class="flex flex-column align-items-center gap-3">
+          <i class="text-4xl" [class]="item.icon"></i>
+          <span class="font-medium">{{ item.label }}</span>
+        </div>
+      </ng-template>
+    </p-selectButton>
+  </div>
+  <div class="flex gap-3">
+    <button
+      type="submit"
+      pButton
+      pRipple
+      label="Continuar"
+      class="w-full py-3 font-medium"
+    ></button>
+  </div>
+</form>

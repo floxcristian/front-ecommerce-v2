@@ -1,0 +1,69 @@
+<div class="border-bottom-1 surface-border mb-5">
+  <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">Datos empresa</h2>
+  <p class="mt-0 mb-5 text-700 font-normal text-base">
+    Ingresa los datos de tu empresa y disfruta de una experiencia de compra más
+    rápida.
+  </p>
+</div>
+<form [formGroup]="enterpriseForm" (ngSubmit)="submit(enterpriseForm.value)">
+  <div class="field mb-4 flex flex-column">
+    <label for="documentId" class="font-medium text-900">RUT</label>
+    <input
+      id="documentId"
+      type="text"
+      pInputText
+      maxlength="9"
+      pKeyFilter="alphanum"
+      formControlName="documentId"
+    />
+    <small id="documentId-help"> Ej: 12345678-9 </small>
+  </div>
+  <div class="field mb-4 flex flex-column">
+    <label for="businessName" class="font-medium text-900">Razón social</label>
+    <input
+      id="businessName"
+      type="text"
+      pInputText
+      maxlength="20"
+      formControlName="businessName"
+      pKeyFilter="alpha"
+    />
+    <!-- <small id="businessName-help"> Ej: Nicolás </small> -->
+  </div>
+  <div class="field mb-4 flex flex-column">
+    <label for="businessLine" class="font-medium text-900">Giro</label>
+    <input
+      id="businessLine"
+      type="text"
+      pInputText
+      maxlength="20"
+      formControlName="businessLine"
+      pKeyFilter="alpha"
+    />
+    <!-- <small id="businessLine-help"> Ej: Rojas </small> -->
+  </div>
+  <div class="field flex mb-6">
+    <div class="flex align-items-center">
+      <p-checkbox inputId="newsletter" [binary]="true"></p-checkbox>
+      <span class="ml-3 text-900">Deseo añadir una línea de crédito.</span>
+    </div>
+  </div>
+  <div class="flex gap-3">
+    <button
+      type="button"
+      severity="secondary"
+      pButton
+      pRipple
+      label="Volver"
+      class="w-full py-3 font-medium"
+      (click)="onGoBack.emit()"
+    ></button>
+    <button
+      type="submit"
+      pButton
+      pRipple
+      label="Continuar"
+      class="w-full py-3 font-medium"
+    ></button>
+  </div>
+</form>

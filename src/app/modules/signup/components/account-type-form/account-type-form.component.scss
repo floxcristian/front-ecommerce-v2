@@ -1,0 +1,14 @@
+::ng-deep .p-selectbutton {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+::ng-deep .p-selectbutton .p-button {
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  border: 1px solid var(--surface-300);
+}

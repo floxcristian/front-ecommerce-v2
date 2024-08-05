@@ -30,7 +30,10 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { StepsModule } from 'primeng/steps';
 // Services
 import { ScriptService } from '../../../core/services/script/script.service';
-import { environment } from '../../../../environments/environment';
+import { AccountTypeFormComponent } from '../components/account-type-form/account-type-form.component';
+import { PersonalFormComponent } from '../components/personal-form/personal-form.component';
+import { AddressFormComponent } from '../components/address-form/address-form.component';
+import { EnterpriseFormComponent } from '../components/enterprise-form/enterprise-form.component';
 
 const NG_MODULES = [
   CommonModule,
@@ -57,19 +60,21 @@ const PRIME_MODULES = [
   SelectButtonModule,
   StepsModule,
 ];
+const COMPONENTS = [
+  AccountTypeFormComponent,
+  PersonalFormComponent,
+  AddressFormComponent,
+  EnterpriseFormComponent,
+];
 
 @Component({
   selector: 'app-signup-page',
   standalone: true,
-  imports: [...NG_MODULES, ...PRIME_MODULES],
+  imports: [...NG_MODULES, ...PRIME_MODULES, ...COMPONENTS],
   templateUrl: './signup-page.component.html',
   styleUrl: './signup-page.component.scss',
 })
 export class SignupPageComponent implements OnInit {
-  phoneCodes = ['+569', '+56'];
-  selectedPhoneCode = '+569';
-  password: string = '';
-  amount: number = 0;
   step: number = 1;
 
   signupForm!: FormGroup;
@@ -93,20 +98,13 @@ export class SignupPageComponent implements OnInit {
     zoom: 4,
   };
 
-  constructor(
-    private readonly fb: FormBuilder,
-    private readonly scriptService: ScriptService
-  ) {
+  accountType: string = '';
+
+  constructor(private readonly fb: FormBuilder) {
     this.buildForm();
-    // FIXME:
-    //  this.validationMessageService.validationErrors = [];
   }
 
-  ngOnInit(): void {
-    /*this.scriptService.loadScript(environment.gmapScript).then(() => {
-      this.isMapLoaded = true;
-    });*/
-  }
+  ngOnInit(): void {}
 
   private buildForm(): void {
     this.signupForm = this.fb.group(
@@ -183,7 +181,30 @@ export class SignupPageComponent implements OnInit {
     }
   }
 
-  get roleField(): string {
-    return this.signupForm.get('role')?.value;
+  /**
+   * Establecer role y setear paso actual.
+   * @param role
+   */
+  submitRoleForm(role: string): void {
+    this.step++;
+    this.accountType = role;
+  }
+
+  submitPersonalForm(personalInfo: any): void {
+    console.log('personalInfo: ', personalInfo);
+    this.step++;
+  }
+
+  submitEnterpriseForm(enterpriseInfo: any): void {
+    console.log('enterpriseInfo: ', enterpriseInfo);
+    this.step++;
+  }
+
+  goBack(): void {
+    this.step--;
+  }
+
+  goNext(): void {
+    this.step++;
   }
 }

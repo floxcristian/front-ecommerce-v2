@@ -76,28 +76,6 @@ const COMPONENTS = [
 })
 export class SignupPageComponent implements OnInit {
   step: number = 1;
-
-  signupForm!: FormGroup;
-  roleOptions = [
-    {
-      label: 'Empresa',
-      value: 'enterprise',
-      icon: 'fa-sharp-duotone fa-solid fa-building',
-    },
-    {
-      label: 'Persona',
-      value: 'customer',
-      icon: 'fa-sharp-duotone fa-solid fa-user',
-    },
-  ];
-
-  isMapLoaded: boolean = false;
-  options: google.maps.MapOptions = {
-    mapId: 'DEMO_MAP_ID',
-    center: { lat: -31, lng: 147 },
-    zoom: 4,
-  };
-
   accountType: string = '';
 
   constructor(private readonly fb: FormBuilder) {
@@ -107,7 +85,7 @@ export class SignupPageComponent implements OnInit {
   ngOnInit(): void {}
 
   private buildForm(): void {
-    this.signupForm = this.fb.group(
+    /* this.signupForm = this.fb.group(
       {
         role: ['enterprise', Validators.required],
         enterprise: this.fb.group({
@@ -155,8 +133,7 @@ export class SignupPageComponent implements OnInit {
       {
         validators: [PasswordValidator.matchPasswords],
       }
-    );
-
+    );*/
     /*
     this.roleFiled.valueChanges.subscribe((value) => {
       if (value === 'company') {
@@ -172,19 +149,15 @@ export class SignupPageComponent implements OnInit {
   register($event: any) {
     //console.log('register: ', $event);
     this.step++;
-    if (this.signupForm.valid) {
+    /*if (this.signupForm.valid) {
       //console.log('Formulario válido');
     } else {
       // Nicolas molina. 2021-09-29. Se agrega el método markAllAsTouched para marcar todos los campos como tocados y mostrar errores.
       //console.log('Formulario inválido');
       this.signupForm.markAllAsTouched();
-    }
+    }*/
   }
 
-  /**
-   * Establecer role y setear paso actual.
-   * @param role
-   */
   submitRoleForm(role: string): void {
     this.step++;
     this.accountType = role;
@@ -200,11 +173,12 @@ export class SignupPageComponent implements OnInit {
     this.step++;
   }
 
-  goBack(): void {
-    this.step--;
+  submitAddressForm(addressInfo: any): void {
+    console.log('addressInfo: ', addressInfo);
+    // this.step++;
   }
 
-  goNext(): void {
-    this.step++;
+  goBack(): void {
+    this.step--;
   }
 }

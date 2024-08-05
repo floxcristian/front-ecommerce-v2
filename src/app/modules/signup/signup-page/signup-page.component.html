@@ -180,7 +180,11 @@
             (onSubmit)="submitPersonalForm($event)"
           />
           } @else {
-          <app-address-form (onGoBack)="goBack()" />
+          <app-address-form
+            [accountType]="accountType"
+            (onGoBack)="goBack()"
+            (onSubmit)="submitAddressForm($event)"
+          />
           }
         </div>
       </div>

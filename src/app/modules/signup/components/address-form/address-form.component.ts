@@ -1,5 +1,5 @@
 // Angular
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -7,27 +7,29 @@ import {
   Validators,
 } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
-import { ButtonModule } from 'primeng/button';
 // PrimeNG
+import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { RippleModule } from 'primeng/ripple';
 
+const NG_MODULES = [ReactiveFormsModule, GoogleMapsModule];
+const PRIME_MODULES = [
+  InputTextModule,
+  ButtonModule,
+  RippleModule,
+  InputTextareaModule,
+];
+
 @Component({
   selector: 'app-address-form',
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    InputTextModule,
-    ButtonModule,
-    RippleModule,
-    GoogleMapsModule,
-    InputTextareaModule,
-  ],
+  imports: [...NG_MODULES, ...PRIME_MODULES],
   templateUrl: './address-form.component.html',
   styleUrl: './address-form.component.scss',
 })
 export class AddressFormComponent {
+  @Input() accountType: string = '';
   @Output() onGoBack: EventEmitter<void> = new EventEmitter();
   @Output() onSubmit: EventEmitter<any> = new EventEmitter();
   addressForm!: FormGroup;
@@ -56,5 +58,6 @@ export class AddressFormComponent {
 
   submit(value: any): void {
     console.log('OK');
+    this.onSubmit.emit(value);
   }
 }

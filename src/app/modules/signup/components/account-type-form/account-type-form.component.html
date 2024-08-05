@@ -5,7 +5,7 @@
     para ti.
   </p>
 </div>
-<form [formGroup]="accountTypeForm" (ngSubmit)="submit($event)">
+<form [formGroup]="accountTypeForm" (ngSubmit)="submit(accountTypeForm.value)">
   <div class="field mb-6 flex flex-column">
     <p-selectButton
       [options]="roleOptions"

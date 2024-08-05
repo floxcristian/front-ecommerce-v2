@@ -184,13 +184,22 @@
               Ingresa tus datos personales y disfruta de una experiencia de
               compra más rápida.
             </p>
+            } @else if(step === 3 && roleField === 'enterprise'){
+            <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">
+              Datos personales
+            </h2>
+            <p class="mt-0 mb-5 text-700 font-normal text-base">
+              Ingresa tus datos personales y disfruta de una experiencia de
+              compra más rápida.
+            </p>
             } @else if(step === 2 && roleField === 'enterprise'){
             <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">Datos empresa</h2>
             <p class="mt-0 mb-5 text-700 font-normal text-base">
               Ingresa los datos de tu empresa y disfruta de una experiencia de
               compra más rápida.
             </p>
-            } @else if(step === 3){
+            } @else if((step === 3 && roleField === 'customer') || step ===4 &&
+            roleField === 'enterprise'){
             <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">
               Dirección de despacho
             </h2>
@@ -252,8 +261,21 @@
                 </ng-template>
               </p-selectButton>
             </div>
-            } @else if(step == 2 && roleField === 'customer'){
+            } @else if((step == 2 && roleField === 'customer') || (step === 3 &&
+            roleField === 'enterprise')){
             <div formGroupName="customer">
+              <div class="field mb-4 flex flex-column">
+                <label for="position" class="font-medium text-900">Cargo</label>
+                <input
+                  id="position"
+                  type="text"
+                  pInputText
+                  maxlength="20"
+                  formControlName="position"
+                  pKeyFilter="alpha"
+                />
+                <!-- <small id="name-help"> Ej: Nicolás </small> -->
+              </div>
               <div class="field mb-4 flex flex-column">
                 <label for="name" class="font-medium text-900">Nombre</label>
                 <input
@@ -438,7 +460,7 @@
                 <!-- <small id="businessName-help"> Ej: Nicolás </small> -->
               </div>
 
-              <div class="field mb-4 flex flex-column">
+              <div class="field mb-6 flex flex-column">
                 <label for="businessLine" class="font-medium text-900"
                   >Giro</label
                 >
@@ -453,7 +475,8 @@
                 <!-- <small id="businessLine-help"> Ej: Rojas </small> -->
               </div>
             </div>
-            } @else if(step === 3) {
+            } @else if((step === 3 && roleField === 'customer') || (step === 4
+            && roleField === 'enterprise')){
 
             <div formGroupName="address">
               <div class="field mb-4 flex flex-column">
@@ -542,7 +565,8 @@
                 class="w-full py-3 font-medium"
                 (click)="step = step - 1"
               ></button>
-              } @if([1,2].includes(step)){
+              } @if([1,2].includes(step) || (step === 3 && roleField ===
+              'enterprise')){
               <button
                 type="submit"
                 pButton
@@ -550,7 +574,8 @@
                 label="Continuar"
                 class="w-full py-3 font-medium"
               ></button>
-              } @else if(step === 3){
+              } @else if((step === 3 && roleField === 'customer') || (step === 4
+              && roleField === 'enterprise')){
               <button
                 type="submit"
                 pButton

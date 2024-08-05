@@ -118,6 +118,7 @@ export class SignupPageComponent implements OnInit {
           businessLine: [null, [Validators.required]],
         }),
         customer: this.fb.group({
+          position: [null],
           name: [
             null,
             [
@@ -143,6 +144,7 @@ export class SignupPageComponent implements OnInit {
           newsletter: [false],
           disclaimer: [false, [Validators.requiredTrue]],
         }),
+
         address: this.fb.group({
           street: [null, Validators.required],
           number: [null, Validators.required],

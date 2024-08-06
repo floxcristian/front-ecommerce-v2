@@ -9,6 +9,7 @@ import {
 import { GoogleMapsModule } from '@angular/google-maps';
 // PrimeNG
 import { ButtonModule } from 'primeng/button';
+import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { RippleModule } from 'primeng/ripple';
@@ -19,6 +20,7 @@ const PRIME_MODULES = [
   ButtonModule,
   RippleModule,
   InputTextareaModule,
+  CheckboxModule,
 ];
 
 @Component({
@@ -53,6 +55,8 @@ export class AddressFormComponent {
       city: [null, Validators.required],
       region: [null, Validators.required],
       reference: [null],
+      newsletter: [false],
+      disclaimer: [false, [Validators.requiredTrue]],
     });
   }
 

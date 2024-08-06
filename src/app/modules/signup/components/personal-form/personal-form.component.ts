@@ -72,8 +72,6 @@ export class PersonalFormComponent {
           ],
         ],
         confirmPassword: [null, [Validators.required]],
-        /*newsletter: [false],
-      disclaimer: [false, [Validators.requiredTrue]],*/
       },
       {
         validators: [PasswordValidator.matchPasswords],

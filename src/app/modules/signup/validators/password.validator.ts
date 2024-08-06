@@ -1,7 +1,9 @@
 import { AbstractControl } from '@angular/forms';
 
 export class PasswordValidator {
-  static isValidPassword(control: AbstractControl) {
+  static isValidPassword(
+    control: AbstractControl
+  ): Record<string, boolean> | null {
     const value = control.value;
     if (!value) {
       return null;
@@ -20,7 +22,9 @@ export class PasswordValidator {
     return isValid ? null : { invalidPassword: true };
   }
 
-  static matchPasswords(control: AbstractControl) {
+  static matchPasswords(
+    control: AbstractControl
+  ): Record<string, boolean> | null {
     const password = control.get('password')?.value;
     const confirmPassword = control.get('confirmPassword')?.value;
     return password === confirmPassword ? null : { passwordsDoNotMatch: true };

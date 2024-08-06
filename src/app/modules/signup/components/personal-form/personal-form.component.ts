@@ -18,6 +18,7 @@ import { PasswordValidator } from '../../validators/password.validator';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { KeyFilterModule } from 'primeng/keyfilter';
+import { DocumentIdValidator } from '../../validators/document-id.validator';
 
 const NG_MODULES = [ReactiveFormsModule];
 const PRIME_MODULES = [
@@ -44,6 +45,7 @@ export class PersonalFormComponent {
   @Output() onGoBack: EventEmitter<void> = new EventEmitter();
   @Output() onSubmit: EventEmitter<any> = new EventEmitter();
   personalForm!: FormGroup;
+
   constructor(private readonly fb: FormBuilder) {
     this.buildForm();
   }
@@ -61,7 +63,10 @@ export class PersonalFormComponent {
           ],
         ],
         lastname: [null, Validators.required],
-        documentId: [null, Validators.required],
+        documentId: [
+          null,
+          [Validators.required, DocumentIdValidator.isValidDocumentId],
+        ],
         email: [null, [Validators.required, Validators.email]],
         phone: [null, Validators.required],
         password: [

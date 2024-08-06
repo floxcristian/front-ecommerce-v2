@@ -1,5 +1,5 @@
 // Angular
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, output } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -22,7 +22,8 @@ const NG_MODULES = [ReactiveFormsModule];
   styleUrl: './account-type-form.component.scss',
 })
 export class AccountTypeFormComponent {
-  @Output() onSubmit: EventEmitter<string> = new EventEmitter();
+  onSubmit = output<string>();
+
   accountTypeForm!: FormGroup;
   roleOptions = [
     {

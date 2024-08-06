@@ -1,5 +1,5 @@
 // Angular
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, output } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -30,8 +30,8 @@ const PRIME_MODULES = [
 })
 export class EnterpriseFormComponent {
   enterpriseForm!: FormGroup;
-  @Output() onGoBack: EventEmitter<void> = new EventEmitter();
-  @Output() onSubmit: EventEmitter<any> = new EventEmitter();
+  onGoBack = output<void>();
+  onSubmit = output<any>();
 
   get documentIdField() {
     return this.enterpriseForm.get('documentId');

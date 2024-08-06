@@ -1,5 +1,5 @@
 // Angular
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -41,9 +41,10 @@ const PRIME_MODULES = [
   styleUrl: './personal-form.component.scss',
 })
 export class PersonalFormComponent {
-  @Input() accountType: string = '';
-  @Output() onGoBack: EventEmitter<void> = new EventEmitter();
-  @Output() onSubmit: EventEmitter<any> = new EventEmitter();
+  accountType = input.required<string>();
+  onGoBack = output<void>();
+  onSubmit = output<any>();
+
   personalForm!: FormGroup;
 
   constructor(private readonly fb: FormBuilder) {

@@ -18,6 +18,9 @@ export class DocumentIdService {
 
   static getValidCharacters(documentId: string): string {
     if (!documentId) return '';
+    if (documentId.length > 9) {
+      documentId = documentId.substring(0, 9);
+    }
     return documentId.replace(/[^0-9\K\k]/g, '');
   }
 

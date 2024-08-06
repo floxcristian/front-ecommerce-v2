@@ -16,6 +16,11 @@ export class DocumentIdService {
     return documentId.replace(/\D/g, '');
   }
 
+  /**
+   * Obtener solo los caracteres válidos de un RUT.
+   * @param documentId
+   * @returns
+   */
   static getValidCharacters(documentId: string): string {
     if (!documentId) return '';
     if (documentId.length > 9) {
@@ -24,6 +29,11 @@ export class DocumentIdService {
     return documentId.replace(/[^0-9\K\k]/g, '');
   }
 
+  /**
+   * Obtener el RUT con formato de puntos y guión.
+   * @param documentId
+   * @returns
+   */
   static getFormattedDocumentId(documentId: string): string {
     if (!documentId) return '';
     const numbers = documentId.substring(0, documentId.length - 1);

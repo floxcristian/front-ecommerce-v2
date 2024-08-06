@@ -21,9 +21,11 @@ export class DocumentIdValidator {
   }
 
   private static isValidChileanDocumentId(documentId: string): boolean {
-    const rut = documentId.trim();
+    let rut = documentId.trim();
     if (!rut) return false;
-    // FIXME: si no incluye guion de rut se muere.
+    if (!rut.includes('-')) {
+      rut = rut.slice(0, -1) + '-' + rut.slice(-1);
+    }
     const parts = rut.split('-');
     if (parts.length !== 2) return false;
     const numbers = parts[0];

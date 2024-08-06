@@ -21,19 +21,35 @@ export class DocumentIdValidator {
   }
 
   private static isValidChileanDocumentId(documentId: string): boolean {
-    const rut = documentId.trim().toUpperCase();
-    if (!rut || rut.length < 9) return false;
-    const multiples = [3, 2, 7, 6, 5, 4, 3, 2];
-    const dsum = rut
-      .substring(0, rut.length - 1)
-      .split('')
-      .reduce((acc, digit, index) => {
-        acc += Number(digit) * multiples[index];
-        return acc;
-      }, 0);
-    const key = 11 - (dsum % 11);
-    const index = key === 11 ? 0 : key;
-    return rut[rut.length - 1] === index.toString();
+    const rut = documentId.trim();
+    if (!rut) return false;
+    const parts = rut.split('-');
+    if (parts.length !== 2) return false;
+    const numbers = parts[0];
+    const checksum = parts[1];
+    const validChecksum = DocumentIdValidator.calculateChileanChecksum(numbers);
+    return checksum === validChecksum;
+  }
+
+  /**
+   * Calcula el dígito verificador de un RUT chileno.
+   * @param numbers
+   * @returns
+   */
+  private static calculateChileanChecksum(numbers: string): string {
+    let sum = 0;
+    let multiplier = 2;
+    for (let i = numbers.length - 1; i >= 0; i--) {
+      sum += parseInt(numbers.charAt(i)) * multiplier;
+      multiplier = multiplier === 7 ? 2 : multiplier + 1;
+    }
+
+    const expectedCheckDigit = 11 - (sum % 11);
+    return expectedCheckDigit === 11
+      ? '0'
+      : expectedCheckDigit === 10
+      ? 'K'
+      : expectedCheckDigit.toString();
   }
 
   private static isValidPeruvianDocumentId(documentId: string): boolean {

@@ -6,7 +6,7 @@
 </div>
 <form [formGroup]="enterpriseForm" (ngSubmit)="submit(enterpriseForm.value)">
   <div class="field mb-4 flex flex-column">
-    <label for="documentId" class="font-medium text-900">RUT</label>
+    <label for="documentId" class="font-medium text-900">RUT Empresa</label>
     <input
       id="documentId"
       type="text"
@@ -15,7 +15,19 @@
       pKeyFilter="alphanum"
       formControlName="documentId"
     />
+    @if(documentIdField?.touched && documentIdField?.invalid) {
+    <small class="text-red-500">
+      {{
+        documentIdField?.hasError("required")
+          ? "Este campo es requerido."
+          : documentIdField?.hasError("invalidDocumentId")
+          ? "El RUT ingresado no es válido."
+          : ""
+      }}
+    </small>
+    }@else {
     <small id="documentId-help"> Ej: 12345678-9 </small>
+    }
   </div>
   <div class="field mb-4 flex flex-column">
     <label for="businessName" class="font-medium text-900">Razón social</label>
@@ -58,6 +70,7 @@
       (click)="onGoBack.emit()"
     ></button>
     <button
+      [disabled]="enterpriseForm.invalid"
       type="submit"
       pButton
       pRipple

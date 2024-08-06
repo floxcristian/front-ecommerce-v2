@@ -1,3 +1,4 @@
+// Angular
 import { Component, EventEmitter, Output } from '@angular/core';
 import {
   FormBuilder,
@@ -5,21 +6,24 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+// PrimeNG
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
 
+const NG_MODULES = [ReactiveFormsModule];
+const PRIME_MODULES = [
+  CheckboxModule,
+  InputTextModule,
+  RippleModule,
+  ButtonModule,
+];
+
 @Component({
   selector: 'app-enterprise-form',
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    CheckboxModule,
-    InputTextModule,
-    RippleModule,
-    ButtonModule,
-  ],
+  imports: [...NG_MODULES, ...PRIME_MODULES],
   templateUrl: './enterprise-form.component.html',
   styleUrl: './enterprise-form.component.scss',
 })

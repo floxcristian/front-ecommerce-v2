@@ -75,12 +75,19 @@
     <label for="phone" class="font-medium text-900">Teléfono</label>
     <div class="p-inputgroup">
       <span class="p-inputgroup-addon">+56</span>
-      <input
+      <!--<input
         id="phone"
         type="text"
         pInputText
         pKeyFilter="int"
-        maxlength="8"
+        maxlength="9"
+        formControlName="phone"
+      />-->
+      <p-inputNumber
+        id="phone"
+        mode="decimal"
+        [useGrouping]="false"
+        maxlength="9"
         formControlName="phone"
       />
     </div>

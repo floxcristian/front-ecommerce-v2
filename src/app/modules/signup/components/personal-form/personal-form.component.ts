@@ -12,6 +12,7 @@ import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
+import { InputNumberModule } from 'primeng/inputnumber';
 // Validators
 import { PasswordValidator } from '../../validators/password.validator';
 import { InputGroupModule } from 'primeng/inputgroup';
@@ -28,6 +29,7 @@ const PRIME_MODULES = [
   InputGroupModule,
   InputGroupAddonModule,
   KeyFilterModule,
+  InputNumberModule,
 ];
 
 @Component({

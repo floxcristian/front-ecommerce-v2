@@ -1,12 +1,12 @@
 <div class="border-bottom-1 surface-border mb-5">
-  <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">Datos empresa</h2>
+  <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">Datos de la empresa</h2>
   <p class="mt-0 mb-5 text-700 font-normal text-base">
     Ingresa los datos de tu empresa y disfruta de todos los beneficios.
   </p>
 </div>
 <form [formGroup]="enterpriseForm" (ngSubmit)="submit(enterpriseForm.value)">
   <div class="field mb-4 flex flex-column">
-    <label for="documentId" class="font-medium text-900">RUT Empresa</label>
+    <label for="documentId" class="font-medium text-900">RUT empresa</label>
     <input
       id="documentId"
       type="text"

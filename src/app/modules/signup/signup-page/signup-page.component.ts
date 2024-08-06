@@ -1,13 +1,7 @@
 // Angular
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  FormBuilder,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
 // Prime
 import { RippleModule } from 'primeng/ripple';
@@ -25,11 +19,9 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CarouselModule } from 'primeng/carousel';
-import { PasswordValidator } from '../validators/password.validator';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { StepsModule } from 'primeng/steps';
 // Services
-import { ScriptService } from '../../../core/services/script/script.service';
 import { AccountTypeFormComponent } from '../components/account-type-form/account-type-form.component';
 import { PersonalFormComponent } from '../components/personal-form/personal-form.component';
 import { AddressFormComponent } from '../components/address-form/address-form.component';

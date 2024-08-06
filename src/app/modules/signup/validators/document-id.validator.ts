@@ -23,6 +23,7 @@ export class DocumentIdValidator {
   private static isValidChileanDocumentId(documentId: string): boolean {
     const rut = documentId.trim();
     if (!rut) return false;
+    // FIXME: si no incluye guion de rut se muere.
     const parts = rut.split('-');
     if (parts.length !== 2) return false;
     const numbers = parts[0];

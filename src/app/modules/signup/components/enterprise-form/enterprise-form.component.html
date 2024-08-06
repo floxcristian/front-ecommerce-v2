@@ -11,9 +11,11 @@
       id="documentId"
       type="text"
       pInputText
-      maxlength="9"
-      pKeyFilter="alphanum"
+      maxlength="10"
       formControlName="documentId"
+      (focus)="onDocumentIdFieldFocus(documentIdField?.value)"
+      (input)="onDocumentIdFieldInput(documentIdField?.value)"
+      (blur)="onDocumentIdFieldBlur(documentIdField?.value)"
     />
     @if(documentIdField?.touched && documentIdField?.invalid) {
     <small class="text-red-500">

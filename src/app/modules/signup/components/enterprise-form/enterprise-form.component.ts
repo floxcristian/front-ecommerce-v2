@@ -2,6 +2,7 @@
 import { Component, output } from '@angular/core';
 import {
   FormBuilder,
+  FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
@@ -12,8 +13,16 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
 import { DocumentIdValidator } from '../../validators/document-id.validator';
-import { debounceTime, distinctUntilChanged } from 'rxjs';
+// Services
 import { DocumentIdService } from '../../services/document-id/document-id.service';
+// Models
+import { IEnterprise } from './enterprise.interface';
+
+export type ControlsOf<T extends Record<string, any>> = {
+  [K in keyof T]: T[K] extends Record<any, any>
+    ? FormGroup<ControlsOf<T[K]>>
+    : FormControl<T[K]>;
+};
 
 const NG_MODULES = [ReactiveFormsModule];
 const PRIME_MODULES = [
@@ -31,20 +40,20 @@ const PRIME_MODULES = [
   styleUrl: './enterprise-form.component.scss',
 })
 export class EnterpriseFormComponent {
-  enterpriseForm!: FormGroup;
   onGoBack = output<void>();
-  onSubmit = output<any>();
+  onSubmit = output<IEnterprise>();
+  enterpriseForm!: FormGroup<ControlsOf<IEnterprise>>;
 
   get documentIdField() {
-    return this.enterpriseForm.get('documentId');
+    return this.enterpriseForm.controls.documentId;
   }
 
   get businessNameField() {
-    return this.enterpriseForm.get('businessName');
+    return this.enterpriseForm.controls.businessName;
   }
 
   get businessLineField() {
-    return this.enterpriseForm.get('businessLine');
+    return this.enterpriseForm.controls.businessLine;
   }
 
   constructor(private readonly fb: FormBuilder) {
@@ -52,22 +61,14 @@ export class EnterpriseFormComponent {
   }
 
   private buildForm(): void {
-    this.enterpriseForm = this.fb.group({
+    this.enterpriseForm = this.fb.nonNullable.group({
       documentId: [
-        null,
+        '',
         [Validators.required, DocumentIdValidator.isValidDocumentId],
       ],
-      businessName: [null, [Validators.required]],
-      businessLine: [null, [Validators.required]],
+      businessName: ['', [Validators.required]],
+      businessLine: ['', [Validators.required]],
     });
-    // Evitar si tiene el mismo valor
-    // Dar un tiempo...
-    /*this.documentIdField?.events
-      .pipe(debounceTime(200), distinctUntilChanged())
-      .subscribe((event) => {
-        console.log('documentIdField changed', event);
-        // this.documentIdField?.setValue(event);
-      });*/
   }
 
   /**
@@ -76,7 +77,7 @@ export class EnterpriseFormComponent {
    */
   onDocumentIdFieldFocus(value: string): void {
     const formattedDocumentId = DocumentIdService.getEditableValue(value);
-    this.documentIdField?.setValue(formattedDocumentId);
+    this.documentIdField.setValue(formattedDocumentId);
   }
 
   /**
@@ -85,7 +86,7 @@ export class EnterpriseFormComponent {
    */
   onDocumentIdFieldInput(value: string): void {
     const formattedDocumentId = DocumentIdService.getValidCharacters(value);
-    this.documentIdField?.setValue(formattedDocumentId);
+    this.documentIdField.setValue(formattedDocumentId);
   }
 
   /**
@@ -94,10 +95,11 @@ export class EnterpriseFormComponent {
    */
   onDocumentIdFieldBlur(value: string): void {
     const formattedDocumentId = DocumentIdService.getFormattedDocumentId(value);
-    this.documentIdField?.setValue(formattedDocumentId);
+    this.documentIdField.setValue(formattedDocumentId);
   }
 
-  submit(value: any): void {
+  submit(value: IEnterprise): void {
+    this.enterpriseForm.getRawValue();
     this.onSubmit.emit(value);
   }
 }

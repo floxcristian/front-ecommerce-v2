@@ -7,7 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:front-ecommerce-v2": "node dist/front-ecommerce-v2/server/server.mjs"
+    "serve:ssr:front-ecommerce-v2": "node dist/front-ecommerce-v2/server/server.mjs",
+    "serve:pe": "ng serve --configuration development-pe",
+    "serve:pe:prod": "ng serve --configuration production-pe",
+    "build:pe": "ng build --configuration production-pe",
+    "build:pe:dev": "ng build --configuration development-pe"
   },
   "private": true,
   "dependencies": {

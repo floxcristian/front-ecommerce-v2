@@ -1,4 +1,4 @@
-import { config } from './config';
+import { config } from './config.pe';
 
 export const environment = {
   ...config,

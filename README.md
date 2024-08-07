@@ -28,3 +28,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 https://www.youtube.com/watch?v=kLUdumt8lNY&t=1s
 https://github.com/primefaces/primeng/issues/10142
+
+// PESCAR TODOS LOS VALORES DE UN FORM QUE TIENE CAMPOS DESHABILITADOS
+https://www.youtube.com/watch?v=xpRlijg6spo

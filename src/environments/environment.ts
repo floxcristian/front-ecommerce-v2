@@ -1,11 +1,6 @@
+import { config } from './config';
+
 export const environment = {
-  country: 'CL',
-  localeId: 'CLP',
-  currencyCode: 'CLP',
+  ...config,
   apiEcommerce: 'https://dev-api.implementos.cl/ecommerce',
-  /*country: 'PE',
-  localeId: 'PEN',
-  currencyCode: 'PEN',
-  apiEcommerce: 'https://b2b-api.implementos.cl/ecommerce',
-  */
 };

@@ -9,7 +9,7 @@ import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { registerLocaleData } from '@angular/common';
-import { environment } from '../environments/environment.development';
+import { environment } from '../environments/environment';
 
 if (environment.country === 'CL') {
   import('@angular/common/locales/es-CL').then((module) => {

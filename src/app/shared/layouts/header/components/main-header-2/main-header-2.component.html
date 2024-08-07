@@ -67,7 +67,7 @@
       </div>
     </div> -->
 
-    <div class="flex px-2 lg:px-3 py-3 lg:py-2 w-full">
+    <div class="flex p-0 lg:px-3 lg:py-2 w-full">
       <p-inputGroup>
         <!-- <p-dropdown [options]="options" placeholder="Todos"></p-dropdown> -->
         <!-- <p-splitButton label="Todos" [model]="items" class="border-noround" /> -->
@@ -187,14 +187,12 @@
           pRipple
           class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-4rem w-max"
         >
-          <!-- <i class="pi pi-bell text-3xl" pBadge severity="danger" value="2"></i> -->
           <i
             class="fa-sharp fa-regular fa-bell text-3xl"
             pBadge
             severity="danger"
             value="2"
           ></i>
-          <!-- <span class="hidden lg:inline font-bold">Carrito</span> -->
         </div>
       </li>
       <li class="align-items-center hidden lg:flex">
@@ -203,25 +201,17 @@
           class="border-right-1 surface-border mx-2"
         ></div>
       </li>
-      <li>
+      <li class="hidden lg:flex">
         <div
           pRipple
           class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-4rem w-max"
         >
-          <!--
-          <i
-            class="pi pi-shopping-cart text-3xl"
-            pBadge
-            severity="danger"
-            value="2"
-          ></i>-->
           <i
             class="fa-sharp fa-regular fa-cart-shopping text-3xl"
             pBadge
             severity="danger"
             value="2"
           ></i>
-          <!-- <span class="hidden lg:inline font-bold">Carrito</span> -->
         </div>
       </li>
     </ul>

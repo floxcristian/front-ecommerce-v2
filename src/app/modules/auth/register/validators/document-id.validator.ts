@@ -1,5 +1,5 @@
 import { AbstractControl } from '@angular/forms';
-import { environment } from '../../../../../environments/environment';
+import { environment } from '@env/environment';
 
 export class DocumentIdValidator {
   static isValidDocumentId(

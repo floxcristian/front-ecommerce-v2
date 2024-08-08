@@ -16,6 +16,12 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'auth',
+        loadChildren: () =>
+          import('./modules/auth/auth.routes').then((m) => m.AUTH_ROUTES),
+        canActivate: [],
+      },
+      {
         path: 'signup',
         loadComponent: () =>
           import('./modules/signup/signup-page/signup-page.component').then(

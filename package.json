@@ -5,13 +5,13 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "watch": "ng build --watch -c development",
     "test": "ng test",
     "serve:ssr:front-ecommerce-v2": "node dist/front-ecommerce-v2/server/server.mjs",
-    "serve:pe": "ng serve --configuration development-pe",
-    "serve:pe:prod": "ng serve --configuration production-pe",
-    "build:pe": "ng build --configuration production-pe",
-    "build:pe:dev": "ng build --configuration development-pe"
+    "serve:pe": "ng serve -c development-pe",
+    "serve:pe:prod": "ng serve -c production-pe",
+    "build:pe": "ng build -c production-pe",
+    "build:pe:dev": "ng build -c development-pe"
   },
   "private": true,
   "dependencies": {

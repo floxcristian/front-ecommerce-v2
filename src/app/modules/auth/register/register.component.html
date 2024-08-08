@@ -1,1 +1,117 @@
-<p>register works!</p>
+<main class="surface-ground">
+  <div class="container md:py-8">
+    <div class="surface-ground shadow-2">
+      <div class="flex flex-wrap">
+        <!-- Izquierda -->
+        <div
+          class="hidden md:block w-full lg:w-6 py-7 px-4 lg:px-7 surface-card md:border-right-1 surface-border"
+        >
+          <div class="border-bottom-1 surface-border mb-5">
+            <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">
+              Únete a la familia de
+              <span class="text-blue-600">Implementos</span>
+            </h2>
+            <p class="mt-0 mb-5 text-700 font-normal text-base">
+              ¿Ya tienes una cuenta?
+              <a target="_blank" href="#" class="font-medium text-blue-500"
+                >Inicia sesión aquí</a
+              >
+            </p>
+          </div>
+          <ul class="list-none px-0 py-6 m-0">
+            <li class="flex align-items-start mb-4">
+              <div>
+                <span
+                  class="flex align-items-center justify-content-center bg-purple-400"
+                  style="width: 50px; height: 45px; border-radius: 10px"
+                >
+                  <!-- <i class="text-xl text-white pi pi-inbox"></i> -->
+                  <i
+                    class="fa-sharp-duotone fa-solid fa-file-invoice-dollar text-3xl text-white"
+                  ></i>
+                </span>
+              </div>
+              <div class="ml-3">
+                <span class="font-medium text-900">Revisar tus boletas</span>
+                <p class="mt-2 mb-0 text-600 line-height-3">
+                  Tincidunt nunc pulvinar sapien et. Vitae purus faucibus ornare
+                  suspendisse sed nisi lacus sed viverra.
+                </p>
+              </div>
+            </li>
+            <li class="flex align-items-start mb-4">
+              <div>
+                <span
+                  class="flex align-items-center justify-content-center bg-purple-400"
+                  style="width: 50px; height: 50px; border-radius: 10px"
+                >
+                  <!-- <i class="text-xl text-white pi pi-shield"></i> -->
+                  <!--<i
+                      class="fa-duotone fa-solid fa-star text-3xl text-white"
+                    ></i>-->
+                  <i
+                    class="fa-sharp-duotone fa-solid fa-address-book text-3xl text-white"
+                  ></i>
+                </span>
+              </div>
+              <div class="ml-3">
+                <span class="font-medium text-900"
+                  >Guardar medios de pago y direcciones favoritas</span
+                >
+                <p class="mt-2 mb-0 text-600 line-height-3">
+                  Scelerisque purus semper eget duis at tellus at urna. Sed
+                  risus pretium quam vulputate.
+                </p>
+              </div>
+            </li>
+            <li class="flex align-items-start">
+              <div>
+                <span
+                  class="flex align-items-center justify-content-center bg-purple-400"
+                  style="width: 50px; height: 50px; border-radius: 10px"
+                >
+                  <!-- <i class="text-xl text-white pi pi-globe"></i> -->
+                  <i
+                    class="fa-sharp-duotone fa-solid fa-gift text-3xl text-white"
+                  ></i>
+                </span>
+              </div>
+              <div class="ml-3">
+                <span class="font-medium text-900"
+                  >Precios Implementos Family</span
+                >
+                <p class="mt-2 mb-0 text-600 line-height-3">
+                  Ahorra con promociones especiales, cupones de descuento y más.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- Formulario -->
+        <div class="w-full lg:w-6 py-7 px-4 lg:px-7 surface-card">
+          @if(step === 1){
+          <app-account-type-form (onSubmit)="submitRoleForm($event)" />
+          } @else if(step === 2 && accountType === 'enterprise'){
+          <app-enterprise-form
+            (onGoBack)="goBack()"
+            (onSubmit)="submitEnterpriseForm($event)"
+          />
+          } @else if((step === 2 && accountType === 'customer' || (step === 3 &&
+          accountType === 'enterprise'))){
+          <app-personal-form
+            [accountType]="accountType"
+            (onGoBack)="goBack()"
+            (onSubmit)="submitPersonalForm($event)"
+          />
+          } @else {
+          <app-address-form
+            [accountType]="accountType"
+            (onGoBack)="goBack()"
+            (onSubmit)="submitAddressForm($event)"
+          />
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

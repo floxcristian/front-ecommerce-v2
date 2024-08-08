@@ -99,7 +99,12 @@ export class EnterpriseFormComponent {
   }
 
   submit(value: IEnterprise): void {
-    this.enterpriseForm.getRawValue();
-    this.onSubmit.emit(value);
+    if (this.enterpriseForm.valid) {
+      this.enterpriseForm.getRawValue();
+      this.onSubmit.emit(value);
+    } else {
+      // Nicolas molina. 2021-09-29. Se agrega el método markAllAsTouched para marcar todos los campos como tocados y mostrar errores.
+      this.enterpriseForm.markAllAsTouched();
+    }
   }
 }

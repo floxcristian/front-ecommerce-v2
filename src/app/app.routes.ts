@@ -21,13 +21,6 @@ export const routes: Routes = [
           import('./modules/auth/auth.routes').then((m) => m.AUTH_ROUTES),
         canActivate: [],
       },
-      {
-        path: 'signup',
-        loadComponent: () =>
-          import('./modules/signup/signup-page/signup-page.component').then(
-            (m) => m.SignupPageComponent
-          ),
-      },
     ],
   },
 ];

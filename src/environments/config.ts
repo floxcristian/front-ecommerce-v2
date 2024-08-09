@@ -5,7 +5,8 @@ export const config: IConfig = {
   localeId: 'CLP',
   currencyCode: 'CLP',
   documentId: {
-    name: 'RUT',
+    customer: 'RUT',
+    enterprise: 'RUT empresa',
     documentLength: 10,
     sample: '12345678-9',
   },

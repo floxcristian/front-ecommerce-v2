@@ -3,7 +3,8 @@ export interface IConfig {
   localeId: string;
   currencyCode: string;
   documentId: {
-    name: string;
+    customer: string;
+    enterprise: string;
     documentLength: number;
     sample: string;
   };

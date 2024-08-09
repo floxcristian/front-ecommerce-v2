@@ -13,6 +13,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { RippleModule } from 'primeng/ripple';
+import { SkeletonModule } from 'primeng/skeleton';
 
 const NG_MODULES = [ReactiveFormsModule, GoogleMapsModule];
 const PRIME_MODULES = [
@@ -21,6 +22,7 @@ const PRIME_MODULES = [
   RippleModule,
   InputTextareaModule,
   CheckboxModule,
+  SkeletonModule,
 ];
 
 @Component({
@@ -34,9 +36,11 @@ export class AddressFormComponent {
   accountType = input.required<string>();
   onGoBack = output<void>();
   onSubmit = output<any>();
+  pass: number = 1;
 
   addressForm!: FormGroup;
 
+  // TODO: usarlo como un signal
   isMapLoaded: boolean = false;
   options: google.maps.MapOptions = {
     mapId: 'DEMO_MAP_ID',
@@ -63,6 +67,13 @@ export class AddressFormComponent {
 
   submit(value: any): void {
     console.log('OK');
-    this.onSubmit.emit(value);
+    //this.onSubmit.emit(value);
+    this.pass++;
+  }
+
+  onMapReady() {
+    console.log('onMapReady');
+    this.isMapLoaded = true;
+    console.log('isMapLoaded', this.isMapLoaded);
   }
 }

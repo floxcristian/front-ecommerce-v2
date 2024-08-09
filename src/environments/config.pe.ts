@@ -5,7 +5,8 @@ export const config: IConfig = {
   localeId: 'PEN',
   currencyCode: 'PEN',
   documentId: {
-    name: 'DNI',
+    customer: 'DNI',
+    enterprise: 'RUC',
     documentLength: 10,
     sample: '12345678-9',
   },

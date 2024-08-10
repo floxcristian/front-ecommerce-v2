@@ -8,4 +8,10 @@ export interface IConfig {
     documentLength: number;
     sample: string;
   };
+  tax: {
+    name: string;
+    value: number;
+    labelWithTax: string;
+    labelWithoutTax: string;
+  };
 }

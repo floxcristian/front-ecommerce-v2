@@ -19,7 +19,7 @@
   >
     <li class="flex-1">
       <a
-        [routerLink]="['']"
+        routerLink="/"
         pRipple
         class="md:cursor-pointer px-2 py-3 flex align-items-center justify-content-center hover:border-500 transition-colors transition-duration-150 flex-column no-underline"
         [ngClass]="{
@@ -44,7 +44,7 @@
           'border-blue-500 text-blue-500 hover:border-blue-500': active5 === 1,
           'text-700 border-transparent': active5 !== 1
         }"
-        [routerLink]="['']"
+        routerLink]="/"
         (click)="active5 = 1"
       >
         <!-- <i class="pi pi-objects-column mb-2 text-2xl"></i> -->
@@ -63,7 +63,7 @@
           'border-blue-500 text-blue-500 hover:border-blue-500': active5 === 2,
           'text-700 border-transparent': active5 !== 2
         }"
-        [routerLink]="['auth/register']"
+        routerLink="auth/register"
         (click)="active5 = 2"
       >
         <!-- <i class="pi pi-user mb-2 text-2xl"></i> -->
@@ -82,7 +82,7 @@
           'border-blue-500 text-blue-500 hover:border-blue-500': active5 === 3,
           'text-700 border-transparent': active5 !== 3
         }"
-        [routerLink]="['']"
+        routerLink]="/"
         (click)="active5 = 3"
       >
         <!-- <i class="pi pi-bars mb-2 text-2xl"></i> -->
@@ -101,7 +101,7 @@
           'border-blue-500 text-blue-500 hover:border-blue-500': active5 === 4,
           'text-700 border-transparent': active5 !== 4
         }"
-        [routerLink]="['']"
+        routerLink]="/"
         (click)="active5 = 4"
       >
         <!-- <i class="pi pi-comments mb-2 text-2xl"></i> -->

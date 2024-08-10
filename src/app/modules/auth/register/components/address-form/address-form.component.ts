@@ -1,5 +1,5 @@
 // Angular
-import { Component, input, output } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -40,10 +40,8 @@ export class AddressFormComponent {
 
   addressForm!: FormGroup;
 
-  // TODO: usarlo como un signal
-  isMapLoaded: boolean = false;
+  isMapLoaded = signal<boolean>(false);
   options: google.maps.MapOptions = {
-    mapId: 'DEMO_MAP_ID',
     center: { lat: -31, lng: 147 },
     zoom: 4,
   };
@@ -72,8 +70,6 @@ export class AddressFormComponent {
   }
 
   onMapReady() {
-    console.log('onMapReady');
-    this.isMapLoaded = true;
-    console.log('isMapLoaded', this.isMapLoaded);
+    this.isMapLoaded.set(true);
   }
 }

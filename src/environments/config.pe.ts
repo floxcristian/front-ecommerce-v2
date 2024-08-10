@@ -11,9 +11,9 @@ export const config: IConfig = {
     sample: '12345678-9',
   },
   tax: {
-    name: 'IVA',
+    name: 'IGV',
     value: 0.18,
-    labelWithTax: 'c/IVA',
+    labelWithTax: 'c/IGV',
     labelWithoutTax: 'neto',
   },
 };

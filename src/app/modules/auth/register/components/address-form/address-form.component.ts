@@ -36,7 +36,6 @@ export class AddressFormComponent {
   accountType = input.required<string>();
   onGoBack = output<void>();
   onSubmit = output<any>();
-  pass: number = 1;
 
   addressForm!: FormGroup;
 
@@ -66,7 +65,6 @@ export class AddressFormComponent {
   submit(value: any): void {
     console.log('OK');
     //this.onSubmit.emit(value);
-    this.pass++;
   }
 
   onMapReady() {

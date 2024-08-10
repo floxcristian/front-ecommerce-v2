@@ -2,84 +2,24 @@
   <ul
     class="surface-card p-0 m-0 list-none flex overflow-x-auto select-none shadow-2"
   >
+    @for(item of items; track $index){
     <li class="flex-1">
       <a
-        routerLink="/"
+        [routerLink]="item.routerLink"
         routerLinkActive="text-blue-500"
-        #rla1="routerLinkActive"
+        #rla="routerLinkActive"
         [routerLinkActiveOptions]="{ exact: true }"
         class="px-2 py-3 flex align-items-center justify-content-center transition-colors transition-duration-150 flex-column no-underline text-700"
         pRipple
       >
         <i
-          class="fa-sharp fa-house mb-2 text-2xl"
-          [ngClass]="rla1.isActive ? 'fa-solid' : 'fa-regular'"
+          class="fa-sharp mb-2 text-2xl"
+          [class]="item.icon"
+          [ngClass]="rla.isActive ? 'fa-solid' : 'fa-regular'"
         ></i>
-        <span class="font-medium text-xs">Inicio</span>
+        <span class="font-medium text-xs">{{ item.label }}</span>
       </a>
     </li>
-    <li class="flex-1">
-      <a
-        routerLink="/1"
-        routerLinkActive="text-blue-500"
-        #rla2="routerLinkActive"
-        class="px-2 py-3 flex align-items-center justify-content-center transition-colors transition-duration-150 flex-column no-underline text-700"
-        pRipple
-      >
-        <i
-          class="fa-sharp fa-objects-column mb-2 text-2xl"
-          [ngClass]="rla2.isActive ? 'fa-solid' : 'fa-regular'"
-        ></i>
-        <span class="font-medium text-xs">Categorías</span>
-      </a>
-    </li>
-    <li class="flex-1">
-      <a
-        routerLink="auth/register"
-        routerLinkActive="text-blue-500"
-        #rla3="routerLinkActive"
-        class="md:cursor-pointer px-2 py-3 flex align-items-center justify-content-center hover:border-500 transition-colors transition-duration-150 flex-column no-underline text-700"
-        pRipple
-      >
-        <i
-          class="fa-sharp fa-user mb-2 text-2xl"
-          [ngClass]="rla3.isActive ? 'fa-solid' : 'fa-regular'"
-        ></i>
-        <span class="font-medium text-xs">Mi cuenta</span>
-      </a>
-    </li>
-    <li class="flex-1">
-      <a
-        routerLink="/2"
-        routerLinkActive="text-blue-500"
-        #rla4="routerLinkActive"
-        class="md:cursor-pointer px-2 py-3 flex align-items-center justify-content-center hover:border-500 transition-colors transition-duration-150 flex-column no-underline text-700"
-        pRipple
-      >
-        <i
-          class="fa-sharp fa-bars mb-2 text-2xl"
-          [ngClass]="rla4.isActive ? 'fa-solid' : 'fa-regular'"
-        ></i>
-        <span class="font-medium text-xs">Menú</span>
-      </a>
-    </li>
-    <li class="flex-1">
-      <a
-        routerLink="/3"
-        routerLinkActive="text-blue-500"
-        #rla5="routerLinkActive"
-        class="md:cursor-pointer px-2 py-3 flex align-items-center justify-content-center hover:border-500 transition-colors transition-duration-150 flex-column no-underline text-700"
-        pRipple
-      >
-        <i
-          class="fa-sharp fa-cart-shopping mb-2 text-2xl"
-          pBadge
-          severity="danger"
-          value="2"
-          [ngClass]="rla4.isActive ? 'fa-solid' : 'fa-regular'"
-        ></i>
-        <span class="font-medium text-xs">Carro</span>
-      </a>
-    </li>
+    }
   </ul>
 </footer>

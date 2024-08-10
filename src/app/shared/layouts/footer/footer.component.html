@@ -20,18 +20,15 @@
     <li class="flex-1">
       <a
         routerLink="/"
+        routerLinkActive="text-blue-500"
+        #rla="routerLinkActive"
+        [routerLinkActiveOptions]="{ exact: true }"
         pRipple
-        class="md:cursor-pointer px-2 py-3 flex align-items-center justify-content-center hover:border-500 transition-colors transition-duration-150 flex-column no-underline"
-        [ngClass]="{
-          'border-blue-500 text-blue-500 hover:border-blue-500': active5 === 0,
-          'text-700 border-transparent': active5 !== 0
-        }"
-        (click)="active5 = 0"
+        class="md:cursor-pointer px-2 py-3 flex align-items-center justify-content-center transition-colors transition-duration-150 flex-column no-underline text-700"
       >
-        <!-- <i class="pi pi-home mb-2 text-2xl"></i> -->
         <i
           class="fa-sharp fa-house mb-2 text-2xl"
-          [ngClass]="active5 === 0 ? 'fa-solid' : 'fa-regular'"
+          [ngClass]="rla.isActive ? 'fa-solid' : 'fa-regular'"
         ></i>
         <span class="font-medium text-xs">Inicio</span>
       </a>
@@ -44,7 +41,7 @@
           'border-blue-500 text-blue-500 hover:border-blue-500': active5 === 1,
           'text-700 border-transparent': active5 !== 1
         }"
-        routerLink]="/"
+        routerLink="/1"
         (click)="active5 = 1"
       >
         <!-- <i class="pi pi-objects-column mb-2 text-2xl"></i> -->
@@ -58,18 +55,14 @@
     <li class="flex-1">
       <a
         pRipple
-        class="md:cursor-pointer px-2 py-3 flex align-items-center justify-content-center hover:border-500 transition-colors transition-duration-150 flex-column no-underline"
-        [ngClass]="{
-          'border-blue-500 text-blue-500 hover:border-blue-500': active5 === 2,
-          'text-700 border-transparent': active5 !== 2
-        }"
+        routerLinkActive="text-blue-500"
+        #rla2="routerLinkActive"
+        class="md:cursor-pointer px-2 py-3 flex align-items-center justify-content-center hover:border-500 transition-colors transition-duration-150 flex-column no-underline text-700"
         routerLink="auth/register"
-        (click)="active5 = 2"
       >
-        <!-- <i class="pi pi-user mb-2 text-2xl"></i> -->
         <i
           class="fa-sharp fa-user mb-2 text-2xl"
-          [ngClass]="active5 === 2 ? 'fa-solid' : 'fa-regular'"
+          [ngClass]="rla2.isActive ? 'fa-solid' : 'fa-regular'"
         ></i>
         <span class="font-medium text-xs">Mi cuenta</span>
       </a>
@@ -82,7 +75,7 @@
           'border-blue-500 text-blue-500 hover:border-blue-500': active5 === 3,
           'text-700 border-transparent': active5 !== 3
         }"
-        routerLink]="/"
+        routerLink="/2"
         (click)="active5 = 3"
       >
         <!-- <i class="pi pi-bars mb-2 text-2xl"></i> -->
@@ -101,7 +94,7 @@
           'border-blue-500 text-blue-500 hover:border-blue-500': active5 === 4,
           'text-700 border-transparent': active5 !== 4
         }"
-        routerLink]="/"
+        routerLink="/3"
         (click)="active5 = 4"
       >
         <!-- <i class="pi pi-comments mb-2 text-2xl"></i> -->

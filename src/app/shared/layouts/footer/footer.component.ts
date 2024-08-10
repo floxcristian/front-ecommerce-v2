@@ -1,7 +1,7 @@
 // Angular
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 // PrimeNG
 import { BadgeModule } from 'primeng/badge';
 import { RippleModule } from 'primeng/ripple';
@@ -18,4 +18,6 @@ const PRIME_MODULES = [BadgeModule, RippleModule];
 })
 export class FooterComponent {
   active5: number = 0;
+
+  constructor(public readonly router: Router) {}
 }

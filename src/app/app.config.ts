@@ -3,6 +3,7 @@ import {
   provideZoneChangeDetection,
   DEFAULT_CURRENCY_CODE,
   LOCALE_ID,
+  provideExperimentalZonelessChangeDetection,
 } from '@angular/core';
 import {
   provideRouter,
@@ -27,7 +28,8 @@ if (environment.country === 'CL') {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
+    // provideZoneChangeDetection({ eventCoalescing: true }),
+    provideExperimentalZonelessChangeDetection(),
     provideRouter(
       routes,
       withViewTransitions(),
@@ -47,5 +49,3 @@ export const appConfig: ApplicationConfig = {
     },
   ],
 };
-
-// provideZoneChangeDetection??

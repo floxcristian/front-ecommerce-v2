@@ -1,5 +1,11 @@
 // Angular
-import { Component, input, output, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+  signal,
+} from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -31,6 +37,7 @@ const PRIME_MODULES = [
   imports: [...NG_MODULES, ...PRIME_MODULES],
   templateUrl: './address-form.component.html',
   styleUrl: './address-form.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddressFormComponent {
   accountType = input.required<string>();

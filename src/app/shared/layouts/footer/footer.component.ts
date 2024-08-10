@@ -1,5 +1,5 @@
 // Angular
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 // PrimeNG
@@ -17,6 +17,7 @@ const PRIME_MODULES = [BadgeModule, RippleModule];
   imports: [...NG_MODULES, ...PRIME_MODULES],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {
   items: IFooterItem[] = [

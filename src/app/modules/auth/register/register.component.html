@@ -104,25 +104,25 @@
             </li> -->
           </ul>
         </div>
-        <!-- Formulario -->
+
         <div class="w-full lg:w-6 py-7 px-4 lg:px-7 surface-card">
-          @if(step === 1){
+          @if(step() === 1){
           <app-account-type-form (onSubmit)="submitRoleForm($event)" />
-          } @else if(step === 2 && accountType === 'enterprise'){
+          } @else if(step() === 2 && accountType() === 'enterprise'){
           <app-enterprise-form
             (onGoBack)="goBack()"
             (onSubmit)="submitEnterpriseForm($event)"
           />
-          } @else if((step === 2 && accountType === 'customer' || (step === 3 &&
-          accountType === 'enterprise'))){
+          } @else if((step() === 2 && accountType() === 'customer' || (step()
+          === 3 && accountType() === 'enterprise'))){
           <app-personal-form
-            [accountType]="accountType"
+            [accountType]="accountType()"
             (onGoBack)="goBack()"
             (onSubmit)="submitPersonalForm($event)"
           />
           } @else {
           <app-address-form
-            [accountType]="accountType"
+            [accountType]="accountType()"
             (onGoBack)="goBack()"
             (onSubmit)="submitAddressForm($event)"
           />

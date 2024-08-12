@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.geolocationService.getStores().subscribe((stores) => {
-      console.log('store: ', stores);
+      // console.log('store: ', stores);
     });
   }
 }

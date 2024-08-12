@@ -4,28 +4,40 @@
  * https://github.com/ngneat/error-tailor/blob/master/projects/ngneat/error-tailor/src/lib/control-error.directive.ts
  *****************************************************************************************/
 
-import { Directive, ElementRef, inject } from '@angular/core';
-import { fromEvent } from 'rxjs';
+import {
+  DestroyRef,
+  Directive,
+  ElementRef,
+  inject,
+  OnInit,
+} from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { fromEvent, Subject } from 'rxjs';
 import { shareReplay, tap } from 'rxjs/operators';
 
 @Directive({
   selector: 'form',
   standalone: true,
 })
-export class FormSubmitDirective {
-  submit$ = fromEvent(this.element, 'submit').pipe(
+export class FormSubmitDirective implements OnInit {
+  private submit = new Subject<Event | null>();
+  private readonly destroyRef: DestroyRef = inject(DestroyRef);
+  /*submit$ = fromEvent(this.element, 'submit').pipe(
     tap(() => {
       if (this.element.classList.contains('submitted') === false) {
         this.element.classList.add('submitted');
       }
     }),
     shareReplay(1)
-  );
+  );*/
 
   private host: ElementRef<HTMLFormElement> = inject(ElementRef);
-  //constructor(private host: ElementRef<HTMLFormElement>) {}
+  element = this.host.nativeElement;
+  submit$ = this.submit.asObservable();
 
-  get element() {
-    return this.host.nativeElement;
+  ngOnInit() {
+    fromEvent(this.element, 'submit')
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(this.submit);
   }
 }

@@ -39,11 +39,15 @@ export class ControlErrorsDirective implements OnInit {
   //container!: ViewContainerRef;
   //@Input() customErrors = {};
   //errors = inject(FORM_ERRORS);
+  private submit$: Observable<Event | null>;
 
   constructor(
     @Self() private readonly controlDir: NgControl,
-    @Inject(FORM_ERRORS) private errors: any
-  ) {}
+    @Inject(FORM_ERRORS) private errors: any,
+    @Optional() private form: FormSubmitDirective
+  ) {
+    this.submit$ = this.form ? this.form.submit$ : EMPTY;
+  }
 
   ngOnInit(): void {
     console.log('pass');
@@ -52,8 +56,9 @@ export class ControlErrorsDirective implements OnInit {
       .subscribe((res) => {
         console.log('res: ', res);
         const hasErrors = !!this.control?.errors;
+        console.log('hasErrors: ', hasErrors);
         if (hasErrors) {
-          //this.showError();
+          this.showError();
         } else {
           //this.hideError();
         }
@@ -81,6 +86,7 @@ export class ControlErrorsDirective implements OnInit {
         typeof getError === 'function'
           ? getError(controlErrors[firstKey])
           : getError;
+      console.log('error message: ', text);
       /*this.addCustomClass();
       this.setError(text, controlErrors);*/
     }

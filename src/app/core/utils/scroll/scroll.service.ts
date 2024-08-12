@@ -8,7 +8,7 @@ import { DOCUMENT } from '@angular/common';
 export class ScrollService {
   constructor(@Inject(DOCUMENT) private document: Document) {}
 
-  scrollToTop() {
+  scrollToTop(): void {
     const scrollContainer = this.document.documentElement || this.document.body;
     scrollContainer.scrollTo({
       top: 0,

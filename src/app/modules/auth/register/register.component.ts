@@ -2,6 +2,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
+  effect,
   inject,
   signal,
 } from '@angular/core';
@@ -32,31 +34,37 @@ export class RegisterComponent {
   step = signal<number>(1);
   accountType = signal<string>('');
 
+  constructor() {
+    effect(() => {
+      this.step();
+      this.scrollService.scrollToTop();
+    });
+  }
+
+  onStepChange(): void {
+    this.step;
+  }
+
   submitRoleForm(role: string): void {
     this.step.update((value) => value + 1);
     this.accountType.set(role);
-    this.scrollService.scrollToTop();
   }
 
   submitPersonalForm(personalInfo: any): void {
     console.log('personalInfo: ', personalInfo);
     this.step.update((value) => value + 1);
-    this.scrollService.scrollToTop();
   }
 
   submitEnterpriseForm(enterpriseInfo: any): void {
     console.log('enterpriseInfo: ', enterpriseInfo);
     this.step.update((value) => value + 1);
-    this.scrollService.scrollToTop();
   }
 
   submitAddressForm(addressInfo: any): void {
     console.log('addressInfo: ', addressInfo);
-    this.scrollService.scrollToTop();
   }
 
   goBack(): void {
     this.step.update((value) => value - 1);
-    this.scrollService.scrollToTop();
   }
 }

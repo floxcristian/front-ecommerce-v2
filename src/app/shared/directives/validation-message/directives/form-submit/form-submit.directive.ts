@@ -37,7 +37,7 @@ export class FormSubmitDirective implements OnInit {
 
   ngOnInit() {
     fromEvent(this.element, 'submit')
-      .pipe(takeUntilDestroyed(this.destroyRef))
+      .pipe(shareReplay(1), takeUntilDestroyed(this.destroyRef))
       .subscribe(this.submit);
   }
 }

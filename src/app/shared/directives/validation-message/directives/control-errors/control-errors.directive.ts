@@ -14,7 +14,7 @@ import {
   Self,
   ViewContainerRef,
 } from '@angular/core';
-import { NgControl } from '@angular/forms';
+import { NgControl, ValidationErrors } from '@angular/forms';
 import {
   EMPTY,
   merge,
@@ -39,12 +39,14 @@ export class ControlErrorsDirective implements OnInit {
   //container!: ViewContainerRef;
   //@Input() customErrors = {};
   //errors = inject(FORM_ERRORS);
+  private ref!: ComponentRef<ControlErrorComponent>;
   private submit$: Observable<Event | null>;
 
   constructor(
     @Self() private readonly controlDir: NgControl,
     @Inject(FORM_ERRORS) private errors: any,
-    @Optional() private form: FormSubmitDirective
+    @Optional() private form: FormSubmitDirective,
+    private vcr: ViewContainerRef
   ) {
     this.submit$ = this.form ? this.form.submit$ : EMPTY;
   }
@@ -87,8 +89,40 @@ export class ControlErrorsDirective implements OnInit {
           ? getError(controlErrors[firstKey])
           : getError;
       console.log('error message: ', text);
-      /*this.addCustomClass();
-      this.setError(text, controlErrors);*/
+      /*this.addCustomClass();*/
+      this.setError(text, controlErrors);
     }
+  }
+
+  private setError(text: string, error?: ValidationErrors) {
+    if (!this.ref) {
+      this.ref = this.vcr.createComponent<ControlErrorComponent>(
+        ControlErrorComponent
+      );
+    }
+    const instance = this.ref.instance;
+    instance.text = text;
+    /*if (this.mergedConfig.controlClassOnly) {
+      return;
+    }*/
+    /*this.ref ??= this.resolveAnchor().createComponent<ControlErrorComponent>(this.mergedConfig.controlErrorComponent);
+    const instance = this.ref.instance;*/
+    /*
+    if (this.controlErrorsTpl) {
+      instance.createTemplate(this.controlErrorsTpl, error, text);
+    } else {
+      instance.text = text;
+    }
+
+    if (this.controlErrorsClass) {
+      instance.customClass = this.controlErrorsClass;
+    }
+
+    if (!this.controlErrorAnchor && this.mergedConfig.controlErrorComponentAnchorFn) {
+      this.customAnchorDestroyFn = this.mergedConfig.controlErrorComponentAnchorFn(
+        this.host,
+        (this.ref.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement,
+      );
+    }*/
   }
 }

@@ -1,7 +1,7 @@
 import { InjectionToken } from '@angular/core';
 
 export const defaultErrors = {
-  required: (): string => `This field is required`,
+  required: (): string => `This field is required.`,
   minlength: ({
     requiredLength,
     actualLength,

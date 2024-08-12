@@ -1,5 +1,5 @@
 // Angular
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 // PrimeNg
 import { RippleModule } from 'primeng/ripple';
@@ -9,6 +9,8 @@ import { DividerModule } from 'primeng/divider';
 import { ButtonModule } from 'primeng/button';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { PrimeNGConfig } from 'primeng/api';
+import { GeolocationService } from './core/api/geolocation/geolocation.service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 const PRIME_MODULES = [
   RippleModule,
@@ -26,8 +28,17 @@ const PRIME_MODULES = [
   template: '<router-outlet/>',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  private readonly geolocationService = inject(GeolocationService);
+  stores = toSignal(this.geolocationService.getStores(), { initialValue: [] });
+
   constructor(private primeConfig: PrimeNGConfig) {
     this.primeConfig.ripple = true;
+  }
+
+  ngOnInit(): void {
+    this.geolocationService.getStores().subscribe((stores) => {
+      console.log('store: ', stores);
+    });
   }
 }

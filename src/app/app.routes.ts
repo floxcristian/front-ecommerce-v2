@@ -1,12 +1,13 @@
 // Angular
 import { Routes } from '@angular/router';
-// Layouts
-import { MainLayoutComponent } from './shared/layouts/main-layout/main-layout.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: MainLayoutComponent,
+    loadComponent: () =>
+      import('./shared/layouts/main-layout/main-layout.component').then(
+        (m) => m.MainLayoutComponent
+      ),
     children: [
       {
         path: '',

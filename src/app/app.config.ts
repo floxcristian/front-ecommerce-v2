@@ -15,6 +15,7 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { registerLocaleData } from '@angular/common';
 import { environment } from '@env/environment';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 if (environment.country === 'CL') {
   import('@angular/common/locales/es-CL').then((module) => {
@@ -37,6 +38,7 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: 'top',
       })
     ),
+    provideHttpClient(withFetch()),
     provideAnimationsAsync(),
     provideClientHydration(),
     {

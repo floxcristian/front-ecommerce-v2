@@ -17,6 +17,7 @@ import { DocumentIdValidator } from '../../validators/document-id.validator';
 import { DocumentIdService } from '../../services/document-id/document-id.service';
 // Models
 import { IEnterprise } from './enterprise.interface';
+import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
 
 export type ControlsOf<T extends Record<string, any>> = {
   [K in keyof T]: T[K] extends Record<any, any>
@@ -35,7 +36,7 @@ const PRIME_MODULES = [
 @Component({
   selector: 'app-enterprise-form',
   standalone: true,
-  imports: [...NG_MODULES, ...PRIME_MODULES],
+  imports: [...NG_MODULES, ...PRIME_MODULES, ControlErrorsDirective],
   templateUrl: './enterprise-form.component.html',
   styleUrl: './enterprise-form.component.scss',
 })

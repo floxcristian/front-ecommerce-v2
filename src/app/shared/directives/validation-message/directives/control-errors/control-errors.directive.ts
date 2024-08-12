@@ -1,13 +1,17 @@
+// https://github.com/ngneat/error-tailor/blob/master/projects/ngneat/error-tailor/src/lib/control-error.directive.ts
 import {
   ComponentFactoryResolver,
   ComponentRef,
+  DestroyRef,
   Directive,
   ElementRef,
   Host,
+  inject,
   Inject,
   Input,
   OnInit,
   Optional,
+  Self,
   ViewContainerRef,
 } from '@angular/core';
 import { NgControl } from '@angular/forms';
@@ -24,65 +28,61 @@ import { FormSubmitDirective } from '../form-submit/form-submit.directive';
 import { ControlErrorComponent } from '../../components/control-error/control-error.component';
 import { ControlErrorContainerDirective } from '../control-error-container/control-error-container.directive';
 import { FORM_ERRORS } from '../../form-errors';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Directive({
   selector: '[formControlName]',
   standalone: true,
 })
 export class ControlErrorsDirective implements OnInit {
-  private submit$: Observable<Event>;
-  private ref!: ComponentRef<ControlErrorComponent>;
-  private destroy = new Subject<void>();
-
-  container!: ViewContainerRef;
-  @Input() customErrors = {};
+  private readonly destroyRef: DestroyRef = inject(DestroyRef);
+  //container!: ViewContainerRef;
+  //@Input() customErrors = {};
+  //errors = inject(FORM_ERRORS);
 
   constructor(
-    private readonly controlDir: NgControl,
-    private readonly vcr: ViewContainerRef,
-    @Optional() @Host() private form: FormSubmitDirective,
-    //
-    private resolver: ComponentFactoryResolver,
-    @Optional() controlErrorContainer: ControlErrorContainerDirective,
+    @Self() private readonly controlDir: NgControl,
     @Inject(FORM_ERRORS) private errors: any
-  ) {
-    this.submit$ = this.form ? this.form.submit$ : EMPTY;
-    this.container = controlErrorContainer ? controlErrorContainer.vcr : vcr;
-  }
+  ) {}
 
   ngOnInit(): void {
-    const valueChanges$ = this.control?.valueChanges;
-
-    /*
-    merge(this.submit$, this.control?.valueChanges)
-      // Corregir esto usando lo de angular y no una librería externa:
-      .pipe(untilDestroyed(this))
-      .subscribe((v) => {
-        const controlErrors = this.control?.errors;
-        if (controlErrors) {
-          const firstKey = Object.keys(controlErrors)[0];
-          const getError = this.errors[firstKey];
-          const text =
-            this.customErrors[firstKey] || getError(controlErrors[firstKey]);
-          this.setError(text);
-        } else if (this.ref) {
-          this.setError(null);
+    console.log('pass');
+    this.control?.valueChanges
+      .pipe(distinctUntilChanged(), takeUntilDestroyed(this.destroyRef))
+      .subscribe((res) => {
+        console.log('res: ', res);
+        const hasErrors = !!this.control?.errors;
+        if (hasErrors) {
+          //this.showError();
+        } else {
+          //this.hideError();
         }
-      });*/
-  }
-
-  setError(text: string | null): void {
-    if (!this.ref) {
-      const factory = this.resolver.resolveComponentFactory(
-        ControlErrorComponent
-      );
-      this.ref = this.vcr.createComponent(factory);
-    }
-
-    this.ref.instance.text = text;
+      });
   }
 
   get control() {
     return this.controlDir.control;
+  }
+
+  /**
+   * Explicit showing of a control error via some custom application code.
+   */
+  showError(): void {
+    const controlErrors = this.control?.errors;
+    if (controlErrors) {
+      const [firstKey] = Object.keys(controlErrors);
+      const getError = this.errors[firstKey];
+      if (!getError) {
+        console.warn(`Missing error message for ${firstKey}.`);
+        return;
+      }
+
+      const text =
+        typeof getError === 'function'
+          ? getError(controlErrors[firstKey])
+          : getError;
+      /*this.addCustomClass();
+      this.setError(text, controlErrors);*/
+    }
   }
 }

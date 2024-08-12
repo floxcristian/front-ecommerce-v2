@@ -1,9 +1,10 @@
 /*****************************************************************************************
  * Permite mostrar errores de validación en un formulario cuando se intenta enviar
  * un formulario inválido.
+ * https://github.com/ngneat/error-tailor/blob/master/projects/ngneat/error-tailor/src/lib/control-error.directive.ts
  *****************************************************************************************/
 
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef, inject } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { shareReplay, tap } from 'rxjs/operators';
 
@@ -21,7 +22,8 @@ export class FormSubmitDirective {
     shareReplay(1)
   );
 
-  constructor(private host: ElementRef<HTMLFormElement>) {}
+  private host: ElementRef<HTMLFormElement> = inject(ElementRef);
+  //constructor(private host: ElementRef<HTMLFormElement>) {}
 
   get element() {
     return this.host.nativeElement;

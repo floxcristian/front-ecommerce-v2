@@ -20,7 +20,7 @@
       (input)="onDocumentIdFieldInput(documentIdField.value)"
       (blur)="onDocumentIdFieldBlur(documentIdField.value)"
     />
-    @if(documentIdField.touched && documentIdField.invalid) {
+    <!--@if(documentIdField.touched && documentIdField.invalid) {
     <small class="text-red-500">
       {{
         documentIdField.hasError("required")
@@ -32,7 +32,7 @@
     </small>
     }@else {
     <small id="documentId-help"> Ej: 12345678-9 </small>
-    }
+    }-->
   </div>
   <div class="field mb-4 flex flex-column">
     <label for="businessName" class="font-medium text-900">Razón social</label>

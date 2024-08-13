@@ -1,14 +1,11 @@
 import { InjectionToken } from '@angular/core';
+import { ErrorsMap } from './types';
 
-export const defaultErrors = {
-  required: (): string => `This field is required.`,
-  minlength: ({
-    requiredLength,
-    actualLength,
-  }: {
-    requiredLength: number;
-    actualLength: number;
-  }): string => `Expect ${requiredLength} but got ${actualLength}`,
+export const defaultErrors: ErrorsMap = {
+  required: `Este campo es requerido.`,
+  invalidDocumentId: `El RUT ingresado no es válido.`,
+  minlength: ({ requiredLength, actualLength }) =>
+    `Expect ${requiredLength} but got ${actualLength}`,
 };
 
 export const FORM_ERRORS = new InjectionToken('FORM_ERRORS', {

@@ -1,28 +1,25 @@
 // https://github.com/ngneat/error-tailor/blob/master/projects/ngneat/error-tailor/src/lib/control-error.directive.ts
 import {
-  ComponentFactoryResolver,
   ComponentRef,
   DestroyRef,
   Directive,
   ElementRef,
-  Host,
   inject,
   Inject,
-  Input,
   OnInit,
   Optional,
   Self,
   ViewContainerRef,
 } from '@angular/core';
-import { NgControl, ValidationErrors } from '@angular/forms';
+import { NgControl } from '@angular/forms';
 import {
   EMPTY,
   merge,
-  mergeWith,
   Observable,
   distinctUntilChanged,
-  takeUntil,
-  Subject,
+  fromEvent,
+  switchMap,
+  startWith,
 } from 'rxjs';
 import { FormSubmitDirective } from '../form-submit/form-submit.directive';
 import { ControlErrorComponent } from '../../components/control-error/control-error.component';
@@ -41,28 +38,39 @@ export class ControlErrorsDirective implements OnInit {
   //errors = inject(FORM_ERRORS);
   private ref!: ComponentRef<ControlErrorComponent>;
   private submit$: Observable<Event | null>;
+  private host: HTMLElement;
 
   constructor(
     @Self() private readonly controlDir: NgControl,
     @Inject(FORM_ERRORS) private errors: any,
     @Optional() private form: FormSubmitDirective,
-    private vcr: ViewContainerRef
+    private vcr: ViewContainerRef,
+    elementRef: ElementRef
   ) {
+    this.host = elementRef.nativeElement as HTMLElement;
     this.submit$ = this.form ? this.form.submit$ : EMPTY;
   }
 
   ngOnInit(): void {
-    console.log('pass');
-    this.control?.valueChanges
+    const valueChanges$ = this.control?.valueChanges || EMPTY;
+    const blur$ = fromEvent(this.host, 'focusout');
+    const changesOnBlur$ = blur$.pipe(
+      switchMap(() => valueChanges$.pipe(startWith(true)))
+    );
+    merge(changesOnBlur$, valueChanges$, this.submit$)
       .pipe(distinctUntilChanged(), takeUntilDestroyed(this.destroyRef))
-      .subscribe((res) => {
-        console.log('res: ', res);
+      .subscribe(() => {
+        /*console.log('merge: ', res);
+        console.log('this.host: ', this.host);
+        console.log('this.control: ', this.control);*/
+        //const isTouched = ;
+        // Mostrar error solo si esta en touched o dirty:
+
         const hasErrors = !!this.control?.errors;
-        console.log('hasErrors: ', hasErrors);
-        if (hasErrors) {
+        if (hasErrors && this.control?.touched) {
           this.showError();
         } else {
-          //this.hideError();
+          this.hideError();
         }
       });
   }
@@ -88,41 +96,23 @@ export class ControlErrorsDirective implements OnInit {
         typeof getError === 'function'
           ? getError(controlErrors[firstKey])
           : getError;
-      console.log('error message: ', text);
-      /*this.addCustomClass();*/
-      this.setError(text, controlErrors);
+      this.setError(text);
     }
   }
 
-  private setError(text: string, error?: ValidationErrors) {
+  private hideError(): void {
+    if (this.ref) {
+      this.setError(null);
+    }
+  }
+
+  private setError(text: string | null): void {
     if (!this.ref) {
-      this.ref = this.vcr.createComponent<ControlErrorComponent>(
+      this.ref ??= this.vcr.createComponent<ControlErrorComponent>(
         ControlErrorComponent
       );
     }
     const instance = this.ref.instance;
     instance.text = text;
-    /*if (this.mergedConfig.controlClassOnly) {
-      return;
-    }*/
-    /*this.ref ??= this.resolveAnchor().createComponent<ControlErrorComponent>(this.mergedConfig.controlErrorComponent);
-    const instance = this.ref.instance;*/
-    /*
-    if (this.controlErrorsTpl) {
-      instance.createTemplate(this.controlErrorsTpl, error, text);
-    } else {
-      instance.text = text;
-    }
-
-    if (this.controlErrorsClass) {
-      instance.customClass = this.controlErrorsClass;
-    }
-
-    if (!this.controlErrorAnchor && this.mergedConfig.controlErrorComponentAnchorFn) {
-      this.customAnchorDestroyFn = this.mergedConfig.controlErrorComponentAnchorFn(
-        this.host,
-        (this.ref.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement,
-      );
-    }*/
   }
 }

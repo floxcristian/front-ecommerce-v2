@@ -18,6 +18,7 @@ import { DocumentIdService } from '../../services/document-id/document-id.servic
 // Models
 import { IEnterprise } from './enterprise.interface';
 import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
+import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';
 
 export type ControlsOf<T extends Record<string, any>> = {
   [K in keyof T]: T[K] extends Record<any, any>
@@ -32,11 +33,12 @@ const PRIME_MODULES = [
   RippleModule,
   ButtonModule,
 ];
+const DIRECTIVES = [FormSubmitDirective, ControlErrorsDirective];
 
 @Component({
   selector: 'app-enterprise-form',
   standalone: true,
-  imports: [...NG_MODULES, ...PRIME_MODULES, ControlErrorsDirective],
+  imports: [...NG_MODULES, ...PRIME_MODULES, ...DIRECTIVES],
   templateUrl: './enterprise-form.component.html',
   styleUrl: './enterprise-form.component.scss',
 })

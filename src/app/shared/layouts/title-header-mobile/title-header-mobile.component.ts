@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+// Angular
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -7,6 +8,7 @@ import { RouterModule } from '@angular/router';
   imports: [RouterModule],
   templateUrl: './title-header-mobile.component.html',
   styleUrl: './title-header-mobile.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TitleHeaderMobileComponent {
   goBack() {

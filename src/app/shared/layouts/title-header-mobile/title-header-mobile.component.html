@@ -2,8 +2,12 @@
   class="main-header surface-overlay py-1 px-3 flex align-items-center justify-content-center gap-3 sticky top-0 z-2 lg:hidden shadow-2"
   style="min-height: 60px"
 >
-  <a pRipple class="text-700 text-blue-500 absolute left-0 ml-4" routerLink="/">
+  <div
+    pRipple
+    class="text-700 text-blue-500 absolute left-0 ml-4"
+    (click)="goBack()"
+  >
     <i class="fa-sharp fa-solid fa-arrow-left text-2xl"></i>
-  </a>
+  </div>
   <div class="text-900 font-semibold text-xl">Crea tu cuenta</div>
 </div>

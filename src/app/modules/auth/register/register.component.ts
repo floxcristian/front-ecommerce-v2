@@ -15,6 +15,7 @@ import { AccountTypeFormComponent } from './components/account-type-form/account
 import { EnterpriseFormComponent } from './components/enterprise-form/enterprise-form.component';
 // Services
 import { ScrollService } from 'src/app/core/utils/scroll/scroll.service';
+import { StepService } from './services/step/step.service';
 
 const COMPONENTS = [
   AccountTypeFormComponent,
@@ -34,7 +35,9 @@ const COMPONENTS = [
 export class RegisterComponent {
   private readonly scrollService = inject(ScrollService);
   private readonly platformId: Object = inject(PLATFORM_ID);
-  step = signal<number>(1);
+  private readonly stepService = inject(StepService);
+  //step = signal<number>(1);
+  step = this.stepService.step;
   accountType = signal<string>('');
 
   constructor() {
@@ -47,18 +50,21 @@ export class RegisterComponent {
   }
 
   submitRoleForm(role: string): void {
-    this.step.update((value) => value + 1);
+    //this.step.update((value) => value + 1);
+    this.stepService.setNextStep();
     this.accountType.set(role);
   }
 
   submitPersonalForm(personalInfo: any): void {
     console.log('personalInfo: ', personalInfo);
-    this.step.update((value) => value + 1);
+    //this.step.update((value) => value + 1);
+    this.stepService.setNextStep();
   }
 
   submitEnterpriseForm(enterpriseInfo: any): void {
     console.log('enterpriseInfo: ', enterpriseInfo);
-    this.step.update((value) => value + 1);
+    //this.step.update((value) => value + 1);
+    this.stepService.setNextStep();
   }
 
   submitAddressForm(addressInfo: any): void {
@@ -66,6 +72,7 @@ export class RegisterComponent {
   }
 
   goBack(): void {
-    this.step.update((value) => value - 1);
+    //this.step.update((value) => value - 1);
+    this.stepService.setPreviousStep();
   }
 }

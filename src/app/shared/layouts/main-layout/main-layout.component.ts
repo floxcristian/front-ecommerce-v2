@@ -42,9 +42,6 @@ export class MainLayoutComponent {
         const currentRoute = event.urlAfterRedirects;
         const isMainPage = currentRoute === '/';
         this.isMainPage.set(isMainPage);
-        console.log('isMainPage: ', true);
-
-        console.log('currentRoute', currentRoute);
       }
     });
   }

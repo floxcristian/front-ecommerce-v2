@@ -64,14 +64,16 @@
       <span class="ml-3 text-900">Deseo añadir una línea de crédito.</span>
     </div>
   </div>
-  <div class="flex gap-3">
+  <div
+    class="flex gap-3 fixed lg:static left-0 bottom-0 surface-card w-full p-3 lg:p-0"
+  >
     <button
       type="button"
       severity="secondary"
       pButton
       pRipple
       label="Volver"
-      class="w-full py-3 font-medium"
+      class="w-full py-3 font-medium hidden lg:block"
       (click)="onGoBack.emit()"
     ></button>
     <button

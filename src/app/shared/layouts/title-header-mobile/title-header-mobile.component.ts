@@ -9,5 +9,7 @@ import { RouterModule } from '@angular/router';
   styleUrl: './title-header-mobile.component.scss',
 })
 export class TitleHeaderMobileComponent {
-  goBack() {}
+  goBack() {
+    // Emitir evento goBack usando signals
+  }
 }

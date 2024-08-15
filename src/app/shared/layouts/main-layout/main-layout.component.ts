@@ -1,18 +1,24 @@
 // Angular
-import { Component, DestroyRef, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, DestroyRef, inject, signal } from '@angular/core';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { BreakpointObserver } from '@angular/cdk/layout';
 // Rxjs
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs/operators';
 // Components
 import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
+import { FooterMobileComponent } from '../footer-mobile/footer-mobile.component';
+import { TitleHeaderMobileComponent } from '../title-header-mobile/title-header-mobile.component';
 
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent],
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    FooterMobileComponent,
+    TitleHeaderMobileComponent,
+  ],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss',
 })
@@ -26,4 +32,20 @@ export class MainLayoutComponent {
       map((result) => result.matches)
     );
   isSmallScreen = toSignal(this.isSmallScreen$, { initialValue: false });
+
+  currentRoute: string = '';
+  isMainPage = signal<boolean>(false);
+
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const currentRoute = event.urlAfterRedirects;
+        const isMainPage = currentRoute === '/';
+        this.isMainPage.set(isMainPage);
+        console.log('isMainPage: ', true);
+
+        console.log('currentRoute', currentRoute);
+      }
+    });
+  }
 }

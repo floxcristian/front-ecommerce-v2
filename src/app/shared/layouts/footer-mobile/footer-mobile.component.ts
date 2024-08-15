@@ -12,14 +12,14 @@ const NG_MODULES = [CommonModule, RouterModule];
 const PRIME_MODULES = [BadgeModule, RippleModule];
 
 @Component({
-  selector: 'app-footer',
+  selector: 'app-footer-mobile',
   standalone: true,
   imports: [...NG_MODULES, ...PRIME_MODULES],
-  templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss',
+  templateUrl: './footer-mobile.component.html',
+  styleUrl: './footer-mobile.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FooterComponent {
+export class FooterMobileComponent {
   items: IFooterItem[] = [
     {
       label: 'Inicio',

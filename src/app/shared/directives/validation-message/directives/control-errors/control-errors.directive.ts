@@ -53,11 +53,16 @@ export class ControlErrorsDirective implements OnInit {
 
   ngOnInit(): void {
     const valueChanges$ = this.control?.valueChanges || EMPTY;
+
+    const statusChanges$ =
+      this.control?.statusChanges.pipe(distinctUntilChanged()) || EMPTY;
     const blur$ = fromEvent(this.host, 'focusout');
+    const hasAsyncValidator = !!this.control?.asyncValidator;
+    const changesOnAsync$ = hasAsyncValidator ? statusChanges$ : EMPTY;
     const changesOnBlur$ = blur$.pipe(
       switchMap(() => valueChanges$.pipe(startWith(true)))
     );
-    merge(changesOnBlur$, valueChanges$, this.submit$)
+    merge(changesOnAsync$, changesOnBlur$, valueChanges$, this.submit$)
       .pipe(distinctUntilChanged(), takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
         /*console.log('merge: ', res);
@@ -84,6 +89,7 @@ export class ControlErrorsDirective implements OnInit {
    */
   showError(): void {
     const controlErrors = this.control?.errors;
+    console.log('controlErrors: ', controlErrors);
     if (controlErrors) {
       const [firstKey] = Object.keys(controlErrors);
       const getError = this.errors[firstKey];

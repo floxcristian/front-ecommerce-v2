@@ -20,6 +20,9 @@
       (input)="onDocumentIdFieldInput(documentIdField.value)"
       (blur)="onDocumentIdFieldBlur(documentIdField.value)"
     />
+    <small class="text-red-500">
+      {{ documentIdField.errors | json }}
+    </small>
     <!--@if(documentIdField.touched && documentIdField.invalid) {
     <small class="text-red-500">
       {{

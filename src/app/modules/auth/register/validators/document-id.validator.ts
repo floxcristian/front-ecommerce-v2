@@ -26,6 +26,7 @@ export class DocumentIdValidator {
     if (!rut.includes('-')) {
       rut = rut.slice(0, -1) + '-' + rut.slice(-1);
     }
+    if (rut.length < 9) return false;
     const parts = rut.split('-');
     if (parts.length !== 2) return false;
     const numbers = parts[0];

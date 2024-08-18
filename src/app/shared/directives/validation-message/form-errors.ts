@@ -6,6 +6,8 @@ export const defaultErrors: ErrorsMap = {
   invalidDocumentId: `El RUT ingresado no es válido.`,
   minlength: ({ requiredLength, actualLength }) =>
     `Expect ${requiredLength} but got ${actualLength}`,
+  exists: `La empresa ya exite.`,
+  businessLines: `La empresa no tiene rubros asociados.`,
 };
 
 export const FORM_ERRORS = new InjectionToken('FORM_ERRORS', {

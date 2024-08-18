@@ -11,6 +11,7 @@ import { InputGroupModule } from 'primeng/inputgroup';
 import { PrimeNGConfig } from 'primeng/api';
 import { GeolocationService } from './core/api/geolocation/geolocation.service';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { CheckUserService } from './core/api/check-user/check-user.service';
 
 const PRIME_MODULES = [
   RippleModule,
@@ -30,6 +31,7 @@ const PRIME_MODULES = [
 })
 export class AppComponent implements OnInit {
   private readonly geolocationService = inject(GeolocationService);
+  private readonly checkUserService = inject(CheckUserService);
   stores = toSignal(this.geolocationService.getStores(), { initialValue: [] });
 
   constructor(private primeConfig: PrimeNGConfig) {
@@ -37,8 +39,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.geolocationService.getStores().subscribe((stores) => {
-      // console.log('store: ', stores);
-    });
+    /*this.geolocationService.getStores().subscribe((stores) => {
+      console.log('store: ', stores);
+    });*/
   }
 }

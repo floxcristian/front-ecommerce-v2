@@ -36,6 +36,14 @@ export class RegisterComponent {
   private readonly scrollService = inject(ScrollService);
   private readonly platformId: Object = inject(PLATFORM_ID);
   private readonly stepService = inject(StepService);
+
+  features = [
+    {
+      title: ' Envío gratis en compras superiores a $60.000.',
+      description: '',
+      icon: 'fa-sharp-duotone fa-solid fa-address-book',
+    },
+  ];
   //step = signal<number>(1);
   step = this.stepService.step;
   accountType = signal<string>('');

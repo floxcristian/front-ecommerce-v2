@@ -13,7 +13,8 @@ export class DocumentIdService {
    */
   static getEditableValue(documentId: string): string {
     if (!documentId) return '';
-    return documentId.replace(/\D/g, '');
+    // Reemplazar todos los valores no númericos por vacío, a excepcepción de K o k.
+    return documentId.replace(/[^0-9\K\k]/g, '');
   }
 
   /**
@@ -26,7 +27,7 @@ export class DocumentIdService {
     if (documentId.length > 9) {
       documentId = documentId.substring(0, 9);
     }
-    return documentId.replace(/[^0-9\K\k]/g, '');
+    return documentId.replace(/[^0-9\K\k]/g, '').toUpperCase();
   }
 
   /**

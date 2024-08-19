@@ -4,25 +4,47 @@
     Ingresa los datos de tu empresa y disfruta de todos los beneficios.
   </p>
 </div>
+<!--<pre style="background-color: yellow">
+businessLineField: {{ businessLineField.value }}</pre
+>-->
 <form
   [formGroup]="enterpriseForm"
   (ngSubmit)="submit(enterpriseForm.getRawValue())"
 >
+  <!--
+  <pre style="background-color: yellow">
+ blurred: {{ blurred() }} businessName: {{ businessName() }}</pre
+  > -->
+
   <div class="field mb-4 flex flex-column">
     <label for="documentId" class="font-medium text-900">RUT empresa</label>
-    <input
+    <p-iconField iconPosition="right">
+      <p-inputIcon styleClass="pi pi-spinner pi-spin" [hidden]="!isLoading()" />
+      <input
+        id="documentId"
+        type="text"
+        pInputText
+        maxlength="10"
+        formControlName="documentId"
+        class="w-full"
+        (focus)="onDocumentIdFieldFocus(documentIdField.value)"
+        (input)="onDocumentIdFieldInput($event)"
+        (blur)="onDocumentIdFieldBlur(documentIdField.value)"
+      />
+    </p-iconField>
+    <!--<input
       id="documentId"
       type="text"
       pInputText
       maxlength="10"
       formControlName="documentId"
       (focus)="onDocumentIdFieldFocus(documentIdField.value)"
-      (input)="onDocumentIdFieldInput(documentIdField.value)"
+      (input)="onDocumentIdFieldInput($event)"
       (blur)="onDocumentIdFieldBlur(documentIdField.value)"
-    />
-    <small class="text-red-500">
+    />-->
+    <!--<small class="text-red-500">
       {{ documentIdField.errors | json }}
-    </small>
+    </small> -->
     <!--@if(documentIdField.touched && documentIdField.invalid) {
     <small class="text-red-500">
       {{
@@ -39,25 +61,45 @@
   </div>
   <div class="field mb-4 flex flex-column">
     <label for="businessName" class="font-medium text-900">Razón social</label>
-    <input
+    <!--      pKeyFilter="alpha" -->
+    <!--<input
       id="businessName"
       type="text"
       pInputText
       maxlength="20"
       formControlName="businessName"
-      pKeyFilter="alpha"
-    />
+    /> -->
+    <p-iconField iconPosition="right">
+      <p-inputIcon styleClass="pi pi-spinner pi-spin" [hidden]="!isLoading()" />
+      <input
+        id="businessName"
+        type="text"
+        pInputText
+        maxlength="20"
+        formControlName="businessName"
+        class="w-full"
+      />
+    </p-iconField>
+    <!--    variant="filled" -->
     <!-- <small id="businessName-help"> Ej: Nicolás </small> -->
   </div>
   <div class="field mb-5 flex flex-column">
     <label for="businessLine" class="font-medium text-900">Giro</label>
-    <input
+    <!--<input
       id="businessLine"
       type="text"
       pInputText
       maxlength="20"
       formControlName="businessLine"
       pKeyFilter="alpha"
+    />-->
+    <p-dropdown
+      styleClass="w-full"
+      formControlName="businessLine"
+      [options]="businessLines()"
+      optionLabel="name"
+      optionValue="code"
+      [loading]="isLoading()"
     />
     <!-- <small id="businessLine-help"> Ej: Rojas </small> -->
   </div>

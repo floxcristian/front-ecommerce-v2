@@ -1,6 +1,8 @@
 // Angular
-import { Component, inject, output } from '@angular/core';
+import { Component, effect, inject, output, signal } from '@angular/core';
 import {
+  AbstractControl,
+  AsyncValidatorFn,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -13,7 +15,9 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
 import { DocumentIdValidator } from '../../validators/document-id.validator';
-
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
+import { DropdownModule } from 'primeng/dropdown';
 // Services
 import { DocumentIdService } from '../../services/document-id/document-id.service';
 // Models
@@ -23,12 +27,25 @@ import { FormSubmitDirective } from '@shared/directives/validation-message/direc
 import { CheckUserService } from 'src/app/core/api/check-user/check-user.service';
 import { EnterpriseValidator } from '../../validators/enterprise.validator';
 import { CommonModule } from '@angular/common';
+import { of } from 'rxjs';
 
 export type ControlsOf<T extends Record<string, any>> = {
   [K in keyof T]: T[K] extends Record<any, any>
     ? FormGroup<ControlsOf<T[K]>>
     : FormControl<T[K]>;
 };
+
+export function blurTriggeredAsyncValidator(
+  asyncValidator: AsyncValidatorFn
+): AsyncValidatorFn {
+  console.log('[+] blurTriggeredAsyncValidator');
+  return (control: AbstractControl) => {
+    if (!EnterpriseValidator.blurred()) {
+      return of(null);
+    }
+    return asyncValidator(control);
+  };
+}
 
 const NG_MODULES = [ReactiveFormsModule];
 const PRIME_MODULES = [
@@ -37,6 +54,9 @@ const PRIME_MODULES = [
   RippleModule,
   ButtonModule,
   CommonModule,
+  IconFieldModule,
+  InputIconModule,
+  DropdownModule,
 ];
 const DIRECTIVES = [FormSubmitDirective, ControlErrorsDirective];
 
@@ -51,6 +71,11 @@ export class EnterpriseFormComponent {
   onGoBack = output<void>();
   onSubmit = output<IEnterprise>();
   enterpriseForm!: FormGroup<ControlsOf<IEnterprise>>;
+  blurred = EnterpriseValidator.blurred;
+  businessName = EnterpriseValidator.businessName;
+  businessLines = EnterpriseValidator.businessLines;
+  isLoading = EnterpriseValidator.isLoading;
+
   private readonly checkUserService = inject(CheckUserService);
 
   get documentIdField() {
@@ -67,6 +92,26 @@ export class EnterpriseFormComponent {
 
   constructor(private readonly fb: FormBuilder) {
     this.buildForm();
+
+    effect(() => {
+      this.businessNameField.setValue(this.businessName());
+    });
+    effect(
+      () => {
+        console.log('effect businessLines');
+        const businessLines = this.businessLines();
+        console.log('businessLines: ', businessLines);
+        /*if (businessLines.length) {
+          console.log('businessLines: ', businessLines[0].code);
+          const businessLineCode: number = businessLines[0].code;
+          this.businessLineField.setValue(businessLineCode.toString());
+        }*/
+        /*if (this.businessLines().length) {
+        this.businessLineField.setValue(this.businessLines()[0].code);
+      }*/
+      },
+      { allowSignalWrites: true }
+    );
   }
 
   private buildForm(): void {
@@ -79,17 +124,18 @@ export class EnterpriseFormComponent {
             DocumentIdValidator.isValidDocumentId,
           ],
           asyncValidators: [
-            EnterpriseValidator.isValidEnterprise(this.checkUserService),
+            blurTriggeredAsyncValidator(
+              EnterpriseValidator.isValidEnterprise(this.checkUserService)
+            ),
           ],
-          updateOn: 'blur',
         },
       ],
-      businessName: ['', [Validators.required]],
+      businessName: [{ value: '', disabled: true }, [Validators.required]],
       businessLine: ['', [Validators.required]],
     });
-    this.onDocumentIdChange();
+    /*this.onDocumentIdChange();
     this.onBusinessNameChange();
-    this.onBusinessLineChange();
+    this.onBusinessLineChange();*/
   }
 
   /**
@@ -98,7 +144,6 @@ export class EnterpriseFormComponent {
    */
   onDocumentIdFieldFocus(value: string): void {
     const formattedDocumentId = DocumentIdService.getEditableValue(value);
-    console.log('setValueOnDocumentIdFieldFocusEvent: ', formattedDocumentId);
     this.documentIdField.setValue(formattedDocumentId, { emitEvent: false });
   }
 
@@ -106,11 +151,15 @@ export class EnterpriseFormComponent {
    * Restringir el ingreso de solo caracteres permitidos.
    * @param value
    */
-  onDocumentIdFieldInput(value: string): void {
-    console.log('onDocumentIdFieldInput: ', value);
+  onDocumentIdFieldInput(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    const formattedDocumentId = DocumentIdService.getValidCharacters(
+      inputElement.value
+    );
     /*const formattedDocumentId = DocumentIdService.getValidCharacters(value);
-    console.log('setValueOnDocumentIdFieldInputEvent: ', formattedDocumentId);
-    this.documentIdField.setValue(formattedDocumentId);*/
+    console.log('setValueOnDocumentIdFieldInputEvent: ', formattedDocumentId);*/
+    this.documentIdField.setValue(formattedDocumentId, { emitEvent: false });
+    // Ejecutar el validador asíncrono manualmente
   }
 
   /**
@@ -119,8 +168,9 @@ export class EnterpriseFormComponent {
    */
   onDocumentIdFieldBlur(value: string): void {
     const formattedDocumentId = DocumentIdService.getFormattedDocumentId(value);
-    console.log('setValueOnDocumentIdFieldBlurEvent: ', formattedDocumentId);
-    this.documentIdField.setValue(formattedDocumentId, { emitEvent: false });
+    this.blurred.set(true);
+    this.documentIdField.setValue(formattedDocumentId, { emitEvent: true });
+    /*this.documentIdField.updateValueAndValidity();*/
   }
 
   submit(value: IEnterprise): void {
@@ -136,7 +186,7 @@ export class EnterpriseFormComponent {
   /***************************
    * SOLO PARA PRUEBAS UNITARIAS
    ***************************/
-  onDocumentIdChange() {
+  /*onDocumentIdChange() {
     this.documentIdField.valueChanges.subscribe((value) => {
       console.log('onDocumentIdChange: ', value);
     });
@@ -152,5 +202,5 @@ export class EnterpriseFormComponent {
     this.businessLineField.valueChanges.subscribe((value) => {
       console.log('onBusinessLineChange: ', value);
     });
-  }
+  }*/
 }

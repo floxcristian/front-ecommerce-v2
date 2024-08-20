@@ -5,3 +5,11 @@
 :host ::ng-deep .p-dropdown-item.p-ripple {
   white-space: normal;
 }
+
+::ng-deep .p-dropdown .p-dropdown-label {
+  padding-right: 2.5rem;
+}
+
+::ng-deep .p-dropdown .p-dropdown-trigger {
+  width: 2.5rem;
+}

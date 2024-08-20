@@ -147,6 +147,7 @@ export class EnterpriseFormComponent {
    * @param value
    */
   onDocumentIdFieldFocus(value: string): void {
+    this.isLoading.set(false);
     const formattedDocumentId = DocumentIdService.getEditableValue(value);
     this.documentIdField.setValue(formattedDocumentId, { emitEvent: false });
     this.blurred.set(false);

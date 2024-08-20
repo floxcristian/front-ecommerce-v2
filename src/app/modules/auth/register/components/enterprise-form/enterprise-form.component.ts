@@ -135,7 +135,7 @@ export class EnterpriseFormComponent {
         },
       ],
       businessName: [{ value: '', disabled: true }, [Validators.required]],
-      businessLine: ['', [Validators.required]],
+      businessLine: [{ value: '', disabled: true }, [Validators.required]],
     });
     this.onDocumentIdChange();
     /*this.onBusinessNameChange();
@@ -210,6 +210,17 @@ export class EnterpriseFormComponent {
       // Si el formcontrol es válido, se limpia el businessName y businessLine:
       /*if (!this.documentIdField.valid) {
       }*/
+    });
+
+    this.documentIdField.statusChanges.subscribe((status) => {
+      console.log('statusChanges: ', status);
+      if (status === 'INVALID') {
+        //this.businessNameField.disable();
+        this.businessLineField.disable();
+      } else if (status === 'VALID') {
+        //this.businessNameField.enable();
+        this.businessLineField.enable();
+      }
     });
   }
   /*

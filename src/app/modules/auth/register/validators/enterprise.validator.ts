@@ -1,13 +1,17 @@
+// Angular
 import { signal } from '@angular/core';
 import { AbstractControl, AsyncValidatorFn } from '@angular/forms';
+// Rxjs
+import { distinct, distinctUntilChanged, map } from 'rxjs';
+// Services
 import { CheckUserService } from '@core/api/check-user/check-user.service';
-import { map, switchMap, timer } from 'rxjs';
 
 export class EnterpriseValidator {
   static blurred = signal<boolean>(false);
   static isLoading = signal<boolean>(false);
   static businessName = signal<string>('');
   static businessLines = signal<any[]>([]);
+  static lastValue = signal<string>('');
 
   static isValidEnterprise(service: CheckUserService): AsyncValidatorFn {
     return (control: AbstractControl) => {
@@ -17,14 +21,17 @@ export class EnterpriseValidator {
       this.isLoading.set(true);
       EnterpriseValidator.blurred.set(false);
       return service.checkEnterpriseUser(value).pipe(
+        distinctUntilChanged(),
         map((res: any) => {
           this.isLoading.set(false);
+          EnterpriseValidator.lastValue.set(value);
           console.log('res: ', res);
           if (res.exists) {
             return { exists: true };
           } else {
             EnterpriseValidator.businessName.set(res.businessName);
             EnterpriseValidator.businessLines.set(res.businessLines);
+
             return null;
           }
         })

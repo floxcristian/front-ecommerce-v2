@@ -7,6 +7,11 @@
 <!--<pre style="background-color: yellow">
 businessLineField: {{ businessLineField.value }}</pre
 >-->
+<!--<pre style="background-color: yellow">
+  lastValue: {{ lastValue() }}
+  businessName: {{ businessName() }}
+  blurred: {{ blurred() }}
+</pre> -->
 <form
   [formGroup]="enterpriseForm"
   (ngSubmit)="submit(enterpriseForm.getRawValue())"

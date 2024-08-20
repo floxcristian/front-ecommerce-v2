@@ -75,6 +75,7 @@ export class EnterpriseFormComponent {
   businessName = EnterpriseValidator.businessName;
   businessLines = EnterpriseValidator.businessLines;
   isLoading = EnterpriseValidator.isLoading;
+  lastValue = EnterpriseValidator.lastValue;
 
   private readonly checkUserService = inject(CheckUserService);
 
@@ -94,11 +95,14 @@ export class EnterpriseFormComponent {
     this.buildForm();
 
     effect(() => {
-      this.businessNameField.setValue(this.businessName());
+      console.log('effect businessName================');
+      this.businessNameField.setValue(this.businessName(), {
+        emitEvent: false,
+      });
     });
     effect(
       () => {
-        console.log('effect businessLines');
+        console.log('effect businessLines============');
         const businessLines = this.businessLines();
         console.log('businessLines: ', businessLines);
         /*if (businessLines.length) {
@@ -109,8 +113,8 @@ export class EnterpriseFormComponent {
         /*if (this.businessLines().length) {
         this.businessLineField.setValue(this.businessLines()[0].code);
       }*/
-      },
-      { allowSignalWrites: true }
+      } /*,
+      { allowSignalWrites: true }**/
     );
   }
 
@@ -133,8 +137,8 @@ export class EnterpriseFormComponent {
       businessName: [{ value: '', disabled: true }, [Validators.required]],
       businessLine: ['', [Validators.required]],
     });
-    /*this.onDocumentIdChange();
-    this.onBusinessNameChange();
+    this.onDocumentIdChange();
+    /*this.onBusinessNameChange();
     this.onBusinessLineChange();*/
   }
 
@@ -145,6 +149,7 @@ export class EnterpriseFormComponent {
   onDocumentIdFieldFocus(value: string): void {
     const formattedDocumentId = DocumentIdService.getEditableValue(value);
     this.documentIdField.setValue(formattedDocumentId, { emitEvent: false });
+    this.blurred.set(false);
   }
 
   /**
@@ -186,12 +191,28 @@ export class EnterpriseFormComponent {
   /***************************
    * SOLO PARA PRUEBAS UNITARIAS
    ***************************/
-  /*onDocumentIdChange() {
+  onDocumentIdChange() {
     this.documentIdField.valueChanges.subscribe((value) => {
+      console.log('====================================');
       console.log('onDocumentIdChange: ', value);
+      console.log('lastValue: ', this.lastValue());
+      if (this.lastValue() && this.lastValue() !== value) {
+        console.log('entro al reset');
+        this.businessName.set('');
+        // this.businessNameField.setValue('');
+        this.businessLines.set([]);
+        this.businessLineField.setValue('', { emitEvent: false });
+        // Setear el campo de businessline como untouched:
+        this.businessLineField.markAsUntouched();
+        this.businessLineField.markAsPristine();
+        this.businessLineField.updateValueAndValidity();
+      }
+      // Si el formcontrol es válido, se limpia el businessName y businessLine:
+      /*if (!this.documentIdField.valid) {
+      }*/
     });
   }
-
+  /*
   onBusinessNameChange() {
     this.businessNameField.valueChanges.subscribe((value) => {
       console.log('onBusinessNameChange: ', value);

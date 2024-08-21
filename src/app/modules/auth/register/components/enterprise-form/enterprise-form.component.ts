@@ -92,30 +92,36 @@ export class EnterpriseFormComponent {
   }
 
   constructor(private readonly fb: FormBuilder) {
-    this.buildForm();
+    this.buildForm(); /*if (this.businessLines().length) {
 
-    effect(() => {
+    /*effect(() => {
       console.log('effect businessName================');
       this.businessNameField.setValue(this.businessName(), {
         emitEvent: false,
       });
-    });
-    effect(
+    }); */
+    /*effect(
       () => {
         console.log('effect businessLines============');
-        const businessLines = this.businessLines();
-        console.log('businessLines: ', businessLines);
-        /*if (businessLines.length) {
+        const businessLines = this.businessLines();*/
+    //this.businessLineField.setValue('');
+    //console.log('businessLines: ', businessLines);
+    /*this.businessLineField.setValue(businessLines[0]?.code, {
+          emitEvent: false,
+        });*/
+    /*      if (businessLines.length) {
           console.log('businessLines: ', businessLines[0].code);
           const businessLineCode: number = businessLines[0].code;
-          this.businessLineField.setValue(businessLineCode.toString());
-        }*/
-        /*if (this.businessLines().length) {
-        this.businessLineField.setValue(this.businessLines()[0].code);
+          this.businessLineField.setValue(businessLineCode.toString(), {
+            emitEvent: false,
+          });
+        }
+*/
+    /*this.businessLineField.setValue(this.businessLines()[0].code);
       }*/
-      } /*,
-      { allowSignalWrites: true }**/
-    );
+    /* },
+      { allowSignalWrites: true }
+    );*/
   }
 
   private buildForm(): void {
@@ -217,9 +223,20 @@ export class EnterpriseFormComponent {
       console.log('statusChanges: ', status);
       if (status === 'INVALID') {
         //this.businessNameField.disable();
+        this.enterpriseForm.patchValue({
+          businessName: '',
+          businessLine: '',
+        });
         this.businessLineField.disable();
       } else if (status === 'VALID') {
         //this.businessNameField.enable();
+        /*this.businessLineField.setValue(this.businessLines()[0].code, {
+          emitEvent: false,
+        });*/
+        this.enterpriseForm.patchValue({
+          businessName: this.businessName(),
+          businessLine: this.businessLines()[0].code,
+        });
         this.businessLineField.enable();
       }
     });

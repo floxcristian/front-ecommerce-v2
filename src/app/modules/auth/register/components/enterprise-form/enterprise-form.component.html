@@ -10,8 +10,9 @@ businessLineField: {{ businessLineField.value }}</pre
 <!--<pre style="background-color: yellow">
   lastValue: {{ lastValue() }}
   businessName: {{ businessName() }}
-  blurred: {{ blurred() }}
-</pre> -->
+  5blurred: {{ blurred() }}
+  businessLineField: {{businessLineField.value}}
+</pre>-->
 <form
   [formGroup]="enterpriseForm"
   (ngSubmit)="submit(enterpriseForm.getRawValue())"

@@ -6,7 +6,7 @@ export const defaultErrors: ErrorsMap = {
   invalidDocumentId: `El RUT ingresado no es válido.`,
   minlength: ({ requiredLength, actualLength }) =>
     `Expect ${requiredLength} but got ${actualLength}`,
-  exists: `La empresa ya exite.`,
+  exists: `La empresa ya existe en nuestros registros.`,
   businessLines: `La empresa no tiene rubros asociados.`,
 };
 

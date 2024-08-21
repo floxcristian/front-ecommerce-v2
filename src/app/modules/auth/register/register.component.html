@@ -2,7 +2,7 @@
   title="Crea tu cuenta"
   (onGoBack)="setPreviousStep()"
 />
-<pre>step: {{ step() }}</pre>
+<!-- <pre>step: {{ step() }}</pre> -->
 
 <main class="surface-ground">
   <div class="container md:py-8">
@@ -116,20 +116,21 @@
           <app-account-type-form (onSubmit)="submitRoleForm($event)" />
           } @else if(step() === 2 && accountType() === 'enterprise'){
           <app-enterprise-form
-            (onGoBack)="goBack()"
+            (onGoBack)="setPreviousStep()"
             (onSubmit)="submitEnterpriseForm($event)"
+            [data]="enterpriseForm"
           />
           } @else if((step() === 2 && accountType() === 'customer' || (step()
           === 3 && accountType() === 'enterprise'))){
           <app-personal-form
             [accountType]="accountType()"
-            (onGoBack)="goBack()"
+            (onGoBack)="setPreviousStep()"
             (onSubmit)="submitPersonalForm($event)"
           />
           } @else {
           <app-address-form
             [accountType]="accountType()"
-            (onGoBack)="goBack()"
+            (onGoBack)="setPreviousStep()"
             (onSubmit)="submitAddressForm($event)"
           />
           }

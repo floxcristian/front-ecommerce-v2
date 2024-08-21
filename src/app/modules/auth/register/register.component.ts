@@ -12,12 +12,17 @@ import { isPlatformBrowser } from '@angular/common';
 import { PersonalFormComponent } from './components/personal-form/personal-form.component';
 import { AddressFormComponent } from './components/address-form/address-form.component';
 import { AccountTypeFormComponent } from './components/account-type-form/account-type-form.component';
-import { EnterpriseFormComponent } from './components/enterprise-form/enterprise-form.component';
+import {
+  ControlsOf,
+  EnterpriseFormComponent,
+} from './components/enterprise-form/enterprise-form.component';
 // Services
 import { ScrollService } from 'src/app/core/utils/scroll/scroll.service';
-import { StepService } from './services/step/step.service';
+// import { StepService } from './services/step/step.service';
 import { TitleHeaderMobileComponent } from '@shared/layouts/title-header-mobile/title-header-mobile.component';
 import { Router } from '@angular/router';
+import { FormGroup } from '@angular/forms';
+import { IEnterprise } from './components/enterprise-form/enterprise.interface';
 
 const COMPONENTS = [
   AccountTypeFormComponent,
@@ -38,8 +43,9 @@ const COMPONENTS = [
 export class RegisterComponent {
   private readonly scrollService = inject(ScrollService);
   private readonly platformId: Object = inject(PLATFORM_ID);
-  private readonly stepService = inject(StepService);
   private readonly router = inject(Router);
+  // private readonly stepService = inject(StepService);
+  enterpriseForm!: IEnterprise;
 
   features = [
     {
@@ -66,6 +72,7 @@ export class RegisterComponent {
   }
 
   setPreviousStep(): void {
+    console.log('[setPreviousStep] this.step(): ', this.step());
     if (this.step() == 1) {
       this.router.navigate(['/']);
     } else {

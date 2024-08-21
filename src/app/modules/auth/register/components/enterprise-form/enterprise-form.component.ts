@@ -1,5 +1,5 @@
 // Angular
-import { Component, effect, inject, output, signal } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import {
   AbstractControl,
   AsyncValidatorFn,
@@ -27,7 +27,7 @@ import { FormSubmitDirective } from '@shared/directives/validation-message/direc
 import { CheckUserService } from 'src/app/core/api/check-user/check-user.service';
 import { EnterpriseValidator } from '../../validators/enterprise.validator';
 import { CommonModule } from '@angular/common';
-import { of } from 'rxjs';
+import { distinctUntilChanged, of } from 'rxjs';
 
 export type ControlsOf<T extends Record<string, any>> = {
   [K in keyof T]: T[K] extends Record<any, any>
@@ -70,6 +70,7 @@ const DIRECTIVES = [FormSubmitDirective, ControlErrorsDirective];
 export class EnterpriseFormComponent {
   onGoBack = output<void>();
   onSubmit = output<IEnterprise>();
+  data = input.required<IEnterprise>();
   enterpriseForm!: FormGroup<ControlsOf<IEnterprise>>;
   blurred = EnterpriseValidator.blurred;
   businessName = EnterpriseValidator.businessName;
@@ -88,7 +89,7 @@ export class EnterpriseFormComponent {
   }
 
   get businessLineField() {
-    return this.enterpriseForm.controls.businessLine;
+    return this.enterpriseForm.controls.businessLineCode;
   }
 
   constructor(private readonly fb: FormBuilder) {
@@ -141,11 +142,12 @@ export class EnterpriseFormComponent {
         },
       ],
       businessName: [{ value: '', disabled: true }, [Validators.required]],
-      businessLine: [{ value: '', disabled: true }, [Validators.required]],
+      businessLineCode: [{ value: '', disabled: true }, [Validators.required]],
+      businessLineName: ['', [Validators.required]],
     });
     this.onDocumentIdChange();
-    /*this.onBusinessNameChange();
-    this.onBusinessLineChange();*/
+    /*this.onBusinessNameChange();*/
+    this.onBusinessLineChange();
   }
 
   /**
@@ -205,10 +207,18 @@ export class EnterpriseFormComponent {
       console.log('lastValue: ', this.lastValue());
       if (this.lastValue() && this.lastValue() !== value) {
         console.log('entro al reset');
-        this.businessName.set('');
         // this.businessNameField.setValue('');
+        this.businessName.set('');
         this.businessLines.set([]);
-        this.businessLineField.setValue('', { emitEvent: false });
+        // this.businessLineField.setValue('', { emitEvent: false });
+        this.enterpriseForm.patchValue(
+          {
+            businessName: '',
+            businessLineCode: '',
+            businessLineName: '',
+          },
+          { emitEvent: false }
+        );
         // Setear el campo de businessline como untouched:
         this.businessLineField.markAsUntouched();
         this.businessLineField.markAsPristine();
@@ -225,7 +235,8 @@ export class EnterpriseFormComponent {
         //this.businessNameField.disable();
         this.enterpriseForm.patchValue({
           businessName: '',
-          businessLine: '',
+          businessLineCode: '',
+          businessLineName: '',
         });
         this.businessLineField.disable();
       } else if (status === 'VALID') {
@@ -235,7 +246,8 @@ export class EnterpriseFormComponent {
         });*/
         this.enterpriseForm.patchValue({
           businessName: this.businessName(),
-          businessLine: this.businessLines()[0].code,
+          businessLineCode: this.businessLines()[0].code,
+          businessLineName: this.businessLines()[0].name,
         });
         this.businessLineField.enable();
       }
@@ -246,11 +258,18 @@ export class EnterpriseFormComponent {
     this.businessNameField.valueChanges.subscribe((value) => {
       console.log('onBusinessNameChange: ', value);
     });
-  }
+  }*/
 
   onBusinessLineChange() {
-    this.businessLineField.valueChanges.subscribe((value) => {
-      console.log('onBusinessLineChange: ', value);
-    });
-  }*/
+    this.businessLineField.valueChanges
+      .pipe(distinctUntilChanged())
+      .subscribe((value) => {
+        console.log('<onBusinessLineChange: ', value);
+        this.enterpriseForm.patchValue({
+          businessLineName: this.businessLines().find(
+            (line) => line.code === Number(value)
+          )?.name,
+        });
+      });
+  }
 }

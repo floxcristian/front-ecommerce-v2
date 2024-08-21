@@ -13,6 +13,9 @@ businessLineField: {{ businessLineField.value }}</pre
   5blurred: {{ blurred() }}
   businessLineField: {{businessLineField.value}}
 </pre>-->
+<!--<pre style="background-color: yellow">
+  {{ enterpriseForm.value | json }}
+</pre>-->
 <form
   [formGroup]="enterpriseForm"
   (ngSubmit)="submit(enterpriseForm.getRawValue())"
@@ -110,7 +113,7 @@ businessLineField: {{ businessLineField.value }}</pre
     />-->
     <p-dropdown
       styleClass="w-full"
-      formControlName="businessLine"
+      formControlName="businessLineCode"
       [options]="businessLines()"
       optionLabel="name"
       optionValue="code"

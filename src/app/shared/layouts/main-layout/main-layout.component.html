@@ -1,7 +1,13 @@
 <div class="surface-section min-h-screen">
-  @defer (when isSmallScreen()){ @if(!isMainPage()){
+  <!--
+  @defer (when isSmallScreen()){ 
+  @if(!isMainPage()){
   <app-title-header-mobile />
-  } } @defer(when (!isSmallScreen() || isSmallScreen() && isMainPage())){
+  } 
+} 
+-->
+
+  @defer(when (!isSmallScreen() || isSmallScreen() && isMainPage())){
   @if(!isSmallScreen() || (isSmallScreen() && isMainPage())){
   <app-header />
   } }

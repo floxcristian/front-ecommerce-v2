@@ -2,6 +2,7 @@
   class="main-header surface-overlay py-1 px-3 flex align-items-center justify-content-center gap-3 sticky top-0 z-2 lg:hidden shadow-2"
   style="min-height: 60px"
 >
+  @if(showIcon()){
   <div
     pRipple
     class="text-700 text-blue-500 absolute left-0 ml-4"
@@ -9,5 +10,6 @@
   >
     <i class="fa-sharp fa-solid fa-arrow-left text-2xl"></i>
   </div>
-  <div class="text-900 font-semibold text-xl">Crea tu cuenta</div>
+  }
+  <div class="text-900 font-semibold text-xl">{{ title() }}</div>
 </div>

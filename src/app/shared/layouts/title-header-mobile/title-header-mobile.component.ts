@@ -3,6 +3,8 @@ import {
   ChangeDetectionStrategy,
   Component,
   inject,
+  input,
+  output,
   signal,
 } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
@@ -18,6 +20,10 @@ import { StepService } from 'src/app/modules/auth/register/services/step/step.se
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TitleHeaderMobileComponent {
+  title = input.required<string>();
+  showIcon = input<boolean>(true);
+  onGoBack = output<void>();
+
   stepService = inject(StepService);
   router = inject(Router);
 
@@ -36,13 +42,14 @@ export class TitleHeaderMobileComponent {
   }
 
   goBack(): void {
-    console.log('this.isRegisterPage(): ', this.isRegisterPage());
+    /*console.log('this.isRegisterPage(): ', this.isRegisterPage());
     if (this.isRegisterPage()) {
       this.stepService.setPreviousStep();
     } else {
       // Ir a la página principal:
       // this.router.navigate(['/']);
       this.stepService.resetStep();
-    }
+    }*/
+    this.onGoBack.emit();
   }
 }

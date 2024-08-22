@@ -10,7 +10,7 @@
       <div class="flex flex-wrap">
         <!-- Izquierda -->
         <div
-          class="hidden md:block w-full lg:w-6 py-7 px-4 lg:px-7 surface-card md:border-right-1 surface-border"
+          class="hidden md:block w-full lg:w-6 py-5 lg:py-7 px-4 lg:px-7 surface-card md:border-right-1 surface-border"
         >
           <div class="border-bottom-1 surface-border mb-5">
             <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">
@@ -111,7 +111,7 @@
           </ul>
         </div>
 
-        <div class="w-full lg:w-6 py-7 px-4 lg:px-7 surface-card">
+        <div class="w-full lg:w-6 py-4 lg:py-7 px-4 lg:px-7 surface-card">
           @if(step() === 1){
           <app-account-type-form (onSubmit)="submitRoleForm($event)" />
           } @else if(step() === 2 && accountType() === 'enterprise'){

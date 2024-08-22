@@ -44,6 +44,7 @@ businessLineField: {{ businessLineField.value }}</pre
         maxlength="10"
         formControlName="documentId"
         class="w-full"
+        placeholder="Ej: 12345678-9"
         (focus)="onDocumentIdFieldFocus(documentIdField.value)"
         (input)="onDocumentIdFieldInput($event)"
         (blur)="onDocumentIdFieldBlur(documentIdField.value)"
@@ -125,6 +126,7 @@ businessLineField: {{ businessLineField.value }}</pre
       [loading]="isLoading()"
       dropdownIcon="fa-sharp fa-solid fa-chevron-down"
       loadingIcon="fa-sharp fa-solid fa-spinner-third fa-spin"
+      placeholder="Selecciona un giro"
     />
 
     <!-- <small id="businessLine-help"> Ej: Rojas </small> -->

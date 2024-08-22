@@ -1,5 +1,5 @@
 // Angular
-import { Component, inject, input, output } from '@angular/core';
+import { Component, inject, input, OnInit, output } from '@angular/core';
 import {
   AbstractControl,
   AsyncValidatorFn,
@@ -67,7 +67,7 @@ const DIRECTIVES = [FormSubmitDirective, ControlErrorsDirective];
   templateUrl: './enterprise-form.component.html',
   styleUrl: './enterprise-form.component.scss',
 })
-export class EnterpriseFormComponent {
+export class EnterpriseFormComponent implements OnInit {
   onGoBack = output<void>();
   onSubmit = output<IEnterprise>();
   data = input.required<IEnterprise>();
@@ -95,7 +95,7 @@ export class EnterpriseFormComponent {
   }
 
   constructor(private readonly fb: FormBuilder) {
-    this.buildForm(); /*if (this.businessLines().length) {
+    /*if (this.businessLines().length) {
 
     /*effect(() => {
       console.log('effect businessName================');
@@ -127,10 +127,16 @@ export class EnterpriseFormComponent {
     );*/
   }
 
+  ngOnInit(): void {
+    this.buildForm();
+  }
+
   private buildForm(): void {
+    /*if (this.data()) {
+    }*/
     this.enterpriseForm = this.fb.nonNullable.group({
       documentId: [
-        '',
+        this.data()?.documentId || '',
         {
           validators: [
             Validators.required,
@@ -143,9 +149,18 @@ export class EnterpriseFormComponent {
           ],
         },
       ],
-      businessName: [{ value: '', disabled: true }, [Validators.required]],
-      businessLineCode: [{ value: '', disabled: true }, [Validators.required]],
-      businessLineName: ['', [Validators.required]],
+      businessName: [
+        { value: this.data()?.businessName || '', disabled: true },
+        [Validators.required],
+      ],
+      businessLineCode: [
+        {
+          value: this.data()?.businessLineCode,
+          disabled: this.data() ? false : true,
+        },
+        [Validators.required],
+      ],
+      businessLineName: [this.data()?.businessLineName, [Validators.required]],
     });
     this.onDocumentIdChange();
     /*this.onBusinessNameChange();*/

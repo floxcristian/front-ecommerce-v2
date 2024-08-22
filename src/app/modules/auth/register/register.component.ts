@@ -97,8 +97,9 @@ export class RegisterComponent {
     this.setNextStep();
   }
 
-  submitEnterpriseForm(enterpriseInfo: any): void {
+  submitEnterpriseForm(enterpriseInfo: IEnterprise): void {
     console.log('enterpriseInfo: ', enterpriseInfo);
+    this.enterpriseForm = enterpriseInfo;
     //this.step.update((value) => value + 1);
     //this.stepService.setNextStep();
     this.setNextStep();

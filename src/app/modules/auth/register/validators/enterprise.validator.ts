@@ -25,7 +25,6 @@ export class EnterpriseValidator {
         map((res: any) => {
           this.isLoading.set(false);
           EnterpriseValidator.lastValue.set(value);
-          console.log('res: ', res);
           if (res.exists) {
             return { exists: true };
           } else {

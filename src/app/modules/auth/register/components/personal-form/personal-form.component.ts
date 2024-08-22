@@ -72,8 +72,9 @@ export class PersonalFormComponent {
           null,
           [Validators.required, DocumentIdValidator.isValidDocumentId],
         ],
-        email: [null, [Validators.required, Validators.email]],
         phone: [null, Validators.required],
+        email: [null, [Validators.required, Validators.email]],
+        confirmEmail: [null, [Validators.required]],
         password: [
           null,
           [

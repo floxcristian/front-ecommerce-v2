@@ -2,52 +2,37 @@
 import { Component, inject, input, OnInit, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
-  AbstractControl,
-  AsyncValidatorFn,
   FormBuilder,
-  FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
 //Rxjs
-import { distinctUntilChanged, of } from 'rxjs';
+import { distinctUntilChanged } from 'rxjs';
 // PrimeNG
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
-import { DocumentIdValidator } from '../../validators/document-id.validator';
+
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { DropdownModule } from 'primeng/dropdown';
 // Services
 import { DocumentIdService } from '../../services/document-id/document-id.service';
 import { CheckUserService } from 'src/app/core/api/check-user/check-user.service';
+// Environment
+import { environment } from '@env/environment';
 // Models
 import { IEnterprise } from './enterprise.interface';
+import { ControlsOf } from '@shared/models/controls.type';
+// Directives
 import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
 import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';
+// Validators
 import { EnterpriseValidator } from '../../validators/enterprise.validator';
-import { environment } from '@env/environment';
-
-export type ControlsOf<T extends Record<string, any>> = {
-  [K in keyof T]: T[K] extends Record<any, any>
-    ? FormGroup<ControlsOf<T[K]>>
-    : FormControl<T[K]>;
-};
-
-export function blurTriggeredAsyncValidator(
-  asyncValidator: AsyncValidatorFn
-): AsyncValidatorFn {
-  console.log('[+] blurTriggeredAsyncValidator');
-  return (control: AbstractControl) => {
-    if (!EnterpriseValidator.blurred()) {
-      return of(null);
-    }
-    return asyncValidator(control);
-  };
-}
+import { DocumentIdValidator } from '../../validators/document-id.validator';
+import { blurTriggeredAsyncValidator } from '../../validators/blur-triggered-async.validator';
 
 const NG_MODULES = [ReactiveFormsModule];
 const PRIME_MODULES = [
@@ -186,10 +171,7 @@ export class EnterpriseFormComponent implements OnInit {
     }
   }
 
-  /***************************
-   * SOLO PARA PRUEBAS UNITARIAS
-   ***************************/
-  onDocumentIdChange() {
+  private onDocumentIdChange(): void {
     this.documentIdField.valueChanges.subscribe((value) => {
       console.log('====================================');
       console.log('onDocumentIdChange: ', value);
@@ -243,7 +225,7 @@ export class EnterpriseFormComponent implements OnInit {
     });
   }
 
-  onBusinessLineChange(): void {
+  private onBusinessLineChange(): void {
     this.businessLineField.valueChanges
       .pipe(distinctUntilChanged())
       .subscribe((value) => {

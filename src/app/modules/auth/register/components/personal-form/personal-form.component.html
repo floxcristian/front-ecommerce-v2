@@ -11,10 +11,14 @@
     rápida.
   </p>
 </div>
-<form [formGroup]="personalForm" (ngSubmit)="submit(personalForm.value)">
+<form
+  [formGroup]="personalForm"
+  (ngSubmit)="submit(personalForm.value)"
+  autocomplete="off"
+>
   @if(accountType() === 'enterprise'){
   <div class="field mb-4 flex flex-column">
-    <label for="position" class="font-medium text-900">Cargo</label>
+    <label for="position" class="font-semibold text-900">Cargo</label>
     <input
       id="position"
       type="text"
@@ -28,7 +32,7 @@
   }
 
   <div class="field mb-4 flex flex-column">
-    <label for="name" class="font-medium text-900">Nombre</label>
+    <label for="name" class="font-semibold text-900">Nombre</label>
     <input
       id="name"
       type="text"
@@ -41,7 +45,7 @@
   </div>
 
   <div class="field mb-4 flex flex-column">
-    <label for="lastname" class="font-medium text-900">Apellido</label>
+    <label for="lastname" class="font-semibold text-900">Apellido</label>
     <input
       id="lastname"
       type="text"
@@ -54,7 +58,7 @@
   </div>
 
   <div class="field mb-4 flex flex-column">
-    <label for="documentId" class="font-medium text-900">RUT</label>
+    <label for="documentId" class="font-semibold text-900">RUT</label>
     <input
       id="documentId"
       type="text"
@@ -66,19 +70,7 @@
     <small id="documentId-help"> Ej: 12345678-9 </small>
   </div>
   <div class="field mb-4 flex flex-column">
-    <label for="email" class="font-medium text-900">Correo eletrónico</label>
-    <input
-      spellcheck="false"
-      id="email"
-      type="text"
-      pInputText
-      maxlength="30"
-      formControlName="email"
-    />
-    <small id="email-help"> Ej: micorreo&#64;gmail.com </small>
-  </div>
-  <div class="field mb-4 flex flex-column">
-    <label for="phone" class="font-medium text-900">Teléfono</label>
+    <label for="phone" class="font-semibold text-900">Teléfono</label>
     <div class="p-inputgroup">
       <span class="p-inputgroup-addon">{{ phoneCode }}</span>
       <p-inputNumber
@@ -91,8 +83,40 @@
     </div>
     <small id="phone-help"> Ej: 9 1234 9876 </small>
   </div>
+  <div class="field mb-4 flex flex-column">
+    <label for="cc-email" class="font-semibold text-900"
+      >Correo eletrónico</label
+    >
+    <input
+      spellcheck="false"
+      id="paso-1-solicitud-input-email"
+      type="text"
+      pInputText
+      maxlength="30"
+      formControlName="email"
+      name="no-autocomplete"
+      autocomplete="off"
+      placeholder="Ej: nombre@dominio.cl"
+    />
+    <!-- <small id="email-help"> Ej: micorreo&#64;gmail.com </small> -->
+  </div>
+
+  <div class="field mb-4 flex flex-column">
+    <label for="confirmEmail" class="font-semibold text-900"
+      >Repita correo eletrónico</label
+    >
+    <input
+      spellcheck="false"
+      id="confirmEmail"
+      type="text"
+      pInputText
+      maxlength="30"
+      formControlName="confirmEmail"
+    />
+  </div>
+
   <div class="field mb-4 flex flex-column w-full">
-    <label for="password" class="font-medium text-900">Contraseña</label>
+    <label for="password" class="font-semibold text-900">Contraseña</label>
     <p-password
       id="password"
       [toggleMask]="true"
@@ -124,7 +148,7 @@
     </p-password>
   </div>
   <div class="field mb-6 flex flex-column">
-    <label for="password2" class="font-medium text-900"
+    <label for="password2" class="font-semibold text-900"
       >Repita contraseña</label
     >
     <input

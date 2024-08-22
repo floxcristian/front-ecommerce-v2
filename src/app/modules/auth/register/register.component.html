@@ -118,7 +118,7 @@
           <app-enterprise-form
             (onGoBack)="setPreviousStep()"
             (onSubmit)="submitEnterpriseForm($event)"
-            [data]="enterpriseForm"
+            [data]="enterpriseForm()"
             [steps]="steps()"
           />
           } @else if((step() === 2 && accountType() === 'customer' || (step()

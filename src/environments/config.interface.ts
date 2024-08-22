@@ -2,16 +2,17 @@ export interface IConfig {
   country: string;
   localeId: string;
   currencyCode: string;
+  phoneCode: string;
   documentId: {
-    customer: string;
-    enterprise: string;
+    customerLabel: string;
+    enterpriseLabel: string;
     documentLength: number;
     sample: string;
   };
   tax: {
     name: string;
     value: number;
-    labelWithTax: string;
-    labelWithoutTax: string;
+    withTaxLabel: string;
+    withoutTaxLabel: string;
   };
 }

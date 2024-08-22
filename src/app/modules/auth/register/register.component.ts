@@ -7,21 +7,17 @@ import {
   PLATFORM_ID,
   signal,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 // Components
 import { PersonalFormComponent } from './components/personal-form/personal-form.component';
 import { AddressFormComponent } from './components/address-form/address-form.component';
 import { AccountTypeFormComponent } from './components/account-type-form/account-type-form.component';
-import {
-  //ControlsOf,
-  EnterpriseFormComponent,
-} from './components/enterprise-form/enterprise-form.component';
+import { EnterpriseFormComponent } from './components/enterprise-form/enterprise-form.component';
+import { TitleHeaderMobileComponent } from '@shared/layouts/title-header-mobile/title-header-mobile.component';
 // Services
 import { ScrollService } from 'src/app/core/utils/scroll/scroll.service';
-// import { StepService } from './services/step/step.service';
-import { TitleHeaderMobileComponent } from '@shared/layouts/title-header-mobile/title-header-mobile.component';
-import { Router } from '@angular/router';
-//import { FormGroup } from '@angular/forms';
+// Models
 import { IEnterprise } from './components/enterprise-form/enterprise.interface';
 
 const COMPONENTS = [
@@ -44,8 +40,8 @@ export class RegisterComponent {
   private readonly scrollService = inject(ScrollService);
   private readonly platformId: Object = inject(PLATFORM_ID);
   private readonly router = inject(Router);
-  // private readonly stepService = inject(StepService);
-  enterpriseForm!: IEnterprise;
+  enterpriseForm = signal<IEnterprise | null>(null);
+  personalForm = signal<any | null>(null);
 
   features = [
     {
@@ -56,7 +52,6 @@ export class RegisterComponent {
   ];
   step = signal<number>(1);
   steps = signal<number>(2);
-  //step = this.stepService.step;
   accountType = signal<string>('');
 
   constructor() {
@@ -73,7 +68,6 @@ export class RegisterComponent {
   }
 
   setPreviousStep(): void {
-    console.log('[setPreviousStep] this.step(): ', this.step());
     if (this.step() == 1) {
       this.router.navigate(['/']);
     } else {
@@ -83,34 +77,27 @@ export class RegisterComponent {
 
   submitRoleForm(role: string): void {
     this.setNextStep();
-    // this.stepService.setNextStep();
-    console.log('role: ', role);
     this.accountType.set(role);
+    if (role === 'customer') {
+      this.enterpriseForm.set(null);
+    } else {
+      this.personalForm.set(null);
+    }
     const totalSteps = role === 'customer' ? 2 : 3;
     this.steps.set(totalSteps);
   }
 
   submitPersonalForm(personalInfo: any): void {
-    console.log('personalInfo: ', personalInfo);
-    //this.step.update((value) => value + 1);
-    //this.stepService.setNextStep();
+    this.personalForm.set(personalInfo);
     this.setNextStep();
   }
 
   submitEnterpriseForm(enterpriseInfo: IEnterprise): void {
-    console.log('enterpriseInfo: ', enterpriseInfo);
-    this.enterpriseForm = enterpriseInfo;
-    //this.step.update((value) => value + 1);
-    //this.stepService.setNextStep();
+    this.enterpriseForm.set(enterpriseInfo);
     this.setNextStep();
   }
 
   submitAddressForm(addressInfo: any): void {
     console.log('addressInfo: ', addressInfo);
-  }
-
-  goBack(): void {
-    //this.step.update((value) => value - 1);
-    //this.stepService.setPreviousStep();
   }
 }

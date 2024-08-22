@@ -1,5 +1,6 @@
 // Angular
 import { Component, inject, input, OnInit, output } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   AbstractControl,
   AsyncValidatorFn,
@@ -9,6 +10,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+//Rxjs
+import { distinctUntilChanged, of } from 'rxjs';
 // PrimeNG
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
@@ -20,14 +23,13 @@ import { InputIconModule } from 'primeng/inputicon';
 import { DropdownModule } from 'primeng/dropdown';
 // Services
 import { DocumentIdService } from '../../services/document-id/document-id.service';
+import { CheckUserService } from 'src/app/core/api/check-user/check-user.service';
 // Models
 import { IEnterprise } from './enterprise.interface';
 import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
 import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';
-import { CheckUserService } from 'src/app/core/api/check-user/check-user.service';
 import { EnterpriseValidator } from '../../validators/enterprise.validator';
-import { CommonModule } from '@angular/common';
-import { distinctUntilChanged, of } from 'rxjs';
+import { environment } from '@env/environment';
 
 export type ControlsOf<T extends Record<string, any>> = {
   [K in keyof T]: T[K] extends Record<any, any>
@@ -70,7 +72,7 @@ const DIRECTIVES = [FormSubmitDirective, ControlErrorsDirective];
 export class EnterpriseFormComponent implements OnInit {
   onGoBack = output<void>();
   onSubmit = output<IEnterprise>();
-  data = input.required<IEnterprise>();
+  data = input.required<IEnterprise | null>();
   steps = input.required<number>();
 
   enterpriseForm!: FormGroup<ControlsOf<IEnterprise>>;
@@ -79,6 +81,7 @@ export class EnterpriseFormComponent implements OnInit {
   businessLines = EnterpriseValidator.businessLines;
   isLoading = EnterpriseValidator.isLoading;
   lastValue = EnterpriseValidator.lastValue;
+  documentIdLabel = environment.documentId.enterpriseLabel;
 
   private readonly checkUserService = inject(CheckUserService);
 
@@ -94,46 +97,13 @@ export class EnterpriseFormComponent implements OnInit {
     return this.enterpriseForm.controls.businessLineCode;
   }
 
-  constructor(private readonly fb: FormBuilder) {
-    /*if (this.businessLines().length) {
-
-    /*effect(() => {
-      console.log('effect businessName================');
-      this.businessNameField.setValue(this.businessName(), {
-        emitEvent: false,
-      });
-    }); */
-    /*effect(
-      () => {
-        console.log('effect businessLines============');
-        const businessLines = this.businessLines();*/
-    //this.businessLineField.setValue('');
-    //console.log('businessLines: ', businessLines);
-    /*this.businessLineField.setValue(businessLines[0]?.code, {
-          emitEvent: false,
-        });*/
-    /*      if (businessLines.length) {
-          console.log('businessLines: ', businessLines[0].code);
-          const businessLineCode: number = businessLines[0].code;
-          this.businessLineField.setValue(businessLineCode.toString(), {
-            emitEvent: false,
-          });
-        }
-*/
-    /*this.businessLineField.setValue(this.businessLines()[0].code);
-      }*/
-    /* },
-      { allowSignalWrites: true }
-    );*/
-  }
+  constructor(private readonly fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.buildForm();
   }
 
   private buildForm(): void {
-    /*if (this.data()) {
-    }*/
     this.enterpriseForm = this.fb.nonNullable.group({
       documentId: [
         this.data()?.documentId || '',
@@ -155,15 +125,17 @@ export class EnterpriseFormComponent implements OnInit {
       ],
       businessLineCode: [
         {
-          value: this.data()?.businessLineCode,
+          value: this.data()?.businessLineCode || '',
           disabled: this.data() ? false : true,
         },
         [Validators.required],
       ],
-      businessLineName: [this.data()?.businessLineName, [Validators.required]],
+      businessLineName: [
+        this.data()?.businessLineName || '',
+        [Validators.required],
+      ],
     });
     this.onDocumentIdChange();
-    /*this.onBusinessNameChange();*/
     this.onBusinessLineChange();
   }
 
@@ -270,14 +242,8 @@ export class EnterpriseFormComponent implements OnInit {
       }
     });
   }
-  /*
-  onBusinessNameChange() {
-    this.businessNameField.valueChanges.subscribe((value) => {
-      console.log('onBusinessNameChange: ', value);
-    });
-  }*/
 
-  onBusinessLineChange() {
+  onBusinessLineChange(): void {
     this.businessLineField.valueChanges
       .pipe(distinctUntilChanged())
       .subscribe((value) => {

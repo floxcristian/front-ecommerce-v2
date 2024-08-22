@@ -4,16 +4,17 @@ export const config: IConfig = {
   country: 'CL',
   localeId: 'CLP',
   currencyCode: 'CLP',
+  phoneCode: '+56',
   documentId: {
-    customer: 'RUT',
-    enterprise: 'RUT empresa',
+    customerLabel: 'RUT',
+    enterpriseLabel: 'RUT empresa',
     documentLength: 10,
     sample: '12345678-9',
   },
   tax: {
     name: 'IVA',
     value: 0.19,
-    labelWithTax: 'c/IVA',
-    labelWithoutTax: 'neto',
+    withTaxLabel: 'c/IVA',
+    withoutTaxLabel: 'neto',
   },
 };

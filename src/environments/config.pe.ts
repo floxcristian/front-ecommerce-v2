@@ -4,16 +4,17 @@ export const config: IConfig = {
   country: 'PE',
   localeId: 'PEN',
   currencyCode: 'PEN',
+  phoneCode: '+51',
   documentId: {
-    customer: 'DNI',
-    enterprise: 'RUC',
+    customerLabel: 'DNI',
+    enterpriseLabel: 'RUC',
     documentLength: 10,
     sample: '12345678-9',
   },
   tax: {
     name: 'IGV',
     value: 0.18,
-    labelWithTax: 'c/IGV',
-    labelWithoutTax: 'neto',
+    withTaxLabel: 'c/IGV',
+    withoutTaxLabel: 'neto',
   },
 };

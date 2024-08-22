@@ -19,6 +19,8 @@ import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { DocumentIdValidator } from '../../validators/document-id.validator';
+// Environment
+import { environment } from '@env/environment';
 
 const NG_MODULES = [ReactiveFormsModule];
 const PRIME_MODULES = [
@@ -45,6 +47,7 @@ export class PersonalFormComponent {
   onGoBack = output<void>();
   onSubmit = output<any>();
   steps = input.required<number>();
+  phoneCode = environment.phoneCode;
 
   personalForm!: FormGroup;
 

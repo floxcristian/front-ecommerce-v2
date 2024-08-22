@@ -27,7 +27,9 @@ businessLineField: {{ businessLineField.value }}</pre
   > -->
 
   <div class="field mb-4 flex flex-column">
-    <label for="documentId" class="font-medium text-900">RUT empresa</label>
+    <label for="documentId" class="font-medium text-900">{{
+      documentIdLabel
+    }}</label>
     <p-iconField iconPosition="right">
       <!-- <p-inputIcon styleClass="pi pi-spinner pi-spin" [hidden]="!isLoading()" /> -->
       <p-inputIcon

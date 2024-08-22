@@ -41,6 +41,7 @@ const PRIME_MODULES = [
 })
 export class AddressFormComponent {
   accountType = input.required<string>();
+  steps = input.required<number>();
   onGoBack = output<void>();
   onSubmit = output<any>();
 

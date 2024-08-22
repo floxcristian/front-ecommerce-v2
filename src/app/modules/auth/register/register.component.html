@@ -119,6 +119,7 @@
             (onGoBack)="setPreviousStep()"
             (onSubmit)="submitEnterpriseForm($event)"
             [data]="enterpriseForm"
+            [steps]="steps()"
           />
           } @else if((step() === 2 && accountType() === 'customer' || (step()
           === 3 && accountType() === 'enterprise'))){
@@ -126,10 +127,12 @@
             [accountType]="accountType()"
             (onGoBack)="setPreviousStep()"
             (onSubmit)="submitPersonalForm($event)"
+            [steps]="steps()"
           />
           } @else {
           <app-address-form
             [accountType]="accountType()"
+            [steps]="steps()"
             (onGoBack)="setPreviousStep()"
             (onSubmit)="submitAddressForm($event)"
           />

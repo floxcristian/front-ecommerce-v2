@@ -71,6 +71,8 @@ export class EnterpriseFormComponent {
   onGoBack = output<void>();
   onSubmit = output<IEnterprise>();
   data = input.required<IEnterprise>();
+  steps = input.required<number>();
+
   enterpriseForm!: FormGroup<ControlsOf<IEnterprise>>;
   blurred = EnterpriseValidator.blurred;
   businessName = EnterpriseValidator.businessName;

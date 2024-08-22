@@ -13,7 +13,7 @@ import { PersonalFormComponent } from './components/personal-form/personal-form.
 import { AddressFormComponent } from './components/address-form/address-form.component';
 import { AccountTypeFormComponent } from './components/account-type-form/account-type-form.component';
 import {
-  ControlsOf,
+  //ControlsOf,
   EnterpriseFormComponent,
 } from './components/enterprise-form/enterprise-form.component';
 // Services
@@ -21,7 +21,7 @@ import { ScrollService } from 'src/app/core/utils/scroll/scroll.service';
 // import { StepService } from './services/step/step.service';
 import { TitleHeaderMobileComponent } from '@shared/layouts/title-header-mobile/title-header-mobile.component';
 import { Router } from '@angular/router';
-import { FormGroup } from '@angular/forms';
+//import { FormGroup } from '@angular/forms';
 import { IEnterprise } from './components/enterprise-form/enterprise.interface';
 
 const COMPONENTS = [
@@ -55,6 +55,7 @@ export class RegisterComponent {
     },
   ];
   step = signal<number>(1);
+  steps = signal<number>(2);
   //step = this.stepService.step;
   accountType = signal<string>('');
 
@@ -83,7 +84,10 @@ export class RegisterComponent {
   submitRoleForm(role: string): void {
     this.setNextStep();
     // this.stepService.setNextStep();
+    console.log('role: ', role);
     this.accountType.set(role);
+    const totalSteps = role === 'customer' ? 2 : 3;
+    this.steps.set(totalSteps);
   }
 
   submitPersonalForm(personalInfo: any): void {

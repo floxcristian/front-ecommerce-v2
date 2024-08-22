@@ -44,6 +44,7 @@ export class PersonalFormComponent {
   accountType = input.required<string>();
   onGoBack = output<void>();
   onSubmit = output<any>();
+  steps = input.required<number>();
 
   personalForm!: FormGroup;
 

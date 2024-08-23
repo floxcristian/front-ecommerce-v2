@@ -39,6 +39,7 @@ export class ControlErrorsDirective implements OnInit {
   private ref!: ComponentRef<ControlErrorComponent>;
   private submit$: Observable<Event | null>;
   private host: HTMLElement;
+  private helperTextElement: HTMLElement | null = null;
 
   constructor(
     @Self() private readonly controlDir: NgControl,
@@ -52,6 +53,11 @@ export class ControlErrorsDirective implements OnInit {
   }
 
   ngOnInit(): void {
+    const helperTextId = this.host.id;
+    if (helperTextId) {
+      this.helperTextElement = document.getElementById(`${helperTextId}-help`);
+    }
+
     const valueChanges$ = this.control?.valueChanges || EMPTY;
 
     const statusChanges$ =
@@ -65,12 +71,6 @@ export class ControlErrorsDirective implements OnInit {
     merge(changesOnAsync$, changesOnBlur$, valueChanges$, this.submit$)
       .pipe(distinctUntilChanged(), takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
-        /*console.log('merge: ', res);
-        console.log('this.host: ', this.host);
-        console.log('this.control: ', this.control);*/
-        //const isTouched = ;
-        // Mostrar error solo si esta en touched o dirty:
-
         const hasErrors = !!this.control?.errors;
         if (hasErrors && this.control?.touched) {
           this.showError();
@@ -89,7 +89,7 @@ export class ControlErrorsDirective implements OnInit {
    */
   showError(): void {
     const controlErrors = this.control?.errors;
-    console.log('controlErrors: ', controlErrors);
+
     if (controlErrors) {
       const [firstKey] = Object.keys(controlErrors);
       const getError = this.errors[firstKey];
@@ -102,6 +102,9 @@ export class ControlErrorsDirective implements OnInit {
         typeof getError === 'function'
           ? getError(controlErrors[firstKey])
           : getError;
+      if (this.helperTextElement) {
+        this.helperTextElement.style.display = 'none';
+      }
       this.setError(text);
     }
   }
@@ -109,6 +112,9 @@ export class ControlErrorsDirective implements OnInit {
   private hideError(): void {
     if (this.ref) {
       this.setError(null);
+    }
+    if (this.helperTextElement) {
+      this.helperTextElement.style.display = 'block';
     }
   }
 

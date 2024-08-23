@@ -40,9 +40,8 @@
       maxlength="20"
       formControlName="name"
       pKeyFilter="alpha"
-      placeholder="Ej: Nicolás"
     />
-    <!-- <small id="name-help"> Ej: Nicolás </small> -->
+    <small id="name-help"> Ej: Nicolás </small>
   </div>
 
   <div class="field mb-4 flex flex-column">
@@ -54,9 +53,8 @@
       maxlength="20"
       formControlName="lastname"
       pKeyFilter="alpha"
-      placeholder="Ej: Rojas"
     />
-    <!-- <small id="lastname-help"> Ej: Rojas </small> -->
+    <small id="lastname-help"> Ej: Rojas </small>
   </div>
 
   <div class="field mb-4 flex flex-column">
@@ -68,9 +66,8 @@
       maxlength="9"
       pKeyFilter="alphanum"
       formControlName="documentId"
-      placeholder="Ej: 12345678-9"
     />
-    <!-- <small id="documentId-help"> Ej: 12345678-9 </small> -->
+    <small id="documentId-help"> Ej: 12345678-9 </small>
   </div>
   <div class="field mb-4 flex flex-column">
     <label for="phone" class="font-semibold text-900">Teléfono</label>
@@ -82,10 +79,9 @@
         [useGrouping]="false"
         maxlength="9"
         formControlName="phone"
-        placeholder="Ej: 9 1234 9876"
       />
     </div>
-    <!-- <small id="phone-help"> Ej: 9 1234 9876 </small> -->
+    <small id="phone-help"> Ej: 9 1234 9876 </small>
   </div>
   <div class="field mb-4 flex flex-column">
     <label for="cc-email" class="font-semibold text-900"
@@ -100,9 +96,8 @@
       formControlName="email"
       name="no-autocomplete"
       autocomplete="off"
-      placeholder="Ej: nombre@dominio.cl"
     />
-    <!-- <small id="email-help"> Ej: micorreo&#64;gmail.com </small> -->
+    <small id="email-help"> Ej: micorreo&#64;gmail.com </small>
   </div>
 
   <div class="field mb-4 flex flex-column">
@@ -117,6 +112,7 @@
       maxlength="30"
       formControlName="confirmEmail"
     />
+    <small id="email-help"> Ej: micorreo&#64;gmail.com </small>
   </div>
 
   <div class="field mb-4 flex flex-column w-full">
@@ -128,7 +124,6 @@
       weakLabel="Débil"
       mediumLabel="Fuerte"
       strongLabel="Muy fuerte"
-      maxlength="30"
       formControlName="password"
       inputStyleClass="w-full"
       styleClass="w-full"
@@ -152,16 +147,17 @@
     </p-password>
   </div>
   <div class="field mb-6 flex flex-column">
-    <label for="password2" class="font-semibold text-900"
+    <label for="confirmPassword" class="font-semibold text-900"
       >Repita contraseña</label
     >
-    <input
-      id="password2"
-      type="text"
-      pInputText
-      maxlength="30"
+    <p-password
+      id="confirmPassword"
       formControlName="confirmPassword"
-    />
+      [toggleMask]="true"
+      [feedback]="false"
+      inputStyleClass="w-full"
+      styleClass="w-full"
+    ></p-password>
   </div>
   <div
     class="flex gap-3 fixed lg:static left-0 bottom-0 surface-card w-full p-3 lg:p-0"

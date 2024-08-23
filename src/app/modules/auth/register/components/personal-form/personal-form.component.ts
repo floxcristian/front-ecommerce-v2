@@ -92,7 +92,13 @@ export class PersonalFormComponent {
     );
   }
 
-  submit(event: any): void {
-    this.onSubmit.emit(event);
+  submit(value: any): void {
+    if (this.personalForm.valid) {
+      this.personalForm.getRawValue();
+      this.onSubmit.emit(value);
+    } else {
+      // Nicolas molina. 2021-09-29. Se agrega el método markAllAsTouched para marcar todos los campos como tocados y mostrar errores.
+      this.personalForm.markAllAsTouched();
+    }
   }
 }

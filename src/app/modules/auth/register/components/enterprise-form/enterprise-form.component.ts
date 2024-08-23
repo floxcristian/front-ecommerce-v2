@@ -68,6 +68,7 @@ export class EnterpriseFormComponent implements OnInit {
   lastValue = EnterpriseValidator.lastValue;
   documentIdLabel = environment.documentId.enterpriseLabel;
 
+  private readonly fb = inject(FormBuilder);
   private readonly checkUserService = inject(CheckUserService);
 
   get documentIdField() {
@@ -82,12 +83,13 @@ export class EnterpriseFormComponent implements OnInit {
     return this.enterpriseForm.controls.businessLineCode;
   }
 
-  constructor(private readonly fb: FormBuilder) {}
-
   ngOnInit(): void {
     this.buildForm();
   }
 
+  /**
+   * Construir el formulario.
+   */
   private buildForm(): void {
     this.enterpriseForm = this.fb.nonNullable.group({
       documentId: [

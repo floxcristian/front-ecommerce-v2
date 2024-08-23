@@ -31,7 +31,6 @@ businessLineField: {{ businessLineField.value }}</pre
       documentIdLabel
     }}</label>
     <p-iconField iconPosition="right">
-      <!-- <p-inputIcon styleClass="pi pi-spinner pi-spin" [hidden]="!isLoading()" /> -->
       <p-inputIcon
         styleClass="fa-sharp fa-solid fa-spinner-third fa-spin"
         [hidden]="!isLoading()"
@@ -44,38 +43,12 @@ businessLineField: {{ businessLineField.value }}</pre
         maxlength="10"
         formControlName="documentId"
         class="w-full"
-        placeholder="Ej: 12345678-9"
         (focus)="onDocumentIdFieldFocus(documentIdField.value)"
         (input)="onDocumentIdFieldInput($event)"
         (blur)="onDocumentIdFieldBlur(documentIdField.value)"
       />
     </p-iconField>
-    <!--<input
-      id="documentId"
-      type="text"
-      pInputText
-      maxlength="10"
-      formControlName="documentId"
-      (focus)="onDocumentIdFieldFocus(documentIdField.value)"
-      (input)="onDocumentIdFieldInput($event)"
-      (blur)="onDocumentIdFieldBlur(documentIdField.value)"
-    />-->
-    <!--<small class="text-red-500">
-      {{ documentIdField.errors | json }}
-    </small> -->
-    <!--@if(documentIdField.touched && documentIdField.invalid) {
-    <small class="text-red-500">
-      {{
-        documentIdField.hasError("required")
-          ? "Este campo es requerido."
-          : documentIdField.hasError("invalidDocumentId")
-          ? "El RUT ingresado no es válido."
-          : ""
-      }}
-    </small>
-    }@else {
     <small id="documentId-help"> Ej: 12345678-9 </small>
-    }-->
   </div>
   <div class="field mb-4 flex flex-column">
     <label for="businessName" class="font-semibold text-900"
@@ -126,7 +99,6 @@ businessLineField: {{ businessLineField.value }}</pre
       [loading]="isLoading()"
       dropdownIcon="fa-sharp fa-solid fa-chevron-down"
       loadingIcon="fa-sharp fa-solid fa-spinner-third fa-spin"
-      placeholder="Selecciona un giro"
     />
 
     <!-- <small id="businessLine-help"> Ej: Rojas </small> -->

@@ -25,12 +25,26 @@ businessLineField: {{ businessLineField.value }}</pre
   <pre style="background-color: yellow">
  blurred: {{ blurred() }} businessName: {{ businessName() }}</pre
   > -->
+  <!--
+  <pre style="background-color: pink">
+    businessName: {{ businessName() }}
+    businessLines: {{ businessLines() | json }}
+  </pre>
+  <pre style="background-color: yellow">
+  hasAsyncData: {{ hasAsyncData() }}
+  lastValue: {{ lastValue() }}
+  canExecuteAsyncValidate: {{ canExecuteAsyncValidate() }}
 
+  value: {{ documentIdField.value }} 
+  status: {{ documentIdField.status }}
+  errors: {{ documentIdField.errors | json }}
+</pre
+  >-->
   <div class="field mb-4 flex flex-column">
     <label for="documentId" class="font-semibold text-900">{{
       documentIdLabel
     }}</label>
-    <p-iconField iconPosition="right">
+    <!--<p-iconField iconPosition="right">
       <p-inputIcon
         styleClass="fa-sharp fa-solid fa-spinner-third fa-spin"
         [hidden]="!isLoading()"
@@ -47,7 +61,9 @@ businessLineField: {{ businessLineField.value }}</pre
         (input)="onDocumentIdFieldInput($event)"
         (blur)="onDocumentIdFieldBlur(documentIdField.value)"
       />
-    </p-iconField>
+    </p-iconField>-->
+
+    <app-document-id-input formControlName="documentId" />
     <small id="documentId-help"> Ej: 12345678-9 </small>
   </div>
   <div class="field mb-4 flex flex-column">
@@ -103,12 +119,7 @@ businessLineField: {{ businessLineField.value }}</pre
 
     <!-- <small id="businessLine-help"> Ej: Rojas </small> -->
   </div>
-  <div class="field flex mb-6">
-    <div class="flex align-items-center">
-      <p-checkbox inputId="newsletter" [binary]="true"></p-checkbox>
-      <span class="ml-3 text-900">Deseo añadir una línea de crédito.</span>
-    </div>
-  </div>
+
   <div
     class="flex gap-3 fixed lg:static left-0 bottom-0 surface-card w-full p-3 lg:p-0"
   >

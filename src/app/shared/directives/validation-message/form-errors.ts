@@ -4,6 +4,7 @@ import { ErrorsMap } from './types';
 export const defaultErrors: ErrorsMap = {
   required: `Este campo es requerido`,
   invalidDocumentId: `El RUT ingresado no es válido.`,
+  validationApiError: `Ha ocurrido un error al validar el RUT. Por favor intente más tarde.`,
   minlength: ({ requiredLength, actualLength }) =>
     `Expect ${requiredLength} but got ${actualLength}`,
   exists: `La empresa ya existe en nuestros registros.`,

@@ -1,5 +1,12 @@
 // Angular
-import { Component, inject, input, OnInit, output } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  inject,
+  input,
+  OnInit,
+  output,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
@@ -14,25 +21,27 @@ import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
-
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { DropdownModule } from 'primeng/dropdown';
 // Services
-import { DocumentIdService } from '../../services/document-id/document-id.service';
-import { CheckUserService } from 'src/app/core/api/check-user/check-user.service';
+//import { DocumentIdService } from '../../services/document-id/document-id.service';
+//import { CheckUserService } from 'src/app/core/api/check-user/check-user.service';
 // Environment
 import { environment } from '@env/environment';
 // Models
-import { IEnterprise } from './enterprise.interface';
+import { Enterprise } from './enterprise.interface';
 import { ControlsOf } from '@shared/models/controls.type';
 // Directives
 import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
 import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';
 // Validators
-import { EnterpriseValidator } from '../../validators/enterprise.validator';
-import { DocumentIdValidator } from '../../validators/document-id.validator';
-import { blurTriggeredAsyncValidator } from '../../validators/blur-triggered-async.validator';
+//import { EnterpriseValidator } from '../../validators/enterprise.validator';
+//import { DocumentIdValidator } from '../../validators/document-id.validator';
+//import { blurTriggeredAsyncValidator } from '../../validators/blur-triggered-async.validator';
+// Components
+import { DocumentIdInputComponent } from '@shared/components/atomic/document-id-input/document-id-input.component';
+import { EnterpriseValidator } from '@shared/components/atomic/document-id-input/validators/enterprise.validator';
 
 const NG_MODULES = [ReactiveFormsModule];
 const PRIME_MODULES = [
@@ -50,26 +59,35 @@ const DIRECTIVES = [FormSubmitDirective, ControlErrorsDirective];
 @Component({
   selector: 'app-enterprise-form',
   standalone: true,
-  imports: [...NG_MODULES, ...PRIME_MODULES, ...DIRECTIVES],
+  imports: [
+    ...NG_MODULES,
+    ...PRIME_MODULES,
+    ...DIRECTIVES,
+    DocumentIdInputComponent,
+  ],
   templateUrl: './enterprise-form.component.html',
   styleUrl: './enterprise-form.component.scss',
 })
 export class EnterpriseFormComponent implements OnInit {
   onGoBack = output<void>();
-  onSubmit = output<IEnterprise>();
-  data = input.required<IEnterprise | null>();
+  onSubmit = output<Enterprise>();
+  data = input.required<Enterprise | null>();
   steps = input.required<number>();
 
-  enterpriseForm!: FormGroup<ControlsOf<IEnterprise>>;
-  blurred = EnterpriseValidator.blurred;
+  enterpriseForm!: FormGroup<ControlsOf<Enterprise>>;
+  documentIdLabel = environment.documentId.enterpriseLabel;
+  //blurred = EnterpriseValidator.blurred;
+  hasAsyncData = EnterpriseValidator.hasAsyncData;
   businessName = EnterpriseValidator.businessName;
   businessLines = EnterpriseValidator.businessLines;
+  canExecuteAsyncValidate = EnterpriseValidator.canExecuteAsyncValidate;
+  //
   isLoading = EnterpriseValidator.isLoading;
   lastValue = EnterpriseValidator.lastValue;
-  documentIdLabel = environment.documentId.enterpriseLabel;
 
   private readonly fb = inject(FormBuilder);
-  private readonly checkUserService = inject(CheckUserService);
+  private cdr = inject(ChangeDetectorRef);
+  //private readonly checkUserService = inject(CheckUserService);
 
   get documentIdField() {
     return this.enterpriseForm.controls.documentId;
@@ -83,9 +101,11 @@ export class EnterpriseFormComponent implements OnInit {
     return this.enterpriseForm.controls.businessLineCode;
   }
 
+  // #region Lifecycle
   ngOnInit(): void {
     this.buildForm();
   }
+  // #endregion
 
   /**
    * Construir el formulario.
@@ -93,7 +113,7 @@ export class EnterpriseFormComponent implements OnInit {
   private buildForm(): void {
     this.enterpriseForm = this.fb.nonNullable.group({
       documentId: [
-        this.data()?.documentId || '',
+        this.data()?.documentId || '' /*,
         {
           validators: [
             Validators.required,
@@ -104,7 +124,7 @@ export class EnterpriseFormComponent implements OnInit {
               EnterpriseValidator.isValidEnterprise(this.checkUserService)
             ),
           ],
-        },
+        },*/,
       ],
       businessName: [
         { value: this.data()?.businessName || '', disabled: true },
@@ -130,60 +150,46 @@ export class EnterpriseFormComponent implements OnInit {
    * Mostrar solo los caracteres editables.
    * @param value
    */
-  onDocumentIdFieldFocus(value: string): void {
+  /*onDocumentIdFieldFocus(value: string): void {
     this.isLoading.set(false);
     const formattedDocumentId = DocumentIdService.getEditableValue(value);
     this.documentIdField.setValue(formattedDocumentId, { emitEvent: false });
     this.blurred.set(false);
-  }
+  }*/
 
   /**
    * Restringir el ingreso de solo caracteres permitidos.
    * @param value
    */
-  onDocumentIdFieldInput(event: Event): void {
+  /*onDocumentIdFieldInput(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
     const formattedDocumentId = DocumentIdService.getValidCharacters(
       inputElement.value
     );
-    /*const formattedDocumentId = DocumentIdService.getValidCharacters(value);
-    console.log('setValueOnDocumentIdFieldInputEvent: ', formattedDocumentId);*/
     this.documentIdField.setValue(formattedDocumentId, { emitEvent: false });
-    // Ejecutar el validador asíncrono manualmente
-  }
+  }*/
 
   /**
    * Al salir del input, formatear el valor.
    * @param value
    */
-  onDocumentIdFieldBlur(value: string): void {
+  /*onDocumentIdFieldBlur(value: string): void {
     const formattedDocumentId = DocumentIdService.getFormattedDocumentId(value);
     this.blurred.set(true);
     this.documentIdField.setValue(formattedDocumentId, { emitEvent: true });
-    /*this.documentIdField.updateValueAndValidity();*/
-  }
-
-  submit(value: IEnterprise): void {
-    if (this.enterpriseForm.valid) {
-      this.enterpriseForm.getRawValue();
-      this.onSubmit.emit(value);
-    } else {
-      // Nicolas molina. 2021-09-29. Se agrega el método markAllAsTouched para marcar todos los campos como tocados y mostrar errores.
-      this.enterpriseForm.markAllAsTouched();
-    }
-  }
+    //this.documentIdField.updateValueAndValidity();
+  }*/
 
   private onDocumentIdChange(): void {
     this.documentIdField.valueChanges.subscribe((value) => {
-      console.log('====================================');
-      console.log('onDocumentIdChange: ', value);
-      console.log('lastValue: ', this.lastValue());
+      console.log('[parent][valueChanges] value: ', value);
+      console.log('[parent][valueChanges] lastValue: ', this.lastValue());
+      // FIXME: para que uso esto?
       if (this.lastValue() && this.lastValue() !== value) {
-        console.log('entro al reset');
-        // this.businessNameField.setValue('');
+        this.lastValue.set('');
+        this.hasAsyncData.set(false);
         this.businessName.set('');
         this.businessLines.set([]);
-        // this.businessLineField.setValue('', { emitEvent: false });
         this.enterpriseForm.patchValue(
           {
             businessName: '',
@@ -192,31 +198,31 @@ export class EnterpriseFormComponent implements OnInit {
           },
           { emitEvent: false }
         );
-        // Setear el campo de businessline como untouched:
         this.businessLineField.markAsUntouched();
         this.businessLineField.markAsPristine();
         this.businessLineField.updateValueAndValidity();
       }
-      // Si el formcontrol es válido, se limpia el businessName y businessLine:
-      /*if (!this.documentIdField.valid) {
-      }*/
     });
 
     this.documentIdField.statusChanges.subscribe((status) => {
-      console.log('statusChanges: ', status);
+      this.cdr.detectChanges();
+      //console.log('*************************************');
+      //console.log('[parent][statusChanges] status: ', status);
+      // console.log('[parent][statusChange] blurred: ', this.blurred());
+      //console.log('*************************************');
+
+      console.log('intentando cargar data business con estado: ', status);
       if (status === 'INVALID') {
-        //this.businessNameField.disable();
         this.enterpriseForm.patchValue({
           businessName: '',
           businessLineCode: '',
           businessLineName: '',
         });
         this.businessLineField.disable();
-      } else if (status === 'VALID') {
-        //this.businessNameField.enable();
-        /*this.businessLineField.setValue(this.businessLines()[0].code, {
-          emitEvent: false,
-        });*/
+      } else if (status === 'VALID' && this.hasAsyncData()) {
+        console.log('entre a setear porque tengo businessLines:::::');
+        // FIXME: cuando intento asignarlo al form, no se lográ asignar porque aun no tiene los valores de businessName y businessLines.
+        // Se debe controlar que pase a estado PENDING.
         this.enterpriseForm.patchValue({
           businessName: this.businessName(),
           businessLineCode: this.businessLines()[0].code,
@@ -231,12 +237,33 @@ export class EnterpriseFormComponent implements OnInit {
     this.businessLineField.valueChanges
       .pipe(distinctUntilChanged())
       .subscribe((value) => {
-        console.log('<onBusinessLineChange: ', value);
+        // console.log('<onBusinessLineChange: ', value);
         this.enterpriseForm.patchValue({
           businessLineName: this.businessLines().find(
             (line) => line.code === Number(value)
           )?.name,
         });
       });
+  }
+
+  /**
+   * Enviar el formulario.
+   * @param value
+   * @returns void
+   * @example
+   * submit({
+   *  documentId: '123456789',
+   *  businessName: 'My business',
+   *  businessLineName: 'My business line',
+   *  businessLineCode: '1234'
+   * });
+   **/
+  submit(value: Enterprise): void {
+    if (this.enterpriseForm.valid) {
+      this.enterpriseForm.getRawValue();
+      this.onSubmit.emit(value);
+    } else {
+      this.enterpriseForm.markAllAsTouched();
+    }
   }
 }

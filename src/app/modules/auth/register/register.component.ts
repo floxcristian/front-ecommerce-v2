@@ -18,7 +18,7 @@ import { TitleHeaderMobileComponent } from '@shared/layouts/title-header-mobile/
 // Services
 import { ScrollService } from 'src/app/core/utils/scroll/scroll.service';
 // Models
-import { IEnterprise } from './components/enterprise-form/enterprise.interface';
+import { Enterprise } from './components/enterprise-form/enterprise.interface';
 
 const COMPONENTS = [
   AccountTypeFormComponent,
@@ -40,16 +40,9 @@ export class RegisterComponent {
   private readonly scrollService = inject(ScrollService);
   private readonly platformId: Object = inject(PLATFORM_ID);
   private readonly router = inject(Router);
-  enterpriseForm = signal<IEnterprise | null>(null);
+  enterpriseForm = signal<Enterprise | null>(null);
   personalForm = signal<any | null>(null);
 
-  features = [
-    {
-      title: ' Envío gratis en compras superiores a $60.000.',
-      description: '',
-      icon: 'fa-sharp-duotone fa-solid fa-address-book',
-    },
-  ];
   step = signal<number>(1);
   steps = signal<number>(2);
   accountType = signal<string>('');
@@ -63,10 +56,17 @@ export class RegisterComponent {
     }
   }
 
+  // #region Step navigation
+  /**
+   * Set the next step in the registration process.
+   */
   private setNextStep(): void {
     this.step.update((value) => value + 1);
   }
 
+  /**
+   * Set the previous step in the registration process.
+   */
   setPreviousStep(): void {
     if (this.step() == 1) {
       this.router.navigate(['/']);
@@ -74,7 +74,9 @@ export class RegisterComponent {
       this.step.update((value) => value - 1);
     }
   }
+  // #endregion
 
+  // #region Form submissions
   submitRoleForm(role: string): void {
     this.setNextStep();
     this.accountType.set(role);
@@ -92,7 +94,19 @@ export class RegisterComponent {
     this.setNextStep();
   }
 
-  submitEnterpriseForm(enterpriseInfo: IEnterprise): void {
+  /**
+   * Submit the enterprise form.
+   * @param enterpriseInfo The enterprise information.
+   * @returns void
+   * @example
+   * submitEnterpriseForm({
+   *  documentId: '123456789',
+   *  businessName: 'My business',
+   *  businessLineName: 'My business line',
+   *  businessLineCode: '1234'
+   * });
+   */
+  submitEnterpriseForm(enterpriseInfo: Enterprise): void {
     this.enterpriseForm.set(enterpriseInfo);
     this.setNextStep();
   }
@@ -100,4 +114,5 @@ export class RegisterComponent {
   submitAddressForm(addressInfo: any): void {
     console.log('addressInfo: ', addressInfo);
   }
+  // #endregion
 }

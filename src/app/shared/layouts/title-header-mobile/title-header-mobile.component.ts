@@ -2,14 +2,10 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  inject,
   input,
   output,
-  signal,
 } from '@angular/core';
-import { NavigationEnd, Router, RouterModule } from '@angular/router';
-// Service
-import { StepService } from 'src/app/modules/auth/register/services/step/step.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-title-header-mobile',
@@ -23,33 +19,4 @@ export class TitleHeaderMobileComponent {
   title = input.required<string>();
   showIcon = input<boolean>(true);
   onGoBack = output<void>();
-
-  stepService = inject(StepService);
-  router = inject(Router);
-
-  isRegisterPage = signal<boolean>(false);
-
-  constructor() {
-    console.log('holaaa');
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        const currentRoute = event.urlAfterRedirects;
-        console.log('currentRoute: ', currentRoute);
-        const isRegisterPage = currentRoute === '/auth/register';
-        this.isRegisterPage.set(isRegisterPage);
-      }
-    });
-  }
-
-  goBack(): void {
-    /*console.log('this.isRegisterPage(): ', this.isRegisterPage());
-    if (this.isRegisterPage()) {
-      this.stepService.setPreviousStep();
-    } else {
-      // Ir a la página principal:
-      // this.router.navigate(['/']);
-      this.stepService.resetStep();
-    }*/
-    this.onGoBack.emit();
-  }
 }

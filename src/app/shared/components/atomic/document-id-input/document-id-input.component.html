@@ -1,1 +1,24 @@
-<p>document-id-input works!</p>
+<!--<pre style="background-color: lightblue">
+  value: {{ documentIdField.value }}
+  status: {{ documentIdField.status }}
+  errors: {{ documentIdField.errors | json }}
+</pre>-->
+<form [formGroup]="form">
+  <p-iconField iconPosition="right">
+    <p-inputIcon
+      styleClass="fa-sharp fa-solid fa-spinner-third fa-spin"
+      [hidden]="!isLoading()"
+    />
+    <input
+      id="documentId"
+      type="text"
+      pInputText
+      maxlength="10"
+      formControlName="documentId"
+      class="w-full"
+      (blur)="onDocumentIdFieldBlur(documentIdField.value, $event)"
+      (input)="onDocumentIdFieldInput($event)"
+      (focus)="onDocumentIdFieldFocus(documentIdField.value)"
+    />
+  </p-iconField>
+</form>

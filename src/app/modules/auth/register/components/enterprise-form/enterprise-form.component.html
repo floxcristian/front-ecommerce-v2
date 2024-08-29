@@ -63,7 +63,11 @@ businessLineField: {{ businessLineField.value }}</pre
       />
     </p-iconField>-->
 
-    <app-document-id-input formControlName="documentId" />
+    <app-document-id-input
+      id="documentId"
+      #documentInput
+      formControlName="documentId"
+    />
     <small id="documentId-help"> Ej: 12345678-9 </small>
   </div>
   <div class="field mb-4 flex flex-column">
@@ -107,6 +111,7 @@ businessLineField: {{ businessLineField.value }}</pre
       pKeyFilter="alpha"
     />-->
     <p-dropdown
+      #dropdownElement
       styleClass="w-full"
       formControlName="businessLineCode"
       [options]="businessLines()"
@@ -124,6 +129,7 @@ businessLineField: {{ businessLineField.value }}</pre
     class="flex gap-3 fixed lg:static left-0 bottom-0 surface-card w-full p-3 lg:p-0"
   >
     <button
+      #backButton
       type="button"
       severity="secondary"
       pButton

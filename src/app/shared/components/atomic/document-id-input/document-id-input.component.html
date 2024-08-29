@@ -10,6 +10,7 @@
       [hidden]="!isLoading()"
     />
     <input
+      #documentInput
       id="documentId"
       type="text"
       pInputText
@@ -19,6 +20,7 @@
       (blur)="onDocumentIdFieldBlur(documentIdField.value, $event)"
       (input)="onDocumentIdFieldInput($event)"
       (focus)="onDocumentIdFieldFocus(documentIdField.value)"
+      (keydown.enter)="keyEnter($event)"
     />
   </p-iconField>
 </form>

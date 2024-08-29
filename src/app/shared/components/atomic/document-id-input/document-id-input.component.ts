@@ -3,8 +3,10 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  ElementRef,
   forwardRef,
   inject,
+  ViewChild,
 } from '@angular/core';
 import {
   AbstractControl,
@@ -20,7 +22,7 @@ import {
 } from '@angular/forms';
 import { ControlsOf } from '@shared/models/controls.type';
 // Rxjs
-import { Observable, of, pairwise } from 'rxjs';
+import { pairwise } from 'rxjs';
 // PrimeNG
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
@@ -67,9 +69,9 @@ const PRIME_MODULES = [InputTextModule, IconFieldModule, InputIconModule];
 export class DocumentIdInputComponent
   implements ControlValueAccessor, Validator
 {
+  @ViewChild('documentInput') documentInput!: ElementRef;
   private readonly checkUserService = inject(CheckUserService);
   private readonly fb = inject(FormBuilder);
-  // private readonly cdr = inject(ChangeDetectorRef);
 
   form!: FormGroup<ControlsOf<Pick<Enterprise, 'documentId'>>>;
 
@@ -288,4 +290,9 @@ export class DocumentIdInputComponent
     )(control);
   }*/
   // #endregion
+
+  keyEnter(event: Event) {
+    event.preventDefault();
+    this.documentInput.nativeElement.blur();
+  }
 }

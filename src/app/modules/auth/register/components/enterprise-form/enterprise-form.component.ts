@@ -6,6 +6,7 @@ import {
   input,
   OnInit,
   output,
+  ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
@@ -23,7 +24,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
-import { DropdownModule } from 'primeng/dropdown';
+import { Dropdown, DropdownModule } from 'primeng/dropdown';
 // Services
 //import { DocumentIdService } from '../../services/document-id/document-id.service';
 //import { CheckUserService } from 'src/app/core/api/check-user/check-user.service';
@@ -69,6 +70,8 @@ const DIRECTIVES = [FormSubmitDirective, ControlErrorsDirective];
   styleUrl: './enterprise-form.component.scss',
 })
 export class EnterpriseFormComponent implements OnInit {
+  @ViewChild('dropdownElement') dropdown!: Dropdown;
+
   onGoBack = output<void>();
   onSubmit = output<Enterprise>();
   data = input.required<Enterprise | null>();
@@ -87,7 +90,6 @@ export class EnterpriseFormComponent implements OnInit {
 
   private readonly fb = inject(FormBuilder);
   private cdr = inject(ChangeDetectorRef);
-  //private readonly checkUserService = inject(CheckUserService);
 
   get documentIdField() {
     return this.enterpriseForm.controls.documentId;
@@ -229,6 +231,7 @@ export class EnterpriseFormComponent implements OnInit {
           businessLineName: this.businessLines()[0].name,
         });
         this.businessLineField.enable();
+        this.dropdown.focus();
       }
     });
   }

@@ -53,9 +53,12 @@ export class ControlErrorsDirective implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('this.host', this.host);
     const helperTextId = this.host.id;
+    console.log('helperTextId', helperTextId);
     if (helperTextId) {
       this.helperTextElement = document.getElementById(`${helperTextId}-help`);
+      console.log('this.helperTextElement', this.helperTextElement);
     }
 
     const valueChanges$ = this.control?.valueChanges || EMPTY;

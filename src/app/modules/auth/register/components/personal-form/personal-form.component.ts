@@ -13,14 +13,17 @@ import { DividerModule } from 'primeng/divider';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { InputGroupModule } from 'primeng/inputgroup';
 // Validators
 import { PasswordValidator } from '../../validators/password.validator';
-import { InputGroupModule } from 'primeng/inputgroup';
-import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
-import { KeyFilterModule } from 'primeng/keyfilter';
 import { DocumentIdValidator } from '../../validators/document-id.validator';
 // Environment
 import { environment } from '@env/environment';
+// Directivas
+import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';
+import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
 
 const NG_MODULES = [ReactiveFormsModule];
 const PRIME_MODULES = [
@@ -34,11 +37,12 @@ const PRIME_MODULES = [
   KeyFilterModule,
   InputNumberModule,
 ];
+const DIRECTIVES = [FormSubmitDirective, ControlErrorsDirective];
 
 @Component({
   selector: 'app-personal-form',
   standalone: true,
-  imports: [...NG_MODULES, ...PRIME_MODULES],
+  imports: [...NG_MODULES, ...PRIME_MODULES, ...DIRECTIVES],
   templateUrl: './personal-form.component.html',
   styleUrl: './personal-form.component.scss',
 })
@@ -97,7 +101,6 @@ export class PersonalFormComponent {
       this.personalForm.getRawValue();
       this.onSubmit.emit(value);
     } else {
-      // Nicolas molina. 2021-09-29. Se agrega el método markAllAsTouched para marcar todos los campos como tocados y mostrar errores.
       this.personalForm.markAllAsTouched();
     }
   }

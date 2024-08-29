@@ -90,6 +90,7 @@ export class RegisterComponent {
   }
 
   submitPersonalForm(personalInfo: any): void {
+    console.log('personalInfo: ', personalInfo);
     this.personalForm.set(personalInfo);
     this.setNextStep();
   }

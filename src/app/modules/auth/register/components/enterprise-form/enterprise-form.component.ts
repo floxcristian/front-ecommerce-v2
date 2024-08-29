@@ -25,9 +25,6 @@ import { RippleModule } from 'primeng/ripple';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { Dropdown, DropdownModule } from 'primeng/dropdown';
-// Services
-//import { DocumentIdService } from '../../services/document-id/document-id.service';
-//import { CheckUserService } from 'src/app/core/api/check-user/check-user.service';
 // Environment
 import { environment } from '@env/environment';
 // Models
@@ -37,12 +34,9 @@ import { ControlsOf } from '@shared/models/controls.type';
 import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
 import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';
 // Validators
-//import { EnterpriseValidator } from '../../validators/enterprise.validator';
-//import { DocumentIdValidator } from '../../validators/document-id.validator';
-//import { blurTriggeredAsyncValidator } from '../../validators/blur-triggered-async.validator';
+import { EnterpriseValidator } from '@shared/components/atomic/document-id-input/validators/enterprise.validator';
 // Components
 import { DocumentIdInputComponent } from '@shared/components/atomic/document-id-input/document-id-input.component';
-import { EnterpriseValidator } from '@shared/components/atomic/document-id-input/validators/enterprise.validator';
 
 const NG_MODULES = [ReactiveFormsModule];
 const PRIME_MODULES = [
@@ -79,7 +73,6 @@ export class EnterpriseFormComponent implements OnInit {
 
   enterpriseForm!: FormGroup<ControlsOf<Enterprise>>;
   documentIdLabel = environment.documentId.enterpriseLabel;
-  //blurred = EnterpriseValidator.blurred;
   hasAsyncData = EnterpriseValidator.hasAsyncData;
   businessName = EnterpriseValidator.businessName;
   businessLines = EnterpriseValidator.businessLines;

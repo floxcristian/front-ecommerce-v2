@@ -44,25 +44,6 @@ businessLineField: {{ businessLineField.value }}</pre
     <label for="documentId" class="font-semibold text-900">{{
       documentIdLabel
     }}</label>
-    <!--<p-iconField iconPosition="right">
-      <p-inputIcon
-        styleClass="fa-sharp fa-solid fa-spinner-third fa-spin"
-        [hidden]="!isLoading()"
-      />
-
-      <input
-        id="documentId"
-        type="text"
-        pInputText
-        maxlength="10"
-        formControlName="documentId"
-        class="w-full"
-        (focus)="onDocumentIdFieldFocus(documentIdField.value)"
-        (input)="onDocumentIdFieldInput($event)"
-        (blur)="onDocumentIdFieldBlur(documentIdField.value)"
-      />
-    </p-iconField>-->
-
     <app-document-id-input
       id="documentId"
       #documentInput
@@ -102,14 +83,6 @@ businessLineField: {{ businessLineField.value }}</pre
   </div>
   <div class="field mb-6 flex flex-column">
     <label for="businessLine" class="font-semibold text-900">Giro</label>
-    <!--<input
-      id="businessLine"
-      type="text"
-      pInputText
-      maxlength="20"
-      formControlName="businessLine"
-      pKeyFilter="alpha"
-    />-->
     <p-dropdown
       #dropdownElement
       styleClass="w-full"

@@ -1,5 +1,5 @@
 // Angular
-import { Component, input, output } from '@angular/core';
+import { Component, Input, input, output } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -103,5 +103,28 @@ export class PersonalFormComponent {
     } else {
       this.personalForm.markAllAsTouched();
     }
+  }
+
+  onTextFieldInput(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    const formattedValue = this.getValidCharacters(inputElement.value);
+    const formControlName = inputElement.getAttribute(
+      'formControlName'
+    ) as string;
+    this.personalForm.get(formControlName)?.setValue(formattedValue);
+  }
+
+  onTextFieldBlur(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    const formControlName = inputElement.getAttribute(
+      'formControlName'
+    ) as string;
+    const formattedValue = inputElement.value.trim();
+    this.personalForm.get(formControlName)?.setValue(formattedValue);
+  }
+
+  getValidCharacters(value: string): string {
+    if (!value) return '';
+    return value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '').replace(/\s+/g, ' ');
   }
 }

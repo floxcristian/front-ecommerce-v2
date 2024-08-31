@@ -1,1 +1,118 @@
-<p>feature-panel works!</p>
+<!-- Start::header -->
+<div class="border-bottom-1 surface-border mb-5">
+  <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">
+    Únete a la familia de
+    <span class="text-blue-600">Implementos</span>
+  </h2>
+  <p class="mt-0 mb-5 text-700 font-normal text-base">
+    ¿Ya tienes una cuenta?
+    <a target="_blank" href="#" class="font-medium text-blue-500 no-underline"
+      >Inicia sesión aquí</a
+    >
+  </p>
+</div>
+<!-- End::header -->
+
+<!-- Start::content -->
+<ul class="list-none px-0 py-6 m-0">
+  <!--accountType:
+  {{
+    accountType()
+  }}-->
+  <!--
+  <li class="flex align-items-start mb-4">
+    <div>
+      <span
+        class="flex align-items-center justify-content-center bg-purple-400"
+        style="width: 50px; height: 45px; border-radius: 10px"
+      >
+        <i
+          class="fa-sharp-duotone fa-solid fa-file-invoice-dollar text-3xl text-white"
+        ></i>
+      </span>
+    </div>
+    <div class="ml-3">
+      <span class="font-medium text-900">Revisar tus boletas</span>
+      <p class="mt-2 mb-0 text-600 line-height-3">
+        Tincidunt nunc pulvinar sapien et. Vitae purus faucibus ornare
+        suspendisse sed nisi lacus sed viverra.
+      </p>
+    </div>
+  </li> -->
+
+  @for(feature of features; track $index){
+  <li class="flex align-items-center mb-4">
+    <div
+      class="flex align-items-center justify-content-center bg-purple-400"
+      style="width: 50px; height: 50px; border-radius: 10px"
+    >
+      <i
+        class="fa-sharp-duotone fa-solid text-3xl text-white"
+        [ngClass]="feature.icon"
+      ></i>
+    </div>
+    <div class="ml-4 flex-1">
+      @if(feature.title){
+      <span class="font-semibold text-900">{{ feature.title }}</span>
+      <p class="mt-2 mb-0 text-600 line-height-3">
+        {{ feature.description }}
+      </p>
+      } @else {
+      <p class="text-600 line-height-3">
+        {{ feature.description }}
+      </p>
+      }
+    </div>
+  </li>
+  }
+  <!--<li class="flex align-items-center mb-4">
+    <div
+      class="flex align-items-center justify-content-center bg-purple-400"
+      style="width: 50px; height: 50px; border-radius: 10px"
+    >
+      <i
+        class="fa-sharp-duotone fa-solid fa-address-book text-3xl text-white"
+      ></i>
+    </div>
+    <p class="text-600 ml-3 line-height-3">
+      Guardar medios de pago y direcciones favoritas
+    </p>
+  </li>
+  <li class="flex align-items-center mb-4">
+    <div
+      class="flex align-items-center justify-content-center bg-purple-400"
+      style="width: 50px; height: 50px; border-radius: 10px"
+    >
+      <i
+        class="fa-sharp-duotone fa-solid fa-address-book text-3xl text-white"
+      ></i>
+    </div>
+    <p class="text-600 ml-3 line-height-3">
+      Guardar medios de pago y direcciones favoritas
+    </p>
+  </li> -->
+
+  <!--
+  <li class="flex align-items-start">
+    <div>
+      <span
+        class="flex align-items-center justify-content-center bg-purple-400"
+        style="width: 50px; height: 50px; border-radius: 10px"
+      >
+
+        <i
+          class="fa-sharp-duotone fa-solid fa-gift text-3xl text-white"
+        ></i>
+      </span>
+    </div>
+    <div class="ml-3">
+      <span class="font-medium text-900"
+        >Precios Implementos Family</span
+      >
+      <p class="mt-2 mb-0 text-600 line-height-3">
+        Ahorra con promociones especiales, cupones de descuento y más.
+      </p>
+    </div>
+  </li> -->
+</ul>
+<!-- End::content -->

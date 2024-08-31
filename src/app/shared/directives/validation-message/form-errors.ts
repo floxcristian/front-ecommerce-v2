@@ -1,14 +1,27 @@
+// Angular
 import { InjectionToken } from '@angular/core';
+// Types
 import { ErrorsMap } from './types';
+// Environment
+import { environment } from '@env/environment';
 
 export const defaultErrors: ErrorsMap = {
+  // Common
   required: `Este campo es requerido`,
-  invalidDocumentId: `El RUT ingresado no es válido.`,
   validationApiError: `Ha ocurrido un error al validar el RUT. Por favor intente más tarde.`,
   minlength: ({ requiredLength, actualLength }) =>
     `Expect ${requiredLength} but got ${actualLength}`,
-  exists: `La empresa ya existe en nuestros registros.`,
+  // Business Lines
   businessLines: `La empresa no tiene rubros asociados.`,
+  // Enterprise Document ID
+  exists: `La empresa ya existe en nuestros registros.`,
+  // Document ID
+  documentIdRequired: `El ${environment.documentId.customerLabel} es un campo requerido.`,
+  documentIdInvalid: `El ${environment.documentId.customerLabel} ingresado no es válido.`,
+  // Password
+  passwordRequired: `La contraseña es un campo requerido.`,
+  passwordMinLength: `La contraseña debe tener al menos 8 caracteres.`,
+  passwordMaxLength: `La contraseña no puede tener más de 20 caracteres.`,
 };
 
 export const FORM_ERRORS = new InjectionToken('FORM_ERRORS', {

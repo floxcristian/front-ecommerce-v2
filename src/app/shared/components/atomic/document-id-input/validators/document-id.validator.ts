@@ -1,22 +1,27 @@
 // Angular
 import { AbstractControl, ValidationErrors } from '@angular/forms';
+// Models
+import { CountryCode } from '@env/config.interface';
 // Environment
 import { environment } from '@env/environment';
 
 export class DocumentIdValidator {
   static isValidDocumentId(control: AbstractControl): ValidationErrors | null {
-    const value = control.value;
-    if (!value) return null;
+    return DocumentIdValidator.validateDocumentId(
+      control.value,
+      environment.country
+    );
+  }
 
-    if (environment.country === 'CL') {
-      const isValid = DocumentIdValidator.isValidChileanDocumentId(value);
-      return isValid ? null : { invalidDocumentId: true };
-    }
-    if (environment.country === 'PE') {
-      const isValid = DocumentIdValidator.isValidPeruvianDocumentId(value);
-      return isValid ? null : { invalidDocumentId: true };
-    }
-    return null;
+  private static validateDocumentId(value: string, country: CountryCode) {
+    if (!value) return null;
+    const validators: Record<CountryCode, (documentId: string) => boolean> = {
+      CL: DocumentIdValidator.isValidChileanDocumentId,
+      PE: DocumentIdValidator.isValidPeruvianDocumentId,
+    };
+    const validator = validators[country];
+    const isValid = validator(value);
+    return isValid ? null : { documentIdInvalid: true };
   }
 
   private static isValidChileanDocumentId(documentId: string): boolean {

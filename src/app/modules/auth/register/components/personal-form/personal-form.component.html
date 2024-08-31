@@ -37,9 +37,11 @@
       id="name"
       type="text"
       pInputText
-      maxlength="20"
+      maxlength="25"
       formControlName="name"
-      pKeyFilter="alpha"
+      spellcheck="false"
+      (input)="onTextFieldInput($event)"
+      (blur)="onTextFieldBlur($event)"
     />
     <small id="name-help"> Ej: Nicolás </small>
   </div>
@@ -50,9 +52,11 @@
       id="lastname"
       type="text"
       pInputText
-      maxlength="20"
+      maxlength="25"
       formControlName="lastname"
-      pKeyFilter="alpha"
+      spellcheck="false"
+      (input)="onTextFieldInput($event)"
+      (blur)="onTextFieldBlur($event)"
     />
     <small id="lastname-help"> Ej: Rojas </small>
   </div>

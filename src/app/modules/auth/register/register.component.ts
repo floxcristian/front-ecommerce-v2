@@ -15,6 +15,7 @@ import { AddressFormComponent } from './components/address-form/address-form.com
 import { AccountTypeFormComponent } from './components/account-type-form/account-type-form.component';
 import { EnterpriseFormComponent } from './components/enterprise-form/enterprise-form.component';
 import { TitleHeaderMobileComponent } from '@shared/layouts/title-header-mobile/title-header-mobile.component';
+import { FeaturePanelComponent } from './components/feature-panel/feature-panel.component';
 // Services
 import { ScrollService } from 'src/app/core/utils/scroll/scroll.service';
 // Models
@@ -26,6 +27,7 @@ const COMPONENTS = [
   AddressFormComponent,
   EnterpriseFormComponent,
   TitleHeaderMobileComponent,
+  FeaturePanelComponent,
 ];
 
 @Component({

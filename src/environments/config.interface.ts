@@ -1,5 +1,7 @@
+export type CountryCode = 'CL' | 'PE';
+
 export interface IConfig {
-  country: string;
+  country: CountryCode;
   localeId: string;
   currencyCode: string;
   phoneCode: string;

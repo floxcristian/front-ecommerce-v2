@@ -1,7 +1,5 @@
 // Angular
 import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   ElementRef,
   forwardRef,
@@ -12,6 +10,7 @@ import {
   AbstractControl,
   ControlValueAccessor,
   FormBuilder,
+  FormControl,
   FormGroup,
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
@@ -20,7 +19,7 @@ import {
   Validator,
   Validators,
 } from '@angular/forms';
-import { ControlsOf } from '@shared/models/controls.type';
+import { CommonModule } from '@angular/common';
 // Rxjs
 import { pairwise } from 'rxjs';
 // PrimeNG
@@ -36,7 +35,7 @@ import { CheckUserService } from '@core/api/check-user/check-user.service';
 import { blurTriggeredAsyncValidator } from './validators/blur-triggered-async.validator';
 import { EnterpriseValidator } from './validators/enterprise.validator';
 import { DocumentIdValidator } from './validators/document-id.validator';
-import { CommonModule } from '@angular/common';
+import { ControlsOf } from '@shared/models/controls.type';
 
 const NG_MODULES = [ReactiveFormsModule, CommonModule];
 const PRIME_MODULES = [InputTextModule, IconFieldModule, InputIconModule];
@@ -75,7 +74,6 @@ export class DocumentIdInputComponent
 
   form!: FormGroup<ControlsOf<Pick<Enterprise, 'documentId'>>>;
 
-  // blurred = EnterpriseValidator.blurred;
   canExecuteAsyncValidate = EnterpriseValidator.canExecuteAsyncValidate;
   isLoading = EnterpriseValidator.isLoading;
   lastValue = EnterpriseValidator.lastValue;
@@ -83,7 +81,7 @@ export class DocumentIdInputComponent
   private onChange!: (value: string) => void;
   private onTouch!: () => void;
 
-  get documentIdField() {
+  get documentIdField(): FormControl<string> {
     return this.form.controls.documentId;
   }
 
@@ -133,13 +131,10 @@ export class DocumentIdInputComponent
       ],
     });
     this.onChangeDocumentId();
+  }
 
-    /*this.form = new FormGroup({
-        documentId: new FormControl('', [
-          Validators.required,
-          DocumentIdValidator.isValidDocumentId,
-        ]),
-      });*/
+  keyEnter(): void {
+    this.documentInput.nativeElement.blur();
   }
 
   // #region Input events
@@ -290,9 +285,4 @@ export class DocumentIdInputComponent
     )(control);
   }*/
   // #endregion
-
-  keyEnter(event: Event) {
-    event.preventDefault();
-    this.documentInput.nativeElement.blur();
-  }
 }

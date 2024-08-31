@@ -4,8 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class DocumentIdService {
-  constructor() {}
-
   /**
    * Dejar solo el número de documento editable quitando los caracteres especiales.
    * @param documentId
@@ -13,7 +11,6 @@ export class DocumentIdService {
    */
   static getEditableValue(documentId: string): string {
     if (!documentId) return '';
-    // Reemplazar todos los valores no númericos por vacío, a excepcepción de K o k.
     return documentId.replace(/[^0-9\K\k]/g, '');
   }
 

@@ -21,9 +21,10 @@ import { PasswordValidator } from '../../validators/password.validator';
 import { DocumentIdValidator } from '../../validators/document-id.validator';
 // Environment
 import { environment } from '@env/environment';
-// Directivas
+// Directives
 import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';
 import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
+import { ControlErrorContainerDirective } from '@shared/directives/validation-message/directives/control-error-container/control-error-container.directive';
 
 const NG_MODULES = [ReactiveFormsModule];
 const PRIME_MODULES = [
@@ -37,7 +38,11 @@ const PRIME_MODULES = [
   KeyFilterModule,
   InputNumberModule,
 ];
-const DIRECTIVES = [FormSubmitDirective, ControlErrorsDirective];
+const DIRECTIVES = [
+  FormSubmitDirective,
+  ControlErrorsDirective,
+  ControlErrorContainerDirective,
+];
 
 @Component({
   selector: 'app-personal-form',

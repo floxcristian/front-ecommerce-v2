@@ -33,23 +33,29 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 })
 export class ControlErrorsDirective implements OnInit {
   private readonly destroyRef: DestroyRef = inject(DestroyRef);
-  //container!: ViewContainerRef;
+
   //@Input() customErrors = {};
   //errors = inject(FORM_ERRORS);
   private ref!: ComponentRef<ControlErrorComponent>;
   private submit$: Observable<Event | null>;
   private host: HTMLElement;
   private helperTextElement: HTMLElement | null = null;
+  container!: ViewContainerRef;
 
   constructor(
     @Self() private readonly controlDir: NgControl,
     @Inject(FORM_ERRORS) private errors: any,
     @Optional() private form: FormSubmitDirective,
+    @Optional()
+    private controlErrorAnchorParent: ControlErrorContainerDirective,
     private vcr: ViewContainerRef,
     elementRef: ElementRef
   ) {
     this.host = elementRef.nativeElement as HTMLElement;
     this.submit$ = this.form ? this.form.submit$ : EMPTY;
+    this.container = controlErrorAnchorParent
+      ? controlErrorAnchorParent.vcr
+      : vcr;
   }
 
   ngOnInit(): void {
@@ -119,12 +125,23 @@ export class ControlErrorsDirective implements OnInit {
   }
 
   private setError(text: string | null): void {
-    if (!this.ref) {
+    // FIXME: usar container.
+    this.ref ??= this.resolveAnchor().createComponent<ControlErrorComponent>(
+      ControlErrorComponent
+    );
+    /*if (!this.ref) {
       this.ref ??= this.vcr.createComponent<ControlErrorComponent>(
         ControlErrorComponent
       );
-    }
+    }*/
     const instance = this.ref.instance;
     instance.text = text;
+  }
+
+  private resolveAnchor(): ViewContainerRef {
+    if (this.controlErrorAnchorParent) {
+      return this.controlErrorAnchorParent.vcr;
+    }
+    return this.vcr;
   }
 }

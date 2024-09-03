@@ -176,6 +176,7 @@ export class PersonalFormComponent {
 
     console.log('onPhoneFieldKeyDown: ', event);
     console.log('[valor actual input]: ', this.phoneField?.value);
+    console.log('this.input: ', this.input);
     this.formatField(this.phoneField?.value);
   }
 

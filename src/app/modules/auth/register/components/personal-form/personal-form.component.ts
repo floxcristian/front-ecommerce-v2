@@ -149,6 +149,7 @@ export class PersonalFormComponent {
     console.log('formattedValue: ', formattedValue);
     //console.log('formattedValue: ', formattedValue);
     this.phoneField?.setValue(formattedValue);
+    this.isFormatting.set(false);
   }
 
   onPhoneFieldKeyDown(event: Event): void {
@@ -156,6 +157,7 @@ export class PersonalFormComponent {
     this.isFormatting.set(true);
     console.log('this.phoneField?.value: ', this.phoneField?.value);
     console.log('onPhoneFieldKeyDown: ', event);
+    this.isFormatting.set(false);
   }
 
   formatField(event: Event): void {}

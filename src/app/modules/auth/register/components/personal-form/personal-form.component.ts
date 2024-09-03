@@ -183,14 +183,14 @@ export class PersonalFormComponent {
     console.log('[valor actual input]: ', this.phoneField?.value);
     console.log('this.input: ', this.input.input.nativeElement.value);
     //this.formatField(this.phoneField?.value);
-    const formattedValue = (this.phoneField?.value ?? '').replace(
+    const formattedValue: string = (this.phoneField?.value ?? '').replace(
       /[^0-9\s]/g,
       ''
     );
     console.log('[valor formateado]: ', formattedValue);
-    this.input.input.nativeElement.value = formattedValue; //formattedValue;
+    this.input.input.nativeElement.value = ''; //formattedValue;
     this.input.value = formattedValue ? +formattedValue : null;
-    this.phoneField?.updateValueAndValidity();
+    // this.phoneField?.updateValueAndValidity();
   }
 
   formatField(value: string | null): void {

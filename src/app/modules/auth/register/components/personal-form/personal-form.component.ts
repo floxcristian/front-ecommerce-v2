@@ -1,5 +1,5 @@
 // Angular
-import { Component, Input, input, output } from '@angular/core';
+import { Component, Input, input, output, signal } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -57,6 +57,7 @@ export class PersonalFormComponent {
   onSubmit = output<any>();
   steps = input.required<number>();
   phoneCode = environment.phoneCode;
+  isFormatting = signal<boolean>(false);
 
   personalForm!: FormGroup;
 
@@ -138,6 +139,8 @@ export class PersonalFormComponent {
   }
 
   onPhoneFieldInput(event: InputNumberInputEvent) {
+    if (this.isFormatting()) return;
+    this.isFormatting.set(true);
     console.log('onPhoneFieldInput: ', event);
     const value = event.value;
     const stringValue = typeof value === 'number' ? value.toString() : value;
@@ -148,7 +151,12 @@ export class PersonalFormComponent {
     this.phoneField?.setValue(formattedValue);
   }
 
-  onPhoneFieldKeyDown(event: Event) {
+  onPhoneFieldKeyDown(event: Event): void {
+    if (this.isFormatting()) return;
+    this.isFormatting.set(true);
+    console.log('this.phoneField?.value: ', this.phoneField?.value);
     console.log('onPhoneFieldKeyDown: ', event);
   }
+
+  formatField(event: Event): void {}
 }

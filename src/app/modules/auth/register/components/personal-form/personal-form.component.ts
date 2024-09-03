@@ -155,11 +155,10 @@ export class PersonalFormComponent {
 
   onPhoneFieldKeyDown(event: KeyboardEvent): void {
     if (event.key !== 'Unidentified') return;
-    //this.isFormatting.set(true);
+
     console.log('this.phoneField?.value: ', this.phoneField?.value);
     console.log('onPhoneFieldKeyDown: ', event);
     this.formatField(this.phoneField?.value);
-    //this.isFormatting.set(false);
   }
 
   formatField(value: string | null): void {

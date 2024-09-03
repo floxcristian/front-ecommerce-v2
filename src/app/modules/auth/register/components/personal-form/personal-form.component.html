@@ -76,7 +76,8 @@
   <div class="field mb-4 flex flex-column">
     <pre style="background-color: yellow">
       this.phoneField?.value: {{ this.phoneField?.value }}
-      primeInputValue: {{ input?.input | json }}
+      primeInputValue: {{ input?.value }}
+      primeInput: {{ input?.input | json }}
     </pre>
     <label for="phone" class="font-semibold text-900">Teléfono</label>
     <div class="p-inputgroup" controlErrorContainer>

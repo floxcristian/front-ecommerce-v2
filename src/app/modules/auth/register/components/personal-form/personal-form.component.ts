@@ -1,5 +1,12 @@
 // Angular
-import { Component, Input, input, output, signal } from '@angular/core';
+import {
+  Component,
+  Input,
+  input,
+  output,
+  signal,
+  ViewChild,
+} from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -12,7 +19,11 @@ import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
-import { InputNumberInputEvent, InputNumberModule } from 'primeng/inputnumber';
+import {
+  InputNumber,
+  InputNumberInputEvent,
+  InputNumberModule,
+} from 'primeng/inputnumber';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { InputGroupModule } from 'primeng/inputgroup';
@@ -52,6 +63,7 @@ const DIRECTIVES = [
   styleUrl: './personal-form.component.scss',
 })
 export class PersonalFormComponent {
+  @ViewChild('phoneInput') public input!: InputNumber;
   accountType = input.required<string>();
   onGoBack = output<void>();
   onSubmit = output<any>();
@@ -104,6 +116,10 @@ export class PersonalFormComponent {
         validators: [PasswordValidator.matchPasswords],
       }
     );
+  }
+
+  ngAfterViewInit(): void {
+    (this.input.input.nativeElement as HTMLElement).setAttribute('type', 'tel');
   }
 
   submit(value: any): void {

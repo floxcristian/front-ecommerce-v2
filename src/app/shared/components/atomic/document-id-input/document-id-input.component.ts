@@ -28,6 +28,7 @@ import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 // Models
 import { Enterprise } from 'src/app/modules/auth/register/components/enterprise-form/enterprise.interface';
+import { ControlsOf } from '@shared/models/controls.type';
 // Services
 import { DocumentIdService } from './services/document-id/document-id.service';
 import { CheckUserService } from '@core/api/check-user/check-user.service';
@@ -35,7 +36,6 @@ import { CheckUserService } from '@core/api/check-user/check-user.service';
 import { blurTriggeredAsyncValidator } from './validators/blur-triggered-async.validator';
 import { EnterpriseValidator } from './validators/enterprise.validator';
 import { DocumentIdValidator } from './validators/document-id.validator';
-import { ControlsOf } from '@shared/models/controls.type';
 
 const NG_MODULES = [ReactiveFormsModule, CommonModule];
 const PRIME_MODULES = [InputTextModule, IconFieldModule, InputIconModule];
@@ -159,22 +159,9 @@ export class DocumentIdInputComponent
     if (lastValue !== documentIdWithoutFormat) {
       this.canExecuteAsyncValidate.set(true);
     }
-    // this.documentIdField.markAsPending({ onlySelf: true });
-    this.documentIdField.setValue(value);
-    //this.documentIdField.setValue(documentIdWithoutFormat);
-    //this.onChange(documentIdWithoutFormat);
-
-    //this.documentIdField.updateValueAndValidity();
+    //this.documentIdField.setValue(value);
+    this.documentIdField.updateValueAndValidity();
     this.onTouch();
-    // this.onChange(formattedDocumentId);
-    //this.cdr.detectChanges();
-    // Forzar la detección de cambios
-    /*this.cdr.detectChanges();
-    setTimeout(() => {
-      this.cdr.detectChanges();
-      console.log(this.documentIdField.status);
-    }, 1000);*/
-    //
   }
 
   /**

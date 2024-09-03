@@ -83,6 +83,7 @@
         [useGrouping]="false"
         maxlength="9"
         formControlName="phone"
+        (onInput)="onPhoneFieldInput($event)"
       />
     </div>
     <small id="phone-help"> Ej: 9 1234 9876 </small>

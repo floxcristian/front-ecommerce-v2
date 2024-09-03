@@ -12,7 +12,7 @@ import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
-import { InputNumberModule } from 'primeng/inputnumber';
+import { InputNumberInputEvent, InputNumberModule } from 'primeng/inputnumber';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { InputGroupModule } from 'primeng/inputgroup';
@@ -59,6 +59,10 @@ export class PersonalFormComponent {
   phoneCode = environment.phoneCode;
 
   personalForm!: FormGroup;
+
+  get phoneField() {
+    return this.personalForm.get('phone');
+  }
 
   constructor(private readonly fb: FormBuilder) {
     this.buildForm();
@@ -131,5 +135,16 @@ export class PersonalFormComponent {
   getValidCharacters(value: string): string {
     if (!value) return '';
     return value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '').replace(/\s+/g, ' ');
+  }
+
+  onPhoneFieldInput(event: InputNumberInputEvent) {
+    console.log('onPhoneFieldInput: ', event);
+    const value = event.value;
+    const stringValue = typeof value === 'number' ? value.toString() : value;
+    console.log('stringValue: ', stringValue);
+    const formattedValue = (stringValue ?? '').replace(/[^0-9\s]/g, '');
+    console.log('formattedValue: ', formattedValue);
+    //console.log('formattedValue: ', formattedValue);
+    this.phoneField?.setValue(formattedValue);
   }
 }

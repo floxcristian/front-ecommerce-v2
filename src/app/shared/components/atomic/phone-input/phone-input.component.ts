@@ -69,7 +69,7 @@ export class PhoneInputComponent implements ControlValueAccessor, Validator {
 
   onPhoneFieldInput(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
-    const formattedValue = inputElement.value.replace(/[^0-9\s]/g, '');
+    const formattedValue = inputElement.value.replace(/[^0-9]/g, '');
     this.phoneField?.setValue(formattedValue);
     this.onChange(+formattedValue);
   }

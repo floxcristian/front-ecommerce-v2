@@ -188,11 +188,8 @@ export class DocumentIdInputComponent
    * @param value The value of the document id field.
    * @returns void
    * */
-  onDocumentIdFieldFocus(value: string): void {
-    //console.log('[focus]');
+  onDocumentIdFieldFocus(): void {
     this.isLoading.set(false);
-    //const formattedDocumentId = DocumentIdService.getEditableValue(value);
-    //this.documentIdField.setValue(formattedDocumentId, { emitEvent: false }); // No quiero ejecutar un valueChanges o statusChanges.
     this.canExecuteAsyncValidate.set(false);
   }
   // #endregion

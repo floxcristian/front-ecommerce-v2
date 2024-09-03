@@ -1,5 +1,6 @@
 // Angular
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   forwardRef,
@@ -63,7 +64,7 @@ const PRIME_MODULES = [InputTextModule, IconFieldModule, InputIconModule];
       multi: true,
     }*/
   ],
-  //changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DocumentIdInputComponent
   implements ControlValueAccessor, Validator

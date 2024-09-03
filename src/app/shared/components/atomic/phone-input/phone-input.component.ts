@@ -1,5 +1,10 @@
 // Angular
-import { Component, forwardRef, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  forwardRef,
+  inject,
+} from '@angular/core';
 import {
   AbstractControl,
   ControlValueAccessor,
@@ -40,6 +45,7 @@ const PRIME_MODULES = [InputTextModule];
     },
   ],
   host: { class: 'w-full' },
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PhoneInputComponent implements ControlValueAccessor, Validator {
   get phoneField(): FormControl<string> {

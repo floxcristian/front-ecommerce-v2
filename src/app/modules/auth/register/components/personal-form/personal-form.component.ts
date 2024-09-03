@@ -176,7 +176,7 @@ export class PersonalFormComponent {
 
     console.log('onPhoneFieldKeyDown: ', event);
     console.log('[valor actual input]: ', this.phoneField?.value);
-    console.log('this.input: ', this.input);
+    console.log('this.input: ', this.input.input.nativeElement.value);
     this.formatField(this.phoneField?.value);
   }
 
@@ -184,5 +184,6 @@ export class PersonalFormComponent {
     const formattedValue = (value ?? '').replace(/[^0-9\s]/g, '');
     console.log('[+] insertando nuevo valor: ', formattedValue);
     this.phoneField?.setValue(formattedValue);
+    this.input.input.nativeElement.value = formattedValue;
   }
 }

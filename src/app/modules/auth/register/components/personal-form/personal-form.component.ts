@@ -1,12 +1,5 @@
 // Angular
-import {
-  Component,
-  Input,
-  input,
-  output,
-  signal,
-  ViewChild,
-} from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -19,11 +12,6 @@ import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
-import {
-  InputNumber,
-  InputNumberInputEvent,
-  InputNumberModule,
-} from 'primeng/inputnumber';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { InputGroupModule } from 'primeng/inputgroup';
@@ -36,9 +24,9 @@ import { environment } from '@env/environment';
 import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';
 import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
 import { ControlErrorContainerDirective } from '@shared/directives/validation-message/directives/control-error-container/control-error-container.directive';
-import { CommonModule } from '@angular/common';
+import { PhoneInputComponent } from '@shared/components/atomic/phone-input/phone-input.component';
 
-const NG_MODULES = [CommonModule, ReactiveFormsModule];
+const NG_MODULES = [ReactiveFormsModule];
 const PRIME_MODULES = [
   PasswordModule,
   InputTextModule,
@@ -48,7 +36,6 @@ const PRIME_MODULES = [
   InputGroupModule,
   InputGroupAddonModule,
   KeyFilterModule,
-  InputNumberModule,
 ];
 const DIRECTIVES = [
   FormSubmitDirective,
@@ -56,21 +43,21 @@ const DIRECTIVES = [
   ControlErrorContainerDirective,
 ];
 
+const COMPONENTS = [PhoneInputComponent];
+
 @Component({
   selector: 'app-personal-form',
   standalone: true,
-  imports: [...NG_MODULES, ...PRIME_MODULES, ...DIRECTIVES],
+  imports: [...NG_MODULES, ...PRIME_MODULES, ...DIRECTIVES, ...COMPONENTS],
   templateUrl: './personal-form.component.html',
   styleUrl: './personal-form.component.scss',
 })
 export class PersonalFormComponent {
-  //@ViewChild('phoneInput') public input!: InputNumber;
   accountType = input.required<string>();
   onGoBack = output<void>();
   onSubmit = output<any>();
   steps = input.required<number>();
   phoneCode = environment.phoneCode;
-  isFormatting = signal<boolean>(false);
 
   personalForm!: FormGroup;
 
@@ -119,11 +106,6 @@ export class PersonalFormComponent {
     );
   }
 
-  ngAfterViewInit(): void {
-    /*(this.input.input.nativeElement as HTMLElement).setAttribute('type', 'tel');
-    console.log('this.input: ', this.input);*/
-  }
-
   submit(value: any): void {
     if (this.personalForm.valid) {
       this.personalForm.getRawValue();
@@ -154,57 +136,5 @@ export class PersonalFormComponent {
   getValidCharacters(value: string): string {
     if (!value) return '';
     return value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '').replace(/\s+/g, ' ');
-  }
-
-  onPhoneFieldInput(event: Event): void {
-    //if (this.isFormatting()) return;
-    //this.isFormatting.set(true);
-    const inputElement = event.target as HTMLInputElement;
-    const formattedValue = inputElement.value.replace(/[^0-9\s]/g, '');
-    //this.documentIdField.setValue(formattedDocumentId
-    this.phoneField?.setValue(formattedValue);
-    /*const value = event.value;
-    const stringValue = typeof value === 'number' ? value.toString() : value;
-    this.formatField(stringValue);*/
-    /*console.log('stringValue: ', stringValue);
-    const formattedValue = (stringValue ?? '').replace(/[^0-9\s]/g, '');
-    console.log('formattedValue: ', formattedValue);
-    //console.log('formattedValue: ', formattedValue);
-    this.phoneField?.setValue(formattedValue);*/
-    // this.isFormatting.set(false);
-  }
-
-  onPhoneFieldKeyDown(event: KeyboardEvent): void {
-    if (event.key !== 'Unidentified') return;
-
-    console.log('[1] onPhoneFieldKeyDown: ', event);
-    console.log(
-      '[2] onPhoneFieldKeyDown: ',
-      (event.target as HTMLInputElement).value
-    );
-    /*console.log('input prime: ', this.input.input.nativeElement);
-    console.log('[valor actual input]: ', this.phoneField?.value);
-    console.log('this.input: ', this.input.input.nativeElement.value);*/
-    //this.formatField(this.phoneField?.value);
-    const formattedValue: string = (this.phoneField?.value ?? '').replace(
-      /[^0-9\s]/g,
-      ''
-    );
-    console.log('[valor formateado]: ', formattedValue);
-    //this.input.input.nativeElement.value = ''; //formattedValue;
-    //this.input.value = null; //formattedValue ? +formattedValue : null;
-    /*setTimeout(() => {
-      this.input.input.nativeElement.value = formattedValue;
-      this.input.value = +formattedValue;
-    }, 0);*/
-    //this.input.input.nativeElement.value = formattedValue;
-    // this.phoneField?.updateValueAndValidity();
-  }
-
-  formatField(value: string | null): void {
-    const formattedValue = (value ?? '').replace(/[^0-9\s]/g, '');
-    console.log('[+] insertando nuevo valor12: ', formattedValue);
-    this.phoneField?.setValue(formattedValue);
-    //this.input.value = formattedValue ? +formattedValue : null;
   }
 }

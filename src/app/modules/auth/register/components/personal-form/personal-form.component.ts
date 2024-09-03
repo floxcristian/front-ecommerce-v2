@@ -190,6 +190,7 @@ export class PersonalFormComponent {
     console.log('[valor formateado]: ', formattedValue);
     this.input.input.nativeElement.value = ''; //formattedValue;
     this.input.value = formattedValue ? +formattedValue : null;
+    this.input.input.nativeElement.value = formattedValue;
     // this.phoneField?.updateValueAndValidity();
   }
 

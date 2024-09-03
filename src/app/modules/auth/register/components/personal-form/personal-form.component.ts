@@ -175,8 +175,11 @@ export class PersonalFormComponent {
     if (event.key !== 'Unidentified') return;
 
     console.log('[1] onPhoneFieldKeyDown: ', event);
-    console.log('[2] onPhoneFieldKeyDown: ', event.target as HTMLInputElement);
-    console.log('input prime: ', this.input.input);
+    console.log(
+      '[2] onPhoneFieldKeyDown: ',
+      (event.target as HTMLInputElement).value
+    );
+    console.log('input prime: ', this.input.input.nativeElement);
     console.log('[valor actual input]: ', this.phoneField?.value);
     console.log('this.input: ', this.input.input.nativeElement.value);
     this.formatField(this.phoneField?.value);

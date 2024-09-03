@@ -77,7 +77,7 @@
     <pre style="background-color: yellow">
       this.phoneField?.value: {{ this.phoneField?.value }}
       primeInputValue: {{ input?.value }}
-      primeInput: {{ input?.input | json }}
+      primeInput: {{ input?.input?.nativeElement | json }}
     </pre>
     <label for="phone" class="font-semibold text-900">Teléfono</label>
     <div class="p-inputgroup" controlErrorContainer>

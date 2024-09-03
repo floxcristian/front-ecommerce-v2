@@ -4,6 +4,7 @@ import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { CountryCode } from '@env/config.interface';
 // Environment
 import { environment } from '@env/environment';
+import { DocumentIdService } from '../services/document-id/document-id.service';
 
 export class DocumentIdValidator {
   static isValidDocumentId(control: AbstractControl): ValidationErrors | null {
@@ -25,7 +26,7 @@ export class DocumentIdValidator {
   }
 
   private static isValidChileanDocumentId(documentId: string): boolean {
-    let rut = documentId.trim();
+    let rut = DocumentIdService.getDocumentIdWithoutFormat(documentId);
     if (!rut) return false;
     if (!rut.includes('-')) {
       rut = rut.slice(0, -1) + '-' + rut.slice(-1);

@@ -17,6 +17,7 @@ import {
 } from 'rxjs';
 // Services
 import { CheckUserService } from '@core/api/check-user/check-user.service';
+import { DocumentIdService } from '../services/document-id/document-id.service';
 
 export class EnterpriseValidator {
   static blurred = signal<boolean>(false);
@@ -57,6 +58,9 @@ export class EnterpriseValidator {
   static isValidEnterprise(service: CheckUserService) {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
       return of(control.value).pipe(
+        map((value: string) =>
+          DocumentIdService.getDocumentIdWithoutFormat(value)
+        ),
         mergeMap((value: string) => {
           this.isLoading.set(true);
           // EnterpriseValidator.blurred.set(false);

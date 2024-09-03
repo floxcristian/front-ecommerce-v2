@@ -97,15 +97,19 @@ export class DocumentIdInputComponent
         console.log('[child][statusChanges] prevStatus: ', prevStatus);
         console.log('[child][statusChanges] status: ', status);
         if (prevStatus === 'PENDING') {
-          this.onChange(this.documentIdField.value);
+          this.onChange(
+            DocumentIdService.getDocumentIdWithoutFormat(
+              this.documentIdField.value
+            )
+          );
         }
       });
 
-    this.documentIdField.valueChanges.subscribe((value) => {
+    /*this.documentIdField.valueChanges.subscribe((value) => {
       console.log('[child][valueChanges] value: ', value);
       //this.onChange(value);
       // this.cdr.detectChanges();
-    });
+    });*/
   }
 
   /**
@@ -144,16 +148,21 @@ export class DocumentIdInputComponent
    * @returns void
    * */
   onDocumentIdFieldBlur(value: string, event: Event): void {
-    console.log('[blur]');
+    //console.log('[blur]');
     if (event.target === document.activeElement) return;
-    const formattedDocumentId = DocumentIdService.getFormattedDocumentId(value);
+    // const formattedDocumentId = DocumentIdService.getFormattedDocumentId(value);
     // console.log('>>>>>>>>> seteo blurred en true');
     //this.blurred.set(true);
-    if (this.lastValue() !== formattedDocumentId) {
+    const documentIdWithoutFormat =
+      DocumentIdService.getDocumentIdWithoutFormat(value);
+    const lastValue = this.lastValue();
+    if (lastValue !== documentIdWithoutFormat) {
       this.canExecuteAsyncValidate.set(true);
     }
     // this.documentIdField.markAsPending({ onlySelf: true });
-    this.documentIdField.setValue(formattedDocumentId);
+    this.documentIdField.setValue(value);
+    //this.documentIdField.setValue(documentIdWithoutFormat);
+    //this.onChange(documentIdWithoutFormat);
 
     //this.documentIdField.updateValueAndValidity();
     this.onTouch();
@@ -169,20 +178,21 @@ export class DocumentIdInputComponent
   }
 
   /**
-   * Handle the input event on the document id field. Al escribir en el input, formatear el valor.
+   * Al presionar una tecla en el input, formatear el valor.
    * Restringir el ingreso de solo caracteres permitidos.
    * @param event The input event.
    * @returns void
    * */
   onDocumentIdFieldInput(event: Event): void {
-    console.log('[input]');
+    //console.log('[input]');
     const inputElement = event.target as HTMLInputElement;
     const formattedDocumentId = DocumentIdService.getValidCharacters(
       inputElement.value
     );
     this.documentIdField.setValue(formattedDocumentId, { emitEvent: false }); // No quiero ejecutar un valueChanges o statusChanges.
-    console.log('hago on change');
-    this.onChange(formattedDocumentId);
+    const documentIdWithoutFormat =
+      DocumentIdService.getDocumentIdWithoutFormat(inputElement.value);
+    this.onChange(documentIdWithoutFormat);
   }
 
   /**
@@ -192,12 +202,10 @@ export class DocumentIdInputComponent
    * @returns void
    * */
   onDocumentIdFieldFocus(value: string): void {
-    console.log('[focus]');
+    //console.log('[focus]');
     this.isLoading.set(false);
-    const formattedDocumentId = DocumentIdService.getEditableValue(value);
-    this.documentIdField.setValue(formattedDocumentId, { emitEvent: false }); // No quiero ejecutar un valueChanges o statusChanges.
-    //console.log('[child][focus] blurred = false');
-    //this.blurred.set(false);
+    //const formattedDocumentId = DocumentIdService.getEditableValue(value);
+    //this.documentIdField.setValue(formattedDocumentId, { emitEvent: false }); // No quiero ejecutar un valueChanges o statusChanges.
     this.canExecuteAsyncValidate.set(false);
   }
   // #endregion

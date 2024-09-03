@@ -12,10 +12,9 @@ export function blurTriggeredAsyncValidator(
     const value = control.value;
     console.log('[child][blurTriggeredAsyncValidator]');
     // control.markAsPending();
-    if (
-      !EnterpriseValidator.canExecuteAsyncValidate() ||
-      EnterpriseValidator.lastValue() === value
-    ) {
+    const t1 = EnterpriseValidator.canExecuteAsyncValidate();
+    const t2 = EnterpriseValidator.lastValue();
+    if (!t1 || t2 === value) {
       console.log('[child][blurTriggeredAsyncValidator] blurred: false');
       //control.setErrors({ pending: true });
       return of(null);

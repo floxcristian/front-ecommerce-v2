@@ -79,12 +79,13 @@
       <span class="p-inputgroup-addon">{{ phoneCode }}</span>
       <p-inputNumber
         id="phone"
-        inputId="integeronly"
         [useGrouping]="false"
         maxlength="9"
         formControlName="phone"
         (onInput)="onPhoneFieldInput($event)"
+        (onKeyDown)="onPhoneFieldKeyDown($event)"
       />
+      <!--   inputId="integeronly" -->
     </div>
     <small id="phone-help"> Ej: 9 1234 9876 </small>
   </div>

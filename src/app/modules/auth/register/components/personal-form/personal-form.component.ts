@@ -147,4 +147,8 @@ export class PersonalFormComponent {
     //console.log('formattedValue: ', formattedValue);
     this.phoneField?.setValue(formattedValue);
   }
+
+  onPhoneFieldKeyDown(event: Event) {
+    console.log('onPhoneFieldKeyDown: ', event);
+  }
 }

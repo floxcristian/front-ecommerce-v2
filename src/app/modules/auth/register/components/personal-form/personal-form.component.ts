@@ -144,21 +144,26 @@ export class PersonalFormComponent {
     console.log('onPhoneFieldInput: ', event);
     const value = event.value;
     const stringValue = typeof value === 'number' ? value.toString() : value;
-    console.log('stringValue: ', stringValue);
+    this.formatField(stringValue);
+    /*console.log('stringValue: ', stringValue);
     const formattedValue = (stringValue ?? '').replace(/[^0-9\s]/g, '');
     console.log('formattedValue: ', formattedValue);
     //console.log('formattedValue: ', formattedValue);
-    this.phoneField?.setValue(formattedValue);
+    this.phoneField?.setValue(formattedValue);*/
     this.isFormatting.set(false);
   }
 
-  onPhoneFieldKeyDown(event: Event): void {
-    if (this.isFormatting()) return;
-    this.isFormatting.set(true);
+  onPhoneFieldKeyDown(event: KeyboardEvent): void {
+    if (event.key !== 'Unidentified') return;
+    //this.isFormatting.set(true);
     console.log('this.phoneField?.value: ', this.phoneField?.value);
     console.log('onPhoneFieldKeyDown: ', event);
-    this.isFormatting.set(false);
+    this.formatField(this.phoneField?.value);
+    //this.isFormatting.set(false);
   }
 
-  formatField(event: Event): void {}
+  formatField(value: string | null): void {
+    const formattedValue = (value ?? '').replace(/[^0-9\s]/g, '');
+    this.phoneField?.setValue(formattedValue);
+  }
 }

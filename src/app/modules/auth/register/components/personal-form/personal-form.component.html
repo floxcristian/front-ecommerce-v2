@@ -74,9 +74,14 @@
     <small id="documentId-help"> Ej: 12345678-9 </small>
   </div>
   <div class="field mb-4 flex flex-column">
+    <pre style="background-color: yellow">
+      this.phoneField?.value: {{ this.phoneField?.value }}
+      primeInputValue: {{ input?.value }}
+    </pre>
     <label for="phone" class="font-semibold text-900">Teléfono</label>
     <div class="p-inputgroup" controlErrorContainer>
       <span class="p-inputgroup-addon">{{ phoneCode }}</span>
+
       <p-inputNumber
         #phoneInput
         id="phone"

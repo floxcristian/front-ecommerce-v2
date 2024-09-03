@@ -36,8 +36,9 @@ import { environment } from '@env/environment';
 import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';
 import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
 import { ControlErrorContainerDirective } from '@shared/directives/validation-message/directives/control-error-container/control-error-container.directive';
+import { CommonModule } from '@angular/common';
 
-const NG_MODULES = [ReactiveFormsModule];
+const NG_MODULES = [CommonModule, ReactiveFormsModule];
 const PRIME_MODULES = [
   PasswordModule,
   InputTextModule,
@@ -120,6 +121,7 @@ export class PersonalFormComponent {
 
   ngAfterViewInit(): void {
     (this.input.input.nativeElement as HTMLElement).setAttribute('type', 'tel');
+    console.log('this.input: ', this.input);
   }
 
   submit(value: any): void {

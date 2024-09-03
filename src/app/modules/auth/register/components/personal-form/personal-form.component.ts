@@ -64,7 +64,7 @@ const DIRECTIVES = [
   styleUrl: './personal-form.component.scss',
 })
 export class PersonalFormComponent {
-  @ViewChild('phoneInput') public input!: InputNumber;
+  //@ViewChild('phoneInput') public input!: InputNumber;
   accountType = input.required<string>();
   onGoBack = output<void>();
   onSubmit = output<any>();
@@ -120,8 +120,8 @@ export class PersonalFormComponent {
   }
 
   ngAfterViewInit(): void {
-    (this.input.input.nativeElement as HTMLElement).setAttribute('type', 'tel');
-    console.log('this.input: ', this.input);
+    /*(this.input.input.nativeElement as HTMLElement).setAttribute('type', 'tel');
+    console.log('this.input: ', this.input);*/
   }
 
   submit(value: any): void {
@@ -156,13 +156,16 @@ export class PersonalFormComponent {
     return value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s]/g, '').replace(/\s+/g, ' ');
   }
 
-  onPhoneFieldInput(event: InputNumberInputEvent): void {
+  onPhoneFieldInput(event: Event): void {
     //if (this.isFormatting()) return;
     //this.isFormatting.set(true);
-    console.log('onPhoneFieldInput: ', event);
-    const value = event.value;
+    const inputElement = event.target as HTMLInputElement;
+    const formattedValue = inputElement.value.replace(/[^0-9\s]/g, '');
+    //this.documentIdField.setValue(formattedDocumentId
+    this.phoneField?.setValue(formattedValue);
+    /*const value = event.value;
     const stringValue = typeof value === 'number' ? value.toString() : value;
-    this.formatField(stringValue);
+    this.formatField(stringValue);*/
     /*console.log('stringValue: ', stringValue);
     const formattedValue = (stringValue ?? '').replace(/[^0-9\s]/g, '');
     console.log('formattedValue: ', formattedValue);
@@ -179,9 +182,9 @@ export class PersonalFormComponent {
       '[2] onPhoneFieldKeyDown: ',
       (event.target as HTMLInputElement).value
     );
-    console.log('input prime: ', this.input.input.nativeElement);
+    /*console.log('input prime: ', this.input.input.nativeElement);
     console.log('[valor actual input]: ', this.phoneField?.value);
-    console.log('this.input: ', this.input.input.nativeElement.value);
+    console.log('this.input: ', this.input.input.nativeElement.value);*/
     //this.formatField(this.phoneField?.value);
     const formattedValue: string = (this.phoneField?.value ?? '').replace(
       /[^0-9\s]/g,
@@ -189,8 +192,12 @@ export class PersonalFormComponent {
     );
     console.log('[valor formateado]: ', formattedValue);
     //this.input.input.nativeElement.value = ''; //formattedValue;
-    this.input.value = formattedValue ? +formattedValue : null;
-    this.input.input.nativeElement.value = formattedValue;
+    //this.input.value = null; //formattedValue ? +formattedValue : null;
+    /*setTimeout(() => {
+      this.input.input.nativeElement.value = formattedValue;
+      this.input.value = +formattedValue;
+    }, 0);*/
+    //this.input.input.nativeElement.value = formattedValue;
     // this.phoneField?.updateValueAndValidity();
   }
 

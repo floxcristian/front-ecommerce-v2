@@ -74,15 +74,17 @@
     <small id="documentId-help"> Ej: 12345678-9 </small>
   </div>
   <div class="field mb-4 flex flex-column">
-    <pre style="background-color: yellow">
-      this.phoneField?.value: {{ this.phoneField?.value }}
-      primeInputValue: {{ input?.value }}
-      primeInput: {{ input?.input?.nativeElement | json }}
-    </pre>
     <label for="phone" class="font-semibold text-900">Teléfono</label>
     <div class="p-inputgroup" controlErrorContainer>
       <span class="p-inputgroup-addon">{{ phoneCode }}</span>
-
+      <input
+        type="tel"
+        pInputText
+        formControlName="phone"
+        maxlength="9"
+        (input)="onPhoneFieldInput($event)"
+      />
+      <!--
       <p-inputNumber
         #phoneInput
         id="phone"
@@ -91,7 +93,7 @@
         formControlName="phone"
         (onInput)="onPhoneFieldInput($event)"
         (onKeyDown)="onPhoneFieldKeyDown($event)"
-      />
+      />-->
       <!--   inputId="integeronly" -->
     </div>
     <small id="phone-help"> Ej: 9 1234 9876 </small>

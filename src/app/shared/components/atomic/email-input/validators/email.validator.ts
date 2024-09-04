@@ -8,4 +8,10 @@ export class EmailValidator {
     const isValid = emailRegex.test(control.value);
     return isValid ? null : { emailInvalid: true };
   }
+
+  static matchEmails(control: AbstractControl): ValidationErrors | null {
+    const email = control.get('email')?.value;
+    const confirmEmail = control.get('confirmEmail')?.value;
+    return email === confirmEmail ? null : { EmailConfirmInvalid: true };
+  }
 }

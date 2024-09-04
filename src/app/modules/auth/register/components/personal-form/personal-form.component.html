@@ -31,6 +31,10 @@
   </div>
   }
 
+  <!--
+  <pre style="background-color: yellow">
+    personalForm: {{ personalForm.errors | json }}
+  </pre>-->
   <div class="field mb-4 flex flex-column">
     <label for="name" class="font-semibold text-900">Nombre</label>
     <input
@@ -74,20 +78,13 @@
     </div>
     <small id="phone-help"> Ej: 9 1234 9876 </small>
   </div>
+  <!--
+  <pre style="background-color: yellow">
+    {{ emailField?.errors | json }}
+  </pre>-->
   <div class="field mb-4 flex flex-column">
-    <label for="cc-email" class="font-semibold text-900"
-      >Correo eletrónico</label
-    >
-    <input
-      spellcheck="false"
-      id="email"
-      type="text"
-      pInputText
-      maxlength="30"
-      formControlName="email"
-      name="no-autocomplete"
-      autocomplete="off"
-    />
+    <label for="email" class="font-semibold text-900">Correo eletrónico</label>
+    <app-email-input formControlName="email" id="email" />
     <small id="email-help"> Ej: micorreo&#64;gmail.com </small>
   </div>
 
@@ -95,15 +92,13 @@
     <label for="confirmEmail" class="font-semibold text-900"
       >Repita correo eletrónico</label
     >
-    <input
-      spellcheck="false"
-      id="confirmEmail"
-      type="text"
-      pInputText
-      maxlength="30"
-      formControlName="confirmEmail"
-    />
+    <app-email-input formControlName="confirmEmail" id="confirmEmail" />
+    @if(personalForm.get('confirmEmail')?.touched && personalForm.errors &&
+    personalForm.errors['EmailConfirmInvalid']){
+    <small class="text-red-500"> Debe ingresar un correo que coincida.</small>
+    } @else {
     <small id="confirmEmail-help"> Ej: micorreo&#64;gmail.com </small>
+    }
   </div>
 
   <div class="field mb-4 flex flex-column w-full">

@@ -22,6 +22,11 @@ export const defaultErrors: ErrorsMap = {
   passwordRequired: `La contraseña es un campo requerido.`,
   passwordMinLength: `La contraseña debe tener al menos 8 caracteres.`,
   passwordMaxLength: `La contraseña no puede tener más de 20 caracteres.`,
+  // Email
+  emailInvalid: `El correo electrónico ingresado no es válido.`,
+  // Phone
+  phoneRequired: `El teléfono es un campo requerido.`,
+  phoneMinLength: `El teléfono debe tener al menos 9 dígitos.`,
 };
 
 export const FORM_ERRORS = new InjectionToken('FORM_ERRORS', {

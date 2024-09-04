@@ -24,10 +24,14 @@ import { environment } from '@env/environment';
 import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';
 import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
 import { ControlErrorContainerDirective } from '@shared/directives/validation-message/directives/control-error-container/control-error-container.directive';
+// Components
 import { PhoneInputComponent } from '@shared/components/atomic/phone-input/phone-input.component';
 import { DocumentIdInputComponent } from '@shared/components/atomic/document-id-input/document-id-input.component';
+import { CommonModule } from '@angular/common';
+import { EmailInputComponent } from '@shared/components/atomic/email-input/email-input.component';
+import { EmailValidator } from '@shared/components/atomic/email-input/validators/email.validator';
 
-const NG_MODULES = [ReactiveFormsModule];
+const NG_MODULES = [ReactiveFormsModule, CommonModule];
 const PRIME_MODULES = [
   PasswordModule,
   InputTextModule,
@@ -44,7 +48,11 @@ const DIRECTIVES = [
   ControlErrorContainerDirective,
 ];
 
-const COMPONENTS = [PhoneInputComponent, DocumentIdInputComponent];
+const COMPONENTS = [
+  PhoneInputComponent,
+  DocumentIdInputComponent,
+  EmailInputComponent,
+];
 
 @Component({
   selector: 'app-personal-form',
@@ -64,6 +72,10 @@ export class PersonalFormComponent {
 
   get phoneField() {
     return this.personalForm.get('phone');
+  }
+
+  get emailField() {
+    return this.personalForm.get('email');
   }
 
   constructor(private readonly fb: FormBuilder) {
@@ -88,7 +100,7 @@ export class PersonalFormComponent {
           [Validators.required, DocumentIdValidator.isValidDocumentId],
         ],
         phone: [null, Validators.required],
-        email: [null, [Validators.required, Validators.email]],
+        email: [null, [Validators.required]],
         confirmEmail: [null, [Validators.required]],
         password: [
           null,
@@ -102,7 +114,10 @@ export class PersonalFormComponent {
         confirmPassword: [null, [Validators.required]],
       },
       {
-        validators: [PasswordValidator.matchPasswords],
+        validators: [
+          PasswordValidator.matchPasswords,
+          EmailValidator.matchEmails,
+        ],
       }
     );
   }

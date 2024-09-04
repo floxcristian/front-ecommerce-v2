@@ -1,4 +1,4 @@
-// https://github.com/ngneat/error-tailor/blob/master/projects/ngneat/error-tailor/src/lib/control-error.directive.ts
+// Angular
 import {
   ComponentRef,
   DestroyRef,
@@ -12,6 +12,8 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { NgControl } from '@angular/forms';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+// Rxjs
 import {
   EMPTY,
   merge,
@@ -21,11 +23,13 @@ import {
   switchMap,
   startWith,
 } from 'rxjs';
-import { FormSubmitDirective } from '../form-submit/form-submit.directive';
+// Components
 import { ControlErrorComponent } from '../../components/control-error/control-error.component';
+// Directives
+import { FormSubmitDirective } from '../form-submit/form-submit.directive';
 import { ControlErrorContainerDirective } from '../control-error-container/control-error-container.directive';
+// Form errors
 import { FORM_ERRORS } from '../../form-errors';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Directive({
   selector: '[formControlName]',
@@ -33,9 +37,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 })
 export class ControlErrorsDirective implements OnInit {
   private readonly destroyRef: DestroyRef = inject(DestroyRef);
-
-  //@Input() customErrors = {};
-  //errors = inject(FORM_ERRORS);
   private ref!: ComponentRef<ControlErrorComponent>;
   private submit$: Observable<Event | null>;
   private host: HTMLElement;
@@ -103,7 +104,6 @@ export class ControlErrorsDirective implements OnInit {
         console.warn(`Missing error message for ${firstKey}.`);
         return;
       }
-
       const text =
         typeof getError === 'function'
           ? getError(controlErrors[firstKey])
@@ -125,23 +125,16 @@ export class ControlErrorsDirective implements OnInit {
   }
 
   private setError(text: string | null): void {
-    // FIXME: usar container.
     this.ref ??= this.resolveAnchor().createComponent<ControlErrorComponent>(
       ControlErrorComponent
     );
-    /*if (!this.ref) {
-      this.ref ??= this.vcr.createComponent<ControlErrorComponent>(
-        ControlErrorComponent
-      );
-    }*/
     const instance = this.ref.instance;
     instance.text = text;
   }
 
   private resolveAnchor(): ViewContainerRef {
-    if (this.controlErrorAnchorParent) {
-      return this.controlErrorAnchorParent.vcr;
-    }
-    return this.vcr;
+    return this.controlErrorAnchorParent
+      ? this.controlErrorAnchorParent.vcr
+      : this.vcr;
   }
 }

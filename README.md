@@ -31,3 +31,8 @@ https://github.com/primefaces/primeng/issues/10142
 
 // PESCAR TODOS LOS VALORES DE UN FORM QUE TIENE CAMPOS DESHABILITADOS
 https://www.youtube.com/watch?v=xpRlijg6spo
+
+- Smart and dumb components pattern.
+- Sync and async validators.
+- Reusable inputs using ControlValueAccessor (CVA).
+-

@@ -15,7 +15,7 @@ export class DocumentIdValidator {
   }
 
   private static validateDocumentId(value: string, country: CountryCode) {
-    if (!value) return null;
+    if (!value) return { documentIdRequired: true };
     const validators: Record<CountryCode, (documentId: string) => boolean> = {
       CL: DocumentIdValidator.isValidChileanDocumentId,
       PE: DocumentIdValidator.isValidPeruvianDocumentId,

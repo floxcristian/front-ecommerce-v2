@@ -1,0 +1,14 @@
+<form [formGroup]="form">
+  <input
+    spellcheck="false"
+    type="text"
+    pInputText
+    maxlength="30"
+    formControlName="email"
+    name="no-autocomplete"
+    autocomplete="off"
+    class="w-full"
+    (input)="onEmailFieldInput($event)"
+    (blur)="onEmailFieldBlur()"
+  />
+</form>

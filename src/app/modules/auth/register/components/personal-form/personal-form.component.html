@@ -63,14 +63,7 @@
 
   <div class="field mb-4 flex flex-column">
     <label for="documentId" class="font-semibold text-900">RUT</label>
-    <input
-      id="documentId"
-      type="text"
-      pInputText
-      maxlength="9"
-      pKeyFilter="alphanum"
-      formControlName="documentId"
-    />
+    <app-document-id-input id="documentId" formControlName="documentId" />
     <small id="documentId-help"> Ej: 12345678-9 </small>
   </div>
   <div class="field mb-4 flex flex-column">

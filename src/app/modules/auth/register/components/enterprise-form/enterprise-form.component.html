@@ -44,8 +44,8 @@ businessLineField: {{ businessLineField.value }}</pre
     }}</label>
     <app-document-id-input
       id="documentId"
-      #documentInput
       formControlName="documentId"
+      [isEnterprise]="true"
     />
     <small id="documentId-help"> Ej: 12345678-9 </small>
   </div>

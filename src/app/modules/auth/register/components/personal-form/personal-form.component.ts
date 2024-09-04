@@ -25,6 +25,7 @@ import { FormSubmitDirective } from '@shared/directives/validation-message/direc
 import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
 import { ControlErrorContainerDirective } from '@shared/directives/validation-message/directives/control-error-container/control-error-container.directive';
 import { PhoneInputComponent } from '@shared/components/atomic/phone-input/phone-input.component';
+import { DocumentIdInputComponent } from '@shared/components/atomic/document-id-input/document-id-input.component';
 
 const NG_MODULES = [ReactiveFormsModule];
 const PRIME_MODULES = [
@@ -43,7 +44,7 @@ const DIRECTIVES = [
   ControlErrorContainerDirective,
 ];
 
-const COMPONENTS = [PhoneInputComponent];
+const COMPONENTS = [PhoneInputComponent, DocumentIdInputComponent];
 
 @Component({
   selector: 'app-personal-form',

@@ -5,6 +5,8 @@ import {
   ElementRef,
   forwardRef,
   inject,
+  input,
+  OnInit,
   ViewChild,
 } from '@angular/core';
 import {
@@ -58,23 +60,19 @@ const PRIME_MODULES = [InputTextModule, IconFieldModule, InputIconModule];
       useExisting: forwardRef(() => DocumentIdInputComponent),
       multi: true,
     },
-    /*{
-      provide: NG_ASYNC_VALIDATORS,
-      useExisting: forwardRef(() => DocumentIdInputComponent),
-      multi: true,
-    }*/
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DocumentIdInputComponent
-  implements ControlValueAccessor, Validator
+  implements ControlValueAccessor, Validator, OnInit
 {
+  isEnterprise = input<boolean>(false);
   @ViewChild('documentInput') documentInput!: ElementRef;
+
   private readonly checkUserService = inject(CheckUserService);
   private readonly fb = inject(FormBuilder);
 
   form!: FormGroup<ControlsOf<Pick<Enterprise, 'documentId'>>>;
-
   canExecuteAsyncValidate = EnterpriseValidator.canExecuteAsyncValidate;
   isLoading = EnterpriseValidator.isLoading;
   lastValue = EnterpriseValidator.lastValue;
@@ -86,17 +84,14 @@ export class DocumentIdInputComponent
     return this.form.controls.documentId;
   }
 
-  constructor() {
+  ngOnInit(): void {
     this.buildForm();
   }
 
-  onChangeDocumentId(): void {
+  private onChangeDocumentId(): void {
     this.documentIdField.statusChanges
       .pipe(pairwise())
-      .subscribe(([prevStatus, status]) => {
-        console.log('**');
-        console.log('[child][statusChanges] prevStatus: ', prevStatus);
-        console.log('[child][statusChanges] status: ', status);
+      .subscribe(([prevStatus]) => {
         if (prevStatus === 'PENDING') {
           this.onChange(
             DocumentIdService.getDocumentIdWithoutFormat(
@@ -105,12 +100,6 @@ export class DocumentIdInputComponent
           );
         }
       });
-
-    /*this.documentIdField.valueChanges.subscribe((value) => {
-      console.log('[child][valueChanges] value: ', value);
-      //this.onChange(value);
-      // this.cdr.detectChanges();
-    });*/
   }
 
   /**
@@ -119,23 +108,37 @@ export class DocumentIdInputComponent
    * @returns void
    **/
   private buildForm(): void {
-    this.form = this.fb.nonNullable.group({
-      documentId: [
-        '',
-        {
-          validators: [
-            Validators.required,
-            DocumentIdValidator.isValidDocumentId,
-          ],
-          asyncValidators: [
-            blurTriggeredAsyncValidator(
-              EnterpriseValidator.isValidEnterprise(this.checkUserService)
-            ),
-          ],
-        },
-      ],
-    });
-    this.onChangeDocumentId();
+    if (this.isEnterprise()) {
+      this.form = this.fb.nonNullable.group({
+        documentId: [
+          '',
+          {
+            validators: [
+              Validators.required,
+              DocumentIdValidator.isValidDocumentId,
+            ],
+            asyncValidators: [
+              blurTriggeredAsyncValidator(
+                EnterpriseValidator.isValidEnterprise(this.checkUserService)
+              ),
+            ],
+          },
+        ],
+      });
+      this.onChangeDocumentId();
+    } else {
+      this.form = this.fb.nonNullable.group({
+        documentId: [
+          '',
+          {
+            validators: [
+              Validators.required,
+              DocumentIdValidator.isValidDocumentId,
+            ],
+          },
+        ],
+      });
+    }
   }
 
   keyEnter(): void {
@@ -144,24 +147,21 @@ export class DocumentIdInputComponent
 
   // #region Input events
   /**
-   * Al salir del input, formatear el valor.
+   * Al salir del input, validar el valor.
    * @param value The value of the document id field.
    * @returns void
    * */
   onDocumentIdFieldBlur(value: string, event: Event): void {
-    //console.log('[blur]');
-    if (event.target === document.activeElement) return;
-    // const formattedDocumentId = DocumentIdService.getFormattedDocumentId(value);
-    // console.log('>>>>>>>>> seteo blurred en true');
-    //this.blurred.set(true);
-    const documentIdWithoutFormat =
-      DocumentIdService.getDocumentIdWithoutFormat(value);
-    const lastValue = this.lastValue();
-    if (lastValue !== documentIdWithoutFormat) {
-      this.canExecuteAsyncValidate.set(true);
+    if (this.isEnterprise()) {
+      if (event.target === document.activeElement) return;
+      const documentIdWithoutFormat =
+        DocumentIdService.getDocumentIdWithoutFormat(value);
+      const lastValue = this.lastValue();
+      if (lastValue !== documentIdWithoutFormat) {
+        this.canExecuteAsyncValidate.set(true);
+      }
+      this.documentIdField.updateValueAndValidity();
     }
-    //this.documentIdField.setValue(value);
-    this.documentIdField.updateValueAndValidity();
     this.onTouch();
   }
 
@@ -172,7 +172,6 @@ export class DocumentIdInputComponent
    * @returns void
    * */
   onDocumentIdFieldInput(event: Event): void {
-    //console.log('[input]');
     const inputElement = event.target as HTMLInputElement;
     const formattedDocumentId = DocumentIdService.getValidCharacters(
       inputElement.value
@@ -184,12 +183,13 @@ export class DocumentIdInputComponent
   }
 
   /**
-   * Al enfocar o entrar al input, mostrar solo los caracteres editables.
+   * Al entrar al input, mostrar solo los caracteres editables.
    * Mostrar solo los caracteres editables.
    * @param value The value of the document id field.
    * @returns void
    * */
   onDocumentIdFieldFocus(): void {
+    if (!this.isEnterprise()) return;
     this.isLoading.set(false);
     this.canExecuteAsyncValidate.set(false);
   }
@@ -211,9 +211,8 @@ export class DocumentIdInputComponent
    * }
    **/
   writeValue(value: string): void {
-    if (value) {
-      this.documentIdField.setValue(value);
-    }
+    if (!value) return;
+    this.documentIdField.setValue(value);
   }
 
   /**
@@ -252,16 +251,14 @@ export class DocumentIdInputComponent
   registerOnTouched(fn: () => void): void {
     this.onTouch = fn;
   }
-
   // #endregion
 
   // #region Validator
   /**
    * Validar el control síncronamente.
-   * @param control The control to validate.
    * @returns The validation errors or null.
    * */
-  validate(control: AbstractControl): ValidationErrors | null {
+  validate(): ValidationErrors | null {
     return this.documentIdField.errors;
   }
 

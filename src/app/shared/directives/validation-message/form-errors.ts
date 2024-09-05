@@ -26,6 +26,7 @@ export const defaultErrors: ErrorsMap = {
   emailInvalid: `El correo electrónico ingresado no es válido.`,
   // Phone
   phoneRequired: `El teléfono es un campo requerido.`,
+  phoneInvalid: `El teléfono ingresado no es válido.`,
   phoneMinLength: `El teléfono debe tener al menos 9 dígitos.`,
 };
 

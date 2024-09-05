@@ -1,0 +1,17 @@
+<form [formGroup]="form">
+  <p-dropdown
+    #dropdownElement
+    styleClass="w-full"
+    formControlName="position"
+    [options]="positions()"
+    [filter]="true"
+    filterBy="title"
+    optionLabel="title"
+    optionValue="titleId"
+    [loading]="isLoading()"
+    dropdownIcon="fa-sharp fa-solid fa-chevron-down"
+    loadingIcon="fa-sharp fa-solid fa-spinner-third fa-spin"
+    (onChange)="onPositionChange($event)"
+    spellcheck="false"
+  />
+</form>

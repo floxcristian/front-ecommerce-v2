@@ -1,12 +1,12 @@
 // Angular
 import {
+  AfterViewInit,
   ComponentRef,
   DestroyRef,
   Directive,
   ElementRef,
   inject,
   Inject,
-  OnInit,
   Optional,
   Self,
   ViewContainerRef,
@@ -35,7 +35,7 @@ import { FORM_ERRORS } from '../../form-errors';
   selector: '[formControlName]',
   standalone: true,
 })
-export class ControlErrorsDirective implements OnInit {
+export class ControlErrorsDirective implements AfterViewInit {
   private readonly destroyRef: DestroyRef = inject(DestroyRef);
   private ref!: ComponentRef<ControlErrorComponent>;
   private submit$: Observable<Event | null>;
@@ -59,12 +59,11 @@ export class ControlErrorsDirective implements OnInit {
       : vcr;
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     const helperTextId = this.host.id;
     if (helperTextId) {
       this.helperTextElement = document.getElementById(`${helperTextId}-help`);
     }
-
     const valueChanges$ = this.control?.valueChanges || EMPTY;
 
     const statusChanges$ =

@@ -19,22 +19,10 @@
   @if(accountType() === 'enterprise'){
   <div class="field mb-4 flex flex-column">
     <label for="position" class="font-semibold text-900">Cargo</label>
-    <input
-      id="position"
-      type="text"
-      pInputText
-      maxlength="20"
-      formControlName="position"
-      pKeyFilter="alpha"
-    />
-    <!-- <small id="name-help"> Ej: Nicolás </small> -->
+    <app-position-input formControlName="position" />
   </div>
   }
 
-  <!--
-  <pre style="background-color: yellow">
-    personalForm: {{ personalForm.errors | json }}
-  </pre>-->
   <div class="field mb-4 flex flex-column">
     <label for="name" class="font-semibold text-900">Nombre</label>
     <input
@@ -72,16 +60,11 @@
   </div>
   <div class="field mb-4 flex flex-column">
     <label for="phone" class="font-semibold text-900">Teléfono</label>
-    <div class="p-inputgroup" controlErrorContainer>
-      <span class="p-inputgroup-addon">{{ phoneCode }}</span>
-      <app-phone-input id="phone" formControlName="phone" />
-    </div>
+
+    <app-phone-input id="phone" formControlName="phone" />
     <small id="phone-help"> Ej: 9 1234 9876 </small>
   </div>
-  <!--
-  <pre style="background-color: yellow">
-    {{ emailField?.errors | json }}
-  </pre>-->
+
   <div class="field mb-4 flex flex-column">
     <label for="email" class="font-semibold text-900">Correo eletrónico</label>
     <app-email-input formControlName="email" id="email" />
@@ -93,7 +76,8 @@
       >Repita correo eletrónico</label
     >
     <app-email-input formControlName="confirmEmail" id="confirmEmail" />
-    @if(personalForm.get('confirmEmail')?.touched && personalForm.errors &&
+    @if(personalForm.get('confirmEmail')?.touched &&
+    !personalForm.get('confirmEmail')?.errors && personalForm.errors &&
     personalForm.errors['EmailConfirmInvalid']){
     <small class="text-red-500"> Debe ingresar un correo que coincida.</small>
     } @else {

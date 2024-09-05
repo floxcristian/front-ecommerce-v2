@@ -1,5 +1,6 @@
 // Angular
 import { Component, input, output } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
   FormGroup,
@@ -17,19 +18,17 @@ import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { InputGroupModule } from 'primeng/inputgroup';
 // Validators
 import { PasswordValidator } from '../../validators/password.validator';
-import { DocumentIdValidator } from '../../validators/document-id.validator';
+import { EmailValidator } from '@shared/components/atomic/email-input/validators/email.validator';
 // Environment
 import { environment } from '@env/environment';
 // Directives
 import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';
 import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
-import { ControlErrorContainerDirective } from '@shared/directives/validation-message/directives/control-error-container/control-error-container.directive';
 // Components
 import { PhoneInputComponent } from '@shared/components/atomic/phone-input/phone-input.component';
 import { DocumentIdInputComponent } from '@shared/components/atomic/document-id-input/document-id-input.component';
-import { CommonModule } from '@angular/common';
 import { EmailInputComponent } from '@shared/components/atomic/email-input/email-input.component';
-import { EmailValidator } from '@shared/components/atomic/email-input/validators/email.validator';
+import { PositionInputComponent } from '@shared/components/atomic/position-input/position-input.component';
 
 const NG_MODULES = [ReactiveFormsModule, CommonModule];
 const PRIME_MODULES = [
@@ -42,16 +41,12 @@ const PRIME_MODULES = [
   InputGroupAddonModule,
   KeyFilterModule,
 ];
-const DIRECTIVES = [
-  FormSubmitDirective,
-  ControlErrorsDirective,
-  ControlErrorContainerDirective,
-];
-
+const DIRECTIVES = [FormSubmitDirective, ControlErrorsDirective];
 const COMPONENTS = [
   PhoneInputComponent,
   DocumentIdInputComponent,
   EmailInputComponent,
+  PositionInputComponent,
 ];
 
 @Component({
@@ -66,7 +61,6 @@ export class PersonalFormComponent {
   onGoBack = output<void>();
   onSubmit = output<any>();
   steps = input.required<number>();
-  phoneCode = environment.phoneCode;
 
   personalForm!: FormGroup;
 
@@ -95,11 +89,8 @@ export class PersonalFormComponent {
           ],
         ],
         lastname: [null, Validators.required],
-        documentId: [
-          null,
-          [Validators.required, DocumentIdValidator.isValidDocumentId],
-        ],
-        phone: [null, Validators.required],
+        documentId: [null, Validators.required],
+        phone: [null],
         email: [null, [Validators.required]],
         confirmEmail: [null, [Validators.required]],
         password: [

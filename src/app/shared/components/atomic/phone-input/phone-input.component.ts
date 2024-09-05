@@ -6,7 +6,6 @@ import {
   inject,
 } from '@angular/core';
 import {
-  AbstractControl,
   ControlValueAccessor,
   FormBuilder,
   FormControl,
@@ -20,11 +19,21 @@ import {
 } from '@angular/forms';
 // PrimeNG
 import { InputTextModule } from 'primeng/inputtext';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 // Models
 import { ControlsOf } from '@shared/models/controls.type';
+// Validators
+import { PhoneValidator } from './validators/phone.validator';
+// Environment
+import { environment } from '@env/environment';
 
 const NG_MODULES = [ReactiveFormsModule];
-const PRIME_MODULES = [InputTextModule];
+const PRIME_MODULES = [
+  InputTextModule,
+  InputGroupModule,
+  InputGroupAddonModule,
+];
 
 @Component({
   selector: 'app-phone-input',
@@ -54,6 +63,7 @@ export class PhoneInputComponent implements ControlValueAccessor, Validator {
 
   private readonly fb = inject(FormBuilder);
   form!: FormGroup<ControlsOf<{ phone: string }>>;
+  phoneCode = environment.phoneCode;
 
   private onChange!: (value: number) => void;
   private onTouch!: () => void;
@@ -69,7 +79,7 @@ export class PhoneInputComponent implements ControlValueAccessor, Validator {
    **/
   private buildForm(): void {
     this.form = this.fb.nonNullable.group({
-      phone: ['', Validators.required],
+      phone: ['', [Validators.required, PhoneValidator.isValidPhone]],
     });
   }
 
@@ -89,14 +99,13 @@ export class PhoneInputComponent implements ControlValueAccessor, Validator {
    * @param control The control to validate.
    * @returns The validation errors or null.
    * */
-  validate(control: AbstractControl): ValidationErrors | null {
+  validate(): ValidationErrors | null {
     return this.phoneField.errors;
   }
 
   writeValue(value: string): void {
-    if (value) {
-      this.phoneField.setValue(value);
-    }
+    if (!value) return;
+    this.phoneField.setValue(value);
   }
 
   registerOnChange(fn: (value: number) => void): void {

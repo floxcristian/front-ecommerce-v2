@@ -8,20 +8,13 @@ import { DocumentIdService } from '../services/document-id/document-id.service';
 
 export class DocumentIdValidator {
   static isValidDocumentId(control: AbstractControl): ValidationErrors | null {
-    return DocumentIdValidator.validateDocumentId(
-      control.value,
-      environment.country
-    );
-  }
-
-  private static validateDocumentId(value: string, country: CountryCode) {
-    if (!value) return { documentIdRequired: true };
+    if (!control.value) return { documentIdRequired: true };
     const validators: Record<CountryCode, (documentId: string) => boolean> = {
       CL: DocumentIdValidator.isValidChileanDocumentId,
       PE: DocumentIdValidator.isValidPeruvianDocumentId,
     };
-    const validator = validators[country];
-    const isValid = validator(value);
+    const validator = validators[environment.country];
+    const isValid = validator(control.value);
     return isValid ? null : { documentIdInvalid: true };
   }
 

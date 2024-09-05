@@ -6,7 +6,6 @@ import {
   inject,
 } from '@angular/core';
 import {
-  AbstractControl,
   ControlValueAccessor,
   FormBuilder,
   FormControl,
@@ -22,6 +21,7 @@ import {
 import { InputTextModule } from 'primeng/inputtext';
 // Models
 import { ControlsOf } from '@shared/models/controls.type';
+// Validators
 import { EmailValidator } from './validators/email.validator';
 
 const NG_MODULES = [ReactiveFormsModule];
@@ -75,9 +75,9 @@ export class EmailInputComponent implements ControlValueAccessor, Validator {
 
   onEmailFieldInput(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
-    /*const formattedValue = inputElement.value.replace(/[^0-9]/g, '');
-    this.emailField?.setValue(formattedValue);*/
-    this.onChange(inputElement.value);
+    const formattedValue = inputElement.value.replace(/\s/g, '').toLowerCase();
+    this.emailField?.setValue(formattedValue);
+    this.onChange(formattedValue);
   }
 
   onEmailFieldBlur(): void {

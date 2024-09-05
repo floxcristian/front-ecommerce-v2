@@ -1,11 +1,14 @@
 <form [formGroup]="form">
-  <input
-    type="tel"
-    pInputText
-    formControlName="phone"
-    maxlength="9"
-    (input)="onPhoneFieldInput($event)"
-    (blur)="onPhoneFieldBlur()"
-    class="w-full"
-  />
+  <div class="p-inputgroup" controlErrorContainer>
+    <span class="p-inputgroup-addon">{{ phoneCode }}</span>
+    <input
+      type="tel"
+      pInputText
+      formControlName="phone"
+      maxlength="9"
+      (input)="onPhoneFieldInput($event)"
+      (blur)="onPhoneFieldBlur()"
+      class="w-full"
+    />
+  </div>
 </form>

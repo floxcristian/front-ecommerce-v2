@@ -18,7 +18,7 @@ export class PhoneValidator {
   }
 
   static isValidChileanPhone(phone: string): boolean {
-    const phoneRegex = /^[92][0-9]{8}$/;
+    const phoneRegex = /^[9][0-9]{8}$/;
     return phoneRegex.test(phone);
   }
 

@@ -64,7 +64,10 @@
     <app-phone-input id="phone" formControlName="phone" />
     <small id="phone-help"> Ej: 9 1234 9876 </small>
   </div>
-
+  <!--
+  <pre style="background-color: pink">
+    emailParent: {{ personalForm.get("email")?.value }}
+  </pre> -->
   <div class="field mb-4 flex flex-column">
     <label for="email" class="font-semibold text-900">Correo eletrónico</label>
     <app-email-input formControlName="email" id="email" />

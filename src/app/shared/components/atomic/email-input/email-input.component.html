@@ -1,5 +1,9 @@
+<!--<pre style="background-color: yellow">
+  email: {{ emailField.value }}
+</pre>-->
+
 <form [formGroup]="form">
-  <input
+  <!--<input
     spellcheck="false"
     type="text"
     pInputText
@@ -10,5 +14,20 @@
     class="w-full"
     (input)="onEmailFieldInput($event)"
     (blur)="onEmailFieldBlur()"
-  />
+  />-->
+
+  <p-autoComplete
+    spellcheck="false"
+    styleClass="w-full"
+    maxlength="30"
+    formControlName="email"
+    inputStyleClass="w-full"
+    [suggestions]="filteredDomains()"
+    (completeMethod)="search($event)"
+    (onSelect)="onSuggestionSelect($event)"
+    (onBlur)="onEmailFieldBlur()"
+    (input)="onEmailFieldInput($event)"
+    showEmptyMessage="false"
+  >
+  </p-autoComplete>
 </form>

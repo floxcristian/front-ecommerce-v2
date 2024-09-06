@@ -19,8 +19,6 @@ import { InputGroupModule } from 'primeng/inputgroup';
 // Validators
 import { PasswordValidator } from '../../validators/password.validator';
 import { EmailValidator } from '@shared/components/atomic/email-input/validators/email.validator';
-// Environment
-import { environment } from '@env/environment';
 // Directives
 import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';
 import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';

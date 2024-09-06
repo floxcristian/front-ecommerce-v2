@@ -4,6 +4,7 @@ import {
   Component,
   forwardRef,
   inject,
+  signal,
 } from '@angular/core';
 import {
   ControlValueAccessor,
@@ -19,13 +20,19 @@ import {
 } from '@angular/forms';
 // PrimeNG
 import { InputTextModule } from 'primeng/inputtext';
+import {
+  AutoCompleteCompleteEvent,
+  AutoCompleteModule,
+  AutoCompleteSelectEvent,
+} from 'primeng/autocomplete';
 // Models
 import { ControlsOf } from '@shared/models/controls.type';
 // Validators
 import { EmailValidator } from './validators/email.validator';
 
 const NG_MODULES = [ReactiveFormsModule];
-const PRIME_MODULES = [InputTextModule];
+const PRIME_MODULES = [InputTextModule, AutoCompleteModule];
+
 @Component({
   selector: 'app-email-input',
   standalone: true,
@@ -58,6 +65,10 @@ export class EmailInputComponent implements ControlValueAccessor, Validator {
   private onChange!: (value: string) => void;
   private onTouch!: () => void;
 
+  domains = ['gmail.com', 'hotmail.com', 'icloud.com', 'live.com', 'yahoo.com'];
+  filteredDomains = signal<string[]>([]);
+  currentInputValue = signal<string>('');
+
   constructor() {
     this.buildForm();
   }
@@ -74,6 +85,7 @@ export class EmailInputComponent implements ControlValueAccessor, Validator {
   }
 
   onEmailFieldInput(event: Event): void {
+    console.log('input');
     const inputElement = event.target as HTMLInputElement;
     const formattedValue = inputElement.value.replace(/\s/g, '').toLowerCase();
     this.emailField?.setValue(formattedValue);
@@ -103,5 +115,31 @@ export class EmailInputComponent implements ControlValueAccessor, Validator {
 
   registerOnTouched(fn: () => void): void {
     this.onTouch = fn;
+  }
+
+  search({ query }: AutoCompleteCompleteEvent): void {
+    this.currentInputValue.set(this.emailField.value);
+    console.log('query: ', query);
+    if (!query.includes('@')) {
+      console.log('1');
+      this.filteredDomains.set([]);
+    } else if (query.endsWith('@')) {
+      console.log('2');
+      this.filteredDomains.set(this.domains);
+    } else {
+      console.log('3');
+      const [_, domain] = query.split('@');
+      this.filteredDomains.set(
+        this.domains.filter((d) => d.startsWith(domain))
+      );
+    }
+  }
+
+  onSuggestionSelect(event: AutoCompleteSelectEvent): void {
+    const emailParts = this.currentInputValue().split('@');
+    const emailPrefix = emailParts[0];
+    const emailValue = `${emailPrefix}@${event.value}`;
+    this.emailField.setValue(emailValue);
+    this.onChange(emailValue);
   }
 }

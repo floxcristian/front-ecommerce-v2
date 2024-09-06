@@ -4,6 +4,7 @@ import { InjectionToken } from '@angular/core';
 import { ErrorsMap } from './types';
 // Environment
 import { environment } from '@env/environment';
+import { Password } from 'primeng/password';
 
 export const defaultErrors: ErrorsMap = {
   // Common
@@ -20,8 +21,10 @@ export const defaultErrors: ErrorsMap = {
   documentIdInvalid: `El ${environment.documentId.customerLabel} ingresado no es válido.`,
   // Password
   passwordRequired: `La contraseña es un campo requerido.`,
+  passwordLowercase: `La contraseña debe tener al menos una letra minúscula.`,
+  passwordUppercase: `La contraseña debe tener al menos una letra mayúscula.`,
+  passwordNumber: `La contraseña debe tener al menos un número.`,
   passwordMinLength: `La contraseña debe tener al menos 8 caracteres.`,
-  passwordMaxLength: `La contraseña no puede tener más de 20 caracteres.`,
   // Email
   emailInvalid: `El correo electrónico ingresado no es válido.`,
   // Phone

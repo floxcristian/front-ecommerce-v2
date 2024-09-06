@@ -3,6 +3,7 @@ import {
   Component,
   forwardRef,
   inject,
+  signal,
 } from '@angular/core';
 import {
   ControlValueAccessor,
@@ -57,12 +58,12 @@ export class PasswordInputComponent implements ControlValueAccessor, Validator {
   private onChange!: (value: string) => void;
   private onTouch!: () => void;
 
-  errors: Record<string, boolean> = {
-    passwordLowercase: true,
-    passwordUppercase: true,
-    passwordNumber: true,
-    passwordMinLength: true,
-  };
+  errors = signal<Record<string, { value: boolean; message: string }>>({
+    passwordLowercase: { value: true, message: 'Al menos una letra minúscula' },
+    passwordUppercase: { value: true, message: 'Al menos una letra mayúscula' },
+    passwordNumber: { value: true, message: 'Al menos un número' },
+    passwordMinLength: { value: true, message: 'Mínimo 8 caracteres' },
+  });
 
   constructor() {
     this.buildForm();
@@ -87,12 +88,19 @@ export class PasswordInputComponent implements ControlValueAccessor, Validator {
   }
 
   private checkErrors(password: string): void {
-    this.errors = {
+    /*this.errors = {
       passwordLowercase: !/[a-z]/.test(password),
       passwordUppercase: !/[A-Z]/.test(password),
       passwordNumber: !/[0-9]/.test(password),
       passwordMinLength: password.length < 8,
-    };
+    };*/
+    this.errors.update((currentErrors) => {
+      currentErrors['passwordLowercase'].value = !/[a-z]/.test(password);
+      currentErrors['passwordUppercase'].value = !/[A-Z]/.test(password);
+      currentErrors['passwordNumber'].value = !/[0-9]/.test(password);
+      currentErrors['passwordMinLength'].value = password.length < 8;
+      return currentErrors;
+    });
   }
 
   onPasswordFieldBlur(): void {

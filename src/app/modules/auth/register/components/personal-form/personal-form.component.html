@@ -66,7 +66,8 @@
   </div>
   <!--
   <pre style="background-color: pink">
-    emailParent: {{ personalForm.get("email")?.value }}
+    passwordValue: {{ personalForm.get("password")?.value }}
+    passwordErrors: {{ personalForm.get("password")?.errors | json }}
   </pre> -->
   <div class="field mb-4 flex flex-column">
     <label for="email" class="font-semibold text-900">Correo eletrónico</label>
@@ -91,6 +92,7 @@
   <div class="field mb-4 flex flex-column w-full">
     <label for="password" class="font-semibold text-900">Contraseña</label>
     <app-password-input formControlName="password" id="password" />
+    <small id="password-help"> Ej: 9 1234 9876 </small>
     <!--
     <p-password
       id="password"

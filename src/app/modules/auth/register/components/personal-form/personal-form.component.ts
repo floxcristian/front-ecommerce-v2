@@ -27,6 +27,7 @@ import { PhoneInputComponent } from '@shared/components/atomic/phone-input/phone
 import { DocumentIdInputComponent } from '@shared/components/atomic/document-id-input/document-id-input.component';
 import { EmailInputComponent } from '@shared/components/atomic/email-input/email-input.component';
 import { PositionInputComponent } from '@shared/components/atomic/position-input/position-input.component';
+import { PasswordInputComponent } from '@shared/components/atomic/password-input/password-input.component';
 
 const NG_MODULES = [ReactiveFormsModule, CommonModule];
 const PRIME_MODULES = [
@@ -45,6 +46,7 @@ const COMPONENTS = [
   DocumentIdInputComponent,
   EmailInputComponent,
   PositionInputComponent,
+  PasswordInputComponent,
 ];
 
 @Component({

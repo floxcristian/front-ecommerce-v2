@@ -90,6 +90,8 @@
 
   <div class="field mb-4 flex flex-column w-full">
     <label for="password" class="font-semibold text-900">Contraseña</label>
+    <app-password-input formControlName="password" id="password" />
+    <!--
     <p-password
       id="password"
       [toggleMask]="true"
@@ -117,7 +119,7 @@
           </li>
         </ul>
       </ng-template>
-    </p-password>
+    </p-password> -->
   </div>
   <div class="field mb-6 flex flex-column">
     <label for="confirmPassword" class="font-semibold text-900"

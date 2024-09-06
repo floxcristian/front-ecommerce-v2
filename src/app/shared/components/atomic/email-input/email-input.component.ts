@@ -85,7 +85,6 @@ export class EmailInputComponent implements ControlValueAccessor, Validator {
   }
 
   onEmailFieldInput(event: Event): void {
-    console.log('input');
     const inputElement = event.target as HTMLInputElement;
     const formattedValue = inputElement.value.replace(/\s/g, '').toLowerCase();
     this.emailField?.setValue(formattedValue);
@@ -119,15 +118,11 @@ export class EmailInputComponent implements ControlValueAccessor, Validator {
 
   search({ query }: AutoCompleteCompleteEvent): void {
     this.currentInputValue.set(this.emailField.value);
-    console.log('query: ', query);
     if (!query.includes('@')) {
-      console.log('1');
       this.filteredDomains.set([]);
     } else if (query.endsWith('@')) {
-      console.log('2');
       this.filteredDomains.set(this.domains);
     } else {
-      console.log('3');
       const [_, domain] = query.split('@');
       this.filteredDomains.set(
         this.domains.filter((d) => d.startsWith(domain))

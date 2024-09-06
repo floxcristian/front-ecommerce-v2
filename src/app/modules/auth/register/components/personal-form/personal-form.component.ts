@@ -93,15 +93,7 @@ export class PersonalFormComponent {
         phone: [null],
         email: [null, [Validators.required]],
         confirmEmail: [null, [Validators.required]],
-        password: [
-          null,
-          [
-            Validators.required,
-            Validators.minLength(8),
-            Validators.maxLength(20),
-            PasswordValidator.isValidPassword,
-          ],
-        ],
+        password: [null, [Validators.required]],
         confirmPassword: [null, [Validators.required]],
       },
       {

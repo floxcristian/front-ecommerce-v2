@@ -12,6 +12,7 @@ import {
   FormGroup,
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR,
+  NonNullableFormBuilder,
   ReactiveFormsModule,
   ValidationErrors,
   Validator,
@@ -61,7 +62,7 @@ export class PhoneInputComponent implements ControlValueAccessor, Validator {
     return this.form.controls.phone;
   }
 
-  private readonly fb = inject(FormBuilder);
+  private readonly fb = inject(NonNullableFormBuilder);
   form!: FormGroup<ControlsOf<{ phone: string }>>;
   phoneCode = environment.phoneCode;
 
@@ -78,7 +79,7 @@ export class PhoneInputComponent implements ControlValueAccessor, Validator {
    * @returns void
    **/
   private buildForm(): void {
-    this.form = this.fb.nonNullable.group({
+    this.form = this.fb.group({
       phone: ['', [Validators.required, PhoneValidator.isValidPhone]],
     });
   }

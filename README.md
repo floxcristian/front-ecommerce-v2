@@ -32,7 +32,13 @@ https://github.com/primefaces/primeng/issues/10142
 // PESCAR TODOS LOS VALORES DE UN FORM QUE TIENE CAMPOS DESHABILITADOS
 https://www.youtube.com/watch?v=xpRlijg6spo
 
+## Angular
+
 - Smart and dumb components pattern.
+- Typed forms.
 - Sync and async validators.
 - Reusable inputs using ControlValueAccessor (CVA).
--
+
+## VSCode
+
+- Regions.

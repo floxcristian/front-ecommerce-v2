@@ -1,3 +1,4 @@
+// Angular
 import {
   ChangeDetectionStrategy,
   Component,
@@ -17,11 +18,14 @@ import {
   Validator,
   Validators,
 } from '@angular/forms';
-import { ControlsOf } from '@shared/models/controls.type';
-import { PasswordModule } from 'primeng/password';
-import { PasswordValidator } from './validators/password.validator';
-import { DividerModule } from 'primeng/divider';
 import { CommonModule } from '@angular/common';
+// PrimeNG
+import { DividerModule } from 'primeng/divider';
+import { PasswordModule } from 'primeng/password';
+// Validators
+import { PasswordValidator } from './validators/password.validator';
+// Models
+import { ControlsOf } from '@shared/models/controls.type';
 
 const NG_MODULES = [ReactiveFormsModule, CommonModule];
 const PRIME_MODULES = [PasswordModule, DividerModule];
@@ -88,12 +92,6 @@ export class PasswordInputComponent implements ControlValueAccessor, Validator {
   }
 
   private checkErrors(password: string): void {
-    /*this.errors = {
-      passwordLowercase: !/[a-z]/.test(password),
-      passwordUppercase: !/[A-Z]/.test(password),
-      passwordNumber: !/[0-9]/.test(password),
-      passwordMinLength: password.length < 8,
-    };*/
     this.errors.update((currentErrors) => {
       currentErrors['passwordLowercase'].value = !/[a-z]/.test(password);
       currentErrors['passwordUppercase'].value = !/[A-Z]/.test(password);

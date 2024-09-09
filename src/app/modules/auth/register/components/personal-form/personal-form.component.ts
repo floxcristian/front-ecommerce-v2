@@ -17,7 +17,7 @@ import { KeyFilterModule } from 'primeng/keyfilter';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { InputGroupModule } from 'primeng/inputgroup';
 // Validators
-import { PasswordValidator } from '../../validators/password.validator';
+import { PasswordValidator } from '@shared/components/atomic/password-input/validators/password.validator';
 import { EmailValidator } from '@shared/components/atomic/email-input/validators/email.validator';
 // Directives
 import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';

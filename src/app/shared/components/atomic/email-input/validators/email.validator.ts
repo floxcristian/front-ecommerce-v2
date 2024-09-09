@@ -19,9 +19,21 @@ export class EmailValidator {
    * @param control The control to validate.
    * @returns The validation errors or null.
    **/
-  static matchEmails(control: AbstractControl): ValidationErrors | null {
+  /*static matchEmails(control: AbstractControl): ValidationErrors | null {
     const email = control.get('email')?.value;
     const confirmEmail = control.get('confirmEmail')?.value;
     return email === confirmEmail ? null : { EmailConfirmInvalid: true };
+  }*/
+
+  static matchEmails(control: AbstractControl): Record<string, boolean> | null {
+    const email = control.get('email')?.value;
+    const confirmEmail = control.get('confirmEmail')?.value;
+    if (!confirmEmail) return { required: true };
+    control
+      .get('confirmEmail')
+      ?.setErrors(
+        email === confirmEmail ? null : { emailConfirmInvalid: true }
+      );
+    return null;
   }
 }

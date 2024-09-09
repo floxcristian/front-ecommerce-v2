@@ -25,8 +25,12 @@ export const defaultErrors: ErrorsMap = {
   passwordUppercase: `La contraseña debe tener al menos una letra mayúscula.`,
   passwordNumber: `La contraseña debe tener al menos un número.`,
   passwordMinLength: `La contraseña debe tener al menos 8 caracteres.`,
+  // Password Confirm
+  passwordConfirmInvalid: `Las contraseñas no coinciden.`,
   // Email
   emailInvalid: `El correo electrónico ingresado no es válido.`,
+  // Confirm Email
+  emailConfirmInvalid: `Los correos electrónicos no coinciden.`,
   // Phone
   phoneRequired: `El teléfono es un campo requerido.`,
   phoneInvalid: `El teléfono ingresado no es válido.`,

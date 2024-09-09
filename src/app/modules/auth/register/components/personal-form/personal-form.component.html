@@ -80,19 +80,19 @@
       >Repita correo eletrónico</label
     >
     <app-email-input formControlName="confirmEmail" id="confirmEmail" />
-    @if(personalForm.get('confirmEmail')?.touched &&
+    <!--@if(personalForm.get('confirmEmail')?.touched &&
     !personalForm.get('confirmEmail')?.errors && personalForm.errors &&
     personalForm.errors['EmailConfirmInvalid']){
     <small class="text-red-500"> Debe ingresar un correo que coincida.</small>
-    } @else {
+    } @else {-->
     <small id="confirmEmail-help"> Ej: micorreo&#64;gmail.com </small>
-    }
+    <!-- } -->
   </div>
 
   <div class="field mb-4 flex flex-column w-full">
     <label for="password" class="font-semibold text-900">Contraseña</label>
     <app-password-input formControlName="password" id="password" />
-    <small id="password-help"> Ej: 9 1234 9876 </small>
+    <!-- <small id="password-help"> Ej: 9 1234 9876 </small> -->
     <!--
     <p-password
       id="password"
@@ -123,6 +123,12 @@
       </ng-template>
     </p-password> -->
   </div>
+  <!--<pre style="background-color: pink">
+    confirmPasswordValue: {{ personalForm.get("confirmPassword")?.value }}
+    confirmPasswordErrors: {{
+      personalForm.get("confirmPassword")?.errors | json
+    }}
+  </pre>-->
   <div class="field mb-6 flex flex-column">
     <label for="confirmPassword" class="font-semibold text-900"
       >Repita contraseña</label

@@ -17,4 +17,5 @@ export interface IConfig {
     withTaxLabel: string;
     withoutTaxLabel: string;
   };
+  defaultMapCenter: google.maps.LatLngLiteral;
 }

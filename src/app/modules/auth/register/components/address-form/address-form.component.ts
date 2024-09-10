@@ -13,6 +13,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { environment } from '@env/environment';
 // PrimeNG
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
@@ -46,14 +47,16 @@ export class AddressFormComponent {
   onSubmit = output<any>();
 
   addressForm!: FormGroup;
+  //center!: google.maps.LatLngLiteral;
 
   isMapLoaded = signal<boolean>(false);
-  options: google.maps.MapOptions = {
-    center: { lat: -31, lng: 147 },
-    zoom: 4,
-  };
+  options!: google.maps.MapOptions;
 
   constructor(private readonly fb: FormBuilder) {
+    this.options = {
+      center: environment.defaultMapCenter,
+      zoom: 4,
+    };
     this.buildForm();
   }
 

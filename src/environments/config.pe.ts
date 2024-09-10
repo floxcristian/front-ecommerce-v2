@@ -17,4 +17,8 @@ export const config: IConfig = {
     withTaxLabel: 'c/IGV',
     withoutTaxLabel: 'neto',
   },
+  defaultMapCenter: {
+    lat: -12.046559,
+    lng: -77.10272,
+  },
 };

@@ -17,4 +17,8 @@ export const config: IConfig = {
     withTaxLabel: 'c/IVA',
     withoutTaxLabel: 'neto',
   },
+  defaultMapCenter: {
+    lat: -36.79975467819392,
+    lng: -71.49897587245773,
+  },
 };

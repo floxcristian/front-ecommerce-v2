@@ -7,6 +7,7 @@ import {
   ElementRef,
   inject,
   Inject,
+  Input,
   Optional,
   Self,
   ViewContainerRef,
@@ -22,6 +23,7 @@ import {
   fromEvent,
   switchMap,
   startWith,
+  tap,
 } from 'rxjs';
 // Components
 import { ControlErrorComponent } from '../../components/control-error/control-error.component';
@@ -36,6 +38,8 @@ import { FORM_ERRORS } from '../../form-errors';
   standalone: true,
 })
 export class ControlErrorsDirective implements AfterViewInit {
+  @Input('dependentControlName') dependentControlName: string = '';
+
   private readonly destroyRef: DestroyRef = inject(DestroyRef);
   private ref!: ComponentRef<ControlErrorComponent>;
   private submit$: Observable<Event | null>;
@@ -70,24 +74,47 @@ export class ControlErrorsDirective implements AfterViewInit {
       this.control?.statusChanges.pipe(distinctUntilChanged()) || EMPTY;
     const blur$ = fromEvent(this.host, 'focusout');
     const hasAsyncValidator = !!this.control?.asyncValidator;
+
     const changesOnAsync$ = hasAsyncValidator ? statusChanges$ : EMPTY;
     const changesOnBlur$ = blur$.pipe(
+      tap(() => {
+        if (this.host.id === 'confirmEmail') {
+          console.log('[confirmEmail] blur');
+        }
+      }),
       switchMap(() => valueChanges$.pipe(startWith(true)))
     );
 
     // FIXME: crear una activación manual de los errores
 
     merge(changesOnAsync$, changesOnBlur$, valueChanges$, this.submit$)
-      .pipe(distinctUntilChanged(), takeUntilDestroyed(this.destroyRef))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
-        if (this.host.id === 'confirmEmail') {
+        /* if (this.host.id === 'confirmEmail') {
           console.log('[confirmEmail] Añadiendo o quitando errores.');
-        }
+        }*/
         const hasErrors = !!this.control?.errors;
+        /*if (this.host.id === 'confirmEmail') {
+          console.log('[confirmEmail] errores: ', this.control?.errors);
+        }*/
         if (hasErrors && this.control?.touched) {
           this.showError();
         } else {
           this.hideError();
+        }
+
+        if (this.dependentControlName) {
+          const dependentElement = document.querySelector(
+            `[formControlName="${this.dependentControlName}"]`
+          ) as HTMLInputElement;
+          const event = new FocusEvent('focusout');
+          if (dependentElement) {
+            const dependentControl = this.control?.parent?.get(
+              this.dependentControlName
+            );
+            dependentControl?.updateValueAndValidity({ emitEvent: true });
+            dependentElement.dispatchEvent(event);
+          }
         }
       });
   }

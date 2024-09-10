@@ -67,14 +67,18 @@
 
   <div class="field mb-4 flex flex-column">
     <label for="email" class="font-semibold text-900">Correo eletrónico</label>
-    <app-email-input formControlName="email" id="email" />
+    <app-email-input
+      formControlName="email"
+      id="email"
+      dependentControlName="confirmEmail"
+    />
     <small id="email-help"> Ej: micorreo&#64;gmail.com </small>
   </div>
-
+  <!--
   <pre style="background-color: pink">
     confirmEmailValue: {{ personalForm.get("confirmEmail")?.value }}
     confirmEmailErrors: {{ personalForm.get("confirmEmail")?.errors | json }}
-  </pre>
+  </pre>-->
   <div class="field mb-4 flex flex-column">
     <label for="confirmEmail" class="font-semibold text-900"
       >Repita correo eletrónico</label
@@ -91,7 +95,11 @@
 
   <div class="field mb-4 flex flex-column w-full">
     <label for="password" class="font-semibold text-900">Contraseña</label>
-    <app-password-input formControlName="password" id="password" />
+    <app-password-input
+      formControlName="password"
+      id="password"
+      dependentControlName="confirmPassword"
+    />
     <!-- <small id="password-help"> Ej: 9 1234 9876 </small> -->
     <!--
     <p-password

@@ -15,7 +15,7 @@ export class PasswordValidator {
     return null;
   }
 
-  static matchPasswords(
+  /*static matchPasswords(
     control: AbstractControl
   ): Record<string, boolean> | null {
     const password = control.get('password')?.value;
@@ -27,5 +27,14 @@ export class PasswordValidator {
         password === confirmPassword ? null : { passwordConfirmInvalid: true }
       );
     return null;
+  }*/
+
+  static matchPasswords(matchTo: string): ValidationErrors | null {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const reverseControl = control?.parent?.get(matchTo);
+      const isValid =
+        !!control.parent?.value && control.value === reverseControl?.value;
+      return isValid ? null : { passwordConfirmInvalid: true };
+    };
   }
 }

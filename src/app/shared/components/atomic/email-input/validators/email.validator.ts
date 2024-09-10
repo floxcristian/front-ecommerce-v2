@@ -14,44 +14,9 @@ export class EmailValidator {
     return isValid ? null : { emailInvalid: true };
   }
 
-  /**
-   * Compare two email fields.
-   * @param control The control to validate.
-   * @returns The validation errors or null.
-   **/
-  /*static matchEmails(control: AbstractControl): ValidationErrors | null {
-    const email = control.get('email')?.value;
-    const confirmEmail = control.get('confirmEmail')?.value;
-    return email === confirmEmail ? null : { EmailConfirmInvalid: true };
-  }*/
-
-  static matchEmails(control: AbstractControl): ValidationErrors | null {
-    const email = control.get('email')?.value;
-    const confirmEmail = control.get('confirmEmail')?.value;
-    if (!confirmEmail) return { required: true };
-    control
-      .get('confirmEmail')
-      ?.setErrors(
-        email === confirmEmail ? null : { emailConfirmInvalid: true }
-      );
-    return null;
-  }
-
-  static matchValidator2(
-    matchTo: string,
-    reverse?: boolean
-  ): ValidationErrors | null {
+  static matchEmails(matchTo: string): ValidationErrors | null {
     return (control: AbstractControl): ValidationErrors | null => {
-      // Si tiene reverse (email)
       const reverseControl = control?.parent?.get(matchTo);
-      if (control.parent && reverse) {
-        if (reverseControl) {
-          // TODO: activar on bluar o on change
-          const blurEvent = new FocusEvent('blur');
-          reverseControl.updateValueAndValidity({ emitEvent: true });
-        }
-        return null;
-      }
       const isValid =
         !!control.parent?.value && control.value === reverseControl?.value;
       return isValid ? null : { emailConfirmInvalid: true };

@@ -95,22 +95,25 @@ export class PersonalFormComponent {
           null,
           [
             Validators.required,
-            /*EmailValidator.matchValidator2('confirmEmail', true),*/
+            //EmailValidator.matchValidator2('confirmEmail', true),
           ],
         ],
         confirmEmail: [
           null,
-          [Validators.required /*, EmailValidator.matchValidator2('email')*/],
+          [Validators.required, EmailValidator.matchEmails('email')],
         ],
         password: [null, [Validators.required]],
-        confirmPassword: [null, [Validators.required]],
-      },
+        confirmPassword: [
+          null,
+          [Validators.required, , PasswordValidator.matchPasswords('password')],
+        ],
+      } /*,
       {
         validators: [
           PasswordValidator.matchPasswords,
-          EmailValidator.matchEmails,
+          //EmailValidator.matchEmails,
         ],
-      }
+      }*/
     );
   }
 

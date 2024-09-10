@@ -91,8 +91,17 @@ export class PersonalFormComponent {
         lastname: [null, Validators.required],
         documentId: [null, Validators.required],
         phone: [null],
-        email: [null, [Validators.required]],
-        confirmEmail: [null, [Validators.required]],
+        email: [
+          null,
+          [
+            Validators.required,
+            /*EmailValidator.matchValidator2('confirmEmail', true),*/
+          ],
+        ],
+        confirmEmail: [
+          null,
+          [Validators.required /*, EmailValidator.matchValidator2('email')*/],
+        ],
         password: [null, [Validators.required]],
         confirmPassword: [null, [Validators.required]],
       },

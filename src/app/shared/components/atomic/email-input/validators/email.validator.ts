@@ -37,43 +37,24 @@ export class EmailValidator {
     return null;
   }
 
-  static matchValidator(matchTo: string, reverse?: boolean): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      // Si tiene reverse (email)
-      if (control.parent && reverse) {
-        const c = (control.parent?.controls as any)[matchTo] as AbstractControl;
-        if (c) {
-          c.updateValueAndValidity();
-        }
-        return null;
-      }
-      return !!control.parent &&
-        !!control.parent.value &&
-        control.value === (control.parent?.controls as any)[matchTo].value
-        ? null
-        : { matching: true };
-    };
-  }
-
   static matchValidator2(
     matchTo: string,
     reverse?: boolean
   ): ValidationErrors | null {
     return (control: AbstractControl): ValidationErrors | null => {
       // Si tiene reverse (email)
+      const reverseControl = control?.parent?.get(matchTo);
       if (control.parent && reverse) {
-        const c = (control.parent?.controls as any)[matchTo] as AbstractControl;
-        // const reverseControl = control.parent.controls[matchTo];
-        if (c) {
-          c.updateValueAndValidity();
+        if (reverseControl) {
+          // TODO: activar on bluar o on change
+          const blurEvent = new FocusEvent('blur');
+          reverseControl.updateValueAndValidity({ emitEvent: true });
         }
         return null;
       }
-      return !!control.parent &&
-        !!control.parent.value &&
-        control.value === (control.parent?.controls as any)[matchTo].value
-        ? null
-        : { matching: true };
+      const isValid =
+        !!control.parent?.value && control.value === reverseControl?.value;
+      return isValid ? null : { emailConfirmInvalid: true };
     };
   }
 }

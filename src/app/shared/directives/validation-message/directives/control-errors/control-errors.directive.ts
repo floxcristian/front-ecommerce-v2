@@ -74,9 +74,15 @@ export class ControlErrorsDirective implements AfterViewInit {
     const changesOnBlur$ = blur$.pipe(
       switchMap(() => valueChanges$.pipe(startWith(true)))
     );
+
+    // FIXME: crear una activación manual de los errores
+
     merge(changesOnAsync$, changesOnBlur$, valueChanges$, this.submit$)
       .pipe(distinctUntilChanged(), takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
+        if (this.host.id === 'confirmEmail') {
+          console.log('[confirmEmail] Añadiendo o quitando errores.');
+        }
         const hasErrors = !!this.control?.errors;
         if (hasErrors && this.control?.touched) {
           this.showError();

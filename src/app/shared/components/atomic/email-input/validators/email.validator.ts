@@ -1,5 +1,5 @@
 // Angular
-import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 export class EmailValidator {
   /**
@@ -25,7 +25,7 @@ export class EmailValidator {
     return email === confirmEmail ? null : { EmailConfirmInvalid: true };
   }*/
 
-  static matchEmails(control: AbstractControl): Record<string, boolean> | null {
+  static matchEmails(control: AbstractControl): ValidationErrors | null {
     const email = control.get('email')?.value;
     const confirmEmail = control.get('confirmEmail')?.value;
     if (!confirmEmail) return { required: true };
@@ -35,5 +35,45 @@ export class EmailValidator {
         email === confirmEmail ? null : { emailConfirmInvalid: true }
       );
     return null;
+  }
+
+  static matchValidator(matchTo: string, reverse?: boolean): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      // Si tiene reverse (email)
+      if (control.parent && reverse) {
+        const c = (control.parent?.controls as any)[matchTo] as AbstractControl;
+        if (c) {
+          c.updateValueAndValidity();
+        }
+        return null;
+      }
+      return !!control.parent &&
+        !!control.parent.value &&
+        control.value === (control.parent?.controls as any)[matchTo].value
+        ? null
+        : { matching: true };
+    };
+  }
+
+  static matchValidator2(
+    matchTo: string,
+    reverse?: boolean
+  ): ValidationErrors | null {
+    return (control: AbstractControl): ValidationErrors | null => {
+      // Si tiene reverse (email)
+      if (control.parent && reverse) {
+        const c = (control.parent?.controls as any)[matchTo] as AbstractControl;
+        // const reverseControl = control.parent.controls[matchTo];
+        if (c) {
+          c.updateValueAndValidity();
+        }
+        return null;
+      }
+      return !!control.parent &&
+        !!control.parent.value &&
+        control.value === (control.parent?.controls as any)[matchTo].value
+        ? null
+        : { matching: true };
+    };
   }
 }

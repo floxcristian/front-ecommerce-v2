@@ -66,10 +66,10 @@ const DIRECTIVES = [FormSubmitDirective, ControlErrorsDirective];
 export class EnterpriseFormComponent implements OnInit {
   @ViewChild('dropdownElement') dropdown!: Dropdown;
 
-  onGoBack = output<void>();
-  onSubmit = output<Enterprise>();
   data = input.required<Enterprise | null>();
   steps = input.required<number>();
+  onGoBack = output<void>();
+  onSubmit = output<Enterprise>();
 
   enterpriseForm!: FormGroup<ControlsOf<Enterprise>>;
   documentIdLabel = environment.documentId.enterpriseLabel;

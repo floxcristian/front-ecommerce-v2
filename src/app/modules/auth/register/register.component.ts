@@ -118,4 +118,6 @@ export class RegisterComponent {
     console.log('addressInfo: ', addressInfo);
   }
   // #endregion
+
+  // TODO: para crear el usuario solo se debería pasar el código de localidad.
 }

@@ -2,25 +2,28 @@
   title="Crea tu cuenta"
   (onGoBack)="setPreviousStep()"
 />
-<!-- <pre>step: {{ step() }}</pre> -->
 
 <main class="surface-ground">
   <div class="container md:py-8">
     <div class="surface-ground lg:shadow-2">
       <div class="flex flex-wrap">
-        <!-- Izquierda -->
-
         <app-feature-panel [accountType]="accountType()" />
 
         <div class="w-full lg:w-6 pt-4 pb-7 lg:pt-7 px-4 lg:px-7 surface-card">
-          @if(step() === 1){
+          <app-address-form
+            [accountType]="accountType()"
+            [steps]="steps()"
+            (onGoBack)="setPreviousStep()"
+            (onSubmit)="submitAddressForm($event)"
+          />
+          <!-- @if(step() === 1){
           <app-account-type-form (onSubmit)="submitRoleForm($event)" />
           } @else if(step() === 2 && accountType() === 'enterprise'){
           <app-enterprise-form
-            (onGoBack)="setPreviousStep()"
-            (onSubmit)="submitEnterpriseForm($event)"
             [data]="enterpriseForm()"
             [steps]="steps()"
+            (onGoBack)="setPreviousStep()"
+            (onSubmit)="submitEnterpriseForm($event)"
           />
           } @else if((step() === 2 && accountType() === 'customer' || (step()
           === 3 && accountType() === 'enterprise'))){
@@ -29,15 +32,17 @@
             (onGoBack)="setPreviousStep()"
             (onSubmit)="submitPersonalForm($event)"
             [steps]="steps()"
+            [data]="personalForm()"
           />
           } @else {
           <app-address-form
             [accountType]="accountType()"
+            [data]="enterpriseForm()"
             [steps]="steps()"
             (onGoBack)="setPreviousStep()"
             (onSubmit)="submitAddressForm($event)"
           />
-          }
+          }-->
         </div>
       </div>
     </div>

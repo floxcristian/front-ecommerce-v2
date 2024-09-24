@@ -1,5 +1,5 @@
 // Angular
-import { Component, input, output } from '@angular/core';
+import { Component, input, OnInit, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
@@ -56,11 +56,12 @@ const COMPONENTS = [
   templateUrl: './personal-form.component.html',
   styleUrl: './personal-form.component.scss',
 })
-export class PersonalFormComponent {
+export class PersonalFormComponent implements OnInit {
   accountType = input.required<string>();
   onGoBack = output<void>();
   onSubmit = output<any>();
   steps = input.required<number>();
+  data = input.required<any | null>();
 
   personalForm!: FormGroup;
 
@@ -72,49 +73,37 @@ export class PersonalFormComponent {
     return this.personalForm.get('email');
   }
 
-  constructor(private readonly fb: FormBuilder) {
+  constructor(private readonly fb: FormBuilder) {}
+
+  ngOnInit(): void {
     this.buildForm();
   }
 
   private buildForm(): void {
-    this.personalForm = this.fb.group(
-      {
-        position: [null],
-        name: [
-          null,
-          [
-            Validators.required,
-            Validators.minLength(3),
-            Validators.maxLength(50),
-          ],
+    this.personalForm = this.fb.group({
+      position: [null],
+      name: [
+        this.data()?.name || '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(50),
         ],
-        lastname: [null, Validators.required],
-        documentId: [null, Validators.required],
-        phone: [null],
-        email: [
-          null,
-          [
-            Validators.required,
-            //EmailValidator.matchValidator2('confirmEmail', true),
-          ],
-        ],
-        confirmEmail: [
-          null,
-          [Validators.required, EmailValidator.matchEmails('email')],
-        ],
-        password: [null, [Validators.required]],
-        confirmPassword: [
-          null,
-          [Validators.required, , PasswordValidator.matchPasswords('password')],
-        ],
-      } /*,
-      {
-        validators: [
-          PasswordValidator.matchPasswords,
-          //EmailValidator.matchEmails,
-        ],
-      }*/
-    );
+      ],
+      lastname: [this.data()?.lastname || '', Validators.required],
+      documentId: [this.data()?.documentId || '', Validators.required],
+      phone: [this.data()?.phone || null],
+      email: [this.data()?.email || '', [Validators.required]],
+      confirmEmail: [
+        this.data()?.confirmEmail || '',
+        [Validators.required, EmailValidator.matchEmails('email')],
+      ],
+      password: [this.data()?.password || '', [Validators.required]],
+      confirmPassword: [
+        this.data()?.confirmPassword || '',
+        [Validators.required, , PasswordValidator.matchPasswords('password')],
+      ],
+    });
   }
 
   submit(value: any): void {

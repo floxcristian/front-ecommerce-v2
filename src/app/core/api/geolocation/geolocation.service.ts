@@ -15,4 +15,12 @@ export class GeolocationService {
   getStores() {
     return this.http.get(`${API_LOGISTIC}/stores`);
   }
+
+  /**
+   * Obtener comunas.
+   * @returns
+   */
+  getCommunes() {
+    return this.http.get<any[]>(`${API_LOGISTIC}/cities`);
+  }
 }

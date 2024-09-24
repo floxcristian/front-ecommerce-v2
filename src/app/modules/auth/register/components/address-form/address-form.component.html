@@ -15,23 +15,41 @@
   </p>
 </div>
 <form [formGroup]="addressForm" (ngSubmit)="submit(addressForm.value)">
+  <!-- CHECK -->
+  <!--<pre style="background-color: pink">
+    value: {{ addressForm.get("search")?.value }}
+    errors: {{ addressForm.get("search")?.errors | json }}
+   </pre
+  >-->
   <div class="field mb-4 flex flex-column">
     <label class="font-medium text-900">Ingresa tu dirección</label>
-    <input type="text" pInputText spellcheck="false" />
+    <!-- <input type="text" pInputText spellcheck="false" #searchAddress /> -->
+    <app-address-input
+      (onChangeAddress)="changeAddress($event)"
+      formControlName="search"
+    />
   </div>
 
   <div class="field mb-4 flex flex-column relative">
     <google-map
       height="600px"
       width="auto"
-      [options]="options"
+      [options]="options()"
       (mapInitialized)="onMapReady()"
     >
+      @for (marker of markerPositions(); track $index) { @if(marker.position){
+      <map-advanced-marker
+        [position]="marker.position"
+        [gmpDraggable]="true"
+        (mapDragend)="onDragEnd($event)"
+      />
+      } }
     </google-map>
     @if(!isMapLoaded()){
     <p-skeleton height="4rem" styleClass="absolute top-0 left-0" />
     }
   </div>
+
   <div class="field mb-4 flex flex-column">
     <label for="street" class="font-medium text-900">Calle</label>
     <input id="street" type="text" pInputText formControlName="street" />
@@ -41,9 +59,46 @@
     <input id="number" type="text" pInputText formControlName="number" />
   </div>
   <div class="field mb-4 flex flex-column">
-    <label for="city" class="font-medium text-900">Comuna</label>
-    <input id="city" type="text" pInputText formControlName="city" />
+    <label for="region" class="font-medium text-900">Región</label>
+    <input id="region" type="text" pInputText formControlName="region" />
   </div>
+  <div class="field mb-4 flex flex-column">
+    <label for="commune" class="font-medium text-900">Comuna</label>
+    <input id="commune" type="text" pInputText formControlName="commune" />
+    <!--<p-dropdown
+      [options]="communes()"
+      formControlName="commune"
+      optionLabel="city"
+      [filter]="true"
+      filterBy="city"
+      optionValue="id"
+      styleClass="w-full"
+      placeholder="Selecciona una comuna"
+      dropdownIcon="fa-sharp fa-solid fa-chevron-down"
+      loadingIcon="fa-sharp fa-solid fa-spinner-third fa-spin"
+      spellcheck="false"
+      [loading]="isLoadingCommunes()"
+    />-->
+  </div>
+  <div class="field mb-4 flex flex-column">
+    <label for="locality" class="font-medium text-900">Localidad</label>
+    <input id="locality" type="text" pInputText formControlName="locality" />
+    <!--<p-dropdown
+      [options]="localities()"
+      formControlName="locality"
+      optionLabel="city"
+      [filter]="true"
+      filterBy="city"
+      optionValue="id"
+      styleClass="w-full"
+      placeholder="Selecciona una localidad"
+      dropdownIcon="fa-sharp fa-solid fa-chevron-down"
+      loadingIcon="fa-sharp fa-solid fa-spinner-third fa-spin"
+      spellcheck="false"
+      [loading]="isLoadingCommunes()"
+    />-->
+  </div>
+
   <div class="field mb-4 flex flex-column">
     <label for="department" class="font-medium text-900"
       >Departamento / Oficina</label

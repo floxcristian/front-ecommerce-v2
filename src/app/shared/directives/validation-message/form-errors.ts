@@ -35,6 +35,9 @@ export const defaultErrors: ErrorsMap = {
   phoneRequired: `El teléfono es un campo requerido.`,
   phoneInvalid: `El teléfono ingresado no es válido.`,
   phoneMinLength: `El teléfono debe tener al menos 9 dígitos.`,
+  // Search Address
+  addressRequired: `La dirección es un campo requerido.`,
+  addressInvalid: `La dirección ingresada no es válida.`,
 };
 
 export const FORM_ERRORS = new InjectionToken('FORM_ERRORS', {

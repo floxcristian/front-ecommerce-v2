@@ -1,0 +1,8476 @@
+[
+  {
+    "id": "10",
+    "subdivisions": [
+      {
+        "id": "5637144900",
+        "name": "CASTRO",
+        "localities": [
+          {
+            "id": "5637145637",
+            "name": "ABTAO"
+          },
+          {
+            "id": "5637145638",
+            "name": "CASTRO"
+          },
+          {
+            "id": "5637145639",
+            "name": "CURAHUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144880",
+        "name": "QUINCHAO",
+        "localities": [
+          {
+            "id": "5637145774",
+            "name": "ACHAO"
+          },
+          {
+            "id": "5637145775",
+            "name": "APIAO"
+          },
+          {
+            "id": "5637145776",
+            "name": "CHAULINEC"
+          }
+        ]
+      },
+      {
+        "id": "5637144882",
+        "name": "QUEMCHI",
+        "localities": [
+          {
+            "id": "5637145765",
+            "name": "AGUAS  BUENAS"
+          },
+          {
+            "id": "5637145766",
+            "name": "AUCAR"
+          },
+          {
+            "id": "5637145767",
+            "name": "BELBEN"
+          },
+          {
+            "id": "5637145768",
+            "name": "DEGAN"
+          },
+          {
+            "id": "5637145769",
+            "name": "HUILLINCO"
+          },
+          {
+            "id": "5637145770",
+            "name": "LINAO"
+          },
+          {
+            "id": "5637145771",
+            "name": "LLIUCO"
+          },
+          {
+            "id": "5637145772",
+            "name": "MANAO"
+          },
+          {
+            "id": "5637145773",
+            "name": "QUEMCHI"
+          }
+        ]
+      },
+      {
+        "id": "5637144888",
+        "name": "QUEILÉN",
+        "localities": [
+          {
+            "id": "5637145754",
+            "name": "AHONI"
+          },
+          {
+            "id": "5637145755",
+            "name": "AITUI"
+          },
+          {
+            "id": "5637145756",
+            "name": "CONTAY"
+          },
+          {
+            "id": "5637145757",
+            "name": "PAILDAD"
+          },
+          {
+            "id": "5637145758",
+            "name": "QUEILEN"
+          }
+        ]
+      },
+      {
+        "id": "5637144891",
+        "name": "PUQUELDÓN",
+        "localities": [
+          {
+            "id": "5637145735",
+            "name": "ALDACHILDO"
+          },
+          {
+            "id": "5637145736",
+            "name": "PUQUELDON"
+          }
+        ]
+      },
+      {
+        "id": "5637144919",
+        "name": "PUERTO MONTT",
+        "localities": [
+          {
+            "id": "5637145711",
+            "name": "ALERCE"
+          },
+          {
+            "id": "5637145712",
+            "name": "CALETA LA ARENA"
+          },
+          {
+            "id": "5637145713",
+            "name": "CHAMIZA"
+          },
+          {
+            "id": "5637145714",
+            "name": "CORRENTOSO"
+          },
+          {
+            "id": "5637145715",
+            "name": "EL TEPUAL"
+          },
+          {
+            "id": "5637145716",
+            "name": "LENCA"
+          },
+          {
+            "id": "5637145717",
+            "name": "PUERTO MONTT"
+          },
+          {
+            "id": "5637145718",
+            "name": "QUILLAIPE"
+          },
+          {
+            "id": "5637145719",
+            "name": "RANCHO PUERTO MONTT"
+          }
+        ]
+      },
+      {
+        "id": "5637144893",
+        "name": "DALCAHUE",
+        "localities": [
+          {
+            "id": "5637145659",
+            "name": "ALTO BUTALCURA"
+          },
+          {
+            "id": "5637145660",
+            "name": "DALCAHUE"
+          },
+          {
+            "id": "5637145661",
+            "name": "MECHUQUE"
+          },
+          {
+            "id": "5637145662",
+            "name": "QUICAVI"
+          },
+          {
+            "id": "5637145663",
+            "name": "SAN JUAN"
+          }
+        ]
+      },
+      {
+        "id": "5637144899",
+        "name": "ANCUD",
+        "localities": [
+          {
+            "id": "5637145630",
+            "name": "ANCUD"
+          },
+          {
+            "id": "5637145631",
+            "name": "CAULIN"
+          },
+          {
+            "id": "5637145632",
+            "name": "CHACAO"
+          },
+          {
+            "id": "5637145633",
+            "name": "GUALBUN"
+          },
+          {
+            "id": "5637145634",
+            "name": "QUETELMAHUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144870",
+        "name": "PUYEHUE",
+        "localities": [
+          {
+            "id": "5637145744",
+            "name": "ANTICURA"
+          },
+          {
+            "id": "5637145745",
+            "name": "EL ENCANTO"
+          },
+          {
+            "id": "5637145746",
+            "name": "EL ISLOTE"
+          },
+          {
+            "id": "5637145747",
+            "name": "ENTRE LAGOS"
+          },
+          {
+            "id": "5637145748",
+            "name": "NILQUE"
+          },
+          {
+            "id": "5637145749",
+            "name": "PAJARITOS"
+          },
+          {
+            "id": "5637145750",
+            "name": "PUERTO RICO"
+          },
+          {
+            "id": "5637145751",
+            "name": "PUYEHUE"
+          },
+          {
+            "id": "5637145752",
+            "name": "REFUGIO ANTILLANCA"
+          },
+          {
+            "id": "5637145753",
+            "name": "TERMAS DE PUYEHUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144859",
+        "name": "HUALAIHUÉ",
+        "localities": [
+          {
+            "id": "5637145675",
+            "name": "AULEN"
+          },
+          {
+            "id": "5637145676",
+            "name": "AYACARA"
+          },
+          {
+            "id": "5637145677",
+            "name": "CALETA HUALAIHUE"
+          },
+          {
+            "id": "5637145678",
+            "name": "CHAPARANO"
+          },
+          {
+            "id": "5637145679",
+            "name": "CHOLGO"
+          },
+          {
+            "id": "5637145680",
+            "name": "CONTAO"
+          },
+          {
+            "id": "5637145681",
+            "name": "HORNOPIREN"
+          },
+          {
+            "id": "5637145682",
+            "name": "HUALAIHUE"
+          },
+          {
+            "id": "5637145683",
+            "name": "HUINAY"
+          },
+          {
+            "id": "5637145684",
+            "name": "LLANADA GRANDE"
+          },
+          {
+            "id": "5637145685",
+            "name": "PICHANCO"
+          },
+          {
+            "id": "5637145686",
+            "name": "POYO"
+          },
+          {
+            "id": "5637145687",
+            "name": "PRIMER CORRAL"
+          },
+          {
+            "id": "5637145688",
+            "name": "SEGUNDO CORRAL"
+          },
+          {
+            "id": "5637145689",
+            "name": "TERMAS DE LLANCATUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144864",
+        "name": "SAN JUAN DE LA COSTA",
+        "localities": [
+          {
+            "id": "5637145782",
+            "name": "BAHIA MANSA"
+          },
+          {
+            "id": "5637145783",
+            "name": "CONTACO"
+          },
+          {
+            "id": "5637145784",
+            "name": "MAICOLPUE"
+          },
+          {
+            "id": "5637145785",
+            "name": "PUAUCHO"
+          },
+          {
+            "id": "5637145786",
+            "name": "PUCATRIHUE"
+          },
+          {
+            "id": "5637145787",
+            "name": "S.JUAN DE LA COSTA"
+          }
+        ]
+      },
+      {
+        "id": "5637144907",
+        "name": "COCHAMÓ",
+        "localities": [
+          {
+            "id": "5637145650",
+            "name": "BANOS DE SOTOMO"
+          },
+          {
+            "id": "5637145651",
+            "name": "CANUTILLAR"
+          },
+          {
+            "id": "5637145652",
+            "name": "COCHAMO"
+          },
+          {
+            "id": "5637145653",
+            "name": "EL BARRACO"
+          },
+          {
+            "id": "5637145654",
+            "name": "PUELO"
+          },
+          {
+            "id": "5637145655",
+            "name": "RALUN"
+          },
+          {
+            "id": "5637145656",
+            "name": "ROLLIZO"
+          }
+        ]
+      },
+      {
+        "id": "5637144861",
+        "name": "CHAITÉN",
+        "localities": [
+          {
+            "id": "5637145640",
+            "name": "BUILL"
+          },
+          {
+            "id": "5637145641",
+            "name": "CALETA GONZALO"
+          },
+          {
+            "id": "5637145642",
+            "name": "CALETA SANTA BARBARA"
+          },
+          {
+            "id": "5637145643",
+            "name": "CHAITEN"
+          },
+          {
+            "id": "5637145644",
+            "name": "PUERTO CARDENAS"
+          },
+          {
+            "id": "5637145645",
+            "name": "TERMAS EL AMARILLO"
+          }
+        ]
+      },
+      {
+        "id": "5637144916",
+        "name": "CALBUCO",
+        "localities": [
+          {
+            "id": "5637145635",
+            "name": "CALBUCO"
+          },
+          {
+            "id": "5637145636",
+            "name": "HUELMO"
+          }
+        ]
+      },
+      {
+        "id": "5637144878",
+        "name": "OSORNO",
+        "localities": [
+          {
+            "id": "5637145703",
+            "name": "CANCURA"
+          },
+          {
+            "id": "5637145704",
+            "name": "LAS LUMAS"
+          },
+          {
+            "id": "5637145705",
+            "name": "MONTE VERDE"
+          },
+          {
+            "id": "5637145706",
+            "name": "OSORNO"
+          },
+          {
+            "id": "5637145707",
+            "name": "PICHI DAMAS"
+          },
+          {
+            "id": "5637145708",
+            "name": "REMEHUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144862",
+        "name": "SAN PABLO",
+        "localities": [
+          {
+            "id": "5637145788",
+            "name": "CARACOL"
+          },
+          {
+            "id": "5637145789",
+            "name": "CHIRRE"
+          },
+          {
+            "id": "5637145790",
+            "name": "FILUCO"
+          },
+          {
+            "id": "5637145791",
+            "name": "PURRAPEL"
+          }
+        ]
+      },
+      {
+        "id": "5637144902",
+        "name": "MAULLÍN",
+        "localities": [
+          {
+            "id": "5637145698",
+            "name": "CARELMAPU"
+          },
+          {
+            "id": "5637145699",
+            "name": "MAULLIN"
+          },
+          {
+            "id": "5637145700",
+            "name": "MISQUIHUE"
+          },
+          {
+            "id": "5637145701",
+            "name": "PARGUA"
+          },
+          {
+            "id": "5637145702",
+            "name": "PUELPUN"
+          }
+        ]
+      },
+      {
+        "id": "5637144873",
+        "name": "PURRANQUE",
+        "localities": [
+          {
+            "id": "5637145737",
+            "name": "CASMA"
+          },
+          {
+            "id": "5637145738",
+            "name": "CONCORDIA"
+          },
+          {
+            "id": "5637145739",
+            "name": "CORTE ALTO"
+          },
+          {
+            "id": "5637145740",
+            "name": "CRUCERO"
+          },
+          {
+            "id": "5637145741",
+            "name": "HUEYUSCA"
+          },
+          {
+            "id": "5637145742",
+            "name": "LOS CORRALES"
+          },
+          {
+            "id": "5637145743",
+            "name": "PURRANQUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144876",
+        "name": "PUERTO OCTAY",
+        "localities": [
+          {
+            "id": "5637145720",
+            "name": "CENTRAL RUPANCO"
+          },
+          {
+            "id": "5637145721",
+            "name": "LAS CASCADAS"
+          },
+          {
+            "id": "5637145722",
+            "name": "LOS BAJOS"
+          },
+          {
+            "id": "5637145723",
+            "name": "PIEDRAS NEGRAS"
+          },
+          {
+            "id": "5637145724",
+            "name": "PUERTO CLOCKER"
+          },
+          {
+            "id": "5637145725",
+            "name": "PUERTO FONCK"
+          },
+          {
+            "id": "5637145726",
+            "name": "PUERTO OCTAY"
+          },
+          {
+            "id": "5637145727",
+            "name": "REFUGIO LA PICADA"
+          }
+        ]
+      },
+      {
+        "id": "5637144898",
+        "name": "CHONCHI",
+        "localities": [
+          {
+            "id": "5637145646",
+            "name": "CHADMO CENTRAL"
+          },
+          {
+            "id": "5637145647",
+            "name": "CHONCHI"
+          },
+          {
+            "id": "5637145648",
+            "name": "CUCAO"
+          },
+          {
+            "id": "5637145649",
+            "name": "TEUPA"
+          }
+        ]
+      },
+      {
+        "id": "5637144868",
+        "name": "RÍO NEGRO",
+        "localities": [
+          {
+            "id": "5637145777",
+            "name": "CHAHUILCO"
+          },
+          {
+            "id": "5637145778",
+            "name": "EL BOLSON"
+          },
+          {
+            "id": "5637145779",
+            "name": "HUILMA"
+          },
+          {
+            "id": "5637145780",
+            "name": "MILLANTUE"
+          },
+          {
+            "id": "5637145781",
+            "name": "RIO NEGRO"
+          }
+        ]
+      },
+      {
+        "id": "5637144903",
+        "name": "LLANQUIHUE",
+        "localities": [
+          {
+            "id": "5637145690",
+            "name": "COLEGUAL"
+          },
+          {
+            "id": "5637145691",
+            "name": "LLANQUIHUE"
+          },
+          {
+            "id": "5637145692",
+            "name": "LONCOTORO"
+          },
+          {
+            "id": "5637145693",
+            "name": "LOS PELLINES"
+          }
+        ]
+      },
+      {
+        "id": "5637144896",
+        "name": "CURACO DE VÉLEZ",
+        "localities": [
+          {
+            "id": "5637145657",
+            "name": "CURACO DE VELEZ"
+          },
+          {
+            "id": "5637145658",
+            "name": "QUINCHAO"
+          }
+        ]
+      },
+      {
+        "id": "5637144901",
+        "name": "PUERTO VARAS",
+        "localities": [
+          {
+            "id": "5637145728",
+            "name": "ENSENADA"
+          },
+          {
+            "id": "5637145729",
+            "name": "LA POSA"
+          },
+          {
+            "id": "5637145730",
+            "name": "LOS RISCOS"
+          },
+          {
+            "id": "5637145731",
+            "name": "NUEVA BRAUNAU"
+          },
+          {
+            "id": "5637145732",
+            "name": "PETROHUE"
+          },
+          {
+            "id": "5637145733",
+            "name": "PUERTO VARAS"
+          },
+          {
+            "id": "5637145734",
+            "name": "RIO SUR"
+          }
+        ]
+      },
+      {
+        "id": "5637144906",
+        "name": "FRESIA",
+        "localities": [
+          {
+            "id": "5637145664",
+            "name": "FRESIA"
+          },
+          {
+            "id": "5637145665",
+            "name": "MAICHIHUE"
+          },
+          {
+            "id": "5637145666",
+            "name": "PARGA"
+          }
+        ]
+      },
+      {
+        "id": "5637144905",
+        "name": "FRUTILLAR",
+        "localities": [
+          {
+            "id": "5637145667",
+            "name": "FRUTILLAR"
+          },
+          {
+            "id": "5637145668",
+            "name": "PARAGUAY"
+          },
+          {
+            "id": "5637145669",
+            "name": "TEGUALDA"
+          }
+        ]
+      },
+      {
+        "id": "5637144860",
+        "name": "FUTALEUFÚ",
+        "localities": [
+          {
+            "id": "5637145670",
+            "name": "FUTALEUFU"
+          },
+          {
+            "id": "5637145671",
+            "name": "LAGO YELCHO"
+          },
+          {
+            "id": "5637145672",
+            "name": "PUERTO PIEDRA"
+          },
+          {
+            "id": "5637145673",
+            "name": "PUERTO RAMIREZ"
+          },
+          {
+            "id": "5637145674",
+            "name": "VILLA SANTA LUCIA"
+          }
+        ]
+      },
+      {
+        "id": "5637144884",
+        "name": "QUELLÓN",
+        "localities": [
+          {
+            "id": "5637145759",
+            "name": "HUILDAD"
+          },
+          {
+            "id": "5637145760",
+            "name": "QUELLON"
+          },
+          {
+            "id": "5637145761",
+            "name": "QUELLON VIEJO"
+          },
+          {
+            "id": "5637145762",
+            "name": "RANCHO QUELLON"
+          },
+          {
+            "id": "5637145763",
+            "name": "TRINCAO"
+          },
+          {
+            "id": "5637145764",
+            "name": "YALDAD"
+          }
+        ]
+      },
+      {
+        "id": "5637144904",
+        "name": "LOS MUERMOS",
+        "localities": [
+          {
+            "id": "5637145694",
+            "name": "LAS QUEMAS"
+          },
+          {
+            "id": "5637145695",
+            "name": "LOLCURA"
+          },
+          {
+            "id": "5637145696",
+            "name": "LOS MUERMOS"
+          },
+          {
+            "id": "5637145697",
+            "name": "RIO FRIO"
+          }
+        ]
+      },
+      {
+        "id": "5637144858",
+        "name": "PALENA",
+        "localities": [
+          {
+            "id": "5637145709",
+            "name": "PALENA"
+          },
+          {
+            "id": "5637145710",
+            "name": "VILLA VANGUARDIA"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "subdivisions": [
+      {
+        "id": "5637144857",
+        "name": "COYHAIQUE",
+        "localities": [
+          {
+            "id": "5637145819",
+            "name": "BALMACEDA"
+          },
+          {
+            "id": "5637145820",
+            "name": "BANO NUEVO"
+          },
+          {
+            "id": "5637145821",
+            "name": "COYHAIQUE"
+          },
+          {
+            "id": "5637145822",
+            "name": "COYHAIQUE ALTO"
+          },
+          {
+            "id": "5637145823",
+            "name": "LAGUNA SAN RAFAEL"
+          },
+          {
+            "id": "5637145824",
+            "name": "NIREGUAO"
+          },
+          {
+            "id": "5637145825",
+            "name": "VILLA ORTEGA"
+          }
+        ]
+      },
+      {
+        "id": "5637144845",
+        "name": "TORTEL",
+        "localities": [
+          {
+            "id": "5637145845",
+            "name": "CALETA TORTEL"
+          },
+          {
+            "id": "5637145846",
+            "name": "ISLA CAMPANA"
+          },
+          {
+            "id": "5637145847",
+            "name": "ISLA MERINO JARPA"
+          },
+          {
+            "id": "5637145848",
+            "name": "ISLA PATRICIO LYNCH"
+          },
+          {
+            "id": "5637145849",
+            "name": "PUERTO YUNGAY"
+          },
+          {
+            "id": "5637145850",
+            "name": "TORTEL"
+          }
+        ]
+      },
+      {
+        "id": "5637144843",
+        "name": "CHILE CHICO",
+        "localities": [
+          {
+            "id": "5637145801",
+            "name": "CHILE CHICO"
+          },
+          {
+            "id": "5637145802",
+            "name": "PUERTO BERTRAND"
+          },
+          {
+            "id": "5637145803",
+            "name": "PUERTO FACHINAL"
+          },
+          {
+            "id": "5637145804",
+            "name": "PUERTO GUADAL"
+          },
+          {
+            "id": "5637145805",
+            "name": "PUERTO MURTA"
+          },
+          {
+            "id": "5637145806",
+            "name": "PUERTO SANCHEZ"
+          },
+          {
+            "id": "5637145807",
+            "name": "PUERTO TRANQUILO"
+          }
+        ]
+      },
+      {
+        "id": "5637144854",
+        "name": "CISNES",
+        "localities": [
+          {
+            "id": "5637145808",
+            "name": "CISNES"
+          },
+          {
+            "id": "5637145809",
+            "name": "LA TAPERA"
+          },
+          {
+            "id": "5637145810",
+            "name": "PUERTO CISNES"
+          },
+          {
+            "id": "5637145811",
+            "name": "PUYUHUAPI"
+          },
+          {
+            "id": "5637145812",
+            "name": "RIO CISNES"
+          },
+          {
+            "id": "5637145813",
+            "name": "TERMAS DE PUYUHUAPI"
+          },
+          {
+            "id": "5637145814",
+            "name": "VILLA AMENGUAL"
+          }
+        ]
+      },
+      {
+        "id": "5637144852",
+        "name": "COCHRANE",
+        "localities": [
+          {
+            "id": "5637145815",
+            "name": "COCHRANE"
+          },
+          {
+            "id": "5637145816",
+            "name": "LAGO COCHRANE"
+          },
+          {
+            "id": "5637145817",
+            "name": "PUERTO HERRADURA"
+          },
+          {
+            "id": "5637145818",
+            "name": "VILLA CHACABUCO"
+          }
+        ]
+      },
+      {
+        "id": "5637144855",
+        "name": "AYSÉN",
+        "localities": [
+          {
+            "id": "5637145792",
+            "name": "EL GATO"
+          },
+          {
+            "id": "5637145793",
+            "name": "MANIHUALES"
+          },
+          {
+            "id": "5637145794",
+            "name": "MINA EL TOQUI"
+          },
+          {
+            "id": "5637145795",
+            "name": "PUERTO AGUIRRE"
+          },
+          {
+            "id": "5637145796",
+            "name": "PUERTO AYSEN"
+          },
+          {
+            "id": "5637145797",
+            "name": "PUERTO CHACABUCO"
+          },
+          {
+            "id": "5637145798",
+            "name": "PUERTO GAVIOTA"
+          },
+          {
+            "id": "5637145799",
+            "name": "SANTA MARIA DEL MAR"
+          },
+          {
+            "id": "5637145800",
+            "name": "VILLA MANIHUALES"
+          }
+        ]
+      },
+      {
+        "id": "5637144853",
+        "name": "GUAITECAS",
+        "localities": [
+          {
+            "id": "5637145826",
+            "name": "GUAITECAS"
+          },
+          {
+            "id": "5637145827",
+            "name": "ISLA ANGAMOS"
+          },
+          {
+            "id": "5637145828",
+            "name": "ISLA BENJAMIN"
+          },
+          {
+            "id": "5637145829",
+            "name": "ISLA CUPTANA"
+          },
+          {
+            "id": "5637145830",
+            "name": "ISLA IPUN"
+          },
+          {
+            "id": "5637145831",
+            "name": "ISLA IZAZO"
+          },
+          {
+            "id": "5637145832",
+            "name": "ISLA LEVEL"
+          },
+          {
+            "id": "5637145833",
+            "name": "ISLA MELCHOR"
+          },
+          {
+            "id": "5637145834",
+            "name": "ISLA NALCAYEC"
+          },
+          {
+            "id": "5637145835",
+            "name": "ISLA VICTORIA"
+          },
+          {
+            "id": "5637145836",
+            "name": "MELINKA"
+          }
+        ]
+      },
+      {
+        "id": "5637144856",
+        "name": "LAGO VERDE",
+        "localities": [
+          {
+            "id": "5637145837",
+            "name": "LA JUNTA"
+          },
+          {
+            "id": "5637145838",
+            "name": "LAGO VERDE"
+          }
+        ]
+      },
+      {
+        "id": "5637144840",
+        "name": "RÍO IBÁÑEZ",
+        "localities": [
+          {
+            "id": "5637145841",
+            "name": "LEVICAN"
+          },
+          {
+            "id": "5637145842",
+            "name": "PUERTO ING.IBANEZ"
+          },
+          {
+            "id": "5637145843",
+            "name": "RIO IBANEZ"
+          },
+          {
+            "id": "5637145844",
+            "name": "VILLA CERRO CASTILLO"
+          }
+        ]
+      },
+      {
+        "id": "5637144848",
+        "name": "O’HIGGINS",
+        "localities": [
+          {
+            "id": "5637145839",
+            "name": "O HIGGINS"
+          },
+          {
+            "id": "5637145840",
+            "name": "VILLA OHIGGINS"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "subdivisions": [
+      {
+        "id": "5637144832",
+        "name": "ANTÁRTICA",
+        "localities": [
+          {
+            "id": "5637145851",
+            "name": "ANTARTICA"
+          }
+        ]
+      },
+      {
+        "id": "5637144831",
+        "name": "PORVENIR",
+        "localities": [
+          {
+            "id": "5637145866",
+            "name": "ARMONIA"
+          },
+          {
+            "id": "5637145867",
+            "name": "ISLA DAWSON"
+          },
+          {
+            "id": "5637145868",
+            "name": "PAMPA GUANACOS"
+          },
+          {
+            "id": "5637145869",
+            "name": "PORVENIR"
+          },
+          {
+            "id": "5637145870",
+            "name": "PUERTO PERCY"
+          },
+          {
+            "id": "5637145871",
+            "name": "SECCION RUSSFIN"
+          }
+        ]
+      },
+      {
+        "id": "5637144837",
+        "name": "PUNTA ARENAS",
+        "localities": [
+          {
+            "id": "5637145879",
+            "name": "CABEZA DE MAR"
+          },
+          {
+            "id": "5637145880",
+            "name": "ESTANCIA SAN JUAN"
+          },
+          {
+            "id": "5637145881",
+            "name": "FUERTE BULNES"
+          },
+          {
+            "id": "5637145882",
+            "name": "MINA PECKET"
+          },
+          {
+            "id": "5637145883",
+            "name": "PUNTA ARENAS"
+          },
+          {
+            "id": "5637145884",
+            "name": "RANCHO PUNTA ARENAS"
+          },
+          {
+            "id": "5637145885",
+            "name": "TERMINAL CABO NEGRO"
+          }
+        ]
+      },
+      {
+        "id": "5637144833",
+        "name": "CABO DE HORNOS",
+        "localities": [
+          {
+            "id": "5637145852",
+            "name": "CABO DE HORNOS"
+          },
+          {
+            "id": "5637145853",
+            "name": "CALETA EUGENIA"
+          },
+          {
+            "id": "5637145854",
+            "name": "ISLA NAVARINO"
+          },
+          {
+            "id": "5637145855",
+            "name": "LAPATAIA"
+          },
+          {
+            "id": "5637145856",
+            "name": "PUERTO TORO"
+          },
+          {
+            "id": "5637145857",
+            "name": "PUERTO WILLIAMS"
+          },
+          {
+            "id": "5637145858",
+            "name": "YENDEGAIA"
+          }
+        ]
+      },
+      {
+        "id": "5637144829",
+        "name": "TIMAUKEL",
+        "localities": [
+          {
+            "id": "5637145898",
+            "name": "CAMERON"
+          },
+          {
+            "id": "5637145899",
+            "name": "PUERTO ARTURO"
+          },
+          {
+            "id": "5637145900",
+            "name": "PUERTO CONDOR"
+          },
+          {
+            "id": "5637145901",
+            "name": "PUERTO YARTAU"
+          },
+          {
+            "id": "5637145902",
+            "name": "TIMAUKEL"
+          }
+        ]
+      },
+      {
+        "id": "5637144828",
+        "name": "NATALES",
+        "localities": [
+          {
+            "id": "5637145860",
+            "name": "CERRO CASTILLO"
+          },
+          {
+            "id": "5637145861",
+            "name": "LA JUNTA"
+          },
+          {
+            "id": "5637145862",
+            "name": "PUERTO BORIES"
+          },
+          {
+            "id": "5637145863",
+            "name": "PUERTO NATALES"
+          },
+          {
+            "id": "5637145864",
+            "name": "RIO TURBIO"
+          },
+          {
+            "id": "5637145865",
+            "name": "RUBENS"
+          }
+        ]
+      },
+      {
+        "id": "5637144830",
+        "name": "PRIMAVERA",
+        "localities": [
+          {
+            "id": "5637145872",
+            "name": "CERRO SOMBRERO"
+          },
+          {
+            "id": "5637145873",
+            "name": "CULLEN"
+          },
+          {
+            "id": "5637145874",
+            "name": "ESTANCIA CHINA CR."
+          },
+          {
+            "id": "5637145875",
+            "name": "ESTANCIA LOS OLIVOS"
+          },
+          {
+            "id": "5637145876",
+            "name": "MANANTIALES"
+          },
+          {
+            "id": "5637145877",
+            "name": "ONAISIN"
+          },
+          {
+            "id": "5637145878",
+            "name": "PRIMAVERA"
+          }
+        ]
+      },
+      {
+        "id": "5637144835",
+        "name": "RÍO VERDE",
+        "localities": [
+          {
+            "id": "5637145886",
+            "name": "ENTRE VIENTOS"
+          },
+          {
+            "id": "5637145887",
+            "name": "MORRO CHICO"
+          },
+          {
+            "id": "5637145888",
+            "name": "PUERTO ALTAMIRANO"
+          },
+          {
+            "id": "5637145889",
+            "name": "RIO VERDE"
+          },
+          {
+            "id": "5637145890",
+            "name": "VILLA TEHUELCHES"
+          }
+        ]
+      },
+      {
+        "id": "5637144834",
+        "name": "SAN GREGORIO",
+        "localities": [
+          {
+            "id": "5637145891",
+            "name": "ESTANCIA SN GREGORIO"
+          },
+          {
+            "id": "5637145892",
+            "name": "GAIKE"
+          },
+          {
+            "id": "5637145893",
+            "name": "GALLEGOS CHICOS"
+          },
+          {
+            "id": "5637145894",
+            "name": "MONTE AYMOND"
+          },
+          {
+            "id": "5637145895",
+            "name": "PUNTA DELGADA"
+          },
+          {
+            "id": "5637145896",
+            "name": "SAN GREGORIO"
+          },
+          {
+            "id": "5637145897",
+            "name": "TERMINAL SAN GREGORIO"
+          }
+        ]
+      },
+      {
+        "id": "5637144827",
+        "name": "TORRES DEL PAINE",
+        "localities": [
+          {
+            "id": "5637145903",
+            "name": "ESTANCIA VICTORINA"
+          },
+          {
+            "id": "5637145904",
+            "name": "PEHOE"
+          },
+          {
+            "id": "5637145905",
+            "name": "TORRES DEL PAINE"
+          }
+        ]
+      },
+      {
+        "id": "5637144836",
+        "name": "LAGUNA BLANCA",
+        "localities": [
+          {
+            "id": "5637145859",
+            "name": "LAGUNA BLANCA"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "13",
+    "subdivisions": [
+      {
+        "id": "5637144733",
+        "name": "ALHUÉ",
+        "localities": [
+          {
+            "id": "5637145906",
+            "name": "ALHUE"
+          },
+          {
+            "id": "5637145907",
+            "name": "EL MEMBRILLO"
+          },
+          {
+            "id": "5637145908",
+            "name": "LO CHACON"
+          },
+          {
+            "id": "5637145909",
+            "name": "LONCHA"
+          },
+          {
+            "id": "5637145910",
+            "name": "VILLA ALHUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144739",
+        "name": "CALERA DE TANGO",
+        "localities": [
+          {
+            "id": "5637145913",
+            "name": "ALTO JAHUEL"
+          },
+          {
+            "id": "5637145914",
+            "name": "CALERA DE TANGO"
+          }
+        ]
+      },
+      {
+        "id": "5637144750",
+        "name": "LAMPA",
+        "localities": [
+          {
+            "id": "5637145938",
+            "name": "BATUCO"
+          },
+          {
+            "id": "5637145939",
+            "name": "LAMPA"
+          }
+        ]
+      },
+      {
+        "id": "5637144727",
+        "name": "MARÍA PINTO",
+        "localities": [
+          {
+            "id": "5637145947",
+            "name": "BOLLENAR"
+          },
+          {
+            "id": "5637145948",
+            "name": "CHOROMBO"
+          },
+          {
+            "id": "5637145949",
+            "name": "LOLENCO"
+          },
+          {
+            "id": "5637145950",
+            "name": "LOS RULOS"
+          },
+          {
+            "id": "5637145951",
+            "name": "MARIA PINTO"
+          },
+          {
+            "id": "5637145952",
+            "name": "SANTA INES"
+          }
+        ]
+      },
+      {
+        "id": "5637144742",
+        "name": "BUIN",
+        "localities": [
+          {
+            "id": "5637145911",
+            "name": "BUIN"
+          },
+          {
+            "id": "5637145912",
+            "name": "MAIPO"
+          }
+        ]
+      },
+      {
+        "id": "5637144825",
+        "name": "CERRILLOS",
+        "localities": [
+          {
+            "id": "5637145915",
+            "name": "CERRILLOS"
+          }
+        ]
+      },
+      {
+        "id": "5637144746",
+        "name": "TILTIL",
+        "localities": [
+          {
+            "id": "5637146013",
+            "name": "CERRO BLANCO"
+          },
+          {
+            "id": "5637146014",
+            "name": "POLPAICO"
+          },
+          {
+            "id": "5637146015",
+            "name": "TIL TIL"
+          }
+        ]
+      },
+      {
+        "id": "5637144824",
+        "name": "CERRO NAVIA",
+        "localities": [
+          {
+            "id": "5637145916",
+            "name": "CERRO NAVIA"
+          }
+        ]
+      },
+      {
+        "id": "5637144754",
+        "name": "SAN JOSÉ DE MAIPO",
+        "localities": [
+          {
+            "id": "5637145992",
+            "name": "CHACAY"
+          },
+          {
+            "id": "5637145993",
+            "name": "EL MANZANILLO"
+          },
+          {
+            "id": "5637145994",
+            "name": "EL MELOCOTON"
+          },
+          {
+            "id": "5637145995",
+            "name": "GUAYACAN"
+          },
+          {
+            "id": "5637145996",
+            "name": "LAS MELOSAS"
+          },
+          {
+            "id": "5637145997",
+            "name": "LO VALDES"
+          },
+          {
+            "id": "5637145998",
+            "name": "LOS MAITENES"
+          },
+          {
+            "id": "5637145999",
+            "name": "LOS QUELTEHUES"
+          },
+          {
+            "id": "5637146000",
+            "name": "SAN GABRIEL"
+          },
+          {
+            "id": "5637146001",
+            "name": "SAN JOSE DE MAIPO"
+          },
+          {
+            "id": "5637146002",
+            "name": "VILLA DEL VALLE"
+          }
+        ]
+      },
+      {
+        "id": "5637144737",
+        "name": "PAINE",
+        "localities": [
+          {
+            "id": "5637145965",
+            "name": "CHAMPA"
+          },
+          {
+            "id": "5637145966",
+            "name": "EL TRANSITO"
+          },
+          {
+            "id": "5637145967",
+            "name": "HOSPITAL"
+          },
+          {
+            "id": "5637145968",
+            "name": "HUELQUEN"
+          },
+          {
+            "id": "5637145969",
+            "name": "LINDEROS"
+          },
+          {
+            "id": "5637145970",
+            "name": "PAINE"
+          },
+          {
+            "id": "5637145971",
+            "name": "PINTUE"
+          },
+          {
+            "id": "5637145972",
+            "name": "RANGUE"
+          },
+          {
+            "id": "5637145973",
+            "name": "SANTA MARTA"
+          }
+        ]
+      },
+      {
+        "id": "5637144752",
+        "name": "COLINA",
+        "localities": [
+          {
+            "id": "5637145917",
+            "name": "CHICUREO"
+          },
+          {
+            "id": "5637145918",
+            "name": "COLINA"
+          },
+          {
+            "id": "5637145919",
+            "name": "ESMERALDA"
+          },
+          {
+            "id": "5637145920",
+            "name": "LAS CANTERAS"
+          }
+        ]
+      },
+      {
+        "id": "5637144735",
+        "name": "MELIPILLA",
+        "localities": [
+          {
+            "id": "5637145953",
+            "name": "CHOCALAN"
+          },
+          {
+            "id": "5637145954",
+            "name": "CODIGUA"
+          },
+          {
+            "id": "5637145955",
+            "name": "CULIPRAN"
+          },
+          {
+            "id": "5637145956",
+            "name": "LAS MARIPOSAS"
+          },
+          {
+            "id": "5637145957",
+            "name": "MANDINGA"
+          },
+          {
+            "id": "5637145958",
+            "name": "MELIPILLA"
+          },
+          {
+            "id": "5637145959",
+            "name": "PABELLON"
+          },
+          {
+            "id": "5637145960",
+            "name": "POMAIRE"
+          },
+          {
+            "id": "5637145961",
+            "name": "SAN MANUEL"
+          }
+        ]
+      },
+      {
+        "id": "5637144823",
+        "name": "CONCHALÍ",
+        "localities": [
+          {
+            "id": "5637145922",
+            "name": "COLLIGUAY"
+          },
+          {
+            "id": "5637145921",
+            "name": "CONCHALI"
+          },
+          {
+            "id": "5637145923",
+            "name": "CURACAVI"
+          },
+          {
+            "id": "5637145924",
+            "name": "EL TREBOL"
+          },
+          {
+            "id": "5637145925",
+            "name": "LOS ARRAYANES"
+          }
+        ]
+      },
+      {
+        "id": "5637144725",
+        "name": "SAN PEDRO",
+        "localities": [
+          {
+            "id": "5637146004",
+            "name": "CRUCE LAS ARANAS"
+          },
+          {
+            "id": "5637146005",
+            "name": "LOYCA"
+          },
+          {
+            "id": "5637146006",
+            "name": "PUEBLO HUNDIDO"
+          },
+          {
+            "id": "5637146007",
+            "name": "PUNTA TORO"
+          },
+          {
+            "id": "5637146008",
+            "name": "QUIMCAHUE"
+          },
+          {
+            "id": "5637146009",
+            "name": "SAN PEDRO"
+          }
+        ]
+      },
+      {
+        "id": "5637144822",
+        "name": "EL BOSQUE",
+        "localities": [
+          {
+            "id": "5637145926",
+            "name": "EL BOSQUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144757",
+        "name": "PUENTE ALTO",
+        "localities": [
+          {
+            "id": "5637145982",
+            "name": "EL CANELO"
+          },
+          {
+            "id": "5637145983",
+            "name": "LA OBRA"
+          },
+          {
+            "id": "5637145984",
+            "name": "LAS VERTIENTES"
+          },
+          {
+            "id": "5637145985",
+            "name": "PUENTE ALTO"
+          }
+        ]
+      },
+      {
+        "id": "5637144723",
+        "name": "EL MONTE",
+        "localities": [
+          {
+            "id": "5637145927",
+            "name": "EL MONTE"
+          },
+          {
+            "id": "5637145928",
+            "name": "EL PAICO"
+          }
+        ]
+      },
+      {
+        "id": "5637144819",
+        "name": "ESTACIÓN CENTRAL",
+        "localities": [
+          {
+            "id": "5637145929",
+            "name": "ESTACION CENTRAL"
+          }
+        ]
+      },
+      {
+        "id": "5637144798",
+        "name": "LO BARNECHEA",
+        "localities": [
+          {
+            "id": "5637145941",
+            "name": "FARELLONES"
+          },
+          {
+            "id": "5637145942",
+            "name": "LO BARNECHEA"
+          }
+        ]
+      },
+      {
+        "id": "5637144817",
+        "name": "HUECHURABA",
+        "localities": [
+          {
+            "id": "5637145930",
+            "name": "HUECHURABA"
+          }
+        ]
+      },
+      {
+        "id": "5637144814",
+        "name": "INDEPENDENCIA",
+        "localities": [
+          {
+            "id": "5637145931",
+            "name": "INDEPENDENCIA"
+          }
+        ]
+      },
+      {
+        "id": "5637144719",
+        "name": "ISLA DE MAIPO",
+        "localities": [
+          {
+            "id": "5637145932",
+            "name": "ISLA DE MAIPO"
+          }
+        ]
+      },
+      {
+        "id": "5637144755",
+        "name": "PIRQUE",
+        "localities": [
+          {
+            "id": "5637145978",
+            "name": "ISLA DE PIRQUE"
+          },
+          {
+            "id": "5637145979",
+            "name": "PIRQUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144812",
+        "name": "LA CISTERNA",
+        "localities": [
+          {
+            "id": "5637145933",
+            "name": "LA CISTERNA"
+          }
+        ]
+      },
+      {
+        "id": "5637144810",
+        "name": "LA FLORIDA",
+        "localities": [
+          {
+            "id": "5637145934",
+            "name": "LA FLORIDA"
+          }
+        ]
+      },
+      {
+        "id": "5637144808",
+        "name": "LA GRANJA",
+        "localities": [
+          {
+            "id": "5637145935",
+            "name": "LA GRANJA"
+          }
+        ]
+      },
+      {
+        "id": "5637144805",
+        "name": "LA PINTANA",
+        "localities": [
+          {
+            "id": "5637145936",
+            "name": "LA PINTANA"
+          }
+        ]
+      },
+      {
+        "id": "5637144803",
+        "name": "LA REINA",
+        "localities": [
+          {
+            "id": "5637145937",
+            "name": "LA REINA"
+          }
+        ]
+      },
+      {
+        "id": "5637144801",
+        "name": "LAS CONDES",
+        "localities": [
+          {
+            "id": "5637145940",
+            "name": "LAS CONDES"
+          }
+        ]
+      },
+      {
+        "id": "5637144796",
+        "name": "LO ESPEJO",
+        "localities": [
+          {
+            "id": "5637145943",
+            "name": "LO ESPEJO"
+          }
+        ]
+      },
+      {
+        "id": "5637144794",
+        "name": "LO PRADO",
+        "localities": [
+          {
+            "id": "5637145944",
+            "name": "LO PRADO"
+          }
+        ]
+      },
+      {
+        "id": "5637144717",
+        "name": "PADRE HURTADO",
+        "localities": [
+          {
+            "id": "5637145963",
+            "name": "LONQUEN"
+          },
+          {
+            "id": "5637145964",
+            "name": "PADRE HURTADO"
+          }
+        ]
+      },
+      {
+        "id": "5637144791",
+        "name": "MACUL",
+        "localities": [
+          {
+            "id": "5637145945",
+            "name": "MACUL"
+          }
+        ]
+      },
+      {
+        "id": "5637144788",
+        "name": "MAIPÚ",
+        "localities": [
+          {
+            "id": "5637145946",
+            "name": "MAIPU"
+          }
+        ]
+      },
+      {
+        "id": "5637144710",
+        "name": "PEÑAFLOR",
+        "localities": [
+          {
+            "id": "5637145975",
+            "name": "MALLOCO"
+          },
+          {
+            "id": "5637145976",
+            "name": "PENAFLOR"
+          }
+        ]
+      },
+      {
+        "id": "5637144787",
+        "name": "ÑUÑOA",
+        "localities": [
+          {
+            "id": "5637145962",
+            "name": "NUNOA"
+          }
+        ]
+      },
+      {
+        "id": "5637144785",
+        "name": "PEDRO AGUIRRE CERDA",
+        "localities": [
+          {
+            "id": "5637145974",
+            "name": "PEDRO AGUIRRE CERDA"
+          }
+        ]
+      },
+      {
+        "id": "5637144784",
+        "name": "PEÑALOLÉN",
+        "localities": [
+          {
+            "id": "5637145977",
+            "name": "PENALOLEN"
+          }
+        ]
+      },
+      {
+        "id": "5637144781",
+        "name": "PROVIDENCIA",
+        "localities": [
+          {
+            "id": "5637145980",
+            "name": "PROVIDENCIA"
+          }
+        ]
+      },
+      {
+        "id": "5637144779",
+        "name": "PUDAHUEL",
+        "localities": [
+          {
+            "id": "5637145981",
+            "name": "PUDAHUEL"
+          }
+        ]
+      },
+      {
+        "id": "5637144776",
+        "name": "QUILICURA",
+        "localities": [
+          {
+            "id": "5637145986",
+            "name": "QUILICURA"
+          }
+        ]
+      },
+      {
+        "id": "5637144774",
+        "name": "QUINTA NORMAL",
+        "localities": [
+          {
+            "id": "5637145987",
+            "name": "QUINTA NORMAL"
+          }
+        ]
+      },
+      {
+        "id": "5637144770",
+        "name": "RECOLETA",
+        "localities": [
+          {
+            "id": "5637145988",
+            "name": "RECOLETA"
+          }
+        ]
+      },
+      {
+        "id": "5637144767",
+        "name": "RENCA",
+        "localities": [
+          {
+            "id": "5637145989",
+            "name": "RENCA"
+          }
+        ]
+      },
+      {
+        "id": "5637144744",
+        "name": "SAN BERNARDO",
+        "localities": [
+          {
+            "id": "5637145990",
+            "name": "SAN BERNARDO"
+          }
+        ]
+      },
+      {
+        "id": "5637144765",
+        "name": "SAN JOAQUÍN",
+        "localities": [
+          {
+            "id": "5637145991",
+            "name": "SAN JOAQUIN"
+          }
+        ]
+      },
+      {
+        "id": "5637144762",
+        "name": "SAN MIGUEL",
+        "localities": [
+          {
+            "id": "5637146003",
+            "name": "SAN MIGUEL"
+          }
+        ]
+      },
+      {
+        "id": "5637144761",
+        "name": "SAN RAMÓN",
+        "localities": [
+          {
+            "id": "5637146010",
+            "name": "SAN RAMON"
+          }
+        ]
+      },
+      {
+        "id": "5637144826",
+        "name": "SANTIAGO",
+        "localities": [
+          {
+            "id": "5637146011",
+            "name": "SANTIAGO"
+          }
+        ]
+      },
+      {
+        "id": "5637144724",
+        "name": "TALAGANTE",
+        "localities": [
+          {
+            "id": "5637146012",
+            "name": "TALAGANTE"
+          }
+        ]
+      },
+      {
+        "id": "5637144759",
+        "name": "VITACURA",
+        "localities": [
+          {
+            "id": "5637146016",
+            "name": "VITACURA"
+          }
+        ]
+      },
+      {
+        "id": "5637145923",
+        "name": "CURACAVI",
+        "localities": [
+          {
+            "id": "5637145923",
+            "name": "CURACAVI"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "subdivisions": [
+      {
+        "id": "5637144911",
+        "name": "LOS LAGOS",
+        "localities": [
+          {
+            "id": "5637146050",
+            "name": "ANTILHUE"
+          },
+          {
+            "id": "5637146051",
+            "name": "FOLILCO"
+          },
+          {
+            "id": "5637146052",
+            "name": "HUICHACO"
+          },
+          {
+            "id": "5637146053",
+            "name": "HUITE"
+          },
+          {
+            "id": "5637146054",
+            "name": "LIPINGUE"
+          },
+          {
+            "id": "5637146055",
+            "name": "LOS LAGOS"
+          },
+          {
+            "id": "5637146056",
+            "name": "PUCARA"
+          },
+          {
+            "id": "5637146057",
+            "name": "PUCONO"
+          },
+          {
+            "id": "5637146058",
+            "name": "RINIHUE"
+          },
+          {
+            "id": "5637146059",
+            "name": "RUNCA"
+          }
+        ]
+      },
+      {
+        "id": "5637144918",
+        "name": "FUTRONO",
+        "localities": [
+          {
+            "id": "5637146019",
+            "name": "BANOS DE CHIHUIO"
+          },
+          {
+            "id": "5637146020",
+            "name": "CHABRANCO"
+          },
+          {
+            "id": "5637146021",
+            "name": "COIQUE"
+          },
+          {
+            "id": "5637146022",
+            "name": "DOLLINCO"
+          },
+          {
+            "id": "5637146023",
+            "name": "EL MUNDIAL"
+          },
+          {
+            "id": "5637146024",
+            "name": "FUTRONO"
+          },
+          {
+            "id": "5637146025",
+            "name": "HUEQUECURA"
+          },
+          {
+            "id": "5637146026",
+            "name": "LLIFEN"
+          },
+          {
+            "id": "5637146027",
+            "name": "LOS LLOLLES"
+          },
+          {
+            "id": "5637146028",
+            "name": "MAIHUE"
+          },
+          {
+            "id": "5637146029",
+            "name": "MONTUELA"
+          }
+        ]
+      },
+      {
+        "id": "5637144915",
+        "name": "PANGUIPULLI",
+        "localities": [
+          {
+            "id": "5637146078",
+            "name": "CALAFQUEN"
+          },
+          {
+            "id": "5637146079",
+            "name": "CARIRRINGUE"
+          },
+          {
+            "id": "5637146080",
+            "name": "CHOSHUENCO"
+          },
+          {
+            "id": "5637146081",
+            "name": "CONARIPE"
+          },
+          {
+            "id": "5637146082",
+            "name": "ENCO"
+          },
+          {
+            "id": "5637146083",
+            "name": "LICAN RAY"
+          },
+          {
+            "id": "5637146084",
+            "name": "LIQUINE"
+          },
+          {
+            "id": "5637146085",
+            "name": "LOS TALLOS"
+          },
+          {
+            "id": "5637146086",
+            "name": "NANCUL"
+          },
+          {
+            "id": "5637146087",
+            "name": "NELTUME"
+          },
+          {
+            "id": "5637146088",
+            "name": "PANGUIPULLI"
+          },
+          {
+            "id": "5637146089",
+            "name": "PUERTO FUY"
+          },
+          {
+            "id": "5637146090",
+            "name": "PUERTO PIRIHUEICO"
+          },
+          {
+            "id": "5637146091",
+            "name": "PULLINGUE"
+          },
+          {
+            "id": "5637146092",
+            "name": "TERMAS DE CONARIPE"
+          }
+        ]
+      },
+      {
+        "id": "5637144921",
+        "name": "RÍO BUENO",
+        "localities": [
+          {
+            "id": "5637146093",
+            "name": "CAYURRUCA"
+          },
+          {
+            "id": "5637146094",
+            "name": "CHANCHAN"
+          },
+          {
+            "id": "5637146095",
+            "name": "LOS CHILCOS"
+          },
+          {
+            "id": "5637146096",
+            "name": "PUERTO NUEVO"
+          },
+          {
+            "id": "5637146097",
+            "name": "RIO BUENO"
+          }
+        ]
+      },
+      {
+        "id": "5637144912",
+        "name": "MÁFIL",
+        "localities": [
+          {
+            "id": "5637146060",
+            "name": "CHANCOYAN"
+          },
+          {
+            "id": "5637146061",
+            "name": "FUNDO ALTUE"
+          },
+          {
+            "id": "5637146062",
+            "name": "MAFIL"
+          },
+          {
+            "id": "5637146063",
+            "name": "PUERTO PAICO"
+          }
+        ]
+      },
+      {
+        "id": "5637144913",
+        "name": "MARIQUINA",
+        "localities": [
+          {
+            "id": "5637146064",
+            "name": "CIRUELOS"
+          },
+          {
+            "id": "5637146065",
+            "name": "FUERTE SAN LUIS"
+          },
+          {
+            "id": "5637146066",
+            "name": "MEHUIN"
+          },
+          {
+            "id": "5637146067",
+            "name": "PICHOY"
+          },
+          {
+            "id": "5637146068",
+            "name": "PURINGUE"
+          },
+          {
+            "id": "5637146069",
+            "name": "QUEULE"
+          },
+          {
+            "id": "5637146070",
+            "name": "S.J. DE LA MARIQUINA"
+          }
+        ]
+      },
+      {
+        "id": "5637144909",
+        "name": "CORRAL",
+        "localities": [
+          {
+            "id": "5637146017",
+            "name": "CORRAL"
+          },
+          {
+            "id": "5637146018",
+            "name": "PUNTA CHAIHUIN"
+          }
+        ]
+      },
+      {
+        "id": "5637144908",
+        "name": "VALDIVIA",
+        "localities": [
+          {
+            "id": "5637146098",
+            "name": "CURINANCO"
+          },
+          {
+            "id": "5637146099",
+            "name": "HUEYELHUE"
+          },
+          {
+            "id": "5637146100",
+            "name": "LOS MOLINOS"
+          },
+          {
+            "id": "5637146101",
+            "name": "NIEBLA"
+          },
+          {
+            "id": "5637146102",
+            "name": "PUNUCAPA"
+          },
+          {
+            "id": "5637146103",
+            "name": "TRALCAO"
+          },
+          {
+            "id": "5637146104",
+            "name": "VALDIVIA"
+          }
+        ]
+      },
+      {
+        "id": "5637144917",
+        "name": "LA UNIÓN",
+        "localities": [
+          {
+            "id": "5637146030",
+            "name": "EL MIRADOR"
+          },
+          {
+            "id": "5637146031",
+            "name": "HUEICOLLA"
+          },
+          {
+            "id": "5637146032",
+            "name": "LA BARRA"
+          },
+          {
+            "id": "5637146033",
+            "name": "LA UNION"
+          },
+          {
+            "id": "5637146034",
+            "name": "LAS VENTANAS"
+          },
+          {
+            "id": "5637146035",
+            "name": "RAPACO"
+          },
+          {
+            "id": "5637146036",
+            "name": "SANTA ELISA"
+          },
+          {
+            "id": "5637146037",
+            "name": "TRINIDAD"
+          },
+          {
+            "id": "5637146038",
+            "name": "TRUMAO"
+          }
+        ]
+      },
+      {
+        "id": "5637144920",
+        "name": "LAGO RANCO",
+        "localities": [
+          {
+            "id": "5637146039",
+            "name": "IGNAO"
+          },
+          {
+            "id": "5637146040",
+            "name": "ILIHUE"
+          },
+          {
+            "id": "5637146041",
+            "name": "LAGO RANCO"
+          },
+          {
+            "id": "5637146042",
+            "name": "LLIHUE"
+          },
+          {
+            "id": "5637146043",
+            "name": "RININAHUE"
+          },
+          {
+            "id": "5637146044",
+            "name": "TRAPI"
+          },
+          {
+            "id": "5637146045",
+            "name": "VIVANCO"
+          }
+        ]
+      },
+      {
+        "id": "5637144914",
+        "name": "PAILLACO",
+        "localities": [
+          {
+            "id": "5637146071",
+            "name": "LA PENA"
+          },
+          {
+            "id": "5637146072",
+            "name": "LOS CONALES"
+          },
+          {
+            "id": "5637146073",
+            "name": "LOS ULMOS"
+          },
+          {
+            "id": "5637146074",
+            "name": "PAILLACO"
+          },
+          {
+            "id": "5637146075",
+            "name": "PICHIRROPULLI"
+          },
+          {
+            "id": "5637146076",
+            "name": "REUMEN"
+          },
+          {
+            "id": "5637146077",
+            "name": "TRAITRACO"
+          }
+        ]
+      },
+      {
+        "id": "5637144910",
+        "name": "LANCO",
+        "localities": [
+          {
+            "id": "5637146046",
+            "name": "LANCO"
+          },
+          {
+            "id": "5637146047",
+            "name": "MALALHUE"
+          },
+          {
+            "id": "5637146048",
+            "name": "PURULON"
+          },
+          {
+            "id": "5637146049",
+            "name": "SALTO DEL AGUA"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "15",
+    "subdivisions": [
+      {
+        "id": "5637144579",
+        "name": "GENERAL LAGOS",
+        "localities": [
+          {
+            "id": "5637146128",
+            "name": "AGUAS CALIENTES"
+          },
+          {
+            "id": "5637146129",
+            "name": "AZUFRERA TACORA"
+          },
+          {
+            "id": "5637146130",
+            "name": "COSAPILLA"
+          },
+          {
+            "id": "5637146131",
+            "name": "GENERAL LAGOS"
+          },
+          {
+            "id": "5637146132",
+            "name": "GUACOLLO"
+          },
+          {
+            "id": "5637146133",
+            "name": "NASAHUENTO"
+          },
+          {
+            "id": "5637146134",
+            "name": "VILLA INDUSTRIAL"
+          },
+          {
+            "id": "5637146135",
+            "name": "VISVIRI"
+          }
+        ]
+      },
+      {
+        "id": "5637144576",
+        "name": "ARICA",
+        "localities": [
+          {
+            "id": "5637146105",
+            "name": "ALTO RAMIREZ"
+          },
+          {
+            "id": "5637146106",
+            "name": "ARICA"
+          },
+          {
+            "id": "5637146107",
+            "name": "AUSIPAR"
+          },
+          {
+            "id": "5637146108",
+            "name": "AZAPA"
+          },
+          {
+            "id": "5637146109",
+            "name": "CODPA"
+          },
+          {
+            "id": "5637146110",
+            "name": "CUZ CUZ"
+          },
+          {
+            "id": "5637146111",
+            "name": "ESQUINA"
+          },
+          {
+            "id": "5637146112",
+            "name": "GUANACAHUA"
+          },
+          {
+            "id": "5637146113",
+            "name": "MOLINOS"
+          },
+          {
+            "id": "5637146114",
+            "name": "POCONCHILE"
+          },
+          {
+            "id": "5637146115",
+            "name": "RANCHO ARICA"
+          },
+          {
+            "id": "5637146116",
+            "name": "SOBRAYA"
+          },
+          {
+            "id": "5637146117",
+            "name": "SORA"
+          },
+          {
+            "id": "5637146118",
+            "name": "TIMAR"
+          },
+          {
+            "id": "5637146119",
+            "name": "VILLA FRONTERA"
+          }
+        ]
+      },
+      {
+        "id": "5637144578",
+        "name": "PUTRE",
+        "localities": [
+          {
+            "id": "5637146136",
+            "name": "BELEN"
+          },
+          {
+            "id": "5637146137",
+            "name": "BRITANIA"
+          },
+          {
+            "id": "5637146138",
+            "name": "CAQUENA"
+          },
+          {
+            "id": "5637146139",
+            "name": "CHACUYO"
+          },
+          {
+            "id": "5637146140",
+            "name": "CHAPIQUINA"
+          },
+          {
+            "id": "5637146141",
+            "name": "CHICAYA"
+          },
+          {
+            "id": "5637146142",
+            "name": "CHOQUELIMPIE"
+          },
+          {
+            "id": "5637146143",
+            "name": "COPAQUILLA"
+          },
+          {
+            "id": "5637146144",
+            "name": "CORONEL ALCERRECA"
+          },
+          {
+            "id": "5637146145",
+            "name": "GUALLATIRI"
+          },
+          {
+            "id": "5637146146",
+            "name": "ITISA"
+          },
+          {
+            "id": "5637146147",
+            "name": "JURASI"
+          },
+          {
+            "id": "5637146148",
+            "name": "LAGO CHUNGARA"
+          },
+          {
+            "id": "5637146149",
+            "name": "MAILLKU"
+          },
+          {
+            "id": "5637146150",
+            "name": "PACHAMA"
+          },
+          {
+            "id": "5637146151",
+            "name": "PARINACOTA"
+          },
+          {
+            "id": "5637146152",
+            "name": "PUQUISA"
+          },
+          {
+            "id": "5637146153",
+            "name": "PUTRE"
+          },
+          {
+            "id": "5637146154",
+            "name": "SOCOROMA"
+          },
+          {
+            "id": "5637146155",
+            "name": "TARUGUIRE"
+          },
+          {
+            "id": "5637146156",
+            "name": "TERMAS DE CHITUNE"
+          },
+          {
+            "id": "5637146157",
+            "name": "TIGNAMAR"
+          },
+          {
+            "id": "5637146158",
+            "name": "TIMALCHACA"
+          }
+        ]
+      },
+      {
+        "id": "5637144577",
+        "name": "CAMARONES",
+        "localities": [
+          {
+            "id": "5637146120",
+            "name": "CALETA CAMARONES"
+          },
+          {
+            "id": "5637146121",
+            "name": "CALETA CHICA"
+          },
+          {
+            "id": "5637146122",
+            "name": "CAMARONES"
+          },
+          {
+            "id": "5637146123",
+            "name": "CUYA"
+          },
+          {
+            "id": "5637146124",
+            "name": "MINIMINE"
+          },
+          {
+            "id": "5637146125",
+            "name": "MINITA"
+          },
+          {
+            "id": "5637146126",
+            "name": "QUIPINTA"
+          },
+          {
+            "id": "5637146127",
+            "name": "SUCA"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "07",
+    "subdivisions": [
+      {
+        "id": "5637144707",
+        "name": "MOLINA",
+        "localities": [
+          {
+            "id": "5637145275",
+            "name": "ADUANA"
+          },
+          {
+            "id": "5637145276",
+            "name": "LONTUE"
+          },
+          {
+            "id": "5637145277",
+            "name": "MOLINA"
+          },
+          {
+            "id": "5637145278",
+            "name": "YACEL"
+          }
+        ]
+      },
+      {
+        "id": "5637144714",
+        "name": "LINARES",
+        "localities": [
+          {
+            "id": "5637145260",
+            "name": "ADUANA PEJERREY"
+          },
+          {
+            "id": "5637145261",
+            "name": "CAMPAMENTO ANCOA"
+          },
+          {
+            "id": "5637145262",
+            "name": "EL SALTO"
+          },
+          {
+            "id": "5637145263",
+            "name": "LINARES"
+          },
+          {
+            "id": "5637145264",
+            "name": "LLEPO"
+          },
+          {
+            "id": "5637145265",
+            "name": "LOS RABONES"
+          },
+          {
+            "id": "5637145266",
+            "name": "MELADO"
+          },
+          {
+            "id": "5637145267",
+            "name": "ROBLERIA"
+          }
+        ]
+      },
+      {
+        "id": "5637144718",
+        "name": "PARRAL",
+        "localities": [
+          {
+            "id": "5637145279",
+            "name": "AJIAL"
+          },
+          {
+            "id": "5637145280",
+            "name": "BULLILLEO"
+          },
+          {
+            "id": "5637145281",
+            "name": "PARRAL"
+          },
+          {
+            "id": "5637145282",
+            "name": "PERQUILAUQUEN"
+          },
+          {
+            "id": "5637145283",
+            "name": "QUINCHIMAVIDA"
+          },
+          {
+            "id": "5637145284",
+            "name": "TERMAS DE CATILLO"
+          },
+          {
+            "id": "5637145285",
+            "name": "VILLA ROSAS"
+          }
+        ]
+      },
+      {
+        "id": "5637144722",
+        "name": "VILLA ALEGRE",
+        "localities": [
+          {
+            "id": "5637145330",
+            "name": "ARBOLILLO"
+          },
+          {
+            "id": "5637145331",
+            "name": "LAS CAMPANAS"
+          },
+          {
+            "id": "5637145332",
+            "name": "MELOZAL"
+          }
+        ]
+      },
+      {
+        "id": "5637144699",
+        "name": "SAN CLEMENTE",
+        "localities": [
+          {
+            "id": "5637145304",
+            "name": "ARMERILLO"
+          },
+          {
+            "id": "5637145305",
+            "name": "AURORA"
+          },
+          {
+            "id": "5637145306",
+            "name": "CORRALONES"
+          },
+          {
+            "id": "5637145307",
+            "name": "EL COLORADO"
+          },
+          {
+            "id": "5637145308",
+            "name": "ENDESA"
+          },
+          {
+            "id": "5637145309",
+            "name": "LA MINA"
+          },
+          {
+            "id": "5637145310",
+            "name": "LAS GARZAS"
+          },
+          {
+            "id": "5637145311",
+            "name": "PASO NEVADO"
+          },
+          {
+            "id": "5637145312",
+            "name": "SAN CLEMENTE"
+          }
+        ]
+      },
+      {
+        "id": "5637144696",
+        "name": "PELARCO",
+        "localities": [
+          {
+            "id": "5637145286",
+            "name": "ASTILLERO"
+          },
+          {
+            "id": "5637145287",
+            "name": "PELARCO"
+          }
+        ]
+      },
+      {
+        "id": "5637144715",
+        "name": "COLBÚN",
+        "localities": [
+          {
+            "id": "5637145241",
+            "name": "BARRERA"
+          },
+          {
+            "id": "5637145242",
+            "name": "COLBUN"
+          },
+          {
+            "id": "5637145243",
+            "name": "SANTA ANA"
+          }
+        ]
+      },
+      {
+        "id": "5637144691",
+        "name": "TALCA",
+        "localities": [
+          {
+            "id": "5637145316",
+            "name": "BOTALCURA"
+          },
+          {
+            "id": "5637145317",
+            "name": "COLIN"
+          },
+          {
+            "id": "5637145318",
+            "name": "CORINTO"
+          },
+          {
+            "id": "5637145319",
+            "name": "CURTIDURIA"
+          },
+          {
+            "id": "5637145320",
+            "name": "TALCA"
+          }
+        ]
+      },
+      {
+        "id": "5637144701",
+        "name": "CAUQUENES",
+        "localities": [
+          {
+            "id": "5637145234",
+            "name": "CAUQUENES"
+          },
+          {
+            "id": "5637145235",
+            "name": "HUALVE"
+          },
+          {
+            "id": "5637145236",
+            "name": "LOS NABOS"
+          },
+          {
+            "id": "5637145237",
+            "name": "QUELLA"
+          },
+          {
+            "id": "5637145238",
+            "name": "UNICAVEN"
+          }
+        ]
+      },
+      {
+        "id": "5637144702",
+        "name": "CHANCO",
+        "localities": [
+          {
+            "id": "5637145239",
+            "name": "CHANCO"
+          },
+          {
+            "id": "5637145240",
+            "name": "CURANIPE"
+          }
+        ]
+      },
+      {
+        "id": "5637144697",
+        "name": "PENCAHUE",
+        "localities": [
+          {
+            "id": "5637145289",
+            "name": "COIPUE"
+          },
+          {
+            "id": "5637145290",
+            "name": "GUALLECO"
+          },
+          {
+            "id": "5637145291",
+            "name": "PENCAHUE"
+          },
+          {
+            "id": "5637145292",
+            "name": "PICHAMAN"
+          }
+        ]
+      },
+      {
+        "id": "5637144692",
+        "name": "CONSTITUCIÓN",
+        "localities": [
+          {
+            "id": "5637145244",
+            "name": "CONSTITUCION"
+          },
+          {
+            "id": "5637145245",
+            "name": "JUNQUILLAR"
+          },
+          {
+            "id": "5637145246",
+            "name": "PUTU"
+          },
+          {
+            "id": "5637145247",
+            "name": "QUIVOLGO"
+          }
+        ]
+      },
+      {
+        "id": "5637144712",
+        "name": "TENO",
+        "localities": [
+          {
+            "id": "5637145321",
+            "name": "CULENAR"
+          },
+          {
+            "id": "5637145322",
+            "name": "LA MONTANA"
+          },
+          {
+            "id": "5637145323",
+            "name": "REBECA"
+          },
+          {
+            "id": "5637145324",
+            "name": "TENO"
+          }
+        ]
+      },
+      {
+        "id": "5637144698",
+        "name": "RÍO CLARO",
+        "localities": [
+          {
+            "id": "5637145295",
+            "name": "CUMPEO"
+          },
+          {
+            "id": "5637145296",
+            "name": "ITAHUE"
+          },
+          {
+            "id": "5637145297",
+            "name": "RIO CLARO"
+          }
+        ]
+      },
+      {
+        "id": "5637144693",
+        "name": "CUREPTO",
+        "localities": [
+          {
+            "id": "5637145248",
+            "name": "CUREPTO"
+          },
+          {
+            "id": "5637145249",
+            "name": "LA LORA"
+          }
+        ]
+      },
+      {
+        "id": "5637144704",
+        "name": "CURICÓ",
+        "localities": [
+          {
+            "id": "5637145250",
+            "name": "CURICO"
+          },
+          {
+            "id": "5637145251",
+            "name": "LOS NICHES"
+          },
+          {
+            "id": "5637145252",
+            "name": "MONTE OSCURO"
+          },
+          {
+            "id": "5637145253",
+            "name": "POTRERO GRANDE"
+          },
+          {
+            "id": "5637145254",
+            "name": "QUEBRADA HONDA"
+          },
+          {
+            "id": "5637145255",
+            "name": "UPEO"
+          }
+        ]
+      },
+      {
+        "id": "5637144695",
+        "name": "MAULE",
+        "localities": [
+          {
+            "id": "5637145273",
+            "name": "DUAO"
+          },
+          {
+            "id": "5637145274",
+            "name": "MAULE"
+          }
+        ]
+      },
+      {
+        "id": "5637144709",
+        "name": "ROMERAL",
+        "localities": [
+          {
+            "id": "5637145298",
+            "name": "EL PLANCHON"
+          },
+          {
+            "id": "5637145299",
+            "name": "LOS QUENES"
+          },
+          {
+            "id": "5637145300",
+            "name": "POTRERO GRANDE CHICO"
+          },
+          {
+            "id": "5637145301",
+            "name": "ROMERAL"
+          }
+        ]
+      },
+      {
+        "id": "5637144694",
+        "name": "EMPEDRADO",
+        "localities": [
+          {
+            "id": "5637145256",
+            "name": "EMPEDRADO"
+          },
+          {
+            "id": "5637145257",
+            "name": "NIRIVILO"
+          }
+        ]
+      },
+      {
+        "id": "5637144705",
+        "name": "HUALAÑÉ",
+        "localities": [
+          {
+            "id": "5637145258",
+            "name": "HUALANE"
+          }
+        ]
+      },
+      {
+        "id": "5637144713",
+        "name": "VICHUQUÉN",
+        "localities": [
+          {
+            "id": "5637145325",
+            "name": "ILOCA"
+          },
+          {
+            "id": "5637145326",
+            "name": "LA TRINCHERA"
+          },
+          {
+            "id": "5637145327",
+            "name": "LIPIMAVIDA"
+          },
+          {
+            "id": "5637145328",
+            "name": "PICHIBUDI"
+          },
+          {
+            "id": "5637145329",
+            "name": "VICHUQUEN"
+          }
+        ]
+      },
+      {
+        "id": "5637144706",
+        "name": "LICANTÉN",
+        "localities": [
+          {
+            "id": "5637145259",
+            "name": "LICANTEN"
+          }
+        ]
+      },
+      {
+        "id": "5637144700",
+        "name": "SAN RAFAEL",
+        "localities": [
+          {
+            "id": "5637145314",
+            "name": "LITU"
+          },
+          {
+            "id": "5637145315",
+            "name": "SAN RAFAEL"
+          }
+        ]
+      },
+      {
+        "id": "5637144716",
+        "name": "LONGAVÍ",
+        "localities": [
+          {
+            "id": "5637145268",
+            "name": "LONGAVI"
+          },
+          {
+            "id": "5637145269",
+            "name": "LOS CRISTALES"
+          },
+          {
+            "id": "5637145270",
+            "name": "MELAO"
+          },
+          {
+            "id": "5637145271",
+            "name": "MESAMAVIDA"
+          },
+          {
+            "id": "5637145272",
+            "name": "VILLA SECA"
+          }
+        ]
+      },
+      {
+        "id": "5637144708",
+        "name": "RAUCO",
+        "localities": [
+          {
+            "id": "5637145293",
+            "name": "PALQUIBUDA"
+          },
+          {
+            "id": "5637145294",
+            "name": "RAUCO"
+          }
+        ]
+      },
+      {
+        "id": "5637144726",
+        "name": "YERBAS BUENAS",
+        "localities": [
+          {
+            "id": "5637145333",
+            "name": "PANIMAVIDA"
+          },
+          {
+            "id": "5637145334",
+            "name": "QUINMAVIDA"
+          },
+          {
+            "id": "5637145335",
+            "name": "YERBAS BUENAS"
+          }
+        ]
+      },
+      {
+        "id": "5637144703",
+        "name": "PELLUHUE",
+        "localities": [
+          {
+            "id": "5637145288",
+            "name": "PELLUHUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144711",
+        "name": "SAGRADA FAMILIA",
+        "localities": [
+          {
+            "id": "5637145302",
+            "name": "SAGRADA FAMILIA"
+          },
+          {
+            "id": "5637145303",
+            "name": "VILLA PRAT"
+          }
+        ]
+      },
+      {
+        "id": "5637144721",
+        "name": "SAN JAVIER",
+        "localities": [
+          {
+            "id": "5637145313",
+            "name": "SAN JAVIER"
+          }
+        ]
+      },
+      {
+        "id": "5637144720",
+        "name": "RETIRO",
+        "localities": []
+      }
+    ]
+  },
+  {
+    "id": "06",
+    "subdivisions": [
+      {
+        "id": "5637144681",
+        "name": "SAN FERNANDO",
+        "localities": [
+          {
+            "id": "5637145216",
+            "name": "AGUA BUENA"
+          },
+          {
+            "id": "5637145217",
+            "name": "LA RUFINA"
+          },
+          {
+            "id": "5637145218",
+            "name": "PUENTE NEGRO"
+          },
+          {
+            "id": "5637145219",
+            "name": "ROMA"
+          },
+          {
+            "id": "5637145220",
+            "name": "SAN FERNANDO"
+          },
+          {
+            "id": "5637145221",
+            "name": "SIERRA BELLAVISTA"
+          },
+          {
+            "id": "5637145222",
+            "name": "TERMAS DE CAUQUENES"
+          },
+          {
+            "id": "5637145223",
+            "name": "TERMAS DEL FLACO"
+          },
+          {
+            "id": "5637145224",
+            "name": "TINGUIRIRICA"
+          },
+          {
+            "id": "5637145225",
+            "name": "TROMPETILLA"
+          }
+        ]
+      },
+      {
+        "id": "5637144678",
+        "name": "MARCHIHUE",
+        "localities": [
+          {
+            "id": "5637145166",
+            "name": "ALCONES"
+          },
+          {
+            "id": "5637145167",
+            "name": "ESPERANZA"
+          },
+          {
+            "id": "5637145168",
+            "name": "LAS PATAGUAS"
+          },
+          {
+            "id": "5637145169",
+            "name": "MARCHANT"
+          },
+          {
+            "id": "5637145170",
+            "name": "MARCHIHUE"
+          },
+          {
+            "id": "5637145171",
+            "name": "SAN JOSE DE MARCHIHUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144675",
+        "name": "PICHILEMU",
+        "localities": [
+          {
+            "id": "5637145197",
+            "name": "ALTO COLORADO"
+          },
+          {
+            "id": "5637145198",
+            "name": "CAHUIL"
+          },
+          {
+            "id": "5637145199",
+            "name": "EL PUESTO"
+          },
+          {
+            "id": "5637145200",
+            "name": "PICHILEMU"
+          },
+          {
+            "id": "5637145201",
+            "name": "SANTA GRACIELA DE ALCONES"
+          }
+        ]
+      },
+      {
+        "id": "5637144682",
+        "name": "CHÉPICA",
+        "localities": [
+          {
+            "id": "5637145129",
+            "name": "AUQUINCO"
+          },
+          {
+            "id": "5637145130",
+            "name": "CHEPICA"
+          }
+        ]
+      },
+      {
+        "id": "5637144680",
+        "name": "PAREDONES",
+        "localities": [
+          {
+            "id": "5637145186",
+            "name": "BOYERUCA"
+          },
+          {
+            "id": "5637145187",
+            "name": "BUCALEMU"
+          },
+          {
+            "id": "5637145188",
+            "name": "LO VALDIVIA"
+          },
+          {
+            "id": "5637145189",
+            "name": "PAREDONES"
+          }
+        ]
+      },
+      {
+        "id": "5637144665",
+        "name": "MACHALÍ",
+        "localities": [
+          {
+            "id": "5637145158",
+            "name": "CALETONES"
+          },
+          {
+            "id": "5637145159",
+            "name": "CHAPA VERDE"
+          },
+          {
+            "id": "5637145160",
+            "name": "COLON"
+          },
+          {
+            "id": "5637145161",
+            "name": "COYA"
+          },
+          {
+            "id": "5637145162",
+            "name": "MACHALI"
+          },
+          {
+            "id": "5637145163",
+            "name": "MINA LA JUANITA"
+          },
+          {
+            "id": "5637145164",
+            "name": "SEWELL"
+          }
+        ]
+      },
+      {
+        "id": "5637144683",
+        "name": "CHIMBARONGO",
+        "localities": [
+          {
+            "id": "5637145131",
+            "name": "CHIMBARONGO"
+          },
+          {
+            "id": "5637145132",
+            "name": "CONVENTO VIEJO"
+          },
+          {
+            "id": "5637145133",
+            "name": "HUEMUL"
+          },
+          {
+            "id": "5637145134",
+            "name": "MORZA"
+          },
+          {
+            "id": "5637145135",
+            "name": "QUINTA"
+          }
+        ]
+      },
+      {
+        "id": "5637144664",
+        "name": "LAS CABRAS",
+        "localities": [
+          {
+            "id": "5637145147",
+            "name": "COCALAN"
+          },
+          {
+            "id": "5637145148",
+            "name": "EL CARMEN"
+          },
+          {
+            "id": "5637145149",
+            "name": "EL MANZANO"
+          },
+          {
+            "id": "5637145150",
+            "name": "LA CEBADA"
+          },
+          {
+            "id": "5637145151",
+            "name": "LAS CABRAS"
+          },
+          {
+            "id": "5637145152",
+            "name": "PUNTA VERDE"
+          }
+        ]
+      },
+      {
+        "id": "5637144659",
+        "name": "CODEGUA",
+        "localities": [
+          {
+            "id": "5637145136",
+            "name": "CODEGUA"
+          },
+          {
+            "id": "5637145137",
+            "name": "LA LEONERA"
+          },
+          {
+            "id": "5637145138",
+            "name": "LA PUNTA"
+          }
+        ]
+      },
+      {
+        "id": "5637144660",
+        "name": "COINCO",
+        "localities": [
+          {
+            "id": "5637145139",
+            "name": "COINCO"
+          }
+        ]
+      },
+      {
+        "id": "5637144661",
+        "name": "COLTAUCO",
+        "localities": [
+          {
+            "id": "5637145140",
+            "name": "COLTAUCO"
+          },
+          {
+            "id": "5637145141",
+            "name": "ZUNIGA"
+          }
+        ]
+      },
+      {
+        "id": "5637144679",
+        "name": "NAVIDAD",
+        "localities": [
+          {
+            "id": "5637145174",
+            "name": "CORNECHE"
+          },
+          {
+            "id": "5637145175",
+            "name": "MATANZAS"
+          },
+          {
+            "id": "5637145176",
+            "name": "NAVIDAD"
+          },
+          {
+            "id": "5637145177",
+            "name": "PUERTECILLO"
+          },
+          {
+            "id": "5637145178",
+            "name": "PUNTA BARRANCA"
+          },
+          {
+            "id": "5637145179",
+            "name": "PUNTA PERRO"
+          },
+          {
+            "id": "5637145180",
+            "name": "SAN ENRIQUE"
+          },
+          {
+            "id": "5637145181",
+            "name": "SAN VICENTE DE PUCALAN"
+          }
+        ]
+      },
+      {
+        "id": "5637144690",
+        "name": "SANTA CRUZ",
+        "localities": [
+          {
+            "id": "5637145228",
+            "name": "CUNACO"
+          },
+          {
+            "id": "5637145229",
+            "name": "LA LAJUELA"
+          },
+          {
+            "id": "5637145230",
+            "name": "NERQUIHUE"
+          },
+          {
+            "id": "5637145231",
+            "name": "PANIAHUE"
+          },
+          {
+            "id": "5637145232",
+            "name": "RINCONADA DE YAQUIL"
+          },
+          {
+            "id": "5637145233",
+            "name": "SANTA CRUZ"
+          }
+        ]
+      },
+      {
+        "id": "5637144662",
+        "name": "DOÑIHUE",
+        "localities": [
+          {
+            "id": "5637145142",
+            "name": "DONIHUE"
+          },
+          {
+            "id": "5637145143",
+            "name": "PUREN VI"
+          }
+        ]
+      },
+      {
+        "id": "5637144684",
+        "name": "LOLOL",
+        "localities": [
+          {
+            "id": "5637145155",
+            "name": "EL GUAICO"
+          },
+          {
+            "id": "5637145156",
+            "name": "LOLOL"
+          },
+          {
+            "id": "5637145157",
+            "name": "RANGUIL"
+          }
+        ]
+      },
+      {
+        "id": "5637144670",
+        "name": "PICHIDEGUA",
+        "localities": [
+          {
+            "id": "5637145194",
+            "name": "EL TOCO"
+          },
+          {
+            "id": "5637145195",
+            "name": "LARMAHUE"
+          },
+          {
+            "id": "5637145196",
+            "name": "PICHIDEGUA"
+          }
+        ]
+      },
+      {
+        "id": "5637144663",
+        "name": "GRANEROS",
+        "localities": [
+          {
+            "id": "5637145144",
+            "name": "GRANEROS"
+          }
+        ]
+      },
+      {
+        "id": "5637144672",
+        "name": "RENGO",
+        "localities": [
+          {
+            "id": "5637145207",
+            "name": "HACIENDA LOS LINGUES"
+          },
+          {
+            "id": "5637145208",
+            "name": "LAS NIEVES"
+          },
+          {
+            "id": "5637145209",
+            "name": "LOS MAQUIS"
+          },
+          {
+            "id": "5637145210",
+            "name": "PELEQUEN"
+          },
+          {
+            "id": "5637145211",
+            "name": "POPETA"
+          },
+          {
+            "id": "5637145212",
+            "name": "RENGO"
+          }
+        ]
+      },
+      {
+        "id": "5637144676",
+        "name": "LA ESTRELLA",
+        "localities": [
+          {
+            "id": "5637145145",
+            "name": "LA ESTRELLA"
+          },
+          {
+            "id": "5637145146",
+            "name": "LAS DAMAS"
+          }
+        ]
+      },
+      {
+        "id": "5637144687",
+        "name": "PERALILLO",
+        "localities": [
+          {
+            "id": "5637145190",
+            "name": "LIHUEIMO"
+          },
+          {
+            "id": "5637145191",
+            "name": "POBLACION"
+          }
+        ]
+      },
+      {
+        "id": "5637144677",
+        "name": "LITUECHE",
+        "localities": [
+          {
+            "id": "5637145153",
+            "name": "LITUECHE"
+          },
+          {
+            "id": "5637145154",
+            "name": "TOPOCALMA"
+          }
+        ]
+      },
+      {
+        "id": "5637144668",
+        "name": "OLIVAR",
+        "localities": [
+          {
+            "id": "5637145182",
+            "name": "LO MIRANDA"
+          },
+          {
+            "id": "5637145183",
+            "name": "OLIVAR ALTO"
+          },
+          {
+            "id": "5637145184",
+            "name": "OLIVAR BAJO"
+          }
+        ]
+      },
+      {
+        "id": "5637144666",
+        "name": "MALLOA",
+        "localities": [
+          {
+            "id": "5637145165",
+            "name": "MALLOA"
+          }
+        ]
+      },
+      {
+        "id": "5637144674",
+        "name": "SAN VICENTE",
+        "localities": [
+          {
+            "id": "5637145226",
+            "name": "MILLAHUE"
+          },
+          {
+            "id": "5637145227",
+            "name": "SAN VICENTE DE T.T"
+          }
+        ]
+      },
+      {
+        "id": "5637144685",
+        "name": "NANCAGUA",
+        "localities": [
+          {
+            "id": "5637145173",
+            "name": "NANCAGUA"
+          }
+        ]
+      },
+      {
+        "id": "5637144689",
+        "name": "PUMANQUE",
+        "localities": [
+          {
+            "id": "5637145202",
+            "name": "NILAHUE"
+          },
+          {
+            "id": "5637145203",
+            "name": "PUMANQUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144686",
+        "name": "PALMILLA",
+        "localities": [
+          {
+            "id": "5637145185",
+            "name": "PALMILLA"
+          }
+        ]
+      },
+      {
+        "id": "5637144669",
+        "name": "PEUMO",
+        "localities": [
+          {
+            "id": "5637145192",
+            "name": "PEUMO"
+          },
+          {
+            "id": "5637145193",
+            "name": "TUNCA ARRIBA"
+          }
+        ]
+      },
+      {
+        "id": "5637144673",
+        "name": "REQUÍNOA",
+        "localities": [
+          {
+            "id": "5637145213",
+            "name": "PIMPINELA"
+          },
+          {
+            "id": "5637145214",
+            "name": "REQUINOA"
+          },
+          {
+            "id": "5637145215",
+            "name": "ROSARIO"
+          }
+        ]
+      },
+      {
+        "id": "5637144658",
+        "name": "RANCAGUA",
+        "localities": [
+          {
+            "id": "5637145205",
+            "name": "PUNTA DE CORTES"
+          },
+          {
+            "id": "5637145206",
+            "name": "RANCAGUA"
+          }
+        ]
+      },
+      {
+        "id": "5637144671",
+        "name": "QUINTA DE TILCOCO",
+        "localities": [
+          {
+            "id": "5637145204",
+            "name": "QUINTA DE TILCOCO"
+          }
+        ]
+      },
+      {
+        "id": "5637144667",
+        "name": "MOSTAZAL",
+        "localities": [
+          {
+            "id": "5637145172",
+            "name": "SAN FCO DE MOSTAZAL"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "04",
+    "subdivisions": [
+      {
+        "id": "5637144605",
+        "name": "LA SERENA",
+        "localities": [
+          {
+            "id": "5637144882",
+            "name": "AGUA GRANDE"
+          },
+          {
+            "id": "5637144883",
+            "name": "ALMIRANTE LATORRE"
+          },
+          {
+            "id": "5637144884",
+            "name": "ALTOVALSOL"
+          },
+          {
+            "id": "5637144885",
+            "name": "COQUIMBITO"
+          },
+          {
+            "id": "5637144886",
+            "name": "EL CHACAY"
+          },
+          {
+            "id": "5637144887",
+            "name": "EL ISLON"
+          },
+          {
+            "id": "5637144888",
+            "name": "EL ROMERAL"
+          },
+          {
+            "id": "5637144889",
+            "name": "LA COMPANÍA"
+          },
+          {
+            "id": "5637144890",
+            "name": "LA SERENA"
+          },
+          {
+            "id": "5637144891",
+            "name": "LAMBERT"
+          },
+          {
+            "id": "5637144892",
+            "name": "LAS ROJAS"
+          },
+          {
+            "id": "5637144893",
+            "name": "SAN PABLO"
+          },
+          {
+            "id": "5637144894",
+            "name": "TEATINOS"
+          }
+        ]
+      },
+      {
+        "id": "5637144609",
+        "name": "PAIGUANO",
+        "localities": [
+          {
+            "id": "5637144950",
+            "name": "ALCOHUAS"
+          },
+          {
+            "id": "5637144951",
+            "name": "BALALA"
+          },
+          {
+            "id": "5637144952",
+            "name": "BANOS DEL TORO"
+          },
+          {
+            "id": "5637144953",
+            "name": "CHAPILCA"
+          },
+          {
+            "id": "5637144954",
+            "name": "COCHIGUAS"
+          },
+          {
+            "id": "5637144955",
+            "name": "GUANTA"
+          },
+          {
+            "id": "5637144956",
+            "name": "JUNTAS DEL TORO"
+          },
+          {
+            "id": "5637144957",
+            "name": "LAS HEDIONDAS"
+          },
+          {
+            "id": "5637144958",
+            "name": "LLANOS DE GUANTA"
+          },
+          {
+            "id": "5637144959",
+            "name": "MINA DEL INDIO"
+          },
+          {
+            "id": "5637144960",
+            "name": "MONTE GRANDE"
+          },
+          {
+            "id": "5637144961",
+            "name": "NUEVA ELQUI"
+          },
+          {
+            "id": "5637144962",
+            "name": "PAIHUANO"
+          },
+          {
+            "id": "5637144963",
+            "name": "PISCO ELQUI"
+          },
+          {
+            "id": "5637144964",
+            "name": "RIVADAVIA"
+          },
+          {
+            "id": "5637144965",
+            "name": "SOL NACIENTE"
+          },
+          {
+            "id": "5637144966",
+            "name": "VARILLAR"
+          }
+        ]
+      },
+      {
+        "id": "5637144615",
+        "name": "OVALLE",
+        "localities": [
+          {
+            "id": "5637144927",
+            "name": "ALGARROBITO"
+          },
+          {
+            "id": "5637144928",
+            "name": "BARRAZA"
+          },
+          {
+            "id": "5637144929",
+            "name": "CAMARICO"
+          },
+          {
+            "id": "5637144930",
+            "name": "CAMARICO VIEJO"
+          },
+          {
+            "id": "5637144931",
+            "name": "CERRILLOS DE TAMAYA"
+          },
+          {
+            "id": "5637144932",
+            "name": "CHALINGA"
+          },
+          {
+            "id": "5637144933",
+            "name": "EL ALTAR"
+          },
+          {
+            "id": "5637144934",
+            "name": "GUAMALATA"
+          },
+          {
+            "id": "5637144935",
+            "name": "GUAMPULLA"
+          },
+          {
+            "id": "5637144936",
+            "name": "HIGUERITAS"
+          },
+          {
+            "id": "5637144937",
+            "name": "LA CHIMBA"
+          },
+          {
+            "id": "5637144938",
+            "name": "LA TORRE"
+          },
+          {
+            "id": "5637144939",
+            "name": "LAS CARDAS"
+          },
+          {
+            "id": "5637144940",
+            "name": "LIMARI"
+          },
+          {
+            "id": "5637144941",
+            "name": "OTAROLA"
+          },
+          {
+            "id": "5637144942",
+            "name": "OVALLE"
+          },
+          {
+            "id": "5637144943",
+            "name": "PACHINGO"
+          },
+          {
+            "id": "5637144944",
+            "name": "PEJERREYES"
+          },
+          {
+            "id": "5637144945",
+            "name": "QUEBRADA SECA"
+          },
+          {
+            "id": "5637144946",
+            "name": "SAMO ALTO"
+          },
+          {
+            "id": "5637144947",
+            "name": "SAMO BAJO"
+          },
+          {
+            "id": "5637144948",
+            "name": "SOTAQUI"
+          },
+          {
+            "id": "5637144949",
+            "name": "TERMAS DE SOCO"
+          }
+        ]
+      },
+      {
+        "id": "5637144614",
+        "name": "SALAMANCA",
+        "localities": [
+          {
+            "id": "5637144981",
+            "name": "ALMENDRALILLO"
+          },
+          {
+            "id": "5637144982",
+            "name": "ARBOLEDA GRANDE"
+          },
+          {
+            "id": "5637144983",
+            "name": "CHELLEPIN"
+          },
+          {
+            "id": "5637144984",
+            "name": "COIRON"
+          },
+          {
+            "id": "5637144985",
+            "name": "JORQUERA"
+          },
+          {
+            "id": "5637144986",
+            "name": "LIMAHUIDA"
+          },
+          {
+            "id": "5637144987",
+            "name": "LLIMPO"
+          },
+          {
+            "id": "5637144988",
+            "name": "LOS PELADEROS"
+          },
+          {
+            "id": "5637144989",
+            "name": "PALQUIAL"
+          },
+          {
+            "id": "5637144990",
+            "name": "SALAMANCA"
+          },
+          {
+            "id": "5637144991",
+            "name": "SAN AGUSTIN"
+          }
+        ]
+      },
+      {
+        "id": "5637144619",
+        "name": "RÍO HURTADO",
+        "localities": [
+          {
+            "id": "5637144973",
+            "name": "ALTO BUEY"
+          },
+          {
+            "id": "5637144974",
+            "name": "CHANAR"
+          },
+          {
+            "id": "5637144975",
+            "name": "CORRAL QUEMADO"
+          },
+          {
+            "id": "5637144976",
+            "name": "HACIENDA LOS ANDES"
+          },
+          {
+            "id": "5637144977",
+            "name": "HURTADO"
+          },
+          {
+            "id": "5637144978",
+            "name": "LA FUNDINA"
+          },
+          {
+            "id": "5637144979",
+            "name": "PICHASCA"
+          },
+          {
+            "id": "5637144980",
+            "name": "RIO HURTADO"
+          }
+        ]
+      },
+      {
+        "id": "5637144607",
+        "name": "ANDACOLLO",
+        "localities": [
+          {
+            "id": "5637144826",
+            "name": "ANDACOLLO"
+          },
+          {
+            "id": "5637144827",
+            "name": "BARRANCAS"
+          }
+        ]
+      },
+      {
+        "id": "5637144610",
+        "name": "VICUÑA",
+        "localities": [
+          {
+            "id": "5637144992",
+            "name": "ANDACOLLO HOLDING"
+          },
+          {
+            "id": "5637144993",
+            "name": "CASERONES"
+          },
+          {
+            "id": "5637144994",
+            "name": "CONDORIACO"
+          },
+          {
+            "id": "5637144995",
+            "name": "CORTADERA"
+          },
+          {
+            "id": "5637144996",
+            "name": "DIAGUITAS"
+          },
+          {
+            "id": "5637144997",
+            "name": "EL TAMBO"
+          },
+          {
+            "id": "5637144998",
+            "name": "LA LAJA"
+          },
+          {
+            "id": "5637144999",
+            "name": "OBSERVATORIO EL TOLOLO"
+          },
+          {
+            "id": "5637145000",
+            "name": "PERALILLO"
+          },
+          {
+            "id": "5637145001",
+            "name": "VICUNA"
+          },
+          {
+            "id": "5637145002",
+            "name": "VINITA BAJA"
+          }
+        ]
+      },
+      {
+        "id": "5637144617",
+        "name": "MONTE PATRIA",
+        "localities": [
+          {
+            "id": "5637144908",
+            "name": "BANOS DEL GORDITO"
+          },
+          {
+            "id": "5637144909",
+            "name": "BOCATOMA"
+          },
+          {
+            "id": "5637144910",
+            "name": "CENTRAL LOS MOLLES"
+          },
+          {
+            "id": "5637144911",
+            "name": "CHANARAL ALTO"
+          },
+          {
+            "id": "5637144912",
+            "name": "CHILECITO"
+          },
+          {
+            "id": "5637144913",
+            "name": "EL CARRIZAL"
+          },
+          {
+            "id": "5637144914",
+            "name": "EL MAITEN"
+          },
+          {
+            "id": "5637144915",
+            "name": "EL MAQUI"
+          },
+          {
+            "id": "5637144916",
+            "name": "EL PALQUI"
+          },
+          {
+            "id": "5637144917",
+            "name": "GUATULAME"
+          },
+          {
+            "id": "5637144918",
+            "name": "LAS JUNTAS"
+          },
+          {
+            "id": "5637144919",
+            "name": "LAS MOLLACAS"
+          },
+          {
+            "id": "5637144920",
+            "name": "LAS RAMADAS"
+          },
+          {
+            "id": "5637144921",
+            "name": "MONTE PATRIA"
+          },
+          {
+            "id": "5637144922",
+            "name": "PEDREGAL"
+          },
+          {
+            "id": "5637144923",
+            "name": "RAPEL"
+          },
+          {
+            "id": "5637144924",
+            "name": "SAN LORENZO"
+          },
+          {
+            "id": "5637144925",
+            "name": "SAN MARCOS"
+          },
+          {
+            "id": "5637144926",
+            "name": "TULAHUEN"
+          }
+        ]
+      },
+      {
+        "id": "5637144613",
+        "name": "LOS VILOS",
+        "localities": [
+          {
+            "id": "5637144895",
+            "name": "CAIMANES"
+          },
+          {
+            "id": "5637144896",
+            "name": "CASUTO"
+          },
+          {
+            "id": "5637144897",
+            "name": "CHIGUALOCO"
+          },
+          {
+            "id": "5637144898",
+            "name": "GUANGALI"
+          },
+          {
+            "id": "5637144899",
+            "name": "LOS ERMITANOS"
+          },
+          {
+            "id": "5637144900",
+            "name": "LOS MOLLES"
+          },
+          {
+            "id": "5637144901",
+            "name": "LOS VILOS"
+          },
+          {
+            "id": "5637144902",
+            "name": "MAURO"
+          },
+          {
+            "id": "5637144903",
+            "name": "PICHIDANGUI"
+          },
+          {
+            "id": "5637144904",
+            "name": "PUPIO"
+          },
+          {
+            "id": "5637144905",
+            "name": "QUELON"
+          },
+          {
+            "id": "5637144906",
+            "name": "QUILIMARI"
+          },
+          {
+            "id": "5637144907",
+            "name": "TILAMA"
+          }
+        ]
+      },
+      {
+        "id": "5637144612",
+        "name": "CANELA",
+        "localities": [
+          {
+            "id": "5637144828",
+            "name": "CALETA MORRITOS"
+          },
+          {
+            "id": "5637144829",
+            "name": "CANELA"
+          },
+          {
+            "id": "5637144830",
+            "name": "MANTOS DE HORNILLOS"
+          },
+          {
+            "id": "5637144831",
+            "name": "POZA HONDA"
+          },
+          {
+            "id": "5637144832",
+            "name": "PUERTO OSCURO"
+          }
+        ]
+      },
+      {
+        "id": "5637144611",
+        "name": "ILLAPEL",
+        "localities": [
+          {
+            "id": "5637144856",
+            "name": "CAREN"
+          },
+          {
+            "id": "5637144857",
+            "name": "CHOAPA"
+          },
+          {
+            "id": "5637144858",
+            "name": "COCUA"
+          },
+          {
+            "id": "5637144859",
+            "name": "FARELLON SANCHEZ"
+          },
+          {
+            "id": "5637144860",
+            "name": "HUENTELAUQUEN"
+          },
+          {
+            "id": "5637144861",
+            "name": "HUINTIL"
+          },
+          {
+            "id": "5637144862",
+            "name": "ILLAPEL"
+          },
+          {
+            "id": "5637144863",
+            "name": "LAS CANAS"
+          },
+          {
+            "id": "5637144864",
+            "name": "LAS PIRCAS"
+          },
+          {
+            "id": "5637144865",
+            "name": "MATANCILLA"
+          },
+          {
+            "id": "5637144866",
+            "name": "MINCHA"
+          },
+          {
+            "id": "5637144867",
+            "name": "MINCHA SUR"
+          },
+          {
+            "id": "5637144868",
+            "name": "RABANALES"
+          },
+          {
+            "id": "5637144869",
+            "name": "TUNGA NORTE"
+          },
+          {
+            "id": "5637144870",
+            "name": "TUNGA SUR"
+          }
+        ]
+      },
+      {
+        "id": "5637144616",
+        "name": "COMBARBALÁ",
+        "localities": [
+          {
+            "id": "5637144833",
+            "name": "CHINEO"
+          },
+          {
+            "id": "5637144834",
+            "name": "CHINGAY"
+          },
+          {
+            "id": "5637144835",
+            "name": "COGOTI"
+          },
+          {
+            "id": "5637144836",
+            "name": "COMBARBALA"
+          },
+          {
+            "id": "5637144837",
+            "name": "HILARICOS"
+          },
+          {
+            "id": "5637144838",
+            "name": "LA LIGUA BAJO"
+          },
+          {
+            "id": "5637144839",
+            "name": "LAS COLORADAS"
+          },
+          {
+            "id": "5637144840",
+            "name": "LLAHUIN"
+          },
+          {
+            "id": "5637144841",
+            "name": "PARMA"
+          },
+          {
+            "id": "5637144842",
+            "name": "QUILITAPIA"
+          },
+          {
+            "id": "5637144843",
+            "name": "SANTA CECILIA"
+          }
+        ]
+      },
+      {
+        "id": "5637144608",
+        "name": "LA HIGUERA",
+        "localities": [
+          {
+            "id": "5637144871",
+            "name": "CHOROS BAJOS"
+          },
+          {
+            "id": "5637144872",
+            "name": "CHUNGUNGO"
+          },
+          {
+            "id": "5637144873",
+            "name": "EL OLIVO"
+          },
+          {
+            "id": "5637144874",
+            "name": "EL TOFO"
+          },
+          {
+            "id": "5637144875",
+            "name": "INCAGUASI"
+          },
+          {
+            "id": "5637144876",
+            "name": "LA HIGUERA"
+          },
+          {
+            "id": "5637144877",
+            "name": "LAS BREAS"
+          },
+          {
+            "id": "5637144878",
+            "name": "LOS HORNOS"
+          },
+          {
+            "id": "5637144879",
+            "name": "PUNTA CHOROS"
+          },
+          {
+            "id": "5637144880",
+            "name": "TRAPICHE"
+          },
+          {
+            "id": "5637144881",
+            "name": "TRES CRUCES"
+          }
+        ]
+      },
+      {
+        "id": "5637144606",
+        "name": "COQUIMBO",
+        "localities": [
+          {
+            "id": "5637144844",
+            "name": "COQUIMBO"
+          },
+          {
+            "id": "5637144845",
+            "name": "EL PENON"
+          },
+          {
+            "id": "5637144846",
+            "name": "GUACHALALUME"
+          },
+          {
+            "id": "5637144847",
+            "name": "GUANAQUEROS"
+          },
+          {
+            "id": "5637144848",
+            "name": "LA HERRADURA"
+          },
+          {
+            "id": "5637144849",
+            "name": "LAS TACAS"
+          },
+          {
+            "id": "5637144850",
+            "name": "PAN DE AZUCAR"
+          },
+          {
+            "id": "5637144851",
+            "name": "PLACILLA"
+          },
+          {
+            "id": "5637144852",
+            "name": "PUERTO VELERO"
+          },
+          {
+            "id": "5637144853",
+            "name": "RETIRO"
+          },
+          {
+            "id": "5637144854",
+            "name": "TIERRAS BLANCAS"
+          },
+          {
+            "id": "5637144855",
+            "name": "TONGOY"
+          }
+        ]
+      },
+      {
+        "id": "5637144618",
+        "name": "PUNITAQUI",
+        "localities": [
+          {
+            "id": "5637144967",
+            "name": "LA AGUADA"
+          },
+          {
+            "id": "5637144968",
+            "name": "LA PLACILLA"
+          },
+          {
+            "id": "5637144969",
+            "name": "LITIPAMPA"
+          },
+          {
+            "id": "5637144970",
+            "name": "LOS PERALES"
+          },
+          {
+            "id": "5637144971",
+            "name": "PENA BLANCA"
+          },
+          {
+            "id": "5637144972",
+            "name": "PUNITAQUI"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "09",
+    "subdivisions": [
+      {
+        "id": "5637144849",
+        "name": "LAUTARO",
+        "localities": [
+          {
+            "id": "5637145557",
+            "name": "AGUA SANTA"
+          },
+          {
+            "id": "5637145558",
+            "name": "COLONIA LAUTARO"
+          },
+          {
+            "id": "5637145559",
+            "name": "LAUTARO"
+          },
+          {
+            "id": "5637145560",
+            "name": "LOS PRADOS"
+          },
+          {
+            "id": "5637145561",
+            "name": "PUA"
+          },
+          {
+            "id": "5637145562",
+            "name": "RETEN DOLLINCO"
+          }
+        ]
+      },
+      {
+        "id": "5637144863",
+        "name": "NUEVA IMPERIAL",
+        "localities": [
+          {
+            "id": "5637145581",
+            "name": "ALMAGRO"
+          },
+          {
+            "id": "5637145582",
+            "name": "BOROA"
+          },
+          {
+            "id": "5637145583",
+            "name": "NUEVA IMPERIAL"
+          }
+        ]
+      },
+      {
+        "id": "5637144881",
+        "name": "ANGOL",
+        "localities": [
+          {
+            "id": "5637145513",
+            "name": "ANGOL"
+          },
+          {
+            "id": "5637145514",
+            "name": "MAITENREHUE"
+          },
+          {
+            "id": "5637145515",
+            "name": "PIEDRA DEL AGUILA"
+          },
+          {
+            "id": "5637145516",
+            "name": "VEGAS BLANCAS"
+          }
+        ]
+      },
+      {
+        "id": "5637144872",
+        "name": "TEODORO SCHMIDT",
+        "localities": [
+          {
+            "id": "5637145610",
+            "name": "BARROS ARANA"
+          },
+          {
+            "id": "5637145611",
+            "name": "PELECO"
+          },
+          {
+            "id": "5637145612",
+            "name": "PUERTO DOMINGUEZ"
+          },
+          {
+            "id": "5637145613",
+            "name": "TEODORO SCHMIDT"
+          }
+        ]
+      },
+      {
+        "id": "5637144871",
+        "name": "SAAVEDRA",
+        "localities": [
+          {
+            "id": "5637145601",
+            "name": "BOCA BUDI"
+          },
+          {
+            "id": "5637145602",
+            "name": "PUERTO SAAVEDRA"
+          }
+        ]
+      },
+      {
+        "id": "5637144869",
+        "name": "PUCÓN",
+        "localities": [
+          {
+            "id": "5637145590",
+            "name": "CABURGUA"
+          },
+          {
+            "id": "5637145591",
+            "name": "HUIFE"
+          },
+          {
+            "id": "5637145592",
+            "name": "PUCON"
+          },
+          {
+            "id": "5637145593",
+            "name": "REFUGIO"
+          },
+          {
+            "id": "5637145594",
+            "name": "TERMAS DE HUIFE"
+          },
+          {
+            "id": "5637145595",
+            "name": "TERMAS DE MENETUE"
+          },
+          {
+            "id": "5637145596",
+            "name": "TERMAS DE PALGUIN"
+          }
+        ]
+      },
+      {
+        "id": "5637144838",
+        "name": "TEMUCO",
+        "localities": [
+          {
+            "id": "5637145603",
+            "name": "CAJON"
+          },
+          {
+            "id": "5637145604",
+            "name": "GENERAL LOPEZ"
+          },
+          {
+            "id": "5637145605",
+            "name": "LABRANZA"
+          },
+          {
+            "id": "5637145606",
+            "name": "MAQUEHUE"
+          },
+          {
+            "id": "5637145607",
+            "name": "METRENCO"
+          },
+          {
+            "id": "5637145608",
+            "name": "PILLANLELBUN"
+          },
+          {
+            "id": "5637145609",
+            "name": "TEMUCO"
+          }
+        ]
+      },
+      {
+        "id": "5637144883",
+        "name": "COLLIPULLI",
+        "localities": [
+          {
+            "id": "5637145523",
+            "name": "CANADA"
+          },
+          {
+            "id": "5637145524",
+            "name": "COLLIPULLI"
+          },
+          {
+            "id": "5637145525",
+            "name": "CURACO"
+          },
+          {
+            "id": "5637145526",
+            "name": "EL AMARGO"
+          },
+          {
+            "id": "5637145527",
+            "name": "NANCO"
+          },
+          {
+            "id": "5637145528",
+            "name": "TERMAS DE PEMEHUE"
+          },
+          {
+            "id": "5637145529",
+            "name": "TRINTRE"
+          }
+        ]
+      },
+      {
+        "id": "5637144890",
+        "name": "LUMACO",
+        "localities": [
+          {
+            "id": "5637145573",
+            "name": "CAPITAN PASTENE"
+          },
+          {
+            "id": "5637145574",
+            "name": "LUMACO"
+          },
+          {
+            "id": "5637145575",
+            "name": "PICHIPELLAHUEN"
+          },
+          {
+            "id": "5637145576",
+            "name": "RELUN"
+          }
+        ]
+      },
+      {
+        "id": "5637144839",
+        "name": "CARAHUE",
+        "localities": [
+          {
+            "id": "5637145517",
+            "name": "CARAHUE"
+          },
+          {
+            "id": "5637145518",
+            "name": "LOBERIA"
+          },
+          {
+            "id": "5637145519",
+            "name": "NEHUENTUE"
+          },
+          {
+            "id": "5637145520",
+            "name": "TROVOLHUE"
+          },
+          {
+            "id": "5637145521",
+            "name": "VILLA ARAUCANIA"
+          }
+        ]
+      },
+      {
+        "id": "5637144889",
+        "name": "LOS SAUCES",
+        "localities": [
+          {
+            "id": "5637145570",
+            "name": "CENTENARIO"
+          },
+          {
+            "id": "5637145571",
+            "name": "LOS SAUCES"
+          },
+          {
+            "id": "5637145572",
+            "name": "NAHUELVE"
+          }
+        ]
+      },
+      {
+        "id": "5637144875",
+        "name": "VILCÚN",
+        "localities": [
+          {
+            "id": "5637145623",
+            "name": "CHERQUENCO"
+          },
+          {
+            "id": "5637145624",
+            "name": "REFUGIO LLAIMA"
+          },
+          {
+            "id": "5637145625",
+            "name": "SAN PATRICIO"
+          },
+          {
+            "id": "5637145626",
+            "name": "VILCUN"
+          }
+        ]
+      },
+      {
+        "id": "5637144879",
+        "name": "CHOLCHOL",
+        "localities": [
+          {
+            "id": "5637145522",
+            "name": "CHOLCHOL"
+          }
+        ]
+      },
+      {
+        "id": "5637144874",
+        "name": "TOLTÉN",
+        "localities": [
+          {
+            "id": "5637145614",
+            "name": "COMUY"
+          },
+          {
+            "id": "5637145615",
+            "name": "HUALPIN"
+          },
+          {
+            "id": "5637145616",
+            "name": "QUILQUE"
+          },
+          {
+            "id": "5637145617",
+            "name": "TOLTEN"
+          }
+        ]
+      },
+      {
+        "id": "5637144850",
+        "name": "LONCOCHE",
+        "localities": [
+          {
+            "id": "5637145563",
+            "name": "CRUCES"
+          },
+          {
+            "id": "5637145564",
+            "name": "LONCOCHE"
+          }
+        ]
+      },
+      {
+        "id": "5637144841",
+        "name": "CUNCO",
+        "localities": [
+          {
+            "id": "5637145530",
+            "name": "CUNCO"
+          },
+          {
+            "id": "5637145531",
+            "name": "HELO SUR"
+          },
+          {
+            "id": "5637145532",
+            "name": "LAS HORTENCIAS"
+          },
+          {
+            "id": "5637145533",
+            "name": "LOS LAURELES"
+          },
+          {
+            "id": "5637145534",
+            "name": "PLAYA NEGRA"
+          },
+          {
+            "id": "5637145535",
+            "name": "PUERTO PUMA"
+          },
+          {
+            "id": "5637145536",
+            "name": "TERMAS DE SAN SEBASTIAN"
+          }
+        ]
+      },
+      {
+        "id": "5637144885",
+        "name": "CURACAUTÍN",
+        "localities": [
+          {
+            "id": "5637145537",
+            "name": "CURACAUTIN"
+          },
+          {
+            "id": "5637145538",
+            "name": "LA SOMBRA"
+          },
+          {
+            "id": "5637145539",
+            "name": "MALALCAHUELO"
+          },
+          {
+            "id": "5637145540",
+            "name": "MANZANAR"
+          },
+          {
+            "id": "5637145541",
+            "name": "TERMAS DE RIO BLANCO"
+          }
+        ]
+      },
+      {
+        "id": "5637144842",
+        "name": "CURARREHUE",
+        "localities": [
+          {
+            "id": "5637145542",
+            "name": "CURARREHUE"
+          },
+          {
+            "id": "5637145543",
+            "name": "PUESCO"
+          },
+          {
+            "id": "5637145544",
+            "name": "REIGOLIL"
+          },
+          {
+            "id": "5637145545",
+            "name": "TERMAS DE PANGUI"
+          },
+          {
+            "id": "5637145546",
+            "name": "TERMAS DE SAN LUIS"
+          }
+        ]
+      },
+      {
+        "id": "5637144865",
+        "name": "PADRE LAS CASAS",
+        "localities": [
+          {
+            "id": "5637145584",
+            "name": "EL ALAMBRADO"
+          },
+          {
+            "id": "5637145585",
+            "name": "PADRE LAS CASAS"
+          }
+        ]
+      },
+      {
+        "id": "5637144886",
+        "name": "ERCILLA",
+        "localities": [
+          {
+            "id": "5637145547",
+            "name": "ERCILLA"
+          },
+          {
+            "id": "5637145548",
+            "name": "PAILAHUENQUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144844",
+        "name": "FREIRE",
+        "localities": [
+          {
+            "id": "5637145549",
+            "name": "FREIRE"
+          },
+          {
+            "id": "5637145550",
+            "name": "MISION BOROA"
+          },
+          {
+            "id": "5637145551",
+            "name": "QUEPE"
+          }
+        ]
+      },
+      {
+        "id": "5637144846",
+        "name": "GALVARINO",
+        "localities": [
+          {
+            "id": "5637145552",
+            "name": "GALVARINO"
+          },
+          {
+            "id": "5637145553",
+            "name": "RUCATRARO"
+          }
+        ]
+      },
+      {
+        "id": "5637144847",
+        "name": "GORBEA",
+        "localities": [
+          {
+            "id": "5637145554",
+            "name": "GORBEA"
+          },
+          {
+            "id": "5637145555",
+            "name": "LASTARRIA"
+          },
+          {
+            "id": "5637145556",
+            "name": "QUITRATUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144877",
+        "name": "VILLARRICA",
+        "localities": [
+          {
+            "id": "5637145627",
+            "name": "HUISCAPI"
+          },
+          {
+            "id": "5637145628",
+            "name": "PEDREGOSO"
+          },
+          {
+            "id": "5637145629",
+            "name": "VILLARRICA"
+          }
+        ]
+      },
+      {
+        "id": "5637144851",
+        "name": "MELIPEUCO",
+        "localities": [
+          {
+            "id": "5637145577",
+            "name": "ICALMA"
+          },
+          {
+            "id": "5637145578",
+            "name": "LOMACURA"
+          },
+          {
+            "id": "5637145579",
+            "name": "MELIPEUCO"
+          },
+          {
+            "id": "5637145580",
+            "name": "TERMAS DE MOLULCO"
+          }
+        ]
+      },
+      {
+        "id": "5637144887",
+        "name": "LONQUIMAY",
+        "localities": [
+          {
+            "id": "5637145565",
+            "name": "LOLEN"
+          },
+          {
+            "id": "5637145566",
+            "name": "LONQUIMAY"
+          },
+          {
+            "id": "5637145567",
+            "name": "QUINQUEN"
+          },
+          {
+            "id": "5637145568",
+            "name": "SIERRA NEVADA"
+          },
+          {
+            "id": "5637145569",
+            "name": "TROYO"
+          }
+        ]
+      },
+      {
+        "id": "5637144894",
+        "name": "RENAICO",
+        "localities": [
+          {
+            "id": "5637145598",
+            "name": "MININCO"
+          },
+          {
+            "id": "5637145599",
+            "name": "RENAICO"
+          },
+          {
+            "id": "5637145600",
+            "name": "TIJERAL"
+          }
+        ]
+      },
+      {
+        "id": "5637144866",
+        "name": "PERQUENCO",
+        "localities": [
+          {
+            "id": "5637145586",
+            "name": "PERQUENCO"
+          },
+          {
+            "id": "5637145587",
+            "name": "SELVA OSCURA"
+          }
+        ]
+      },
+      {
+        "id": "5637144867",
+        "name": "PITRUFQUÉN",
+        "localities": [
+          {
+            "id": "5637145588",
+            "name": "PITRUFQUEN"
+          },
+          {
+            "id": "5637145589",
+            "name": "RADAL"
+          }
+        ]
+      },
+      {
+        "id": "5637145326",
+        "name": "PUREN",
+        "localities": [
+          {
+            "id": "5637145597",
+            "name": "PUREN"
+          }
+        ]
+      },
+      {
+        "id": "5637144895",
+        "name": "TRAIGUÉN",
+        "localities": [
+          {
+            "id": "5637145618",
+            "name": "QUECHEREGUAS"
+          },
+          {
+            "id": "5637145619",
+            "name": "TRAIGUEN"
+          }
+        ]
+      },
+      {
+        "id": "5637144897",
+        "name": "VICTORIA",
+        "localities": [
+          {
+            "id": "5637145620",
+            "name": "TERMAS DE TOLHUACA"
+          },
+          {
+            "id": "5637145621",
+            "name": "TRES ESQUINAS"
+          },
+          {
+            "id": "5637145622",
+            "name": "VICTORIA"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "02",
+    "subdivisions": [
+      {
+        "id": "5637144587",
+        "name": "ANTOFAGASTA",
+        "localities": [
+          {
+            "id": "5637144630",
+            "name": "AGUA VERDE"
+          },
+          {
+            "id": "5637144631",
+            "name": "ANTOFAGASTA"
+          },
+          {
+            "id": "5637144632",
+            "name": "AZUFRERA"
+          },
+          {
+            "id": "5637144633",
+            "name": "AZUFRERA PLATO DE SOPA"
+          },
+          {
+            "id": "5637144634",
+            "name": "BAQUEDANO"
+          },
+          {
+            "id": "5637144635",
+            "name": "BLANCO ENCALADA"
+          },
+          {
+            "id": "5637144636",
+            "name": "CALETA BOTIJA"
+          },
+          {
+            "id": "5637144637",
+            "name": "CALETA EL COBRE"
+          },
+          {
+            "id": "5637144638",
+            "name": "CARMEN ALTO"
+          },
+          {
+            "id": "5637144639",
+            "name": "CERRO MORENO"
+          },
+          {
+            "id": "5637144640",
+            "name": "CERRO PARANAL"
+          },
+          {
+            "id": "5637144641",
+            "name": "EL GUANACO"
+          },
+          {
+            "id": "5637144642",
+            "name": "EL MEDANO"
+          },
+          {
+            "id": "5637144643",
+            "name": "EL WAY"
+          },
+          {
+            "id": "5637144644",
+            "name": "ENSUENO"
+          },
+          {
+            "id": "5637144645",
+            "name": "ESTACION AGUA BUENA"
+          },
+          {
+            "id": "5637144646",
+            "name": "ESTACION AGUAS BLANCAS"
+          },
+          {
+            "id": "5637144647",
+            "name": "ESTACION AUGUSTA VICTORIA"
+          },
+          {
+            "id": "5637144648",
+            "name": "ESTACION CATALINA"
+          },
+          {
+            "id": "5637144649",
+            "name": "ESTACION LA RIOJA"
+          },
+          {
+            "id": "5637144650",
+            "name": "ESTACION LOS VIENTOS"
+          },
+          {
+            "id": "5637144651",
+            "name": "ESTACION MONTURAQUI"
+          },
+          {
+            "id": "5637144652",
+            "name": "ESTACION O`HIGGINS"
+          },
+          {
+            "id": "5637144653",
+            "name": "ESTACION PALESTINA"
+          },
+          {
+            "id": "5637144654",
+            "name": "ESTACION PAN DE AZUCAR"
+          },
+          {
+            "id": "5637144655",
+            "name": "ESTACION SOCOMPA"
+          },
+          {
+            "id": "5637144656",
+            "name": "ESTACION VARILLA"
+          },
+          {
+            "id": "5637144657",
+            "name": "EX OFICINA ALEMANIA"
+          },
+          {
+            "id": "5637144658",
+            "name": "EX OFICINA CHILE"
+          },
+          {
+            "id": "5637144659",
+            "name": "EX OFICINA FLOR DE CHILE"
+          },
+          {
+            "id": "5637144660",
+            "name": "ISLA SANTA MARIA"
+          },
+          {
+            "id": "5637144661",
+            "name": "JUAN LOPEZ"
+          },
+          {
+            "id": "5637144662",
+            "name": "LA NEGRA"
+          },
+          {
+            "id": "5637144663",
+            "name": "MANTOS BLANCOS"
+          },
+          {
+            "id": "5637144664",
+            "name": "MINA LOMAS BAYAS"
+          },
+          {
+            "id": "5637144665",
+            "name": "PAPOSO"
+          },
+          {
+            "id": "5637144666",
+            "name": "PARANAL"
+          },
+          {
+            "id": "5637144667",
+            "name": "PUERTO COLOSO"
+          },
+          {
+            "id": "5637144668",
+            "name": "RANCHO ANTOFAGASTA"
+          },
+          {
+            "id": "5637144669",
+            "name": "SAN CRISTOBAL"
+          }
+        ]
+      },
+      {
+        "id": "5637144593",
+        "name": "SAN PEDRO DE ATACAMA",
+        "localities": [
+          {
+            "id": "5637144713",
+            "name": "AGUAS BLANCAS"
+          },
+          {
+            "id": "5637144714",
+            "name": "ALITAR"
+          },
+          {
+            "id": "5637144715",
+            "name": "CAMAR"
+          },
+          {
+            "id": "5637144716",
+            "name": "PEINE"
+          },
+          {
+            "id": "5637144717",
+            "name": "PURITAMA"
+          },
+          {
+            "id": "5637144718",
+            "name": "RIO GRANDE"
+          },
+          {
+            "id": "5637144719",
+            "name": "SAN BARTOLO"
+          },
+          {
+            "id": "5637144720",
+            "name": "SOCAIRE"
+          },
+          {
+            "id": "5637144721",
+            "name": "TALABRE"
+          },
+          {
+            "id": "5637144722",
+            "name": "TILO POZO"
+          },
+          {
+            "id": "5637144723",
+            "name": "TILOMONTE"
+          },
+          {
+            "id": "5637144724",
+            "name": "TOCONAO"
+          }
+        ]
+      },
+      {
+        "id": "5637144590",
+        "name": "TALTAL",
+        "localities": [
+          {
+            "id": "5637144731",
+            "name": "ALTAMIRA"
+          },
+          {
+            "id": "5637144732",
+            "name": "CIFUNCHO"
+          },
+          {
+            "id": "5637144733",
+            "name": "LA POLVORA"
+          },
+          {
+            "id": "5637144734",
+            "name": "TALTAL"
+          }
+        ]
+      },
+      {
+        "id": "5637144592",
+        "name": "OLLAGÜE",
+        "localities": [
+          {
+            "id": "5637144703",
+            "name": "AMINCHA"
+          },
+          {
+            "id": "5637144704",
+            "name": "ASCOTAN"
+          },
+          {
+            "id": "5637144705",
+            "name": "AUCANQUILCHA"
+          },
+          {
+            "id": "5637144706",
+            "name": "CALACHUZ"
+          },
+          {
+            "id": "5637144707",
+            "name": "ESTACION CARCOTE"
+          },
+          {
+            "id": "5637144708",
+            "name": "ESTACION CEBOLLAR"
+          },
+          {
+            "id": "5637144709",
+            "name": "LEQUENA"
+          },
+          {
+            "id": "5637144710",
+            "name": "OLLAGUE"
+          },
+          {
+            "id": "5637144711",
+            "name": "POLAN"
+          },
+          {
+            "id": "5637144712",
+            "name": "SAN PEDRO DE ATACAMA"
+          }
+        ]
+      },
+      {
+        "id": "5637144591",
+        "name": "CALAMA",
+        "localities": [
+          {
+            "id": "5637144670",
+            "name": "AYQUINA"
+          },
+          {
+            "id": "5637144671",
+            "name": "BANOS DE TURI"
+          },
+          {
+            "id": "5637144672",
+            "name": "CALAMA"
+          },
+          {
+            "id": "5637144673",
+            "name": "CASPANA"
+          },
+          {
+            "id": "5637144674",
+            "name": "CHIUCHIU"
+          },
+          {
+            "id": "5637144675",
+            "name": "CHUQUICAMATA"
+          },
+          {
+            "id": "5637144676",
+            "name": "CONCHI"
+          },
+          {
+            "id": "5637144677",
+            "name": "CONCHI VIEJO"
+          },
+          {
+            "id": "5637144678",
+            "name": "CUPO"
+          },
+          {
+            "id": "5637144679",
+            "name": "ESTACION CERRITOS BAYOS"
+          },
+          {
+            "id": "5637144680",
+            "name": "INCACALIRI"
+          },
+          {
+            "id": "5637144681",
+            "name": "LASANA"
+          },
+          {
+            "id": "5637144682",
+            "name": "LINZOR"
+          },
+          {
+            "id": "5637144683",
+            "name": "MINA CERRO DOMINADOR"
+          },
+          {
+            "id": "5637144684",
+            "name": "MINA EL ABRA"
+          },
+          {
+            "id": "5637144685",
+            "name": "MINA EL LITIO"
+          },
+          {
+            "id": "5637144686",
+            "name": "MINA FARIDE"
+          },
+          {
+            "id": "5637144687",
+            "name": "MINA GABY"
+          },
+          {
+            "id": "5637144688",
+            "name": "MINA RADOMIRO TOMIC"
+          },
+          {
+            "id": "5637144689",
+            "name": "MINERA SPENCER"
+          },
+          {
+            "id": "5637144690",
+            "name": "SAN JOSE"
+          },
+          {
+            "id": "5637144691",
+            "name": "SANTA ROSA"
+          },
+          {
+            "id": "5637144692",
+            "name": "TOCONCE"
+          },
+          {
+            "id": "5637144693",
+            "name": "TUINA"
+          },
+          {
+            "id": "5637144694",
+            "name": "TURI"
+          }
+        ]
+      },
+      {
+        "id": "5637144594",
+        "name": "TOCOPILLA",
+        "localities": [
+          {
+            "id": "5637144735",
+            "name": "CALETA BOY"
+          },
+          {
+            "id": "5637144736",
+            "name": "CALETA BUENA"
+          },
+          {
+            "id": "5637144737",
+            "name": "COBIJA"
+          },
+          {
+            "id": "5637144738",
+            "name": "MICHILLA"
+          },
+          {
+            "id": "5637144739",
+            "name": "MINA MICHILLA"
+          },
+          {
+            "id": "5637144740",
+            "name": "TOCOPILLA"
+          }
+        ]
+      },
+      {
+        "id": "5637144589",
+        "name": "SIERRA GORDA",
+        "localities": [
+          {
+            "id": "5637144725",
+            "name": "CARACOLES"
+          },
+          {
+            "id": "5637144726",
+            "name": "CENTINELA"
+          },
+          {
+            "id": "5637144727",
+            "name": "FLOR DEL DESIERTO"
+          },
+          {
+            "id": "5637144728",
+            "name": "MELLIZOS"
+          },
+          {
+            "id": "5637144729",
+            "name": "MINERA ZALDIVAR"
+          },
+          {
+            "id": "5637144730",
+            "name": "SIERRA GORDA"
+          }
+        ]
+      },
+      {
+        "id": "5637144595",
+        "name": "MARÍA ELENA",
+        "localities": [
+          {
+            "id": "5637144695",
+            "name": "ESTACION MIRAJE"
+          },
+          {
+            "id": "5637144696",
+            "name": "MARIA ELENA"
+          },
+          {
+            "id": "5637144697",
+            "name": "MARIA ELENA SOQUIMICH"
+          },
+          {
+            "id": "5637144698",
+            "name": "OFICINA PEDRO DE VALDIVIA"
+          },
+          {
+            "id": "5637144699",
+            "name": "OFICINA VERGARA"
+          },
+          {
+            "id": "5637144700",
+            "name": "QUILLAGUA"
+          }
+        ]
+      },
+      {
+        "id": "5637144588",
+        "name": "MEJILLONES",
+        "localities": [
+          {
+            "id": "5637144701",
+            "name": "HORNITOS"
+          },
+          {
+            "id": "5637144702",
+            "name": "MEJILLONES"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "08",
+    "subdivisions": [
+      {
+        "id": "5637144732",
+        "name": "FLORIDA",
+        "localities": [
+          {
+            "id": "5637145387",
+            "name": "AGUAS DE LA GLORIA"
+          },
+          {
+            "id": "5637145388",
+            "name": "COPIULEMU"
+          },
+          {
+            "id": "5637145389",
+            "name": "FLORIDA"
+          }
+        ]
+      },
+      {
+        "id": "5637144782",
+        "name": "YUMBEL",
+        "localities": [
+          {
+            "id": "5637145498",
+            "name": "ALTO BIO BIO"
+          },
+          {
+            "id": "5637145499",
+            "name": "CASA LOLCO"
+          },
+          {
+            "id": "5637145500",
+            "name": "COMUNIDAD CANICU"
+          },
+          {
+            "id": "5637145501",
+            "name": "ESTACION YUMBEL"
+          },
+          {
+            "id": "5637145502",
+            "name": "MONTE AGUILA"
+          },
+          {
+            "id": "5637145503",
+            "name": "PANGUE"
+          },
+          {
+            "id": "5637145504",
+            "name": "RALCO"
+          },
+          {
+            "id": "5637145505",
+            "name": "RALCO LEPOY"
+          },
+          {
+            "id": "5637145506",
+            "name": "TERMAS DEL AVELLANO"
+          },
+          {
+            "id": "5637145507",
+            "name": "YUMBEL"
+          }
+        ]
+      },
+      {
+        "id": "5637144773",
+        "name": "QUILACO",
+        "localities": [
+          {
+            "id": "5637145445",
+            "name": "ALTO CALEDONIA"
+          },
+          {
+            "id": "5637145446",
+            "name": "CERRO DEL PADRE"
+          },
+          {
+            "id": "5637145447",
+            "name": "LONCOPANGUE"
+          },
+          {
+            "id": "5637145448",
+            "name": "QUILACO"
+          },
+          {
+            "id": "5637145449",
+            "name": "RUCALHUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144758",
+        "name": "LOS ÁLAMOS",
+        "localities": [
+          {
+            "id": "5637145406",
+            "name": "ANTIGUALA"
+          },
+          {
+            "id": "5637145407",
+            "name": "LOS ALAMOS"
+          },
+          {
+            "id": "5637145408",
+            "name": "PILPILCO"
+          },
+          {
+            "id": "5637145409",
+            "name": "TRES PINOS"
+          }
+        ]
+      },
+      {
+        "id": "5637144753",
+        "name": "CONTULMO",
+        "localities": [
+          {
+            "id": "5637145378",
+            "name": "ANTIQUINA"
+          },
+          {
+            "id": "5637145379",
+            "name": "CONTULMO"
+          }
+        ]
+      },
+      {
+        "id": "5637144764",
+        "name": "ANTUCO",
+        "localities": [
+          {
+            "id": "5637145336",
+            "name": "ANTUCO"
+          },
+          {
+            "id": "5637145337",
+            "name": "EL ABANICO"
+          },
+          {
+            "id": "5637145338",
+            "name": "EL TORO"
+          },
+          {
+            "id": "5637145339",
+            "name": "LOS BARROS"
+          }
+        ]
+      },
+      {
+        "id": "5637144749",
+        "name": "ARAUCO",
+        "localities": [
+          {
+            "id": "5637145340",
+            "name": "ARAUCO"
+          },
+          {
+            "id": "5637145341",
+            "name": "CARAMPANGUE"
+          },
+          {
+            "id": "5637145342",
+            "name": "EL BOLDO"
+          },
+          {
+            "id": "5637145343",
+            "name": "LARAQUETE"
+          },
+          {
+            "id": "5637145344",
+            "name": "LLICO"
+          },
+          {
+            "id": "5637145345",
+            "name": "QUIDICO"
+          },
+          {
+            "id": "5637145346",
+            "name": "RAMADILLA"
+          },
+          {
+            "id": "5637145347",
+            "name": "RAQUI"
+          },
+          {
+            "id": "5637145348",
+            "name": "VILLA ALEGRE"
+          }
+        ]
+      },
+      {
+        "id": "5637144790",
+        "name": "COBQUECURA",
+        "localities": [
+          {
+            "id": "5637145362",
+            "name": "BUCHUPUREO"
+          },
+          {
+            "id": "5637145363",
+            "name": "COBQUECURA"
+          },
+          {
+            "id": "5637145364",
+            "name": "PULLAY"
+          }
+        ]
+      },
+      {
+        "id": "5637144777",
+        "name": "SAN ROSENDO",
+        "localities": [
+          {
+            "id": "5637145471",
+            "name": "BUENURAQUI"
+          },
+          {
+            "id": "5637145472",
+            "name": "SAN ROSENDO"
+          }
+        ]
+      },
+      {
+        "id": "5637144789",
+        "name": "BULNES",
+        "localities": [
+          {
+            "id": "5637145349",
+            "name": "BULNES"
+          },
+          {
+            "id": "5637145350",
+            "name": "QUINCHAMALI"
+          }
+        ]
+      },
+      {
+        "id": "5637144766",
+        "name": "CABRERO",
+        "localities": [
+          {
+            "id": "5637145351",
+            "name": "CABRERO"
+          },
+          {
+            "id": "5637145352",
+            "name": "LIUCURA"
+          },
+          {
+            "id": "5637145353",
+            "name": "PASO HONDO"
+          },
+          {
+            "id": "5637145354",
+            "name": "TOMECO"
+          }
+        ]
+      },
+      {
+        "id": "5637144813",
+        "name": "SAN CARLOS",
+        "localities": [
+          {
+            "id": "5637145457",
+            "name": "CACHAPOAL"
+          },
+          {
+            "id": "5637145458",
+            "name": "EL SAUCE"
+          },
+          {
+            "id": "5637145459",
+            "name": "NAHUELTORO"
+          },
+          {
+            "id": "5637145460",
+            "name": "SAN CARLOS"
+          },
+          {
+            "id": "5637145461",
+            "name": "SAN GREGORIO NIQUEN"
+          },
+          {
+            "id": "5637145462",
+            "name": "ZEMITA"
+          }
+        ]
+      },
+      {
+        "id": "5637144821",
+        "name": "YUNGAY",
+        "localities": [
+          {
+            "id": "5637145508",
+            "name": "CAMPANARIO"
+          },
+          {
+            "id": "5637145509",
+            "name": "CHOLGUAN"
+          },
+          {
+            "id": "5637145510",
+            "name": "EL SALTILLO"
+          },
+          {
+            "id": "5637145511",
+            "name": "PANGAL"
+          },
+          {
+            "id": "5637145512",
+            "name": "YUNGAY"
+          }
+        ]
+      },
+      {
+        "id": "5637144799",
+        "name": "NINHUE",
+        "localities": [
+          {
+            "id": "5637145429",
+            "name": "CANCHA ALEGRE"
+          },
+          {
+            "id": "5637145430",
+            "name": "COIPIN"
+          },
+          {
+            "id": "5637145431",
+            "name": "EL PARRON"
+          },
+          {
+            "id": "5637145432",
+            "name": "NINHUE"
+          },
+          {
+            "id": "5637145433",
+            "name": "POCILLAS"
+          },
+          {
+            "id": "5637145434",
+            "name": "TORRECILLA"
+          }
+        ]
+      },
+      {
+        "id": "5637144751",
+        "name": "CAÑETE",
+        "localities": [
+          {
+            "id": "5637145355",
+            "name": "CANETE"
+          },
+          {
+            "id": "5637145356",
+            "name": "CAYUCUPIL"
+          },
+          {
+            "id": "5637145357",
+            "name": "SAN ALFONSO"
+          }
+        ]
+      },
+      {
+        "id": "5637144775",
+        "name": "QUILLECO",
+        "localities": [
+          {
+            "id": "5637145450",
+            "name": "CANICURA"
+          },
+          {
+            "id": "5637145451",
+            "name": "CANTERAS"
+          },
+          {
+            "id": "5637145452",
+            "name": "QUILLECO"
+          },
+          {
+            "id": "5637145453",
+            "name": "VILLA MERCEDES"
+          }
+        ]
+      },
+      {
+        "id": "5637144731",
+        "name": "CHIGUAYANTE",
+        "localities": [
+          {
+            "id": "5637145358",
+            "name": "CHIGUAYANTE"
+          }
+        ]
+      },
+      {
+        "id": "5637144786",
+        "name": "CHILLÁN",
+        "localities": [
+          {
+            "id": "5637145359",
+            "name": "CHILLAN"
+          }
+        ]
+      },
+      {
+        "id": "5637144795",
+        "name": "CHILLÁN VIEJO",
+        "localities": [
+          {
+            "id": "5637145360",
+            "name": "CHILLAN VIEJO"
+          },
+          {
+            "id": "5637145361",
+            "name": "RUCAPEQUEN"
+          }
+        ]
+      },
+      {
+        "id": "5637144771",
+        "name": "NACIMIENTO",
+        "localities": [
+          {
+            "id": "5637145421",
+            "name": "CHOROICO"
+          },
+          {
+            "id": "5637145422",
+            "name": "COIHUE"
+          },
+          {
+            "id": "5637145423",
+            "name": "DIUQUIN"
+          },
+          {
+            "id": "5637145424",
+            "name": "NACIMIENTO"
+          },
+          {
+            "id": "5637145425",
+            "name": "PROGRESO"
+          },
+          {
+            "id": "5637145426",
+            "name": "SANTA FE"
+          }
+        ]
+      },
+      {
+        "id": "5637144792",
+        "name": "COELEMU",
+        "localities": [
+          {
+            "id": "5637145365",
+            "name": "COELEMU"
+          },
+          {
+            "id": "5637145366",
+            "name": "CONAIR"
+          },
+          {
+            "id": "5637145367",
+            "name": "NIPAS"
+          },
+          {
+            "id": "5637145368",
+            "name": "NUEVA ALDEA"
+          },
+          {
+            "id": "5637145369",
+            "name": "RAQUIL"
+          },
+          {
+            "id": "5637145370",
+            "name": "SAN IGNACIO"
+          }
+        ]
+      },
+      {
+        "id": "5637144793",
+        "name": "COIHUECO",
+        "localities": [
+          {
+            "id": "5637145371",
+            "name": "COIHUECO"
+          },
+          {
+            "id": "5637145372",
+            "name": "FUNDO LOS ROBLES"
+          },
+          {
+            "id": "5637145373",
+            "name": "LA CAPILLA"
+          },
+          {
+            "id": "5637145374",
+            "name": "MINAS DEL PRADO"
+          },
+          {
+            "id": "5637145375",
+            "name": "TANILVORO"
+          }
+        ]
+      },
+      {
+        "id": "5637144820",
+        "name": "TREGUACO",
+        "localities": [
+          {
+            "id": "5637145491",
+            "name": "COLMUYAO"
+          },
+          {
+            "id": "5637145492",
+            "name": "MELA"
+          },
+          {
+            "id": "5637145493",
+            "name": "TREHUACO"
+          }
+        ]
+      },
+      {
+        "id": "5637144768",
+        "name": "LAJA",
+        "localities": [
+          {
+            "id": "5637145395",
+            "name": "COLONIA"
+          },
+          {
+            "id": "5637145396",
+            "name": "LAJA"
+          }
+        ]
+      },
+      {
+        "id": "5637144728",
+        "name": "CONCEPCIÓN",
+        "localities": [
+          {
+            "id": "5637145376",
+            "name": "CONCEPCION"
+          },
+          {
+            "id": "5637145377",
+            "name": "RANGUELMO"
+          }
+        ]
+      },
+      {
+        "id": "5637144806",
+        "name": "PORTEZUELO",
+        "localities": [
+          {
+            "id": "5637145443",
+            "name": "CONFLUENCIA"
+          },
+          {
+            "id": "5637145444",
+            "name": "PORTEZUELO"
+          }
+        ]
+      },
+      {
+        "id": "5637144730",
+        "name": "CORONEL",
+        "localities": [
+          {
+            "id": "5637145380",
+            "name": "CORONEL"
+          }
+        ]
+      },
+      {
+        "id": "5637144748",
+        "name": "LEBU",
+        "localities": [
+          {
+            "id": "5637145397",
+            "name": "CURACO"
+          },
+          {
+            "id": "5637145398",
+            "name": "LEBU"
+          },
+          {
+            "id": "5637145399",
+            "name": "MILLONHUE"
+          },
+          {
+            "id": "5637145400",
+            "name": "PEHUEN"
+          },
+          {
+            "id": "5637145401",
+            "name": "QUINAHUE"
+          },
+          {
+            "id": "5637145402",
+            "name": "RANQUILCO"
+          },
+          {
+            "id": "5637145403",
+            "name": "RUCARAQUIL"
+          },
+          {
+            "id": "5637145404",
+            "name": "SARA DE LEBU"
+          },
+          {
+            "id": "5637145405",
+            "name": "YENECO"
+          }
+        ]
+      },
+      {
+        "id": "5637144756",
+        "name": "CURANILAHUE",
+        "localities": [
+          {
+            "id": "5637145381",
+            "name": "CURANILAHUE"
+          },
+          {
+            "id": "5637145382",
+            "name": "SAN JOSE DE COLICO"
+          }
+        ]
+      },
+      {
+        "id": "5637144745",
+        "name": "TOMÉ",
+        "localities": [
+          {
+            "id": "5637145486",
+            "name": "DICHATO"
+          },
+          {
+            "id": "5637145487",
+            "name": "MENQUE"
+          },
+          {
+            "id": "5637145488",
+            "name": "RAFAEL"
+          },
+          {
+            "id": "5637145489",
+            "name": "TOME"
+          },
+          {
+            "id": "5637145490",
+            "name": "VEGAS DE ITATA"
+          }
+        ]
+      },
+      {
+        "id": "5637144763",
+        "name": "LOS ÁNGELES",
+        "localities": [
+          {
+            "id": "5637145410",
+            "name": "EL ALAMO"
+          },
+          {
+            "id": "5637145411",
+            "name": "LOS ANGELES"
+          },
+          {
+            "id": "5637145412",
+            "name": "SAN CARLOS PUREN"
+          },
+          {
+            "id": "5637145413",
+            "name": "SANTA CLARA"
+          }
+        ]
+      },
+      {
+        "id": "5637144769",
+        "name": "MULCHÉN",
+        "localities": [
+          {
+            "id": "5637145415",
+            "name": "EL AVELLANO"
+          },
+          {
+            "id": "5637145416",
+            "name": "EL MORRO"
+          },
+          {
+            "id": "5637145417",
+            "name": "LOS MAICAS"
+          },
+          {
+            "id": "5637145418",
+            "name": "MAITENES"
+          },
+          {
+            "id": "5637145419",
+            "name": "MELICA"
+          },
+          {
+            "id": "5637145420",
+            "name": "MULCHEN"
+          }
+        ]
+      },
+      {
+        "id": "5637144778",
+        "name": "SANTA BÁRBARA",
+        "localities": [
+          {
+            "id": "5637145473",
+            "name": "EL GUACHI"
+          },
+          {
+            "id": "5637145474",
+            "name": "LOLCO"
+          },
+          {
+            "id": "5637145475",
+            "name": "LOS BRUJOS"
+          },
+          {
+            "id": "5637145476",
+            "name": "LOS PLACERES"
+          },
+          {
+            "id": "5637145477",
+            "name": "SANTA BARBARA"
+          },
+          {
+            "id": "5637145478",
+            "name": "VILLUCURA"
+          }
+        ]
+      },
+      {
+        "id": "5637144802",
+        "name": "PEMUCO",
+        "localities": [
+          {
+            "id": "5637145436",
+            "name": "GENERAL CRUZ"
+          },
+          {
+            "id": "5637145437",
+            "name": "PEMUCO"
+          },
+          {
+            "id": "5637145438",
+            "name": "SAN PEDRO DE ALCANTARA"
+          }
+        ]
+      },
+      {
+        "id": "5637144747",
+        "name": "HUALPÉN",
+        "localities": [
+          {
+            "id": "5637145390",
+            "name": "HUALPEN"
+          },
+          {
+            "id": "5637145391",
+            "name": "LA BOCA"
+          }
+        ]
+      },
+      {
+        "id": "5637144734",
+        "name": "HUALQUI",
+        "localities": [
+          {
+            "id": "5637145392",
+            "name": "HUALQUI"
+          },
+          {
+            "id": "5637145393",
+            "name": "QUILACOYA"
+          },
+          {
+            "id": "5637145394",
+            "name": "TALCAMAVIDA"
+          }
+        ]
+      },
+      {
+        "id": "5637144780",
+        "name": "TUCAPEL",
+        "localities": [
+          {
+            "id": "5637145494",
+            "name": "HUEPIL"
+          },
+          {
+            "id": "5637145495",
+            "name": "POLCURA"
+          },
+          {
+            "id": "5637145496",
+            "name": "TRUPAN"
+          },
+          {
+            "id": "5637145497",
+            "name": "TUCAPEL"
+          }
+        ]
+      },
+      {
+        "id": "5637144743",
+        "name": "TALCAHUANO",
+        "localities": [
+          {
+            "id": "5637145480",
+            "name": "ISLA QUIRIQUINA"
+          },
+          {
+            "id": "5637145481",
+            "name": "RANCHO TALCAHUANO"
+          },
+          {
+            "id": "5637145482",
+            "name": "SAN VICENTE"
+          },
+          {
+            "id": "5637145483",
+            "name": "TALCAHUANO"
+          }
+        ]
+      },
+      {
+        "id": "5637144815",
+        "name": "SAN FABIÁN",
+        "localities": [
+          {
+            "id": "5637145463",
+            "name": "LA PUNTILLA"
+          },
+          {
+            "id": "5637145464",
+            "name": "LOS PUQUIOS"
+          },
+          {
+            "id": "5637145465",
+            "name": "SAN FABIAN DE ALICO"
+          }
+        ]
+      },
+      {
+        "id": "5637144816",
+        "name": "SAN IGNACIO",
+        "localities": [
+          {
+            "id": "5637145466",
+            "name": "LAS TRANCAS"
+          },
+          {
+            "id": "5637145467",
+            "name": "RECINTO"
+          },
+          {
+            "id": "5637145468",
+            "name": "TERMAS DE CHILLAN"
+          }
+        ]
+      },
+      {
+        "id": "5637144738",
+        "name": "PENCO",
+        "localities": [
+          {
+            "id": "5637145439",
+            "name": "LIRQUEN"
+          },
+          {
+            "id": "5637145440",
+            "name": "PENCO"
+          },
+          {
+            "id": "5637145441",
+            "name": "ROA"
+          }
+        ]
+      },
+      {
+        "id": "5637144797",
+        "name": "EL CARMEN",
+        "localities": [
+          {
+            "id": "5637145383",
+            "name": "LOS CASTANOS"
+          },
+          {
+            "id": "5637145384",
+            "name": "PUEBLO SECO"
+          },
+          {
+            "id": "5637145385",
+            "name": "QUIRIQUINA"
+          },
+          {
+            "id": "5637145386",
+            "name": "TREGUALEMU"
+          }
+        ]
+      },
+      {
+        "id": "5637144736",
+        "name": "LOTA",
+        "localities": [
+          {
+            "id": "5637145414",
+            "name": "LOTA"
+          }
+        ]
+      },
+      {
+        "id": "5637144772",
+        "name": "NEGRETE",
+        "localities": [
+          {
+            "id": "5637145427",
+            "name": "NEGRETE"
+          },
+          {
+            "id": "5637145428",
+            "name": "RIHUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144800",
+        "name": "ÑIQUÉN",
+        "localities": [
+          {
+            "id": "5637145435",
+            "name": "NIQUEN"
+          }
+        ]
+      },
+      {
+        "id": "5637144760",
+        "name": "TIRÚA",
+        "localities": [
+          {
+            "id": "5637145484",
+            "name": "PAILACO"
+          },
+          {
+            "id": "5637145485",
+            "name": "TIRUA"
+          }
+        ]
+      },
+      {
+        "id": "5637144804",
+        "name": "PINTO",
+        "localities": [
+          {
+            "id": "5637145442",
+            "name": "PINTO"
+          }
+        ]
+      },
+      {
+        "id": "5637144807",
+        "name": "QUILLÓN",
+        "localities": [
+          {
+            "id": "5637145454",
+            "name": "QUILLON"
+          }
+        ]
+      },
+      {
+        "id": "5637144809",
+        "name": "QUIRIHUE",
+        "localities": [
+          {
+            "id": "5637145455",
+            "name": "QUIRIHUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144811",
+        "name": "RÁNQUIL",
+        "localities": [
+          {
+            "id": "5637145456",
+            "name": "RANQUIL"
+          }
+        ]
+      },
+      {
+        "id": "5637144818",
+        "name": "SAN NICOLÁS",
+        "localities": [
+          {
+            "id": "5637145469",
+            "name": "SAN NICOLAS"
+          }
+        ]
+      },
+      {
+        "id": "5637144740",
+        "name": "SAN PEDRO DE LA PAZ",
+        "localities": [
+          {
+            "id": "5637145470",
+            "name": "SAN PEDRO DE LA PAZ"
+          }
+        ]
+      },
+      {
+        "id": "5637144741",
+        "name": "SANTA JUANA",
+        "localities": [
+          {
+            "id": "5637145479",
+            "name": "SANTA JUANA"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "03",
+    "subdivisions": [
+      {
+        "id": "5637144601",
+        "name": "VALLENAR",
+        "localities": [
+          {
+            "id": "5637144816",
+            "name": "ALGARROBAL"
+          },
+          {
+            "id": "5637144817",
+            "name": "CACHIYUYO"
+          },
+          {
+            "id": "5637144818",
+            "name": "DOMEYKO"
+          },
+          {
+            "id": "5637144819",
+            "name": "EL BORATILLO"
+          },
+          {
+            "id": "5637144820",
+            "name": "EL DONKEY"
+          },
+          {
+            "id": "5637144821",
+            "name": "LA HOYADA"
+          },
+          {
+            "id": "5637144822",
+            "name": "LOS COLORADOS"
+          },
+          {
+            "id": "5637144823",
+            "name": "OBSERVATORIO LA SILLA"
+          },
+          {
+            "id": "5637144824",
+            "name": "OBSERVATORIO LAS CAMPANAS"
+          },
+          {
+            "id": "5637144825",
+            "name": "VALLENAR"
+          }
+        ]
+      },
+      {
+        "id": "5637144602",
+        "name": "ALTO DEL CARMEN",
+        "localities": [
+          {
+            "id": "5637144741",
+            "name": "ALTO DEL CARMEN"
+          },
+          {
+            "id": "5637144742",
+            "name": "CONAY"
+          },
+          {
+            "id": "5637144743",
+            "name": "EL NEVADO"
+          },
+          {
+            "id": "5637144744",
+            "name": "EL RETAMO"
+          },
+          {
+            "id": "5637144745",
+            "name": "JUNTA VALERIANO"
+          },
+          {
+            "id": "5637144746",
+            "name": "LA ARENA"
+          },
+          {
+            "id": "5637144747",
+            "name": "LA HIGUERITA"
+          },
+          {
+            "id": "5637144748",
+            "name": "LAGUNA GRANDE"
+          },
+          {
+            "id": "5637144749",
+            "name": "SAN FELIX"
+          }
+        ]
+      },
+      {
+        "id": "5637144598",
+        "name": "TIERRA AMARILLA",
+        "localities": [
+          {
+            "id": "5637144797",
+            "name": "AMOLANAS"
+          },
+          {
+            "id": "5637144798",
+            "name": "CHANARCILLO"
+          },
+          {
+            "id": "5637144799",
+            "name": "EL VOLCAN"
+          },
+          {
+            "id": "5637144800",
+            "name": "ELISA DE BORDO"
+          },
+          {
+            "id": "5637144801",
+            "name": "LA GUARDIA"
+          },
+          {
+            "id": "5637144802",
+            "name": "LA PUERTA"
+          },
+          {
+            "id": "5637144803",
+            "name": "LOS AZULES"
+          },
+          {
+            "id": "5637144804",
+            "name": "LOS LOROS"
+          },
+          {
+            "id": "5637144805",
+            "name": "MINA CANDELARIA"
+          },
+          {
+            "id": "5637144806",
+            "name": "MINA LA COIPA"
+          },
+          {
+            "id": "5637144807",
+            "name": "MINA MARTE"
+          },
+          {
+            "id": "5637144808",
+            "name": "NANTOCO"
+          },
+          {
+            "id": "5637144809",
+            "name": "PAIPOTE"
+          },
+          {
+            "id": "5637144810",
+            "name": "PASTOS LARGOS"
+          },
+          {
+            "id": "5637144811",
+            "name": "PUQUIOS"
+          },
+          {
+            "id": "5637144812",
+            "name": "SAN ANTONIO - COPIAPO"
+          },
+          {
+            "id": "5637144813",
+            "name": "TIERRA AMARILLA"
+          },
+          {
+            "id": "5637144814",
+            "name": "TOTORALILLO"
+          },
+          {
+            "id": "5637144815",
+            "name": "VALLE HERMOSO"
+          }
+        ]
+      },
+      {
+        "id": "5637144597",
+        "name": "CALDERA",
+        "localities": [
+          {
+            "id": "5637144750",
+            "name": "BAHIA INGLESA"
+          },
+          {
+            "id": "5637144751",
+            "name": "CALDERA"
+          },
+          {
+            "id": "5637144752",
+            "name": "PUERTO VIEJO"
+          },
+          {
+            "id": "5637144753",
+            "name": "RANCHO CALDERA"
+          }
+        ]
+      },
+      {
+        "id": "5637144596",
+        "name": "COPIAPÓ",
+        "localities": [
+          {
+            "id": "5637144763",
+            "name": "BARRANQUILLAS"
+          },
+          {
+            "id": "5637144764",
+            "name": "CALETA DEL MEDIO"
+          },
+          {
+            "id": "5637144765",
+            "name": "CALETA PAJONAL"
+          },
+          {
+            "id": "5637144766",
+            "name": "COPIAPO"
+          },
+          {
+            "id": "5637144767",
+            "name": "HACIENDA CASTILLA"
+          },
+          {
+            "id": "5637144768",
+            "name": "TOTORAL"
+          }
+        ]
+      },
+      {
+        "id": "5637144600",
+        "name": "DIEGO DE ALMAGRO",
+        "localities": [
+          {
+            "id": "5637144769",
+            "name": "BOCAMINA"
+          },
+          {
+            "id": "5637144770",
+            "name": "DIEGO DE ALMAGRO"
+          },
+          {
+            "id": "5637144771",
+            "name": "EL PINO"
+          },
+          {
+            "id": "5637144772",
+            "name": "EL SALADO"
+          },
+          {
+            "id": "5637144773",
+            "name": "EL SALVADOR"
+          },
+          {
+            "id": "5637144774",
+            "name": "FINCA DE CHANARAL"
+          },
+          {
+            "id": "5637144775",
+            "name": "INCA DE ORO"
+          },
+          {
+            "id": "5637144776",
+            "name": "LA OLA"
+          },
+          {
+            "id": "5637144777",
+            "name": "LLANTA"
+          },
+          {
+            "id": "5637144778",
+            "name": "MINA CHIVATO"
+          },
+          {
+            "id": "5637144779",
+            "name": "MONTANDON"
+          },
+          {
+            "id": "5637144780",
+            "name": "POTRERILLOS"
+          },
+          {
+            "id": "5637144781",
+            "name": "TERMAS DE RIO NEGRO"
+          },
+          {
+            "id": "5637144782",
+            "name": "VEGAS DE CHANARAL ALTO"
+          }
+        ]
+      },
+      {
+        "id": "5637144603",
+        "name": "FREIRINA",
+        "localities": [
+          {
+            "id": "5637144783",
+            "name": "CALETA CHANARAL"
+          },
+          {
+            "id": "5637144784",
+            "name": "CALETA SARCO"
+          },
+          {
+            "id": "5637144785",
+            "name": "CARRIZALILLO"
+          },
+          {
+            "id": "5637144786",
+            "name": "FREIRINA"
+          },
+          {
+            "id": "5637144787",
+            "name": "LA FRAGUITA"
+          },
+          {
+            "id": "5637144788",
+            "name": "LABRAR"
+          },
+          {
+            "id": "5637144789",
+            "name": "MAITENCILLO"
+          },
+          {
+            "id": "5637144790",
+            "name": "MINA ALGARROBO"
+          }
+        ]
+      },
+      {
+        "id": "5637144604",
+        "name": "HUASCO",
+        "localities": [
+          {
+            "id": "5637144791",
+            "name": "CANTO DE AGUA"
+          },
+          {
+            "id": "5637144792",
+            "name": "CARRIZAL BAJO"
+          },
+          {
+            "id": "5637144793",
+            "name": "HUASCO"
+          },
+          {
+            "id": "5637144794",
+            "name": "HUASCO BAJO"
+          },
+          {
+            "id": "5637144795",
+            "name": "LOS TOYOS"
+          },
+          {
+            "id": "5637144796",
+            "name": "MIRAFLORES"
+          }
+        ]
+      },
+      {
+        "id": "5637144599",
+        "name": "CHAÑARAL",
+        "localities": [
+          {
+            "id": "5637144754",
+            "name": "CHANARAL"
+          },
+          {
+            "id": "5637144755",
+            "name": "FLAMENCO"
+          },
+          {
+            "id": "5637144756",
+            "name": "MINA DICHOSA"
+          },
+          {
+            "id": "5637144757",
+            "name": "MINA LA ESTRELLA"
+          },
+          {
+            "id": "5637144758",
+            "name": "MINA ROSARIO"
+          },
+          {
+            "id": "5637144759",
+            "name": "OBISPITO"
+          },
+          {
+            "id": "5637144760",
+            "name": "PAN DE AZUCAR"
+          },
+          {
+            "id": "5637144761",
+            "name": "PLAYA REFUGIO"
+          },
+          {
+            "id": "5637144762",
+            "name": "PUERTO FINO"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "05",
+    "subdivisions": [
+      {
+        "id": "5637144643",
+        "name": "ALGARROBO",
+        "localities": [
+          {
+            "id": "5637145003",
+            "name": "ALGARROBO"
+          },
+          {
+            "id": "5637145004",
+            "name": "MIRASOL"
+          },
+          {
+            "id": "5637145005",
+            "name": "QUINTAY"
+          }
+        ]
+      },
+      {
+        "id": "5637144633",
+        "name": "CABILDO",
+        "localities": [
+          {
+            "id": "5637145006",
+            "name": "ALICAHUE"
+          },
+          {
+            "id": "5637145007",
+            "name": "ARTIFICIO"
+          },
+          {
+            "id": "5637145008",
+            "name": "CABILDO"
+          },
+          {
+            "id": "5637145009",
+            "name": "EL GUAYACAN"
+          },
+          {
+            "id": "5637145010",
+            "name": "LA MORA"
+          },
+          {
+            "id": "5637145011",
+            "name": "LA VINA"
+          },
+          {
+            "id": "5637145012",
+            "name": "LAS PALMAS"
+          },
+          {
+            "id": "5637145013",
+            "name": "PEDEGUA"
+          }
+        ]
+      },
+      {
+        "id": "5637144636",
+        "name": "ZAPALLAR",
+        "localities": [
+          {
+            "id": "5637145126",
+            "name": "CACHAGUA"
+          },
+          {
+            "id": "5637145127",
+            "name": "CATAPILCO"
+          },
+          {
+            "id": "5637145128",
+            "name": "ZAPALLAR"
+          }
+        ]
+      },
+      {
+        "id": "5637144624",
+        "name": "PUCHUNCAVÍ",
+        "localities": [
+          {
+            "id": "5637145080",
+            "name": "CALETA HORCON"
+          },
+          {
+            "id": "5637145081",
+            "name": "CANELA ALTA"
+          },
+          {
+            "id": "5637145082",
+            "name": "CANELA BAJA"
+          },
+          {
+            "id": "5637145083",
+            "name": "EL RINCON"
+          },
+          {
+            "id": "5637145084",
+            "name": "LA LAGUNA"
+          },
+          {
+            "id": "5637145085",
+            "name": "LA QUEBRADA"
+          },
+          {
+            "id": "5637145086",
+            "name": "PUCHUNCAVI"
+          },
+          {
+            "id": "5637145087",
+            "name": "VENTANAS"
+          }
+        ]
+      },
+      {
+        "id": "5637144632",
+        "name": "LA LIGUA",
+        "localities": [
+          {
+            "id": "5637145046",
+            "name": "CALETA POLCURA"
+          },
+          {
+            "id": "5637145047",
+            "name": "EL INGENIO"
+          },
+          {
+            "id": "5637145048",
+            "name": "LA LIGUA"
+          },
+          {
+            "id": "5637145049",
+            "name": "LA PATAGUA"
+          },
+          {
+            "id": "5637145050",
+            "name": "LONGOTOMA"
+          },
+          {
+            "id": "5637145051",
+            "name": "PICHICUY"
+          },
+          {
+            "id": "5637145052",
+            "name": "QUINQUIMO"
+          }
+        ]
+      },
+      {
+        "id": "5637144620",
+        "name": "VALPARAÍSO",
+        "localities": [
+          {
+            "id": "5637145115",
+            "name": "CALETAS LAS DOCAS"
+          },
+          {
+            "id": "5637145116",
+            "name": "LAGUNA VERDE"
+          },
+          {
+            "id": "5637145117",
+            "name": "LAS TABLAS"
+          },
+          {
+            "id": "5637145118",
+            "name": "PENUELAS"
+          },
+          {
+            "id": "5637145119",
+            "name": "PLACILLA"
+          },
+          {
+            "id": "5637145120",
+            "name": "PUNTA CURAUMILLA"
+          },
+          {
+            "id": "5637145121",
+            "name": "VALPARAISO"
+          }
+        ]
+      },
+      {
+        "id": "5637144629",
+        "name": "CALLE LARGA",
+        "localities": [
+          {
+            "id": "5637145015",
+            "name": "CALLE LARGA"
+          }
+        ]
+      },
+      {
+        "id": "5637144644",
+        "name": "CARTAGENA",
+        "localities": [
+          {
+            "id": "5637145016",
+            "name": "CARTAGENA"
+          },
+          {
+            "id": "5637145017",
+            "name": "EL TURCO"
+          },
+          {
+            "id": "5637145018",
+            "name": "LAS CRUCES"
+          },
+          {
+            "id": "5637145019",
+            "name": "LO ABARCA"
+          },
+          {
+            "id": "5637145020",
+            "name": "SAN SEBASTIAN"
+          }
+        ]
+      },
+      {
+        "id": "5637144621",
+        "name": "CASABLANCA",
+        "localities": [
+          {
+            "id": "5637145021",
+            "name": "CASABLANCA"
+          },
+          {
+            "id": "5637145022",
+            "name": "EL CARPINTERO"
+          },
+          {
+            "id": "5637145023",
+            "name": "LAGUNILLAS"
+          },
+          {
+            "id": "5637145024",
+            "name": "LAS DICHAS"
+          },
+          {
+            "id": "5637145025",
+            "name": "LAS MERCEDES"
+          },
+          {
+            "id": "5637145026",
+            "name": "LO OROZCO"
+          },
+          {
+            "id": "5637145027",
+            "name": "LO VASQUEZ"
+          },
+          {
+            "id": "5637145028",
+            "name": "SAN GERONIMO"
+          },
+          {
+            "id": "5637145029",
+            "name": "TAPIHUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144649",
+        "name": "CATEMU",
+        "localities": [
+          {
+            "id": "5637145030",
+            "name": "CATEMU"
+          },
+          {
+            "id": "5637145031",
+            "name": "CHAGRES"
+          },
+          {
+            "id": "5637145032",
+            "name": "EL CERRADO"
+          },
+          {
+            "id": "5637145033",
+            "name": "EL COBRE"
+          },
+          {
+            "id": "5637145034",
+            "name": "NILHUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144648",
+        "name": "SAN FELIPE",
+        "localities": [
+          {
+            "id": "5637145106",
+            "name": "CERRILLOS DE SAN FELIPE"
+          },
+          {
+            "id": "5637145107",
+            "name": "CURIMON"
+          },
+          {
+            "id": "5637145108",
+            "name": "SAN FELIPE"
+          }
+        ]
+      },
+      {
+        "id": "5637144635",
+        "name": "PETORCA",
+        "localities": [
+          {
+            "id": "5637145073",
+            "name": "CHALACO"
+          },
+          {
+            "id": "5637145074",
+            "name": "CHINCOLCO"
+          },
+          {
+            "id": "5637145075",
+            "name": "HIERRO VIEJO"
+          },
+          {
+            "id": "5637145076",
+            "name": "MANUEL MONTT"
+          },
+          {
+            "id": "5637145077",
+            "name": "MINA EL ROSARIO"
+          },
+          {
+            "id": "5637145078",
+            "name": "PEDERNAL"
+          },
+          {
+            "id": "5637145079",
+            "name": "PETORCA"
+          }
+        ]
+      },
+      {
+        "id": "5637144622",
+        "name": "CONCÓN",
+        "localities": [
+          {
+            "id": "5637145035",
+            "name": "CONCON"
+          }
+        ]
+      },
+      {
+        "id": "5637144645",
+        "name": "EL QUISCO",
+        "localities": [
+          {
+            "id": "5637145036",
+            "name": "COSTA AZUL"
+          },
+          {
+            "id": "5637145037",
+            "name": "EL QUISCO"
+          },
+          {
+            "id": "5637145038",
+            "name": "ISLA NEGRA"
+          },
+          {
+            "id": "5637145039",
+            "name": "PUNTA DE TRALCA"
+          }
+        ]
+      },
+      {
+        "id": "5637144654",
+        "name": "QUILPUÉ",
+        "localities": [
+          {
+            "id": "5637145096",
+            "name": "EL BELLOTO"
+          },
+          {
+            "id": "5637145097",
+            "name": "LA RETUCA"
+          },
+          {
+            "id": "5637145098",
+            "name": "QUILPUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144641",
+        "name": "NOGALES",
+        "localities": [
+          {
+            "id": "5637145065",
+            "name": "EL COBRE"
+          },
+          {
+            "id": "5637145066",
+            "name": "EL MELON"
+          },
+          {
+            "id": "5637145067",
+            "name": "NOGALES"
+          }
+        ]
+      },
+      {
+        "id": "5637144646",
+        "name": "EL TABO",
+        "localities": [
+          {
+            "id": "5637145040",
+            "name": "EL TABO"
+          }
+        ]
+      },
+      {
+        "id": "5637144652",
+        "name": "PUTAENDO",
+        "localities": [
+          {
+            "id": "5637145088",
+            "name": "EL TARTARO"
+          },
+          {
+            "id": "5637145089",
+            "name": "GRANALLA"
+          },
+          {
+            "id": "5637145090",
+            "name": "PUTAENDO"
+          },
+          {
+            "id": "5637145091",
+            "name": "RESGUARDO LOS PATOS"
+          },
+          {
+            "id": "5637145092",
+            "name": "RINCONADA DE GUZMAN"
+          },
+          {
+            "id": "5637145093",
+            "name": "RINCONADA DE SILVA"
+          },
+          {
+            "id": "5637145094",
+            "name": "TRES FUERTES"
+          }
+        ]
+      },
+      {
+        "id": "5637144656",
+        "name": "OLMUÉ",
+        "localities": [
+          {
+            "id": "5637145068",
+            "name": "GRANIZO"
+          },
+          {
+            "id": "5637145069",
+            "name": "OLMUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144628",
+        "name": "LOS ANDES",
+        "localities": [
+          {
+            "id": "5637145058",
+            "name": "GUARDIA VIEJA"
+          },
+          {
+            "id": "5637145059",
+            "name": "JUNCAL"
+          },
+          {
+            "id": "5637145060",
+            "name": "LOS ANDES"
+          },
+          {
+            "id": "5637145061",
+            "name": "PORTILLO"
+          },
+          {
+            "id": "5637145062",
+            "name": "RIO BLANCO"
+          },
+          {
+            "id": "5637145063",
+            "name": "SALADILLO"
+          },
+          {
+            "id": "5637145064",
+            "name": "SALTO DEL SOLDADO"
+          }
+        ]
+      },
+      {
+        "id": "5637144639",
+        "name": "HIJUELAS",
+        "localities": [
+          {
+            "id": "5637145041",
+            "name": "HIJUELAS"
+          }
+        ]
+      },
+      {
+        "id": "5637144627",
+        "name": "ISLA DE PASCUA",
+        "localities": [
+          {
+            "id": "5637145042",
+            "name": "ISLA DE PASCUA"
+          }
+        ]
+      },
+      {
+        "id": "5637144623",
+        "name": "JUAN FERNÁNDEZ",
+        "localities": [
+          {
+            "id": "5637145043",
+            "name": "ISLA JUAN FERNANDEZ"
+          }
+        ]
+      },
+      {
+        "id": "5637144653",
+        "name": "SANTA MARÍA",
+        "localities": [
+          {
+            "id": "5637145109",
+            "name": "JAHUEL"
+          },
+          {
+            "id": "5637145110",
+            "name": "SANTA MARIA"
+          },
+          {
+            "id": "5637145111",
+            "name": "TERMAS DE JAHUEL"
+          }
+        ]
+      },
+      {
+        "id": "5637144638",
+        "name": "CALERA",
+        "localities": [
+          {
+            "id": "5637145014",
+            "name": "LA CALERA"
+          }
+        ]
+      },
+      {
+        "id": "5637144640",
+        "name": "LA CRUZ",
+        "localities": [
+          {
+            "id": "5637145044",
+            "name": "LA CRUZ"
+          },
+          {
+            "id": "5637145045",
+            "name": "OCOA"
+          }
+        ]
+      },
+      {
+        "id": "5637144647",
+        "name": "SANTO DOMINGO",
+        "localities": [
+          {
+            "id": "5637145112",
+            "name": "LEYDA"
+          },
+          {
+            "id": "5637145113",
+            "name": "LO GALLARDO"
+          },
+          {
+            "id": "5637145114",
+            "name": "SANTO DOMINGO"
+          }
+        ]
+      },
+      {
+        "id": "5637144655",
+        "name": "LIMACHE",
+        "localities": [
+          {
+            "id": "5637145053",
+            "name": "LIMACHE"
+          },
+          {
+            "id": "5637145054",
+            "name": "QUEBRADA ALVARADO"
+          }
+        ]
+      },
+      {
+        "id": "5637144650",
+        "name": "LLAILLAY",
+        "localities": [
+          {
+            "id": "5637145055",
+            "name": "LLAILLAY"
+          },
+          {
+            "id": "5637145056",
+            "name": "MONTENEGRO"
+          },
+          {
+            "id": "5637145057",
+            "name": "RUNGUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144642",
+        "name": "SAN ANTONIO",
+        "localities": [
+          {
+            "id": "5637145103",
+            "name": "LLO-LLEO"
+          },
+          {
+            "id": "5637145104",
+            "name": "SAN ANTONIO"
+          }
+        ]
+      },
+      {
+        "id": "5637144651",
+        "name": "PANQUEHUE",
+        "localities": [
+          {
+            "id": "5637145070",
+            "name": "LO  ERRAZURIZ"
+          },
+          {
+            "id": "5637145071",
+            "name": "PANQUEHUE"
+          }
+        ]
+      },
+      {
+        "id": "5637144634",
+        "name": "PAPUDO",
+        "localities": [
+          {
+            "id": "5637145072",
+            "name": "PAPUDO"
+          }
+        ]
+      },
+      {
+        "id": "5637144657",
+        "name": "VILLA ALEMANA",
+        "localities": [
+          {
+            "id": "5637145122",
+            "name": "PENABLANCA"
+          },
+          {
+            "id": "5637145123",
+            "name": "VILLA ALEMANA"
+          }
+        ]
+      },
+      {
+        "id": "5637144637",
+        "name": "QUILLOTA",
+        "localities": [
+          {
+            "id": "5637145095",
+            "name": "QUILLOTA"
+          }
+        ]
+      },
+      {
+        "id": "5637144625",
+        "name": "QUINTERO",
+        "localities": [
+          {
+            "id": "5637145099",
+            "name": "QUINTERO"
+          },
+          {
+            "id": "5637145100",
+            "name": "RITOQUE"
+          },
+          {
+            "id": "5637145101",
+            "name": "VALLE ALEGRE"
+          }
+        ]
+      },
+      {
+        "id": "5637144626",
+        "name": "VIÑA DEL MAR",
+        "localities": [
+          {
+            "id": "5637145124",
+            "name": "RENACA"
+          },
+          {
+            "id": "5637145125",
+            "name": "VINA DEL MAR"
+          }
+        ]
+      },
+      {
+        "id": "5637144630",
+        "name": "RINCONADA",
+        "localities": [
+          {
+            "id": "5637145102",
+            "name": "RINCONADA"
+          }
+        ]
+      },
+      {
+        "id": "5637144631",
+        "name": "SAN ESTEBAN",
+        "localities": [
+          {
+            "id": "5637145105",
+            "name": "SAN ESTEBAN"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "01",
+    "subdivisions": [
+      {
+        "id": "5637144583",
+        "name": "CAMIÑA",
+        "localities": [
+          {
+            "id": "5637144577",
+            "name": "ALPAJERES"
+          },
+          {
+            "id": "5637144578",
+            "name": "ALTUZA"
+          },
+          {
+            "id": "5637144579",
+            "name": "CALATAMBO"
+          },
+          {
+            "id": "5637144580",
+            "name": "CAMINA"
+          },
+          {
+            "id": "5637144581",
+            "name": "CARITAYA"
+          },
+          {
+            "id": "5637144582",
+            "name": "CHAPIQUITA"
+          },
+          {
+            "id": "5637144583",
+            "name": "CORSA"
+          },
+          {
+            "id": "5637144584",
+            "name": "NAMA"
+          },
+          {
+            "id": "5637144585",
+            "name": "PALCA"
+          },
+          {
+            "id": "5637144586",
+            "name": "PISAGUA"
+          },
+          {
+            "id": "5637144587",
+            "name": "VILAVILA"
+          }
+        ]
+      },
+      {
+        "id": "5637144581",
+        "name": "ALTO HOSPICIO",
+        "localities": [
+          {
+            "id": "5637144576",
+            "name": "ALTO HOSPICIO"
+          }
+        ]
+      },
+      {
+        "id": "5637144584",
+        "name": "COLCHANE",
+        "localities": [
+          {
+            "id": "5637144588",
+            "name": "ANAGUANI"
+          },
+          {
+            "id": "5637144589",
+            "name": "ANCOVINTO"
+          },
+          {
+            "id": "5637144590",
+            "name": "ANCUAQUE"
+          },
+          {
+            "id": "5637144591",
+            "name": "CARIQUIMA"
+          },
+          {
+            "id": "5637144592",
+            "name": "CHIAPA"
+          },
+          {
+            "id": "5637144593",
+            "name": "COLCHANE"
+          },
+          {
+            "id": "5637144594",
+            "name": "ENQUELGA"
+          },
+          {
+            "id": "5637144595",
+            "name": "ISLUGA"
+          },
+          {
+            "id": "5637144596",
+            "name": "MOCOMUCANE"
+          },
+          {
+            "id": "5637144597",
+            "name": "SOTOCA"
+          }
+        ]
+      },
+      {
+        "id": "5637144580",
+        "name": "IQUIQUE",
+        "localities": [
+          {
+            "id": "5637144607",
+            "name": "CALETA BUENA"
+          },
+          {
+            "id": "5637144608",
+            "name": "CHIPANA"
+          },
+          {
+            "id": "5637144609",
+            "name": "IQUIQUE"
+          },
+          {
+            "id": "5637144610",
+            "name": "MINA FAKIR"
+          },
+          {
+            "id": "5637144611",
+            "name": "MINA LOBOS"
+          },
+          {
+            "id": "5637144612",
+            "name": "PLAYA BLANCA"
+          },
+          {
+            "id": "5637144613",
+            "name": "PUERTO PATILLOS"
+          },
+          {
+            "id": "5637144614",
+            "name": "PUNTA LOBOS"
+          },
+          {
+            "id": "5637144615",
+            "name": "RIO SECO"
+          }
+        ]
+      },
+      {
+        "id": "5637144585",
+        "name": "HUARA",
+        "localities": [
+          {
+            "id": "5637144598",
+            "name": "CANCOSA"
+          },
+          {
+            "id": "5637144599",
+            "name": "CHUSMISA"
+          },
+          {
+            "id": "5637144600",
+            "name": "COLLACAGUA"
+          },
+          {
+            "id": "5637144601",
+            "name": "HUARA"
+          },
+          {
+            "id": "5637144602",
+            "name": "LIRIMA"
+          },
+          {
+            "id": "5637144603",
+            "name": "MOCHA"
+          },
+          {
+            "id": "5637144604",
+            "name": "PACHICA"
+          },
+          {
+            "id": "5637144605",
+            "name": "POROMA"
+          },
+          {
+            "id": "5637144606",
+            "name": "TARAPACA"
+          }
+        ]
+      },
+      {
+        "id": "5637144586",
+        "name": "PICA",
+        "localities": [
+          {
+            "id": "5637144616",
+            "name": "COLLAHUASI"
+          },
+          {
+            "id": "5637144617",
+            "name": "COLONIA PINTADOS"
+          },
+          {
+            "id": "5637144618",
+            "name": "GUATACONDO"
+          },
+          {
+            "id": "5637144619",
+            "name": "LA HUAICA"
+          },
+          {
+            "id": "5637144620",
+            "name": "MATILLA"
+          },
+          {
+            "id": "5637144621",
+            "name": "MINERA QUEBRADA BLANCA"
+          },
+          {
+            "id": "5637144622",
+            "name": "OFICINA VICTORIA"
+          },
+          {
+            "id": "5637144623",
+            "name": "PICA"
+          }
+        ]
+      },
+      {
+        "id": "5637144582",
+        "name": "POZO ALMONTE",
+        "localities": [
+          {
+            "id": "5637144624",
+            "name": "FUERTE BAQUEDANO"
+          },
+          {
+            "id": "5637144625",
+            "name": "LA TIRANA"
+          },
+          {
+            "id": "5637144626",
+            "name": "MACAYA"
+          },
+          {
+            "id": "5637144627",
+            "name": "MAMINA"
+          },
+          {
+            "id": "5637144628",
+            "name": "POZO ALMONTE"
+          },
+          {
+            "id": "5637144629",
+            "name": "TAMBILLO"
+          }
+        ]
+      }
+    ]
+  }
+]

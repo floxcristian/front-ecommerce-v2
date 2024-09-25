@@ -20,6 +20,8 @@ import { FeaturePanelComponent } from './components/feature-panel/feature-panel.
 import { ScrollService } from 'src/app/core/utils/scroll/scroll.service';
 // Models
 import { Enterprise } from './components/enterprise-form/enterprise.interface';
+import { CustomerService } from '@core/api/customer/customer.service';
+import { environment } from '@env/environment';
 
 const COMPONENTS = [
   AccountTypeFormComponent,
@@ -40,10 +42,12 @@ const COMPONENTS = [
 })
 export class RegisterComponent {
   private readonly scrollService = inject(ScrollService);
+  private readonly customerService = inject(CustomerService);
   private readonly platformId: Object = inject(PLATFORM_ID);
   private readonly router = inject(Router);
   enterpriseForm = signal<Enterprise | null>(null);
   personalForm = signal<any | null>(null);
+  addressForm = signal<any | null>(null);
 
   step = signal<number>(1);
   steps = signal<number>(2);
@@ -82,12 +86,12 @@ export class RegisterComponent {
   submitRoleForm(role: string): void {
     this.setNextStep();
     this.accountType.set(role);
-    if (role === 'customer') {
+    if (role === 'personal') {
       this.enterpriseForm.set(null);
     } else {
       this.personalForm.set(null);
     }
-    const totalSteps = role === 'customer' ? 2 : 3;
+    const totalSteps = role === 'personal' ? 2 : 3;
     this.steps.set(totalSteps);
   }
 
@@ -115,9 +119,95 @@ export class RegisterComponent {
   }
 
   submitAddressForm(addressInfo: any): void {
+    this.addressForm.set(addressInfo);
     console.log('addressInfo: ', addressInfo);
+    this.createUser();
   }
   // #endregion
 
   // TODO: para crear el usuario solo se debería pasar el código de localidad.
+
+  private createUser(): void {
+    console.log('Creando usuario...');
+    console.log('accountType: ', this.accountType());
+    console.log('personalInfo: ', this.personalForm());
+    console.log('enterpriseInfo: ', this.enterpriseForm());
+    console.log('addressInfo: ', this.addressForm());
+    const [formattedCity, province, region] =
+      this.addressForm().commune.split('@');
+
+    const isBusiness = this.accountType() === 'business';
+    const params = {
+      documentId: isBusiness
+        ? this.enterpriseForm()?.documentId
+        : this.personalForm().documentId,
+      documentType: 'CL',
+      userType: 0,
+      customerType: isBusiness ? 2 : 1,
+      businessLine: String(this.enterpriseForm()?.businessLineCode) || '',
+      businessLineName: String(this.enterpriseForm()?.businessLineCode) || '',
+      email: this.personalForm().email,
+      password: this.personalForm().password,
+      firstName: isBusiness
+        ? this.enterpriseForm()?.businessName
+        : this.personalForm().name,
+      lastName: this.personalForm().lastname,
+      contact: {
+        documentId: isBusiness
+          ? this.enterpriseForm()?.documentId
+          : this.personalForm().documentId,
+        name: this.personalForm().name,
+        lastName: this.personalForm().lastname,
+        phone: `${environment.phoneCode}${this.personalForm().phone}`,
+        position: isBusiness ? this.personalForm().position : 'FACTURACION',
+        email: this.personalForm().email,
+      },
+      address: {
+        city: formattedCity,
+        street: this.addressForm().street,
+        number: this.addressForm().number,
+        departmentOrHouse: this.addressForm().department,
+        reference: this.addressForm().reference,
+        latitude: this.addressForm().latitude,
+        longitude: this.addressForm().longitude,
+        location: this.addressForm().locality,
+        region: region,
+        province: province,
+      },
+    };
+    console.log('params: ', params);
+    /*this.customerService.createUser({
+      documentId: this.personalForm().documentId,
+      documentType: this.personalForm().documentType,
+      userType: 0,
+      customerType: isBusiness ? 2 : 1,
+      businessLine: this.enterpriseForm()?.businessLineCode || '',
+      businessLineName: this.enterpriseForm()?.businessLineName || '',
+      email: this.personalForm().email,
+      firstName: isBusiness
+        ? this.enterpriseForm()?.businessName
+        : this.personalForm().firstName,
+      lastName: this.personalForm().lastName,
+      contact: {
+        documentId: isBusiness ? '' : this.personalForm().documentId,
+        name: this.personalForm().firstName,
+        lastName: this.personalForm().lastName,
+        phone: this.personalForm().phone,
+        position: isBusiness ? this.personalForm().position : 'FACTURACION',
+        email: this.personalForm().email,
+      },
+      address: {
+        city: this.addressForm().commune,
+        street: this.addressForm().street,
+        number: this.addressForm().number,
+        departmentOrHouse: this.addressForm().department,
+        reference: this.addressForm().reference,
+        latitude: '',
+        longitude: '',
+        location: this.addressForm().location,
+        region: this.addressForm().region,
+        province: '', //this.addressForm().province,
+      },
+    });*/
+  }
 }

@@ -256,7 +256,6 @@ export class EnterpriseFormComponent implements OnInit {
    **/
   submit(value: Enterprise): void {
     if (this.enterpriseForm.valid) {
-      this.enterpriseForm.getRawValue();
       this.onSubmit.emit(value);
     } else {
       this.enterpriseForm.markAllAsTouched();

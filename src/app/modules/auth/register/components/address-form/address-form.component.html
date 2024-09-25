@@ -1,10 +1,10 @@
 <div class="border-bottom-1 surface-border mb-5">
   <p class="text-base text-400">
-    Paso {{ accountType() === "customer" ? 2 : 3 }} de {{ steps() }}
+    Paso {{ accountType() === "personal" ? 2 : 3 }} de {{ steps() }}
   </p>
   <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">
     {{
-      accountType() === "customer"
+      accountType() === "personal"
         ? "Dirección de despacho"
         : "Dirección de facturación"
     }}
@@ -52,20 +52,32 @@
 
   <div class="field mb-4 flex flex-column">
     <label for="street" class="font-medium text-900">Calle</label>
-    <input id="street" type="text" pInputText formControlName="street" />
+    <input
+      id="street"
+      type="text"
+      pInputText
+      formControlName="street"
+      (blur)="setAddressManually()"
+    />
   </div>
   <div class="field mb-4 flex flex-column">
     <label for="number" class="font-medium text-900">Número</label>
-    <input id="number" type="text" pInputText formControlName="number" />
+    <input
+      id="number"
+      type="text"
+      pInputText
+      formControlName="number"
+      (blur)="setAddressManually()"
+    />
   </div>
-  <div class="field mb-4 flex flex-column">
+  <!--<div class="field mb-4 flex flex-column">
     <label for="region" class="font-medium text-900">Región</label>
     <input id="region" type="text" pInputText formControlName="region" />
-  </div>
+  </div>-->
   <div class="field mb-4 flex flex-column">
     <label for="commune" class="font-medium text-900">Comuna</label>
-    <input id="commune" type="text" pInputText formControlName="commune" />
-    <!--<p-dropdown
+    <!-- <input id="commune" type="text" pInputText formControlName="commune" /> -->
+    <p-dropdown
       [options]="communes()"
       formControlName="commune"
       optionLabel="city"
@@ -78,7 +90,8 @@
       loadingIcon="fa-sharp fa-solid fa-spinner-third fa-spin"
       spellcheck="false"
       [loading]="isLoadingCommunes()"
-    />-->
+      (onBlur)="setCommuneManually()"
+    />
   </div>
   <div class="field mb-4 flex flex-column">
     <label for="locality" class="font-medium text-900">Localidad</label>
@@ -135,8 +148,8 @@
       >
     </div>
   </div>
-  <div class="field mb-6 flex">
-    <div class="flex align-items-center">
+  <div class="field mb-6 flex flex-column">
+    <div class="flex align-items-center" controlErrorContainer>
       <p-checkbox
         inputId="disclaimer"
         [binary]="true"

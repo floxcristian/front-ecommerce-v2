@@ -36,6 +36,8 @@ import { SkeletonModule } from 'primeng/skeleton';
 import { DropdownModule } from 'primeng/dropdown';
 // Rxjs
 import { filter, map, Observable } from 'rxjs';
+import { removeSpecialCharacters } from './utils';
+import { ControlErrorContainerDirective } from '@shared/directives/validation-message/directives/control-error-container/control-error-container.directive';
 
 const NG_MODULES = [
   ReactiveFormsModule,
@@ -53,7 +55,11 @@ const PRIME_MODULES = [
   DropdownModule,
 ];
 const COMPONENTS = [AddressInputComponent];
-const DIRECTIVES = [FormSubmitDirective, ControlErrorsDirective];
+const DIRECTIVES = [
+  FormSubmitDirective,
+  ControlErrorsDirective,
+  ControlErrorContainerDirective,
+];
 
 @Component({
   selector: 'app-address-form',
@@ -86,9 +92,22 @@ export class AddressFormComponent implements AfterViewInit, OnInit {
   communes = signal<any[]>([]);
   localities = signal<any[]>([]);
   isLoadingCommunes = signal<boolean>(true);
+  manualMapAddress = signal<string>('');
 
   get searchField() {
     return this.addressForm.controls['search'];
+  }
+
+  get streetField() {
+    return this.addressForm.controls['street'];
+  }
+
+  get numberField() {
+    return this.addressForm.controls['number'];
+  }
+
+  get communeField() {
+    return this.addressForm.controls['commune'];
   }
 
   constructor(
@@ -107,8 +126,10 @@ export class AddressFormComponent implements AfterViewInit, OnInit {
       street: [null, Validators.required],
       number: [null, Validators.required],
       commune: [null, Validators.required],
-      region: [null, Validators.required],
+      region: [null],
       locality: [null, Validators.required],
+      latitude: [null],
+      longitude: [null],
       department: [null],
       reference: [null],
       newsletter: [false],
@@ -133,8 +154,11 @@ export class AddressFormComponent implements AfterViewInit, OnInit {
   }
 
   submit(value: any): void {
-    console.log('OK');
-    //this.onSubmit.emit(value);
+    if (this.addressForm.valid) {
+      this.onSubmit.emit(value);
+    } else {
+      this.addressForm.markAllAsTouched();
+    }
   }
 
   onMapReady() {
@@ -148,11 +172,16 @@ export class AddressFormComponent implements AfterViewInit, OnInit {
         this.setInvalidAddress();
         return;
       }
-      this.setAddress(result.address_components);
+      this.setAddress(result);
       this.setMarker(result.geometry.location);
     });
   }
 
+  /**
+   * Al arrastrar el marcador en el mapa, obtener la dirección de la ubicación y setear los campos del formulario.
+   * @param event
+   * @returns
+   */
   onDragEnd(event: google.maps.MapMouseEvent): void {
     if (!event.latLng) {
       this.addressForm.patchValue({ search: null });
@@ -165,7 +194,7 @@ export class AddressFormComponent implements AfterViewInit, OnInit {
         this.setInvalidAddress();
         return;
       }
-      this.setAddress(result.address_components, true);
+      this.setAddress(result, true);
     });
   }
 
@@ -205,6 +234,8 @@ export class AddressFormComponent implements AfterViewInit, OnInit {
       commune: null,
       region: null,
       locality: null,
+      latitude: null,
+      longitude: null,
     });
   }
 
@@ -226,9 +257,11 @@ export class AddressFormComponent implements AfterViewInit, OnInit {
   }
 
   private setAddress(
-    addressComponents: google.maps.GeocoderAddressComponent[],
-    setSearch?: boolean
+    geocodeItem: google.maps.GeocoderResult,
+    setSearchField?: boolean
   ): void {
+    const { lat, lng } = geocodeItem.geometry.location.toJSON();
+    const addressComponents = geocodeItem.address_components;
     const street = this.getAddressItem(addressComponents, 'route');
     const number = this.getAddressItem(addressComponents, 'street_number');
     const commune = this.getAddressItem(
@@ -247,10 +280,20 @@ export class AddressFormComponent implements AfterViewInit, OnInit {
     const formattedAddress = [formattedStrett, ...formmatedCommune, country]
       .filter(Boolean)
       .join(', ');
-    const formFieldValues = { street, number, locality, commune, region };
-    const formValues = setSearch
+    const communeId = this.getCommuneByGoogleCommune(commune);
+    const formFieldValues = {
+      street,
+      number,
+      //locality,
+      commune: communeId,
+      latitude: lat,
+      longitude: lng,
+      region,
+    };
+    const formValues = setSearchField
       ? { search: formattedAddress, ...formFieldValues }
       : formFieldValues;
+
     this.addressForm.patchValue(formValues);
   }
 
@@ -274,7 +317,7 @@ export class AddressFormComponent implements AfterViewInit, OnInit {
     this.geolocationService.getCommunes().subscribe((communes) => {
       console.log('communes: ', communes);
       // Agrupar comunas por región
-      const regions = communes.reduce((acc, commune) => {
+      /*const regions = communes.reduce((acc, commune) => {
         if (!acc[commune.regionCode])
           acc[commune.regionCode] = {
             id: commune.regionCode,
@@ -290,15 +333,64 @@ export class AddressFormComponent implements AfterViewInit, OnInit {
           })),
         });
         return acc;
-      }, {});
+      }, {});*/
       /*const _communes = communes.reduce((acc, commune) => {
         if(!acc[commune.regionCode]) acc[commune.regionCode] = [];
         return acc;
       }, {});*/
-      console.log('regions: ', Object.values(regions));
+      //console.log('regions: ', Object.values(regions));
 
       this.communes.set(communes);
       this.isLoadingCommunes.set(false);
     });
+  }
+
+  /**
+   * Método temporal para simular funcionamiento ecommerce antiguo.
+   * @param value
+   * @returns
+   */
+  private getCommuneByGoogleCommune(value: string): string {
+    if (!value) return '';
+    const formmatedValue = removeSpecialCharacters(value);
+    const communeItem = this.communes().find(
+      (commune) => removeSpecialCharacters(commune.city) === formmatedValue
+    );
+    if (!communeItem) return '';
+    this.setLocality(communeItem.localities, value);
+    return communeItem.id;
+  }
+
+  /**
+   * Método temporal para simular funcionamiento ecommerce antiguo.
+   */
+  private setLocality(localities: any[], commune: string) {
+    const formmatedCommune = removeSpecialCharacters(commune);
+    if (!formmatedCommune) return;
+    const itemLocality = localities.find(
+      (item) => removeSpecialCharacters(item.location) === formmatedCommune
+    );
+    if (!itemLocality) return;
+    this.addressForm.controls['locality'].setValue(itemLocality.location);
+  }
+
+  setAddressManually(): void {
+    if (
+      !this.streetField.value ||
+      !this.numberField.value ||
+      !this.communeField.value
+    )
+      return;
+    console.log('setAddressManually');
+    // Pasar al mapa
+  }
+
+  setCommuneManually(): void {
+    if (!this.communeField.value) return;
+    const communeItem = this.communes().find(
+      (commune) => commune.id === this.communeField.value
+    );
+    if (!communeItem) return;
+    this.setLocality(communeItem.localities, communeItem.city);
   }
 }

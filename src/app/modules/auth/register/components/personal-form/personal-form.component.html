@@ -1,10 +1,10 @@
 <div class="border-bottom-1 surface-border mb-5">
   <p class="text-base text-400">
-    Paso {{ accountType() === "customer" ? 1 : 2 }} de {{ steps() }}
+    Paso {{ accountType() === "personal" ? 1 : 2 }} de {{ steps() }}
   </p>
   <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">
     Datos
-    {{ accountType() === "customer" ? "personales" : "del administrador" }}
+    {{ accountType() === "personal" ? "personales" : "del administrador" }}
   </h2>
   <p class="mt-0 mb-5 text-700 font-normal text-base">
     Ingresa tus datos personales y disfruta de una experiencia de compra más
@@ -16,7 +16,7 @@
   (ngSubmit)="submit(personalForm.value)"
   autocomplete="off"
 >
-  @if(accountType() === 'enterprise'){
+  @if(accountType() === 'business'){
   <div class="field mb-4 flex flex-column">
     <label for="position" class="font-semibold text-900">Cargo</label>
     <app-position-input formControlName="position" />

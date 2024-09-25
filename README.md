@@ -42,3 +42,18 @@ https://www.youtube.com/watch?v=xpRlijg6spo
 ## VSCode
 
 - Regions.
+
+# Estandarización
+
+| Variable   | Descripción                            |
+| ---------- | -------------------------------------- |
+| personal   | Cuenta de usuario para uso personal.   |
+| business   | Cuenta de usuario para uso de negocio. |
+| documentId | En Chile, RUT. En Perú, DNI.           |
+
+| Variable       | Descripción                              |
+| -------------- | ---------------------------------------- |
+| firstDivision  | En Chile, Región. En Perú, Departamento. |
+| secondDivision | En Chile, Provincia. En Perú, xxx.       |
+| thirdDivision  | En Chile, Comuna. En Perú, Provincia.    |
+| locality       | Localidad                                |

@@ -28,12 +28,12 @@ export class AccountTypeFormComponent {
   roleOptions = [
     {
       label: 'Empresa',
-      value: 'enterprise',
+      value: 'business',
       icon: 'fa-sharp-duotone fa-solid fa-building',
     },
     {
       label: 'Persona',
-      value: 'customer',
+      value: 'personal',
       icon: 'fa-sharp-duotone fa-solid fa-user',
     },
   ];
@@ -44,7 +44,7 @@ export class AccountTypeFormComponent {
 
   private buildForm(): void {
     this.accountTypeForm = this.fb.group({
-      role: ['enterprise', Validators.required],
+      role: ['business', Validators.required],
     });
   }
 

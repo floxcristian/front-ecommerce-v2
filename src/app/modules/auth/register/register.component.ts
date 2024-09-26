@@ -39,6 +39,9 @@ const COMPONENTS = [
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    class: 'flex flex-1',
+  },
 })
 export class RegisterComponent {
   private readonly scrollService = inject(ScrollService);

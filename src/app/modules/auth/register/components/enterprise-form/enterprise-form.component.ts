@@ -28,7 +28,7 @@ import { Dropdown, DropdownModule } from 'primeng/dropdown';
 // Environment
 import { environment } from '@env/environment';
 // Models
-import { Enterprise } from './enterprise.interface';
+import { Business } from './enterprise.interface';
 import { ControlsOf } from '@shared/models/controls.type';
 // Directives
 import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
@@ -50,29 +50,25 @@ const PRIME_MODULES = [
   DropdownModule,
 ];
 const DIRECTIVES = [FormSubmitDirective, ControlErrorsDirective];
+const COMPONENTS = [DocumentIdInputComponent];
 
 @Component({
   selector: 'app-enterprise-form',
   standalone: true,
-  imports: [
-    ...NG_MODULES,
-    ...PRIME_MODULES,
-    ...DIRECTIVES,
-    DocumentIdInputComponent,
-  ],
+  imports: [...NG_MODULES, ...PRIME_MODULES, ...DIRECTIVES, ...COMPONENTS],
   templateUrl: './enterprise-form.component.html',
   styleUrl: './enterprise-form.component.scss',
 })
 export class EnterpriseFormComponent implements OnInit {
   @ViewChild('dropdownElement') dropdown!: Dropdown;
 
-  data = input.required<Enterprise | null>();
+  data = input.required<Business | null>();
   steps = input.required<number>();
   onGoBack = output<void>();
-  onSubmit = output<Enterprise>();
+  onSubmit = output<Business>();
 
-  enterpriseForm!: FormGroup<ControlsOf<Enterprise>>;
-  documentIdLabel = environment.documentId.enterpriseLabel;
+  enterpriseForm!: FormGroup<ControlsOf<Business>>;
+  documentIdLabel = environment.documentId.businessLabel;
   hasAsyncData = EnterpriseValidator.hasAsyncData;
   businessName = EnterpriseValidator.businessName;
   businessLines = EnterpriseValidator.businessLines;
@@ -254,7 +250,7 @@ export class EnterpriseFormComponent implements OnInit {
    *  businessLineCode: '1234'
    * });
    **/
-  submit(value: Enterprise): void {
+  submit(value: Business): void {
     if (this.enterpriseForm.valid) {
       this.onSubmit.emit(value);
     } else {

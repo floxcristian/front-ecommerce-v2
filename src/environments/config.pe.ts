@@ -4,13 +4,15 @@ export const config: IConfig = {
   country: 'PE',
   localeId: 'PEN',
   currencyCode: 'PEN',
-  phoneCode: '+51',
   documentId: {
-    customerLabel: 'DNI',
-    enterpriseLabel: 'RUC',
-    documentLength: 10,
-    sample: '12345678-9',
+    personalLabel: 'DNI',
+    businessLabel: 'RUC',
+    personalLength: 8,
+    businessLength: 11,
+    personalSample: '41111111',
+    businessSample: '20123456789',
   },
+
   tax: {
     name: 'IGV',
     value: 0.18,
@@ -20,5 +22,9 @@ export const config: IConfig = {
   defaultMapCenter: {
     lat: -12.046559,
     lng: -77.10272,
+  },
+  phone: {
+    code: '+51',
+    length: 9,
   },
 };

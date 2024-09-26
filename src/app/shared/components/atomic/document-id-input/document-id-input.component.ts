@@ -30,7 +30,7 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { InputTextModule } from 'primeng/inputtext';
 // Models
-import { Enterprise } from 'src/app/modules/auth/register/components/enterprise-form/enterprise.interface';
+import { Business } from 'src/app/modules/auth/register/components/enterprise-form/enterprise.interface';
 import { ControlsOf } from '@shared/models/controls.type';
 // Services
 import { DocumentIdService } from './services/document-id/document-id.service';
@@ -72,7 +72,7 @@ export class DocumentIdInputComponent
   private readonly checkUserService = inject(CheckUserService);
   private readonly fb = inject(FormBuilder);
 
-  form!: FormGroup<ControlsOf<Pick<Enterprise, 'documentId'>>>;
+  form!: FormGroup<ControlsOf<Pick<Business, 'documentId'>>>;
   canExecuteAsyncValidate = EnterpriseValidator.canExecuteAsyncValidate;
   isLoading = EnterpriseValidator.isLoading;
   lastValue = EnterpriseValidator.lastValue;

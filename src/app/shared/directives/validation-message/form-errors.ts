@@ -4,7 +4,6 @@ import { InjectionToken } from '@angular/core';
 import { ErrorsMap } from './types';
 // Environment
 import { environment } from '@env/environment';
-import { Password } from 'primeng/password';
 
 export const defaultErrors: ErrorsMap = {
   // Common
@@ -17,8 +16,8 @@ export const defaultErrors: ErrorsMap = {
   // Enterprise Document ID
   exists: `La empresa ya existe en nuestros registros.`,
   // Document ID
-  documentIdRequired: `El ${environment.documentId.customerLabel} es un campo requerido.`,
-  documentIdInvalid: `El ${environment.documentId.customerLabel} ingresado no es válido.`,
+  documentIdRequired: `El ${environment.documentId.personalLabel} es un campo requerido.`,
+  documentIdInvalid: `El ${environment.documentId.personalLabel} ingresado no es válido.`,
   // Password
   passwordRequired: `La contraseña es un campo requerido.`,
   passwordLowercase: `La contraseña debe tener al menos una letra minúscula.`,

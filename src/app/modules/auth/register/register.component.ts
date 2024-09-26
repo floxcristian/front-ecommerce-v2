@@ -19,7 +19,7 @@ import { FeaturePanelComponent } from './components/feature-panel/feature-panel.
 // Services
 import { ScrollService } from 'src/app/core/utils/scroll/scroll.service';
 // Models
-import { Enterprise } from './components/enterprise-form/enterprise.interface';
+import { Business } from './components/enterprise-form/enterprise.interface';
 import { CustomerService } from '@core/api/customer/customer.service';
 import { environment } from '@env/environment';
 
@@ -48,7 +48,7 @@ export class RegisterComponent {
   private readonly customerService = inject(CustomerService);
   private readonly platformId: Object = inject(PLATFORM_ID);
   private readonly router = inject(Router);
-  enterpriseForm = signal<Enterprise | null>(null);
+  businessForm = signal<Business | null>(null);
   personalForm = signal<any | null>(null);
   addressForm = signal<any | null>(null);
 
@@ -90,7 +90,7 @@ export class RegisterComponent {
     this.setNextStep();
     this.accountType.set(role);
     if (role === 'personal') {
-      this.enterpriseForm.set(null);
+      this.businessForm.set(null);
     } else {
       this.personalForm.set(null);
     }
@@ -105,19 +105,19 @@ export class RegisterComponent {
   }
 
   /**
-   * Submit the enterprise form.
-   * @param enterpriseInfo The enterprise information.
+   * Submit the business form.
+   * @param businessInfo The business information.
    * @returns void
    * @example
-   * submitEnterpriseForm({
+   * submitBusinessForm({
    *  documentId: '123456789',
    *  businessName: 'My business',
    *  businessLineName: 'My business line',
    *  businessLineCode: '1234'
    * });
    */
-  submitEnterpriseForm(enterpriseInfo: Enterprise): void {
-    this.enterpriseForm.set(enterpriseInfo);
+  submitBusinessForm(businessInfo: Business): void {
+    this.businessForm.set(businessInfo);
     this.setNextStep();
   }
 
@@ -134,7 +134,7 @@ export class RegisterComponent {
     console.log('Creando usuario...');
     console.log('accountType: ', this.accountType());
     console.log('personalInfo: ', this.personalForm());
-    console.log('enterpriseInfo: ', this.enterpriseForm());
+    console.log('enterpriseInfo: ', this.businessForm());
     console.log('addressInfo: ', this.addressForm());
     const [formattedCity, province, region] =
       this.addressForm().commune.split('@');
@@ -142,26 +142,26 @@ export class RegisterComponent {
     const isBusiness = this.accountType() === 'business';
     const params = {
       documentId: isBusiness
-        ? this.enterpriseForm()?.documentId
+        ? this.businessForm()?.documentId
         : this.personalForm().documentId,
       documentType: 'CL',
       userType: 0,
       customerType: isBusiness ? 2 : 1,
-      businessLine: String(this.enterpriseForm()?.businessLineCode) || '',
-      businessLineName: String(this.enterpriseForm()?.businessLineCode) || '',
+      businessLine: String(this.businessForm()?.businessLineCode) || '',
+      businessLineName: String(this.businessForm()?.businessLineCode) || '',
       email: this.personalForm().email,
       password: this.personalForm().password,
       firstName: isBusiness
-        ? this.enterpriseForm()?.businessName
+        ? this.businessForm()?.businessName
         : this.personalForm().name,
       lastName: this.personalForm().lastname,
       contact: {
         documentId: isBusiness
-          ? this.enterpriseForm()?.documentId
+          ? this.businessForm()?.documentId
           : this.personalForm().documentId,
         name: this.personalForm().name,
         lastName: this.personalForm().lastname,
-        phone: `${environment.phoneCode}${this.personalForm().phone}`,
+        phone: `${environment.phone.code}${this.personalForm().phone}`,
         position: isBusiness ? this.personalForm().position : 'FACTURACION',
         email: this.personalForm().email,
       },

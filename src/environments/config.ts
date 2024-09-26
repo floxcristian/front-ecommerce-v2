@@ -4,12 +4,13 @@ export const config: IConfig = {
   country: 'CL',
   localeId: 'CLP',
   currencyCode: 'CLP',
-  phoneCode: '+56',
   documentId: {
-    customerLabel: 'RUT',
-    enterpriseLabel: 'RUT empresa',
-    documentLength: 10,
-    sample: '12345678-9',
+    personalLabel: 'RUT',
+    businessLabel: 'RUT empresa',
+    personalLength: 10,
+    businessLength: 10,
+    personalSample: '12345678-9',
+    businessSample: '12345678-9',
   },
   tax: {
     name: 'IVA',
@@ -20,5 +21,9 @@ export const config: IConfig = {
   defaultMapCenter: {
     lat: -36.79975467819392,
     lng: -71.49897587245773,
+  },
+  phone: {
+    code: '+56',
+    length: 9,
   },
 };

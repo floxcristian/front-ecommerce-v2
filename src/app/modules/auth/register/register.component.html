@@ -14,10 +14,10 @@
           <app-account-type-form (onSubmit)="submitRoleForm($event)" />
           } @else if(step() === 2 && accountType() === 'business'){
           <app-enterprise-form
-            [data]="enterpriseForm()"
+            [data]="businessForm()"
             [steps]="steps()"
             (onGoBack)="setPreviousStep()"
-            (onSubmit)="submitEnterpriseForm($event)"
+            (onSubmit)="submitBusinessForm($event)"
           />
           } @else if((step() === 2 && accountType() === 'personal' || (step()
           === 3 && accountType() === 'business'))){

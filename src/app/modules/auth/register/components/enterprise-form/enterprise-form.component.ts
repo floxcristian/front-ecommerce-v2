@@ -6,6 +6,7 @@ import {
   input,
   OnInit,
   output,
+  signal,
   ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -175,7 +176,7 @@ export class EnterpriseFormComponent implements OnInit {
     this.documentIdField.valueChanges.subscribe((value) => {
       console.log('[parent][valueChanges] value: ', value);
       console.log('[parent][valueChanges] lastValue: ', this.lastValue());
-      // FIXME: para que uso esto?
+
       if (this.lastValue() && this.lastValue() !== value) {
         this.lastValue.set('');
         this.hasAsyncData.set(false);
@@ -219,6 +220,7 @@ export class EnterpriseFormComponent implements OnInit {
           businessLineCode: this.businessLines()[0].code,
           businessLineName: this.businessLines()[0].name,
         });
+
         this.businessLineField.enable();
         this.dropdown.focus();
       }
@@ -229,10 +231,9 @@ export class EnterpriseFormComponent implements OnInit {
     this.businessLineField.valueChanges
       .pipe(distinctUntilChanged())
       .subscribe((value) => {
-        // console.log('<onBusinessLineChange: ', value);
         this.enterpriseForm.patchValue({
           businessLineName: this.businessLines().find(
-            (line) => line.code === Number(value)
+            (line) => line.code === value
           )?.name,
         });
       });

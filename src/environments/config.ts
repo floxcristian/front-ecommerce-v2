@@ -1,7 +1,7 @@
 import { IConfig } from './config.interface';
 
 export const config: IConfig = {
-  country: 'CL',
+  countryCode: 'CL',
   localeId: 'CLP',
   currencyCode: 'CLP',
   documentId: {
@@ -25,5 +25,11 @@ export const config: IConfig = {
   phone: {
     code: '+56',
     length: 9,
+  },
+  administrativeDivisions: {
+    fistLevelLabel: 'Región',
+    secondLevelLabel: 'Provincia',
+    thirdLevelLabel: 'Comuna',
+    localityLabel: 'Localidad',
   },
 };

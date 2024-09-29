@@ -1,7 +1,7 @@
 import { IConfig } from './config.interface';
 
 export const config: IConfig = {
-  country: 'PE',
+  countryCode: 'PE',
   localeId: 'PEN',
   currencyCode: 'PEN',
   documentId: {
@@ -12,7 +12,6 @@ export const config: IConfig = {
     personalSample: '41111111',
     businessSample: '20123456789',
   },
-
   tax: {
     name: 'IGV',
     value: 0.18,
@@ -26,5 +25,11 @@ export const config: IConfig = {
   phone: {
     code: '+51',
     length: 9,
+  },
+  administrativeDivisions: {
+    fistLevelLabel: 'Departamento',
+    secondLevelLabel: '-',
+    thirdLevelLabel: 'Provincia',
+    localityLabel: 'Distrito',
   },
 };

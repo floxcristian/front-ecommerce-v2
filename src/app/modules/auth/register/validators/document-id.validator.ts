@@ -9,11 +9,11 @@ export class DocumentIdValidator {
     if (!value) {
       return null;
     }
-    if (environment.country === 'CL') {
+    if (environment.countryCode === 'CL') {
       const isValid = DocumentIdValidator.isValidChileanDocumentId(value);
       return isValid ? null : { documentIdInvalid: true };
     }
-    if (environment.country === 'PE') {
+    if (environment.countryCode === 'PE') {
       const isValid = DocumentIdValidator.isValidPeruvianDocumentId(value);
       return isValid ? null : { documentIdInvalid: true };
     }

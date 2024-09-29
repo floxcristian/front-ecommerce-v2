@@ -49,6 +49,7 @@ businessLineField: {{ businessLineField.value }}</pre
     />
     <small id="documentId-help"> Ej: 12345678-9 </small>
   </div>
+
   <div class="field mb-4 flex flex-column">
     <label for="businessName" class="font-semibold text-900"
       >Razón social</label
@@ -80,7 +81,9 @@ businessLineField: {{ businessLineField.value }}</pre
     <!-- <small id="businessName-help"> Ej: Nicolás </small> -->
   </div>
   <div class="field mb-6 flex flex-column">
-    <label for="businessLine" class="font-semibold text-900">Giro</label>
+    <label for="businessLine" class="font-semibold text-900"
+      >Giro comercial</label
+    >
     <p-dropdown
       #dropdownElement
       styleClass="w-full"
@@ -91,6 +94,10 @@ businessLineField: {{ businessLineField.value }}</pre
       [loading]="isLoading()"
       dropdownIcon="fa-sharp fa-solid fa-chevron-down"
       loadingIcon="fa-sharp fa-solid fa-spinner-third fa-spin"
+      [filter]="true"
+      filterBy="name"
+      emptyMessage="No se encontraron giros comerciales"
+      emptyFilterMessage="No se encontraron giros comerciales"
     />
 
     <!-- <small id="businessLine-help"> Ej: Rojas </small> -->

@@ -7,17 +7,16 @@ import { environment } from '@env/environment';
 
 export const defaultErrors: ErrorsMap = {
   // Common
-  required: `Este campo es requerido`,
-  validationApiError: `Ha ocurrido un error al validar el RUT. Por favor intente más tarde.`,
+  required: `Este campo es requerido.`,
   minlength: ({ requiredLength, actualLength }) =>
     `Expect ${requiredLength} but got ${actualLength}`,
-  // Business Lines
-  businessLines: `La empresa no tiene rubros asociados.`,
-  // Enterprise Document ID
-  exists: `La empresa ya existe en nuestros registros.`,
-  // Document ID
+  // Document ID Personal
   documentIdRequired: `El ${environment.documentId.personalLabel} es un campo requerido.`,
-  documentIdInvalid: `El ${environment.documentId.personalLabel} ingresado no es válido.`,
+  documentIdInvalid: `El ${environment.documentId.businessLabel} ingresado no es válido.`,
+  // Document ID Business
+  documentIdBusinessAlreadyExists: `La empresa ya existe en nuestros registros.`,
+  documentIdBusinessLinesEmpty: `La empresa no tiene giros comerciales asociados.`,
+  documentIdBusinessServer: `Ha ocurrido un error al validar el RUT. Por favor intente más tarde.`,
   // Password
   passwordRequired: `La contraseña es un campo requerido.`,
   passwordLowercase: `La contraseña debe tener al menos una letra minúscula.`,

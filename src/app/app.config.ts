@@ -17,11 +17,11 @@ import { registerLocaleData } from '@angular/common';
 import { environment } from '@env/environment';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 
-if (environment.country === 'CL') {
+if (environment.countryCode === 'CL') {
   import('@angular/common/locales/es-CL').then((module) => {
     registerLocaleData(module.default, environment.localeId);
   });
-} else if (environment.country === 'PE') {
+} else if (environment.countryCode === 'PE') {
   import('@angular/common/locales/es-PE').then((module) => {
     registerLocaleData(module.default, environment.localeId);
   });

@@ -12,7 +12,7 @@ export class PhoneValidator {
       CL: PhoneValidator.isValidChileanPhone,
       PE: PhoneValidator.isValidPeruvianPhone,
     };
-    const validator = validators[environment.country];
+    const validator = validators[environment.countryCode];
     const isValid = validator(control.value);
     return isValid ? null : { phoneInvalid: true };
   }

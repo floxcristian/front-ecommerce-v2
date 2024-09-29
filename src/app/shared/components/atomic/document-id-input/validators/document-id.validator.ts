@@ -13,7 +13,7 @@ export class DocumentIdValidator {
       CL: DocumentIdValidator.isValidChileanDocumentId,
       PE: DocumentIdValidator.isValidPeruvianDocumentId,
     };
-    const validator = validators[environment.country];
+    const validator = validators[environment.countryCode];
     const isValid = validator(control.value);
     return isValid ? null : { documentIdInvalid: true };
   }

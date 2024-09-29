@@ -1,7 +1,7 @@
 export type CountryCode = 'CL' | 'PE';
 
 export interface IConfig {
-  country: CountryCode;
+  countryCode: CountryCode;
   localeId: string;
   currencyCode: string;
   documentId: {
@@ -21,6 +21,12 @@ export interface IConfig {
   phone: {
     code: string;
     length: number;
+  };
+  administrativeDivisions: {
+    fistLevelLabel: string;
+    secondLevelLabel: string;
+    thirdLevelLabel: string;
+    localityLabel: string;
   };
   defaultMapCenter: google.maps.LatLngLiteral;
 }

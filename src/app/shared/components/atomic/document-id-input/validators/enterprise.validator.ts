@@ -44,7 +44,7 @@ export class EnterpriseValidator {
           this.isLoading.set(false);
           EnterpriseValidator.lastValue.set(value);
           if (res.exists) {
-            return { exists: true };
+            return { documentIdBusinessAlreadyExists: true };
           } else {
             EnterpriseValidator.businessName.set(res.businessName);
             EnterpriseValidator.businessLines.set(res.businessLines);
@@ -71,7 +71,9 @@ export class EnterpriseValidator {
               this.isLoading.set(false);
               EnterpriseValidator.lastValue.set(value);
               if (res.exists) {
-                return { exists: true };
+                return { documentIdBusinessAlreadyExists: true };
+              } else if (!res.businessLines.length) {
+                return { documentIdBusinessLinesEmpty: true };
               } else {
                 EnterpriseValidator.businessName.set(res.businessName);
                 EnterpriseValidator.businessLines.set(res.businessLines);
@@ -81,7 +83,7 @@ export class EnterpriseValidator {
             }),
             catchError(() => {
               this.isLoading.set(false);
-              return of({ validationApiError: true });
+              return of({ documentIdBusinessServer: true });
             })
           );
         })
@@ -99,7 +101,7 @@ export class EnterpriseValidator {
           this.isLoading.set(false);
           EnterpriseValidator.lastValue.set(value);
           if (res.exists) {
-            return { exists: true };
+            return { documentIdBusinessAlreadyExists: true };
           } else {
             EnterpriseValidator.businessName.set(res.businessName);
             EnterpriseValidator.businessLines.set(res.businessLines);

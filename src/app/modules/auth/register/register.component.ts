@@ -39,9 +39,9 @@ const COMPONENTS = [
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    class: 'flex flex-1',
-  },
+  /*host: {
+    class: 'flex flex-1 flex-column',
+  },*/
 })
 export class RegisterComponent {
   private readonly scrollService = inject(ScrollService);
@@ -179,38 +179,6 @@ export class RegisterComponent {
       },
     };
     console.log('params: ', params);
-    /*this.customerService.createUser({
-      documentId: this.personalForm().documentId,
-      documentType: this.personalForm().documentType,
-      userType: 0,
-      customerType: isBusiness ? 2 : 1,
-      businessLine: this.enterpriseForm()?.businessLineCode || '',
-      businessLineName: this.enterpriseForm()?.businessLineName || '',
-      email: this.personalForm().email,
-      firstName: isBusiness
-        ? this.enterpriseForm()?.businessName
-        : this.personalForm().firstName,
-      lastName: this.personalForm().lastName,
-      contact: {
-        documentId: isBusiness ? '' : this.personalForm().documentId,
-        name: this.personalForm().firstName,
-        lastName: this.personalForm().lastName,
-        phone: this.personalForm().phone,
-        position: isBusiness ? this.personalForm().position : 'FACTURACION',
-        email: this.personalForm().email,
-      },
-      address: {
-        city: this.addressForm().commune,
-        street: this.addressForm().street,
-        number: this.addressForm().number,
-        departmentOrHouse: this.addressForm().department,
-        reference: this.addressForm().reference,
-        latitude: '',
-        longitude: '',
-        location: this.addressForm().location,
-        region: this.addressForm().region,
-        province: '', //this.addressForm().province,
-      },
-    });*/
+    this.customerService.createUser(params);
   }
 }

@@ -3,7 +3,7 @@
     class="surface-card p-0 m-0 list-none flex overflow-x-auto select-none shadow-2"
   >
     @for(item of items; track $index){
-    <li class="flex-1">
+    <li class="flex-1 overflow-hidden">
       <a
         [routerLink]="item.routerLink"
         routerLinkActive="text-blue-500"
@@ -17,7 +17,10 @@
           [class]="item.icon"
           [ngClass]="rla.isActive ? 'fa-solid' : 'fa-regular'"
         ></i>
-        <span class="font-medium text-xs">{{ item.label }}</span>
+        <span
+          class="font-medium text-xs text-center white-space-nowrap text-overflow-ellipsis overflow-hidden w-full"
+          >{{ item.label }}</span
+        >
       </a>
     </li>
     }

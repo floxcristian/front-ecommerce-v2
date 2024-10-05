@@ -29,3 +29,13 @@ select,
 a {
   -webkit-tap-highlight-color: transparent;
 }
+
+
+.no-overlay-scroll{
+  position: fixed;
+  overflow-y: scroll;
+  inline-size: 100%;
+
+}
+
+// añadir dark al div content when no-overlay-scroll::after

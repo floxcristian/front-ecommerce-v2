@@ -129,7 +129,8 @@
     <ul
       class="list-none p-0 m-0 flex lg:align-items-center select-none flex-column lg:flex-row lg:ml-4"
     >
-      <li class="hidden lg:inline" (mouseover)="op.toggle($event)">
+      <li  #hoverElement class="hidden lg:inline" (mouseenter)="showOverlay($event)"
+      (mouseleave)="startHideTimer()">
         <div
           pRipple
           class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-max"
@@ -244,7 +245,7 @@
   </div>
 </div>
 
-<p-overlayPanel #op>
+<p-overlayPanel #op (onShow)="onPanelShow()" (onHide)="onPanelHide()" >
   <form
     [formGroup]="currencyForm"
     (ngSubmit)="submit(currencyForm.getRawValue())"

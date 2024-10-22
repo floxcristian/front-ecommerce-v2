@@ -72,7 +72,7 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
     this.subscription = this.blockUIService.blocked$.subscribe(
       (blocked: boolean) => {
         console.log('blocked', blocked);
-        this.isBlocked = blocked;
+        //this.isBlocked = blocked;
         this.cdr.detectChanges();
       }
     );

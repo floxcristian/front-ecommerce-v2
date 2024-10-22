@@ -57,3 +57,21 @@ https://www.youtube.com/watch?v=xpRlijg6spo
 | secondDivision | En Chile, Provincia. En Perú, xxx.       |
 | thirdDivision  | En Chile, Comuna. En Perú, Provincia.    |
 | locality       | Localidad                                |
+
+Mejorar overlay panel
+
+- Cuando hago circulos se marea.
+- Cuando bajo y hago over sube automáticamente (se copio de falabella).
+- Cuando bajo al panel overlay, que el elemento principal se mantenga sombreado.
+- Que el panel overlay se mantenga siempre bajo el elemento. Cuando se hace scroll se pierde. https://github.com/primefaces/primeng/issues/5086
+
+Ecommerce para analizar lo anterior.
+
+- falabella
+- santa isabel
+
+Sombras hover blanco
+
+- nike
+- https://www.farfetch.com/cl/
+- https://www.target.com/

@@ -23,7 +23,6 @@ import { environment } from '@env/environment';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ControlsOf } from '@shared/models/controls.type';
 import { BlockUiService } from '@core/services/block-ui/block-ui.service';
-import { isPlatformBrowser } from '@angular/common';
 
 const PRIME_MODULES = [
   StyleClassModule,
@@ -63,11 +62,6 @@ export class MainHeader2Component implements OnDestroy {
   private readonly platformId: Object = inject(PLATFORM_ID);
 
   currencyForm!: FormGroup<ControlsOf<{ currency: string }>>;
-  options = [
-    { label: 'Option 1', value: '1' },
-    { label: 'Option 2', value: '2' },
-    { label: 'Option 3', value: '3' },
-  ];
   currencyOptions = [
     {
       label: 'PEN (Sol peruano)',
@@ -120,7 +114,7 @@ export class MainHeader2Component implements OnDestroy {
   }
 
   private hideTimer: ReturnType<typeof setTimeout> | null = null;
-  private hideDelay = 200;
+  private hideDelay = 150;
   private panelElement: HTMLElement | null = null;
   private readonly SCROLL_BLOCK_CLASS = 'no-overlay-scroll';
 
@@ -151,13 +145,22 @@ export class MainHeader2Component implements OnDestroy {
     });
   }
 
-  cancelHideTimer(): void {
+  /**
+   * Cancela el timer de ocultar el overlay.
+   */
+  private cancelHideTimer(): void {
     if (!this.hideTimer) return;
     clearTimeout(this.hideTimer);
     this.hideTimer = null;
   }
 
+  /**
+   * Añade las clases de hover al elemento que activa el overlay
+   * y añade los eventos de mouseenter y mouseleave al overlay.
+   * @returns
+   */
   onPanelShow(): void {
+    this.addHoverClass();
     setTimeout(() => {
       this.panelElement = document.querySelector(
         '.p-overlaypanel'
@@ -174,7 +177,13 @@ export class MainHeader2Component implements OnDestroy {
     }, 0);
   }
 
+  /**
+   * Remueve las clases de hover en el elemento que activa el overlay
+   * y elimina los eventos de mouseenter y mouseleave del overlay.
+   * @returns
+   */
   onPanelHide(): void {
+    this.removeHoverClass();
     if (!this.panelElement) return;
     this.panelElement.removeEventListener(
       'mouseenter',
@@ -187,12 +196,40 @@ export class MainHeader2Component implements OnDestroy {
     this.panelElement = null;
   }
 
-  private disableScroll(): void {
-    this.renderer.addClass(document.body, this.SCROLL_BLOCK_CLASS);
+  /**
+   * Añade las clases de hover al elemento que activa el overlay.
+   */
+  private addHoverClass(): void {
+    const hoverChild = this.hoverElement.nativeElement.firstElementChild;
+    ['surface-200', 'text-900'].forEach((className) =>
+      this.renderer.addClass(hoverChild, className)
+    );
   }
 
+  /**
+   * Elimina las clases de hover al elemento que activa el overlay.
+   */
+  private removeHoverClass(): void {
+    const hoverChild = this.hoverElement.nativeElement.firstElementChild;
+    ['surface-200', 'text-900'].forEach((className) =>
+      this.renderer.removeClass(hoverChild, className)
+    );
+  }
+
+  /**
+   * Habilita el scroll del body.
+   * - Imita el comportamiento del ecommerce de Falabella.
+   */
   private enableScroll(): void {
     this.renderer.removeClass(document.body, this.SCROLL_BLOCK_CLASS);
+  }
+
+  /**
+   * Bloquea el scroll del body.
+   * - Imita el comportamiento del ecommerce de Falabella.
+   */
+  private disableScroll(): void {
+    this.renderer.addClass(document.body, this.SCROLL_BLOCK_CLASS);
   }
 
   ngOnDestroy(): void {

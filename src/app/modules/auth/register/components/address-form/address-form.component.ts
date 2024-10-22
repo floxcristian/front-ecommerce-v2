@@ -1,5 +1,5 @@
 // Angular
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -35,16 +35,11 @@ import { RippleModule } from 'primeng/ripple';
 import { SkeletonModule } from 'primeng/skeleton';
 import { DropdownModule } from 'primeng/dropdown';
 // Rxjs
-import { filter, map, Observable } from 'rxjs';
+import { filter, map } from 'rxjs';
 import { removeSpecialCharacters } from './utils';
 import { ControlErrorContainerDirective } from '@shared/directives/validation-message/directives/control-error-container/control-error-container.directive';
 
-const NG_MODULES = [
-  ReactiveFormsModule,
-  GoogleMapsModule,
-  MapMarker,
-  CommonModule,
-];
+const NG_MODULES = [ReactiveFormsModule, GoogleMapsModule, MapMarker];
 const PRIME_MODULES = [
   InputTextModule,
   ButtonModule,
@@ -161,7 +156,7 @@ export class AddressFormComponent implements AfterViewInit, OnInit {
     }
   }
 
-  onMapReady() {
+  onMapReady(): void {
     this.isMapLoaded.set(true);
   }
 

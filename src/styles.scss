@@ -30,12 +30,14 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-
+/**
+* Evitar que el contenido se desplace cuando se abre un overlay.
+* - Imita el comportamiento del ecommerce de Falabella.
+**/
 .no-overlay-scroll{
-  position: fixed;
+  /*position: fixed;
   overflow-y: scroll;
-  inline-size: 100%;
-
+  inline-size: 100%;*/
 }
 
 // añadir dark al div content when no-overlay-scroll::after

@@ -7,7 +7,7 @@ import { BehaviorSubject, map, startWith, switchMap, timer } from 'rxjs';
 export class BlockUiService {
   private blockState = new BehaviorSubject<boolean>(false);
   public blocked$ = this.blockState.asObservable();
-  private unblockDelay = 1000;
+  //private unblockDelay = 1000;
 
   block(): void {
     console.log('Block');

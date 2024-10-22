@@ -30,7 +30,7 @@
       <li class="hidden lg:inline">
         <div
           pRipple
-          class="flex p-3 px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem"
+          class="flex p-3 px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-200 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem"
         >
           <!-- <i class="pi pi-bars mr-3 text-3xl"></i> -->
           <i class="fa-sharp fa-regular fa-bars mr-3 text-3xl"></i>
@@ -129,14 +129,16 @@
     <ul
       class="list-none p-0 m-0 flex lg:align-items-center select-none flex-column lg:flex-row lg:ml-4"
     >
-      <li  #hoverElement class="hidden lg:inline" (mouseenter)="showOverlay($event)"
-      (mouseleave)="startHideTimer()">
+      <li
+        #hoverElement
+        class="hidden lg:inline"
+        (mouseenter)="showOverlay($event)"
+        (mouseleave)="startHideTimer()"
+      >
         <div
           pRipple
-          class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-max"
+          class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-200 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-max"
         >
-          <!-- <i class="pi pi-car mr-3 text-3xl"></i> -->
-          <!-- <i class="fa-sharp fa-regular fa-car mr-3 text-3xl"></i> -->
           <img
             [src]="selectedCurrency.image"
             class="mr-3"
@@ -158,7 +160,7 @@
       <li class="hidden lg:inline">
         <div
           pRipple
-          class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-max"
+          class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-200 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-max"
         >
           <!-- <i class="pi pi-car mr-3 text-3xl"></i> -->
           <i class="fa-sharp fa-regular fa-car mr-3 text-3xl"></i>
@@ -178,7 +180,7 @@
         <a
           routerLink="auth/register"
           pRipple
-          class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-max no-underline"
+          class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-200 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-max no-underline"
         >
           <!-- <i class="pi pi-user mr-3 text-3xl"></i> -->
           <i class="fa-sharp fa-regular fa-user mr-3 text-3xl"></i>
@@ -231,7 +233,7 @@
       <li class="hidden lg:flex">
         <div
           pRipple
-          class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-4rem w-max"
+          class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-200 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-4rem w-max"
         >
           <i
             class="fa-sharp fa-regular fa-cart-shopping text-3xl"
@@ -245,7 +247,7 @@
   </div>
 </div>
 
-<p-overlayPanel #op (onShow)="onPanelShow()" (onHide)="onPanelHide()" >
+<p-overlayPanel #op (onShow)="onPanelShow()" (onHide)="onPanelHide()">
   <form
     [formGroup]="currencyForm"
     (ngSubmit)="submit(currencyForm.getRawValue())"

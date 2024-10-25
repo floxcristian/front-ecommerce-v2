@@ -1,0 +1,49 @@
+<form [formGroup]="shipmentForm" (ngSubmit)="submit(shipmentForm.value)">
+  <div class="col-12 field mb-4">
+    <!-- Start::title -->
+    <span class="text-900 text-2xl block font-medium mb-5"
+      >¿Cómo quieres recibir tu pedido?</span
+    >
+    <!-- End::title -->
+
+    <!-- Start::description -->
+    <p class="font-semibold underline mb-4 cursor-pointer">
+      Información de los servicios disponibles
+    </p>
+    <!-- End::description -->
+
+    <!-- Start::shipment type -->
+    <div class="col-12 flex flex-column lg:flex-row field p-0 gap-3">
+      @for(type of shipmentTypes; track $index){
+      <div
+        class="flex p-3 mt-3 lg:mt-0 border-round border-1 surface-border w-full cursor-pointer flex align-items-center h-6rem"
+        [ngClass]="{
+          'surface-border hover:border-400':
+            shipmentTypeField?.value !== type.value,
+          'border-primary bg-blue-50': shipmentTypeField?.value === type.value
+        }"
+        (click)="onSelectShipmentType(type.value)"
+      >
+        <p-radioButton
+          name="shipmentType"
+          [value]="type.value"
+          formControlName="shipmentType"
+          styleClass="mr-3"
+        ></p-radioButton>
+        <div class="mr-4 md:mr-6">
+          <div class="font-semibold mb-2">{{ type.title }}</div>
+          <span class="text-sm">{{ type.description }}</span>
+        </div>
+        <i
+          class="fa-sharp-duotone fa-solid text-4xl ml-auto"
+          [ngClass]="[
+            type.icon,
+            shipmentTypeField?.value === type.value ? 'text-blue-500' : ''
+          ]"
+        ></i>
+      </div>
+      }
+    </div>
+    <!-- End::shipment type -->
+  </div>
+</form>

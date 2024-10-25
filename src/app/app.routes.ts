@@ -22,6 +22,13 @@ export const routes: Routes = [
           import('./modules/auth/auth.routes').then((m) => m.AUTH_ROUTES),
         canActivate: [],
       },
+      {
+        path: 'checkout',
+        loadChildren: () =>
+          import('./modules/checkout/checkout.routes').then(
+            (m) => m.CHECKOUT_ROUTES
+          ),
+      },
     ],
   },
 ];

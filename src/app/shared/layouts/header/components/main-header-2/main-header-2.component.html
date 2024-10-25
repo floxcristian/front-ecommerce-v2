@@ -182,7 +182,6 @@
           pRipple
           class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-200 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-max no-underline"
         >
-          <!-- <i class="pi pi-user mr-3 text-3xl"></i> -->
           <i class="fa-sharp fa-regular fa-user mr-3 text-3xl"></i>
           <div class="flex flex-column">
             <span>!Hola!</span>
@@ -211,6 +210,7 @@
           <span class="font-bold">Seguimiento de Pedido</span>
         </a>
       </li> -->
+      <!-- Start::notificaciones -->
       <li class="hidden lg:flex">
         <div
           pRipple
@@ -224,14 +224,17 @@
           ></i>
         </div>
       </li>
+      <!-- End::notificaciones -->
       <li class="align-items-center hidden lg:flex">
         <div
           style="width: 1px; height: 35px"
           class="border-right-1 surface-border mx-2"
         ></div>
       </li>
+      <!-- Start::carro de compras -->
       <li class="hidden lg:flex">
         <div
+          routerLink="checkout"
           pRipple
           class="flex px-3 py-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-200 font-medium border-round cursor-pointer transition-colors transition-duration-150 h-4rem w-4rem w-max"
         >
@@ -243,10 +246,12 @@
           ></i>
         </div>
       </li>
+      <!-- End::carro de compras -->
     </ul>
   </div>
 </div>
 
+<!-- Start::panel moneda -->
 <p-overlayPanel #op (onShow)="onPanelShow()" (onHide)="onPanelHide()">
   <form
     [formGroup]="currencyForm"
@@ -276,3 +281,4 @@
     </div>
   </form>
 </p-overlayPanel>
+<!-- End::panel moneda -->

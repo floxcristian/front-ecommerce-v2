@@ -1,0 +1,549 @@
+<div
+  class="surface-900 px-4 lg:px-8 py-3 lg:py-2 flex flex-column lg:flex-row w-full justify-content-between align-items-center"
+>
+  <span class="text-0">Sign Up for 15% off your first order</span>
+  <a
+    tabindex="0"
+    class="cursor-pointer h-full inline-flex align-items-center mt-3 lg:mt-0 lg:py-0"
+  >
+    <img
+      src="assets/images/blocks/ecommerce/storefront/storefront-1-19.png"
+      class="mr-2"
+      alt="Flag"
+    />
+    <span class="text-0">EUR</span>
+  </a>
+</div>
+
+<div class="surface-section">
+  <div class="grid grid-nogutter">
+    <div class="col-12 lg:col-6 h-full px-4 py-8 md:px-6 lg:px-8">
+      <ul class="flex list-none flex-wrap p-0 mb-6">
+        <li class="flex align-items-center text-primary mr-2">
+          Cart <i class="pi pi-chevron-right text-500 text-xs ml-2"></i>
+        </li>
+        <li class="flex align-items-center text-500 mr-2">
+          Information<i class="pi pi-chevron-right text-500 text-xs ml-2"></i>
+        </li>
+        <li class="flex align-items-center text-500 mr-2">
+          Shipping<i class="pi pi-chevron-right text-500 text-xs ml-2"></i>
+        </li>
+        <li class="flex align-items-center text-500 mr-2">Payment</li>
+      </ul>
+      <div class="grid formgrid">
+        <div class="col-12 field mb-6">
+          <span class="text-900 text-2xl block font-medium mb-5"
+            >Información de contacto</span
+          >
+          <input
+            id="email"
+            placeholder="Email"
+            type="text"
+            class="p-inputtext w-full mb-4"
+          />
+          <p-checkbox
+            name="checkbox-1"
+            [(ngModel)]="checked1"
+            [binary]="true"
+            label="Email me with news and offers"
+            class="text-900"
+            inputId="id"
+          ></p-checkbox>
+        </div>
+        <p-divider class="w-full px-2 mb-3"></p-divider>
+        <app-shipping-type-form />
+
+        <div class="col-12 field mb-4">
+          <span class="text-900 text-2xl block font-medium mb-5"
+            >¿Dónde y desde cuándo quieres retirar tu pedido?</span
+          >
+          <div
+            class="flex p-4 mt-3 lg:mt-0 border-round border-1 surface-border w-full cursor-pointer flex align-items-center h-6rem"
+            (click)="selectedValue = 'FedEx'"
+            [ngClass]="{
+              'surface-border hover:border-400': selectedValue !== 'FedEx',
+              'border-primary bg-blue-50': selectedValue === 'FedEx'
+            }"
+          >
+            <div class="mr-4 md:mr-6">
+              <div class="font-semibold mb-2">San Bernardo</div>
+              <span class="text-sm">Av. General Velásquez N° 10701</span>
+            </div>
+            <i
+              class="fa-sharp fa-solid fa-angle-right text-xl ml-auto"
+              [ngClass]="{ 'text-blue-500': selectedValue === 'FedEx' }"
+            ></i>
+          </div>
+          <div
+            class="p-4 mt-3 surface-100 flex align-items-center justify-content-between mb-4"
+          >
+            <span class="mr-5"
+              >Te informaremos por correo electrónico cuando esté listo para ser
+              retirado. Recuerda que tienes hasta 3 días para retirar la
+              compra.</span
+            >
+            <i class="fa-sharp-duotone fa-solid fa-circle-info text-4xl"></i>
+          </div>
+        </div>
+
+        <div class="col-12 field mb-4">
+          <span class="text-900 text-2xl block font-medium mb-5"
+            >¿Quién va a retirar la orden?</span
+          >
+
+          <div class="col-12 flex flex-column lg:flex-row field p-0">
+            <!-- Start::despacho a domicilio -->
+            <div
+              class="flex p-3 mt-3 lg:mt-0 border-round border-1 surface-border w-full cursor-pointer flex align-items-center h-6rem mr-3"
+              (click)="retira = 'UPS'"
+              [ngClass]="{
+                'surface-border hover:border-400': retira !== 'UPS',
+                'border-primary bg-blue-50': retira === 'UPS'
+              }"
+            >
+              <p-radioButton
+                name="ups"
+                value="UPS"
+                [(ngModel)]="retira"
+                styleClass="mr-3"
+              ></p-radioButton>
+              <div class="mr-4 md:mr-6">
+                <div class="font-semibold">Yo voy a retirar el pedido</div>
+              </div>
+            </div>
+            <!-- End::despacho a domicilio -->
+
+            <!-- Start::retiro en tienda -->
+            <div
+              class="flex p-3 mt-3 lg:mt-0 border-round border-1 surface-border w-full cursor-pointer flex align-items-center h-6rem"
+              (click)="retira = 'FedEx'"
+              [ngClass]="{
+                'surface-border hover:border-400': retira !== 'FedEx',
+                'border-primary bg-blue-50': retira === 'FedEx'
+              }"
+            >
+              <p-radioButton
+                name="fedex"
+                value="FedEx"
+                [(ngModel)]="retira"
+                styleClass="mr-3"
+              ></p-radioButton>
+              <div class="mr-4 md:mr-6">
+                <div class="font-semibold">
+                  Otra persona también puede retirar el pedido
+                </div>
+              </div>
+            </div>
+            <!-- End::retiro en tienda -->
+          </div>
+
+          <p class="font-semibold text-900 my-5">
+            Tú o la siguiente persona podrán retirar el pedido
+          </p>
+
+          <!-- Start::input nombre -->
+          <div class="field mb-4 flex flex-column">
+            <label for="name" class="font-semibold text-900">Nombre</label>
+            <input
+              id="name"
+              type="text"
+              pInputText
+              maxlength="25"
+              spellcheck="false"
+            />
+            <small id="name-help"> Ej: Nicolás </small>
+          </div>
+          <!-- End::input nombre -->
+
+          <!-- Start::input apellido -->
+          <div class="field mb-4 flex flex-column">
+            <label for="name" class="font-semibold text-900">Apellido</label>
+            <input
+              id="name"
+              type="text"
+              pInputText
+              maxlength="25"
+              spellcheck="false"
+            />
+            <small id="name-help"> Ej: Nicolás </small>
+          </div>
+          <!-- End::input apellido -->
+          <!--<div class="field mb-4 flex flex-column">
+              <label for="documentId" class="font-semibold text-900">RUT</label>
+              <app-document-id-input
+                id="documentId"
+                formControlName="documentId"
+              />
+              <small id="documentId-help"> Ej: 12345678-9 </small>
+            </div>-->
+          <div class="field mb-4 flex flex-column">
+            <label for="phone" class="font-semibold text-900">Teléfono</label>
+            <app-phone-input id="phone" />
+            <small id="phone-help"> Ej: 9 1234 9876 </small>
+          </div>
+        </div>
+
+        <!--
+
+        <div class="col-12 lg:col-6 field mb-4">
+          <p-dropdown
+            [options]="cities"
+            [(ngModel)]="selectedCity"
+            placeholder="Country / Region"
+            optionLabel="name"
+            [showClear]="true"
+            styleClass="w-full"
+          ></p-dropdown>
+        </div>
+
+        <div class="col-12 lg:col-6 field mb-4">
+          <input
+            id="name"
+            placeholder="Name"
+            type="text"
+            class="p-inputtext w-full"
+          />
+        </div>
+        <div class="col-12 lg:col-6 field mb-4">
+          <input
+            id="lastname"
+            placeholder="Last Name"
+            type="text"
+            class="p-inputtext w-full"
+          />
+        </div>
+        <div class="col-12 field mb-4">
+          <input
+            id="address"
+            placeholder="Address"
+            type="text"
+            class="p-inputtext w-full"
+          />
+        </div>
+        <div class="col-12 field mb-4">
+          <input
+            id="address2"
+            placeholder="Apartment, suite, etc"
+            type="text"
+            class="p-inputtext w-full"
+          />
+        </div>
+        <div class="col-12 lg:col-6 field mb-4">
+          <input
+            id="pc"
+            placeholder="Postal Code"
+            type="text"
+            class="p-inputtext w-full"
+          />
+        </div>
+        <div class="col-12 lg:col-6 field mb-4">
+          <input
+            id="city"
+            placeholder="City"
+            type="text"
+            class="p-inputtext w-full"
+          />
+        </div>
+        <div class="col-12 lg:col-6 field mb-4">
+          <p-checkbox
+            name="checkbox-1"
+            [(ngModel)]="checked2"
+            [binary]="true"
+            label="Save for next purchase"
+            class="text-900"
+            inputId="id"
+          ></p-checkbox>
+        </div>-->
+        <p-divider class="w-full px-2 mb-3"></p-divider>
+        <div class="col-12 field mb-4">
+          <!--<span class="text-900 text-2xl block font-medium mb-5"
+            >Medio de pago</span
+          >-->
+          <span class="text-900 text-2xl block font-medium mb-5"
+            >¿Cómo quieres pagar?</span
+          >
+          <!--<div
+            class="p-4 mt-3 surface-100 flex align-items-center justify-content-center mb-4"
+          >
+            <span class="mr-5"
+              >Exclusivo con tus Tarjetas de Crédito Banco de Chile. Compra
+              referencial de $70.000, 3 cuotas de $23.333, CAE: 1, 19%, costo
+              total: $70.139. Hasta 31/12/2024.</span
+            >
+            <i class="fa-sharp-duetone fa-solid fa-credit-card text-4xl"></i>
+          </div> -->
+          <div
+            class="p-4 mt-3 surface-100 flex align-items-center justify-content-between mb-4"
+          >
+            <span class="mr-5"
+              >Los pagos se procesan con encriptación SSL para garantizar la
+              seguridad de los datos de tu tarjeta de crédito y del pago.</span
+            >
+            <i class="fa-sharp-duotone fa-solid fa-shield-keyhole text-4xl"></i>
+          </div>
+          @for(payment of payments; track $index){
+          <!-- Start::otro -->
+          <div
+            class="border-1 p-3 border-round flex align-items-center cursor-pointer mb-3 h-7rem"
+            [ngClass]="{
+              'surface-border hover:border-400': tier1 !== payment.code,
+              'border-primary bg-blue-50': tier1 === payment.code
+            }"
+            (click)="tier1 = payment.code"
+          >
+            <p-radioButton
+              name="tier1"
+              [value]="payment.code"
+              [(ngModel)]="tier1"
+              styleClass="mr-3"
+            ></p-radioButton>
+            <div class="mr-4 md:mr-8">
+              <div class="font-semibold mb-2">{{ payment.name }}</div>
+              <span class="text-sm">{{ payment.description }}</span>
+            </div>
+            <!-- Imagen -->
+            <div
+              class="p-1 ml-auto flex flex-nowrap"
+              [ngClass]="{
+                'text-600': tier1 !== payment.code,
+          
+              }"
+            >
+              <!-- <i class="pi pi-star-fill"></i> -->
+              <img [src]="payment.image" style="width: 80px" />
+            </div>
+          </div>
+          <!-- End::otro -->
+          <!--
+          <div
+            class="surface-card border-2 p-5 mb-3 border-round flex flex-column md:flex-row align-items-start md:align-items-center md:justify-content-between cursor-pointer"
+            (click)="animal = 0"
+            [ngClass]="{
+              'surface-border': animal !== 0,
+              'border-primary': animal === 0
+            }"
+          >
+            <div class="flex align-items-start">
+              <img
+                [src]="payment.image"
+                class="mr-3 border-round"
+                style="width: 50px"
+              />
+
+         
+              <div class="w-4 flex align-items-center">
+           
+                <div class="font-medium">{{ payment.name }}</div>
+              </div>
+            </div>
+            <div
+              class="ml-0 md:ml-8 mt-2 md:mt-0 border-1 p-1 px-2 border-round flex align-items-center font-medium"
+              [ngClass]="{
+                'surface-100 text-600 surface-border': animal !== 0,
+                'bg-primary-reverse': animal === 0
+              }"
+            >
+              <span>702</span>
+            </div>
+          </div>-->
+          }
+        </div>
+
+        <div
+          class="col-12 flex flex-column lg:flex-row justify-content-center align-items-center lg:justify-content-end mt-6"
+        >
+          <button
+            pButton
+            pRipple
+            class="p-button-text mt-3 lg:mt-0 w-full lg:w-auto lg:px-6 flex-order-2 lg:flex-order-1 lg:mr-4"
+            label="Volver al carro"
+          ></button>
+          <button
+            pButton
+            pRipple
+            class="p-button-primary w-full lg:w-auto lg:px-6 flex-order-1 lg:flex-order-2"
+            label="Realizar pedido"
+          ></button>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 lg:col-6 px-4 py-8 md:px-6 lg:px-8 surface-50">
+      <div class="border-bottom-1 pb-3 surface-border">
+        <span class="text-900 font-medium text-xl">Resumen de compra</span>
+      </div>
+      @for(product of products; track $index){
+      <div
+        class="flex flex-column lg:flex-row flex-wrap lg:align-items-center py-2 mt-3 border-bottom-1 surface-border"
+      >
+        <img [src]="product.image" class="w-8rem h-8rem flex-shrink-0" />
+        <div class="flex-auto mt-3 md:mt-0 md:ml-3">
+          <div class="flex align-items-center justify-content-between mb-3">
+            <span class="text-900 font-medium">{{ product.name }}</span>
+            <span class="text-900 font-bold">{{
+              product.price | currency
+            }}</span>
+          </div>
+          <!-- <div class="text-600 text-sm mb-3">Black | Large</div> -->
+          <div
+            class="flex flex-auto justify-content-between align-items-center"
+          >
+            <p-inputNumber
+              [showButtons]="true"
+              buttonLayout="horizontal"
+              spinnerMode="horizontal"
+              min="0"
+              inputStyleClass="w-2rem text-center py-2 px-1 border-transparent"
+              [(ngModel)]="quantities[0]"
+              class="border-1 surface-border border-round"
+              decrementButtonClass="p-button-text text-600 hover:text-primary py-1 px-1"
+              incrementButtonClass="p-button-text text-600 hover:text-primary py-1 px-1"
+              incrementButtonIcon="pi pi-plus"
+              decrementButtonIcon="pi pi-minus"
+            ></p-inputNumber>
+            <button
+              pButton
+              pRipple
+              icon="pi pi-trash"
+              class="p-button-text p-button-rounded"
+            ></button>
+          </div>
+        </div>
+      </div>
+      }
+
+      <!--
+      <div class="py-2 mt-3 border-bottom-1 surface-border">
+        <div class="p-inputgroup mb-3">
+          <input
+            type="text"
+            [(ngModel)]="value1"
+            pInputText
+            placeholder="Promo code"
+            class="w-full"
+          />
+          <button
+            type="button"
+            pButton
+            pRipple
+            label="Apply"
+            [disabled]="!value1"
+          ></button>
+        </div>
+      </div>-->
+
+      <div class="py-2 mt-3">
+        <div class="flex justify-content-between align-items-center mb-3">
+          <span class="text-900 font-medium">Subtotal</span>
+          <span class="text-900">$123.00</span>
+        </div>
+        <div class="flex justify-content-between align-items-center mb-3">
+          <span class="text-900 font-medium">Envío</span>
+          <span class="text-primary font-bold">Gratis</span>
+        </div>
+        <div class="flex justify-content-between align-items-center mb-3">
+          <span class="text-900 font-bold">Total a pagar</span>
+          <span class="text-900 font-medium text-xl">$123.00</span>
+        </div>
+      </div>
+      <!--
+      <div
+        class="py-2 mt-3 bg-yellow-100 flex align-items-center justify-content-center"
+      >
+        <img
+          src="assets/images/blocks/ecommerce/checkoutform/checkoutform-1-3.png"
+          class="mr-2"
+          alt="Country Flag"
+        /><span class="text-black-alpha-90 font-medium"
+          >No additional duties or taxes.</span
+        >
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<div class="surface-section px-4 py-8 md:px-6 lg:px-8">
+  <div class="grid -mr-3 -ml-3">
+    <div class="col-12 lg:col-4 p-3">
+      <span
+        class="text-900 font-bold block border-bottom-1 surface-border py-4 mb-4"
+        >COMPANY</span
+      >
+      <ul class="list-none p-0">
+        <li class="mt-3">
+          <a tabindex="0" class="cursor-pointer text-500 hover:text-900"
+            >Factories</a
+          >
+        </li>
+        <li class="mt-3">
+          <a tabindex="0" class="cursor-pointer text-500 hover:text-900"
+            >Careers</a
+          >
+        </li>
+        <li class="mt-3">
+          <a tabindex="0" class="cursor-pointer text-500 hover:text-900"
+            >Environmental Initiatives</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-12 lg:col-4 p-3">
+      <span
+        class="text-900 font-bold block border-bottom-1 surface-border py-4 mb-4"
+        >ABOUT PEAK</span
+      >
+      <span class="text-500 mt-3"
+        >Urna molestie at elementum eu facilisis. Libero justo laoreet sit amet
+        cursus. Ornare quam viverra orci sagittis eu volutpat odio. Id porta
+        nibh venenatis cras sed felis eget velit. In hac habitasse platea
+        dictumst quisque.</span
+      >
+    </div>
+
+    <div class="col-12 lg:col-4 p-3">
+      <span
+        class="text-900 font-bold block border-bottom-1 surface-border py-4 mb-4"
+        >ACCOUNT</span
+      >
+      <ul class="list-none p-0">
+        <li class="mt-3">
+          <a tabindex="0" class="cursor-pointer text-500 hover:text-900"
+            >Manage Account</a
+          >
+        </li>
+        <li class="mt-3">
+          <a tabindex="0" class="cursor-pointer text-500 hover:text-900"
+            >Saved Items</a
+          >
+        </li>
+        <li class="mt-3">
+          <a tabindex="0" class="cursor-pointer text-500 hover:text-900"
+            >My Cart</a
+          >
+        </li>
+        <li class="mt-3">
+          <a tabindex="0" class="cursor-pointer text-500 hover:text-900"
+            >Wishlist</a
+          >
+        </li>
+        <li class="mt-3">
+          <a tabindex="0" class="cursor-pointer text-500 hover:text-900"
+            >Orders & Returns</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div
+  class="surface-100 px-4 py-4 md:px-6 lg:px-8 flex flex-column justify-content-between align-items-center"
+>
+  <span class="text-600">© 2022, Peak. Powered by PrimeBlocks.</span>
+  <div class="col-fixed flex align-items-center mt-4">
+    <i class="pi pi-twitter p-1 text-xl text-900 cursor-pointer mr-3"></i>
+    <i class="pi pi-facebook p-1 text-xl text-900 cursor-pointer mr-3"></i>
+    <i class="pi pi-youtube p-1 text-xl text-900 cursor-pointer mr-3"></i>
+    <i class="pi pi-google p-1 text-xl text-900 cursor-pointer mr-3"></i>
+  </div>
+</div>

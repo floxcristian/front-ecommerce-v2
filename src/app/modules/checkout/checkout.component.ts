@@ -7,14 +7,22 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { CommonModule, NgForOf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { DividerModule } from 'primeng/divider';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { DocumentIdInputComponent } from '@shared/components/atomic/document-id-input/document-id-input.component';
 import { PhoneInputComponent } from '@shared/components/atomic/phone-input/phone-input.component';
-import { ShippingTypeFormComponent } from '../components/shipping-type-form/shipping-type-form.component';
+import { ShippingTypeFormComponent } from './steps/shipping-step/components/shipping-type-form/shipping-type-form.component';
+import { DeliveryFormComponent } from './components/delivery-form/delivery-form.component';
+import { PickupPersonFormComponent } from './components/pickup-person-form/pickup-person-form.component';
+import { ShippingStepComponent } from './steps/shipping-step/shipping-step.component';
 
-export const COMPONENTS = [ShippingTypeFormComponent];
+export const COMPONENTS = [
+  /*ShippingTypeFormComponent,
+  DeliveryFormComponent,
+  PickupPersonFormComponent,*/
+  ShippingStepComponent,
+];
 
 @Component({
   selector: 'app-checkout',
@@ -28,7 +36,6 @@ export const COMPONENTS = [ShippingTypeFormComponent];
     InputNumberModule,
     ButtonModule,
     InputTextModule,
-    // NgForOf,
     CommonModule,
     DividerModule,
     RadioButtonModule,

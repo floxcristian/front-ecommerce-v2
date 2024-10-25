@@ -1,20 +1,3 @@
-<div
-  class="surface-900 px-4 lg:px-8 py-3 lg:py-2 flex flex-column lg:flex-row w-full justify-content-between align-items-center"
->
-  <span class="text-0">Sign Up for 15% off your first order</span>
-  <a
-    tabindex="0"
-    class="cursor-pointer h-full inline-flex align-items-center mt-3 lg:mt-0 lg:py-0"
-  >
-    <img
-      src="assets/images/blocks/ecommerce/storefront/storefront-1-19.png"
-      class="mr-2"
-      alt="Flag"
-    />
-    <span class="text-0">EUR</span>
-  </a>
-</div>
-
 <div class="surface-section">
   <div class="grid grid-nogutter">
     <div class="col-12 lg:col-6 h-full px-4 py-8 md:px-6 lg:px-8">
@@ -51,138 +34,12 @@
           ></p-checkbox>
         </div>
         <p-divider class="w-full px-2 mb-3"></p-divider>
-        <app-shipping-type-form />
+        <app-shipping-step shippingType="DELIVERY" />
+        <!--<app-shipping-type-form />
 
-        <div class="col-12 field mb-4">
-          <span class="text-900 text-2xl block font-medium mb-5"
-            >¿Dónde y desde cuándo quieres retirar tu pedido?</span
-          >
-          <div
-            class="flex p-4 mt-3 lg:mt-0 border-round border-1 surface-border w-full cursor-pointer flex align-items-center h-6rem"
-            (click)="selectedValue = 'FedEx'"
-            [ngClass]="{
-              'surface-border hover:border-400': selectedValue !== 'FedEx',
-              'border-primary bg-blue-50': selectedValue === 'FedEx'
-            }"
-          >
-            <div class="mr-4 md:mr-6">
-              <div class="font-semibold mb-2">San Bernardo</div>
-              <span class="text-sm">Av. General Velásquez N° 10701</span>
-            </div>
-            <i
-              class="fa-sharp fa-solid fa-angle-right text-xl ml-auto"
-              [ngClass]="{ 'text-blue-500': selectedValue === 'FedEx' }"
-            ></i>
-          </div>
-          <div
-            class="p-4 mt-3 surface-100 flex align-items-center justify-content-between mb-4"
-          >
-            <span class="mr-5"
-              >Te informaremos por correo electrónico cuando esté listo para ser
-              retirado. Recuerda que tienes hasta 3 días para retirar la
-              compra.</span
-            >
-            <i class="fa-sharp-duotone fa-solid fa-circle-info text-4xl"></i>
-          </div>
-        </div>
+        <app-delivery-form />
 
-        <div class="col-12 field mb-4">
-          <span class="text-900 text-2xl block font-medium mb-5"
-            >¿Quién va a retirar la orden?</span
-          >
-
-          <div class="col-12 flex flex-column lg:flex-row field p-0">
-            <!-- Start::despacho a domicilio -->
-            <div
-              class="flex p-3 mt-3 lg:mt-0 border-round border-1 surface-border w-full cursor-pointer flex align-items-center h-6rem mr-3"
-              (click)="retira = 'UPS'"
-              [ngClass]="{
-                'surface-border hover:border-400': retira !== 'UPS',
-                'border-primary bg-blue-50': retira === 'UPS'
-              }"
-            >
-              <p-radioButton
-                name="ups"
-                value="UPS"
-                [(ngModel)]="retira"
-                styleClass="mr-3"
-              ></p-radioButton>
-              <div class="mr-4 md:mr-6">
-                <div class="font-semibold">Yo voy a retirar el pedido</div>
-              </div>
-            </div>
-            <!-- End::despacho a domicilio -->
-
-            <!-- Start::retiro en tienda -->
-            <div
-              class="flex p-3 mt-3 lg:mt-0 border-round border-1 surface-border w-full cursor-pointer flex align-items-center h-6rem"
-              (click)="retira = 'FedEx'"
-              [ngClass]="{
-                'surface-border hover:border-400': retira !== 'FedEx',
-                'border-primary bg-blue-50': retira === 'FedEx'
-              }"
-            >
-              <p-radioButton
-                name="fedex"
-                value="FedEx"
-                [(ngModel)]="retira"
-                styleClass="mr-3"
-              ></p-radioButton>
-              <div class="mr-4 md:mr-6">
-                <div class="font-semibold">
-                  Otra persona también puede retirar el pedido
-                </div>
-              </div>
-            </div>
-            <!-- End::retiro en tienda -->
-          </div>
-
-          <p class="font-semibold text-900 my-5">
-            Tú o la siguiente persona podrán retirar el pedido
-          </p>
-
-          <!-- Start::input nombre -->
-          <div class="field mb-4 flex flex-column">
-            <label for="name" class="font-semibold text-900">Nombre</label>
-            <input
-              id="name"
-              type="text"
-              pInputText
-              maxlength="25"
-              spellcheck="false"
-            />
-            <small id="name-help"> Ej: Nicolás </small>
-          </div>
-          <!-- End::input nombre -->
-
-          <!-- Start::input apellido -->
-          <div class="field mb-4 flex flex-column">
-            <label for="name" class="font-semibold text-900">Apellido</label>
-            <input
-              id="name"
-              type="text"
-              pInputText
-              maxlength="25"
-              spellcheck="false"
-            />
-            <small id="name-help"> Ej: Nicolás </small>
-          </div>
-          <!-- End::input apellido -->
-          <!--<div class="field mb-4 flex flex-column">
-              <label for="documentId" class="font-semibold text-900">RUT</label>
-              <app-document-id-input
-                id="documentId"
-                formControlName="documentId"
-              />
-              <small id="documentId-help"> Ej: 12345678-9 </small>
-            </div>-->
-          <div class="field mb-4 flex flex-column">
-            <label for="phone" class="font-semibold text-900">Teléfono</label>
-            <app-phone-input id="phone" />
-            <small id="phone-help"> Ej: 9 1234 9876 </small>
-          </div>
-        </div>
-
+        <app-pickup-person-form />-->
         <!--
 
         <div class="col-12 lg:col-6 field mb-4">

@@ -5,6 +5,6 @@ export const CHECKOUT_ROUTES: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./checkout/checkout.component').then((m) => m.CheckoutComponent),
+      import('./checkout.component').then((m) => m.CheckoutComponent),
   },
 ];

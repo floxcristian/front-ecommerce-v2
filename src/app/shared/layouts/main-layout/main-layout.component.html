@@ -18,7 +18,7 @@
     <router-outlet />
   </p-panel>
 
-  @defer (when isSmallScreen()) { @if(isMainPage()){
+  @defer (when isSmallScreen(); prefetch on immediate) { @if(isMainPage()){
   <app-footer-mobile />
   } }
 </div>

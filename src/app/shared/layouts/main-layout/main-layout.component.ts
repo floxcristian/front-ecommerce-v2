@@ -6,22 +6,25 @@ import {
   inject,
   OnDestroy,
   OnInit,
+  Signal,
   signal,
 } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { BreakpointObserver } from '@angular/cdk/layout';
+// PrimeNG
+import { BlockUIModule } from 'primeng/blockui';
+import { PanelModule } from 'primeng/panel';
 // Rxjs
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs/operators';
+import { Observable, Subscription } from 'rxjs';
 // Components
 import { HeaderComponent } from '../header/header.component';
 import { FooterMobileComponent } from '../footer-mobile/footer-mobile.component';
 import { TitleHeaderMobileComponent } from '../title-header-mobile/title-header-mobile.component';
+// Services
 import { BlockUiService } from '@core/services/block-ui/block-ui.service';
-import { BlockUIModule } from 'primeng/blockui';
-import { CommonModule } from '@angular/common';
-import { PanelModule } from 'primeng/panel';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-main-layout',
@@ -46,13 +49,15 @@ export class MainLayoutComponent implements OnInit, OnDestroy {
   blockedPanel: boolean = true;
   isBlocked: boolean = false;
 
-  private isSmallScreen$ = this.breakpointObserver
+  private isSmallScreen$: Observable<boolean> = this.breakpointObserver
     .observe(['(max-width: 991px)'])
     .pipe(
       takeUntilDestroyed(this.destroyRef),
       map((result) => result.matches)
     );
-  isSmallScreen = toSignal(this.isSmallScreen$, { initialValue: false });
+  isSmallScreen: Signal<boolean> = toSignal(this.isSmallScreen$, {
+    initialValue: false,
+  });
 
   currentRoute: string = '';
   isMainPage = signal<boolean>(false);

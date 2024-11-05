@@ -67,7 +67,12 @@ export class RegisterComponent {
 
   // #region Step navigation
   /**
-   * Set the next step in the registration process.
+   * Incrementa el valor del paso actual en uno.
+   *
+   * Este método actualiza el valor del paso actual llamando a la función `update`
+   * y aumentando el valor en uno.
+   *
+   * @private
    */
   private setNextStep(): void {
     this.step.update((value) => value + 1);

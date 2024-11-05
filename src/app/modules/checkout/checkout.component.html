@@ -43,16 +43,19 @@
           </li>
           <li class="flex align-items-center flex-column gap-3 relative w-full">
             <div
-              class="flex justify-content-center align-items-center border-circle bg-primary-100 w-3rem h-3rem z-1"
+              class="flex justify-content-center align-items-center border-circle w-3rem h-3rem z-1"
+              [ngClass]="step() >= 2 ? 'bg-primary-100' : 'surface-200'"
             >
               <!-- pi pi-circle-fill -->
               <i
-                class="fa-sharp fa-solid fa-truck text-xl text-primary-600"
+                class="fa-sharp fa-solid fa-truck text-xl"
+                [ngClass]="step() >= 2 ? 'text-primary-600' : 'text-600'"
               ></i>
             </div>
             <div
-              class="w-full block absolute right-50 bg-primary-500 hidden"
+              class="w-full block absolute right-50 hidden"
               style="transform: translateY(-50%); height: 2px; top: 25%"
+              [ngClass]="step() >= 2 ? 'bg-primary-500' : 'surface-300'"
             ></div>
             <div
               class="w-full hidden lg:block absolute left-50 surface-300 hidden"
@@ -72,14 +75,18 @@
 
           <li class="flex align-items-center flex-column gap-3 relative w-full">
             <div
-              class="w-full block absolute right-50 surface-300 hidden"
+              class="w-full block absolute right-50 hidden"
+              [ngClass]="step() == 3 ? 'bg-primary-500' : 'surface-300'"
               style="transform: translateY(-50%); height: 2px; top: 25%"
             ></div>
             <div
-              class="flex justify-content-center align-items-center surface-200 border-circle w-3rem h-3rem z-1"
+              class="flex justify-content-center align-items-center border-circle w-3rem h-3rem z-1"
+              [ngClass]="step() == 3 ? 'bg-primary-100' : 'surface-200'"
             >
-              <!-- pi pi-circle-fill -->
-              <i class="fa-sharp fa-solid fa-credit-card text-xl text-600"></i>
+              <i
+                class="fa-sharp fa-solid fa-credit-card text-xl"
+                [ngClass]="step() === 3 ? 'text-primary-600' : 'text-600'"
+              ></i>
             </div>
             <div class="flex flex-column align-items-center">
               <h1
@@ -115,10 +122,14 @@
           ></p-checkbox>
         </div>
         <p-divider class="w-full px-2 mb-3"></p-divider>-->
+        @if(step() === 2){
         <app-shipping-step shippingType="DELIVERY" />
+        }
 
-        <p-divider class="w-full px-2 mb-3"></p-divider>
+        <!-- <p-divider class="w-full px-2 mb-3"></p-divider> -->
+        @if(step() === 3){
         <app-payment-step />
+        }
         <div
           class="flex flex-column lg:flex-row justify-content-center align-items-center lg:justify-content-end mt-6 gap-2 fixed lg:static left-0 bottom-0 surface-card w-full p-3 lg:p-0 z-2"
         >
@@ -136,6 +147,7 @@
             styleClass="w-full"
           />
           <p-button
+            (click)="submit()"
             label="Realizar pedido"
             pRipple
             class="w-full flex-order-1 lg:flex-order-2"

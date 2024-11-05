@@ -20,7 +20,7 @@
   @for(group of products; track $index){
   <div class="border-round surface-border border-1 mb-4">
     <div
-      class="px-4 py-2 border-bottom-1 surface-border flex justify-content-between align-items-center"
+      class="px-3 md:px-4 py-2 border-bottom-1 surface-border flex justify-content-between align-items-center"
     >
       <span class="text-900 font-semibold"
         >Entrega {{ $index + 1 }} de {{ products.length }}</span
@@ -52,7 +52,7 @@
     <ul class="list-none p-0 m-0">
       @for(product of group.items; track $index){
       <li
-        class="px-4 py-3 surface-border flex align-items-start sm:align-items-center"
+        class="px-3 md:px-4 py-3 surface-border flex align-items-center"
         [ngClass]="{ 'border-bottom-1': $index < group.items.length - 1 }"
       >
         <img
@@ -69,7 +69,9 @@
         <div
           class="ml-auto flex flex-column justify-content-center align-items-center"
         >
-          <span class="text-900 text-sm"> {{ product.quantity }} Unidades</span>
+          <span class="text-900 text-sm text-center">
+            {{ product.quantity }} Unidades</span
+          >
         </div>
       </li>
       }

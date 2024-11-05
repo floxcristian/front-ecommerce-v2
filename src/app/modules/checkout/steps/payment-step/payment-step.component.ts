@@ -36,12 +36,13 @@ export class PaymentStepComponent {
       value: 'WEBPAY',
       description: 'Tarjeta de débito, crédito o prepago',
     },
+    // sin CVV (Código de seguridad de 3 dígitos)
     {
       name: 'Mercado Pago',
       image: 'https://www.implementos.cl/assets/images/mercado-pago.svg',
       value: 'MERCADO_PAGO',
       description:
-        'Tarjeta de Débito sin CVV (Código de seguridad de 3 dígitos) o Dinero en Mercadopago',
+        'Tarjeta de débito, crédito, prepago o dinero en Mercadopago',
     },
     {
       name: 'Khipu',

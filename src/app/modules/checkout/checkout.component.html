@@ -148,7 +148,7 @@
           />
           <p-button
             (click)="submit()"
-            label="Realizar pedido"
+            [label]="step() === 2 ? 'Continuar con el pago' : 'Realizar pedido'"
             pRipple
             class="w-full flex-order-1 lg:flex-order-2"
             styleClass="w-full"

@@ -70,7 +70,8 @@
           class="ml-auto flex flex-column justify-content-center align-items-center"
         >
           <span class="text-900 text-sm text-center">
-            {{ product.quantity }} Unidades</span
+            {{ product.quantity }}
+            {{ product.quantity === 1 ? "Unidad" : "Unidades" }}</span
           >
         </div>
       </li>

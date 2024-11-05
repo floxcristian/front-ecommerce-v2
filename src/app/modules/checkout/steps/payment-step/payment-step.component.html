@@ -1,5 +1,5 @@
 <form [formGroup]="paymentTypeForm">
-  <div class="col-12 field mb-4">
+  <div class="field mb-4">
     <!-- Start::title -->
     <span class="text-900 text-2xl block font-medium mb-5"
       >¿Cómo quieres pagar?</span
@@ -45,8 +45,8 @@
       </div>
 
       @if(type.image){
-      <div class="p-1 ml-auto flex flex-nowrap">
-        <img [src]="type.image" style="width: 80px" />
+      <div class="ml-auto flex flex-nowrap">
+        <img [src]="type.image" class="w-4rem md:w-5rem" />
       </div>
       }
     </div>

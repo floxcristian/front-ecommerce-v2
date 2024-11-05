@@ -1,6 +1,6 @@
 <div class="surface-section">
   <div class="grid grid-nogutter">
-    <div class="col-12 lg:col-6 h-full px-4 py-6 md:py-8 md:px-6 lg:px-8">
+    <div class="col-12 lg:col-6 h-full px-4 py-4 md:py-8 md:px-6 lg:px-8">
       <!--
       <ul class="flex list-none flex-wrap p-0 mb-6">
         <li class="flex align-items-center text-primary mr-2">
@@ -33,7 +33,8 @@
               <h1
                 class="m-0 font-medium text-900 text-sm md:text-base line-height-3 text-center"
               >
-                Datos personales
+                <!-- Datos personales -->
+                Contacto
               </h1>
               <!--<span class="text-600 text-sm text-center"
                 >Fames ac turpis egestas integer</span
@@ -119,7 +120,7 @@
         <p-divider class="w-full px-2 mb-3"></p-divider>
         <app-payment-step />
         <div
-          class="flex flex-column lg:flex-row justify-content-center align-items-center lg:justify-content-end mt-6 fixed gap-2 left-0 bottom-0 surface-card w-full p-3 lg:p-0 z-2"
+          class="flex flex-column lg:flex-row justify-content-center align-items-center lg:justify-content-end mt-6 gap-2 fixed lg:static left-0 bottom-0 surface-card w-full p-3 lg:p-0 z-2"
         >
           <!--<button
             pButton
@@ -131,7 +132,7 @@
             label="Volver al carro"
             pRipple
             [outlined]="true"
-            class="w-full flex-order-2 lg:flex-order-1 lg:mr-4"
+            class="w-full flex-order-2 lg:flex-order-1 lg:mr-4 hidden md:block"
             styleClass="w-full"
           />
           <p-button

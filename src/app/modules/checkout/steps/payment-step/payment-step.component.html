@@ -1,1 +1,51 @@
-<p>payment-step works!</p>
+<form [formGroup]="paymentTypeForm">
+  <div class="col-12 field mb-4">
+    <!-- Start::title -->
+    <span class="text-900 text-2xl block font-medium mb-5"
+      >¿Cómo quieres pagar?</span
+    >
+    <!-- End::title -->
+
+    <!-- Start::description -->
+    <div
+      class="p-4 mt-3 surface-100 flex align-items-center justify-content-between mb-4"
+    >
+      <span class="mr-5"
+        >Los pagos se procesan con encriptación SSL para garantizar la seguridad
+        de los datos de tu tarjeta de crédito y del pago.</span
+      >
+      <i class="fa-sharp-duotone fa-solid fa-shield-keyhole text-4xl"></i>
+    </div>
+    <!-- End::description -->
+
+    <!-- Start::payment type -->
+    @for(type of payments; track $index){
+    <div
+      class="border-1 p-3 border-round flex align-items-center cursor-pointer mb-3 h-7rem"
+      [ngClass]="{
+        'surface-border hover:border-400':
+          paymentTypeField?.value !== type.value,
+        'border-primary bg-blue-50': paymentTypeField?.value === type.value
+      }"
+      (click)="onSelectPaymentType(type.value)"
+    >
+      <p-radioButton
+        name="paymentType"
+        [value]="type.value"
+        formControlName="paymentType"
+        styleClass="mr-3"
+      ></p-radioButton>
+      <div class="mr-4 md:mr-8">
+        <div class="font-semibold mb-2">{{ type.name }}</div>
+        <span class="text-sm">{{ type.description }}</span>
+      </div>
+
+      <div class="p-1 ml-auto flex flex-nowrap">
+        <img [src]="type.image" style="width: 80px" />
+      </div>
+    </div>
+
+    }
+    <!-- End::payment type -->
+  </div>
+</form>

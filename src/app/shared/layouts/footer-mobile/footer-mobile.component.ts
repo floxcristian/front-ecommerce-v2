@@ -11,6 +11,22 @@ import { IFooterItem } from './footer-item.interface';
 const NG_MODULES = [CommonModule, RouterModule];
 const PRIME_MODULES = [BadgeModule, RippleModule];
 
+/**
+ * Componente `FooterMobileComponent` que representa el pie de página para la versión móvil de la aplicación.
+ *
+ * @selector `app-footer-mobile`
+ * @standalone `true`
+ * @imports `CommonModule`, `RouterModule`, `BadgeModule`, `RippleModule`
+ * @templateUrl `./footer-mobile.component.html`
+ * @styleUrl `./footer-mobile.component.scss`
+ * @changeDetection `ChangeDetectionStrategy.OnPush`
+ *
+ * @description
+ * Este componente muestra un pie de página con varios elementos de navegación para la versión móvil de la aplicación.
+ * Utiliza módulos de Angular y PrimeNG para su funcionalidad y estilo.
+ *
+ * @property {IFooterItem[]} items - Lista de elementos del pie de página, cada uno con una etiqueta, un ícono y un enlace de enrutamiento.
+ */
 @Component({
   selector: 'app-footer-mobile',
   standalone: true,
@@ -44,7 +60,7 @@ export class FooterMobileComponent {
     {
       label: 'Carro',
       icon: 'fa-sharp fa-cart-shopping ',
-      routerLink: '/3',
+      routerLink: 'checkout',
     },
   ];
 }

@@ -12,17 +12,10 @@ import { DividerModule } from 'primeng/divider';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { DocumentIdInputComponent } from '@shared/components/atomic/document-id-input/document-id-input.component';
 import { PhoneInputComponent } from '@shared/components/atomic/phone-input/phone-input.component';
-import { ShippingTypeFormComponent } from './steps/shipping-step/components/shipping-type-form/shipping-type-form.component';
-import { DeliveryFormComponent } from './components/delivery-form/delivery-form.component';
-import { PickupPersonFormComponent } from './components/pickup-person-form/pickup-person-form.component';
 import { ShippingStepComponent } from './steps/shipping-step/shipping-step.component';
+import { PaymentStepComponent } from './steps/payment-step/payment-step.component';
 
-export const COMPONENTS = [
-  /*ShippingTypeFormComponent,
-  DeliveryFormComponent,
-  PickupPersonFormComponent,*/
-  ShippingStepComponent,
-];
+export const COMPONENTS = [ShippingStepComponent, PaymentStepComponent];
 
 @Component({
   selector: 'app-checkout',
@@ -62,28 +55,6 @@ export class CheckoutComponent {
       name: 'Bateria 150 amp 900 cca borne estandar',
       price: 137990,
       image: 'https://images.implementos.cl/img/150/POWBAT0036-1.jpg',
-    },
-  ];
-  payments = [
-    {
-      name: 'Webpay Plus',
-      image: 'https://www.implementos.cl/assets/images/web-pay.svg',
-      code: 'WEBPAY',
-      description: 'Tarjeta de débito, crédito o prepago',
-    },
-    {
-      name: 'Mercado Pago',
-      image: 'https://www.implementos.cl/assets/images/mercado-pago.svg',
-      code: 'MERCADO_PAGO',
-      description:
-        'Tarjeta de Débito sin CVV (Código de seguridad de 3 dígitos) o Dinero en Mercadopago',
-    },
-    {
-      name: 'Khipu',
-      image:
-        'https://s3.amazonaws.com/static.khipu.com/buttons/2024/200x75-color.svg',
-      code: 'KHIPU',
-      description: 'Transferencia bancaria',
     },
   ];
   retira!: string;

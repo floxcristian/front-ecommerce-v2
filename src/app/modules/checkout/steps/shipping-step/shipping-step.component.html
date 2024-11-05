@@ -1,5 +1,21 @@
-<pre style="background-color: yellow">
-    shippingType: {{ shippingType() }}
-</pre>
+<app-shipping-type-form
+  [shippingType]="shippingType()"
+  (onChange)="onChangeShippingType($event)"
+/>
 
-<app-shipping-type-form />
+@if(shippingType() === 'DELIVERY'){
+<app-delivery-address-form />
+} @else if(shippingType() === 'PICKUP'){
+<app-pickup-store-form />
+}
+<app-shipping-product-list />
+
+<app-recipient-type-form
+  [shippingType]="shippingType()"
+  [shippingAction]="shippingAction()"
+  (onChange)="onRecipientTypeChange($event)"
+/>
+
+@if(recipientType() === 'ANOTHER'){
+<app-recipient-another-form [shippingAction]="shippingAction()" />
+}

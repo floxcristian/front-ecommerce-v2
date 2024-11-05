@@ -1,6 +1,7 @@
 <div class="surface-section">
   <div class="grid grid-nogutter">
     <div class="col-12 lg:col-6 h-full px-4 py-8 md:px-6 lg:px-8">
+      <!--
       <ul class="flex list-none flex-wrap p-0 mb-6">
         <li class="flex align-items-center text-primary mr-2">
           Cart <i class="pi pi-chevron-right text-500 text-xs ml-2"></i>
@@ -12,9 +13,84 @@
           Shipping<i class="pi pi-chevron-right text-500 text-xs ml-2"></i>
         </li>
         <li class="flex align-items-center text-500 mr-2">Payment</li>
-      </ul>
+      </ul>-->
+
+      <section class="surface-section px-4 pb-6 md:px-6 lg:px-8">
+        <ul
+          class="list-none flex flex-column gap-3 lg:flex-row justify-content-between p-0"
+        >
+          <li class="flex align-items-center flex-column gap-3 relative w-full">
+            <!-- Start::icon -->
+            <div
+              class="flex justify-content-center align-items-center border-circle bg-primary-100 w-3rem h-3rem z-1"
+            >
+              <i class="pi pi-check text-xl text-primary-600"></i>
+            </div>
+            <!-- End::icon -->
+            <div
+              class="w-full hidden lg:block absolute left-50 bg-primary-500 hidden"
+              style="transform: translateY(-50%); height: 2px; top: 25%"
+            ></div>
+            <div class="flex flex-column align-items-center">
+              <h1 class="m-0 font-medium text-900 text-base line-height-3">
+                Datos personales
+              </h1>
+              <!--<span class="text-600 text-sm text-center"
+                >Fames ac turpis egestas integer</span
+              >-->
+            </div>
+          </li>
+          <li class="flex align-items-center flex-column gap-3 relative w-full">
+            <div
+              class="flex justify-content-center align-items-center border-circle bg-primary-100 w-3rem h-3rem z-1"
+            >
+              <!-- pi pi-circle-fill -->
+              <i
+                class="fa-sharp fa-solid fa-truck text-xl text-primary-600"
+              ></i>
+            </div>
+            <div
+              class="w-full hidden lg:block absolute right-50 bg-primary-500 hidden"
+              style="transform: translateY(-50%); height: 2px; top: 25%"
+            ></div>
+            <div
+              class="w-full hidden lg:block absolute left-50 surface-300 hidden"
+              style="transform: translateY(-50%); height: 2px; top: 25%"
+            ></div>
+            <div class="flex flex-column align-items-center">
+              <h1 class="m-0 font-medium text-900 text-base line-height-3">
+                Entrega
+              </h1>
+              <!--<span class="text-600 text-sm text-center"
+                >Volutpat maecenas volutpat</span
+              >-->
+            </div>
+          </li>
+
+          <li class="flex align-items-center flex-column gap-3 relative w-full">
+            <div
+              class="w-full hidden lg:block absolute right-50 surface-300 hidden"
+              style="transform: translateY(-50%); height: 2px; top: 25%"
+            ></div>
+            <div
+              class="flex justify-content-center align-items-center surface-200 border-circle w-3rem h-3rem z-1"
+            >
+              <!-- pi pi-circle-fill -->
+              <i class="fa-sharp fa-solid fa-credit-card text-xl text-600"></i>
+            </div>
+            <div class="flex flex-column align-items-center">
+              <h1 class="m-0 font-medium text-900 text-base line-height-3">
+                Pago
+              </h1>
+              <!--<span class="text-600 text-sm text-center"
+                >Laoreet sit amet cursus
+              </span> -->
+            </div>
+          </li>
+        </ul>
+      </section>
       <div class="grid formgrid">
-        <div class="col-12 field mb-6">
+        <!--<div class="col-12 field mb-6">
           <span class="text-900 text-2xl block font-medium mb-5"
             >Información de contacto</span
           >
@@ -33,188 +109,26 @@
             inputId="id"
           ></p-checkbox>
         </div>
-        <p-divider class="w-full px-2 mb-3"></p-divider>
+        <p-divider class="w-full px-2 mb-3"></p-divider>-->
         <app-shipping-step shippingType="DELIVERY" />
-        <!--<app-shipping-type-form />
 
-        <app-delivery-form />
-
-        <app-pickup-person-form />-->
-        <!--
-
-        <div class="col-12 lg:col-6 field mb-4">
-          <p-dropdown
-            [options]="cities"
-            [(ngModel)]="selectedCity"
-            placeholder="Country / Region"
-            optionLabel="name"
-            [showClear]="true"
-            styleClass="w-full"
-          ></p-dropdown>
-        </div>
-
-        <div class="col-12 lg:col-6 field mb-4">
-          <input
-            id="name"
-            placeholder="Name"
-            type="text"
-            class="p-inputtext w-full"
-          />
-        </div>
-        <div class="col-12 lg:col-6 field mb-4">
-          <input
-            id="lastname"
-            placeholder="Last Name"
-            type="text"
-            class="p-inputtext w-full"
-          />
-        </div>
-        <div class="col-12 field mb-4">
-          <input
-            id="address"
-            placeholder="Address"
-            type="text"
-            class="p-inputtext w-full"
-          />
-        </div>
-        <div class="col-12 field mb-4">
-          <input
-            id="address2"
-            placeholder="Apartment, suite, etc"
-            type="text"
-            class="p-inputtext w-full"
-          />
-        </div>
-        <div class="col-12 lg:col-6 field mb-4">
-          <input
-            id="pc"
-            placeholder="Postal Code"
-            type="text"
-            class="p-inputtext w-full"
-          />
-        </div>
-        <div class="col-12 lg:col-6 field mb-4">
-          <input
-            id="city"
-            placeholder="City"
-            type="text"
-            class="p-inputtext w-full"
-          />
-        </div>
-        <div class="col-12 lg:col-6 field mb-4">
-          <p-checkbox
-            name="checkbox-1"
-            [(ngModel)]="checked2"
-            [binary]="true"
-            label="Save for next purchase"
-            class="text-900"
-            inputId="id"
-          ></p-checkbox>
-        </div>-->
         <p-divider class="w-full px-2 mb-3"></p-divider>
-        <div class="col-12 field mb-4">
-          <!--<span class="text-900 text-2xl block font-medium mb-5"
-            >Medio de pago</span
-          >-->
-          <span class="text-900 text-2xl block font-medium mb-5"
-            >¿Cómo quieres pagar?</span
-          >
-          <!--<div
-            class="p-4 mt-3 surface-100 flex align-items-center justify-content-center mb-4"
-          >
-            <span class="mr-5"
-              >Exclusivo con tus Tarjetas de Crédito Banco de Chile. Compra
-              referencial de $70.000, 3 cuotas de $23.333, CAE: 1, 19%, costo
-              total: $70.139. Hasta 31/12/2024.</span
-            >
-            <i class="fa-sharp-duetone fa-solid fa-credit-card text-4xl"></i>
-          </div> -->
-          <div
-            class="p-4 mt-3 surface-100 flex align-items-center justify-content-between mb-4"
-          >
-            <span class="mr-5"
-              >Los pagos se procesan con encriptación SSL para garantizar la
-              seguridad de los datos de tu tarjeta de crédito y del pago.</span
-            >
-            <i class="fa-sharp-duotone fa-solid fa-shield-keyhole text-4xl"></i>
-          </div>
-          @for(payment of payments; track $index){
-          <!-- Start::otro -->
-          <div
-            class="border-1 p-3 border-round flex align-items-center cursor-pointer mb-3 h-7rem"
-            [ngClass]="{
-              'surface-border hover:border-400': tier1 !== payment.code,
-              'border-primary bg-blue-50': tier1 === payment.code
-            }"
-            (click)="tier1 = payment.code"
-          >
-            <p-radioButton
-              name="tier1"
-              [value]="payment.code"
-              [(ngModel)]="tier1"
-              styleClass="mr-3"
-            ></p-radioButton>
-            <div class="mr-4 md:mr-8">
-              <div class="font-semibold mb-2">{{ payment.name }}</div>
-              <span class="text-sm">{{ payment.description }}</span>
-            </div>
-            <!-- Imagen -->
-            <div
-              class="p-1 ml-auto flex flex-nowrap"
-              [ngClass]="{
-                'text-600': tier1 !== payment.code,
-          
-              }"
-            >
-              <!-- <i class="pi pi-star-fill"></i> -->
-              <img [src]="payment.image" style="width: 80px" />
-            </div>
-          </div>
-          <!-- End::otro -->
-          <!--
-          <div
-            class="surface-card border-2 p-5 mb-3 border-round flex flex-column md:flex-row align-items-start md:align-items-center md:justify-content-between cursor-pointer"
-            (click)="animal = 0"
-            [ngClass]="{
-              'surface-border': animal !== 0,
-              'border-primary': animal === 0
-            }"
-          >
-            <div class="flex align-items-start">
-              <img
-                [src]="payment.image"
-                class="mr-3 border-round"
-                style="width: 50px"
-              />
-
-         
-              <div class="w-4 flex align-items-center">
-           
-                <div class="font-medium">{{ payment.name }}</div>
-              </div>
-            </div>
-            <div
-              class="ml-0 md:ml-8 mt-2 md:mt-0 border-1 p-1 px-2 border-round flex align-items-center font-medium"
-              [ngClass]="{
-                'surface-100 text-600 surface-border': animal !== 0,
-                'bg-primary-reverse': animal === 0
-              }"
-            >
-              <span>702</span>
-            </div>
-          </div>-->
-          }
-        </div>
-
+        <app-payment-step />
         <div
           class="col-12 flex flex-column lg:flex-row justify-content-center align-items-center lg:justify-content-end mt-6"
         >
-          <button
+          <!--<button
             pButton
             pRipple
             class="p-button-text mt-3 lg:mt-0 w-full lg:w-auto lg:px-6 flex-order-2 lg:flex-order-1 lg:mr-4"
             label="Volver al carro"
-          ></button>
+          ></button> -->
+          <p-button
+            label="Volver al carro"
+            pRipple
+            [outlined]="true"
+            class="p-button-text mt-3 lg:mt-0 w-full lg:w-auto lg:px-6 flex-order-2 lg:flex-order-1 lg:mr-4"
+          />
           <button
             pButton
             pRipple
@@ -318,6 +232,7 @@
   </div>
 </div>
 
+<!--
 <div class="surface-section px-4 py-8 md:px-6 lg:px-8">
   <div class="grid -mr-3 -ml-3">
     <div class="col-12 lg:col-4 p-3">
@@ -404,3 +319,5 @@
     <i class="pi pi-google p-1 text-xl text-900 cursor-pointer mr-3"></i>
   </div>
 </div>
+
+-->

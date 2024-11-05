@@ -1,27 +1,21 @@
 // Angular
 import { NgClass, NgForOf } from '@angular/common';
-import { Component, inject, OnInit, output } from '@angular/core';
+import { Component, inject, input, OnInit, output } from '@angular/core';
 import {
-  FormBuilder,
   FormControl,
   FormGroup,
+  NonNullableFormBuilder,
   ReactiveFormsModule,
-  Validators,
 } from '@angular/forms';
 import { ControlsOf } from '@shared/models/controls.type';
+// Models
+import { ShippingType } from '../../models/shipping-type.type';
+import { ShippingTypeOption } from './models/shipping-type-option.interface';
 // PrimeNG
 import { RadioButtonModule } from 'primeng/radiobutton';
 
 const NG_MODULES = [ReactiveFormsModule, NgClass, NgForOf];
 const PRIME_MODULES = [RadioButtonModule];
-
-export type ShippingType = 'DELIVERY' | 'PICKUP';
-export interface ShipmentType {
-  title: string;
-  description: string;
-  icon: string;
-  value: ShippingType;
-}
 
 /**
  * Componente para seleccionar el tipo de envío.
@@ -35,26 +29,28 @@ export interface ShipmentType {
   host: { class: 'w-full' },
 })
 export class ShippingTypeFormComponent implements OnInit {
+  shippingType = input.required<ShippingType>();
   onChange = output<ShippingType>();
-  private readonly fb = inject(FormBuilder);
+
+  private readonly fb = inject(NonNullableFormBuilder);
 
   get shipmentTypeField() {
-    return this.shipmentForm.get('shipmentType');
+    return this.shippingTypeForm.get('shipmentType');
   }
 
-  shipmentForm!: FormGroup<ControlsOf<{ shipmentType: ShippingType }>>;
-  shipmentTypes: ShipmentType[] = [
-    {
-      title: 'Despacho a domicilio',
-      description: 'Selecciona la fecha de entrega',
-      icon: 'fa-truck',
-      value: 'DELIVERY',
-    },
+  shippingTypeForm!: FormGroup<ControlsOf<{ shipmentType: ShippingType }>>;
+  shippingTypes: ShippingTypeOption[] = [
     {
       title: 'Retiro en tienda',
       description: 'Selecciona la tienda y el día en que prefieres retirar',
       icon: 'fa-store',
       value: 'PICKUP',
+    },
+    {
+      title: 'Despacho a domicilio',
+      description: 'Selecciona la fecha de entrega',
+      icon: 'fa-truck',
+      value: 'DELIVERY',
     },
   ];
 
@@ -63,8 +59,8 @@ export class ShippingTypeFormComponent implements OnInit {
   }
 
   private buildForm(): void {
-    this.shipmentForm = this.fb.nonNullable.group({
-      shipmentType: new FormControl<ShippingType>('DELIVERY', {
+    this.shippingTypeForm = this.fb.group({
+      shipmentType: new FormControl<ShippingType>(this.shippingType(), {
         nonNullable: true,
       }),
     });
@@ -75,7 +71,7 @@ export class ShippingTypeFormComponent implements OnInit {
    * @param value
    */
   onSelectShipmentType(value: ShippingType): void {
-    this.shipmentForm.patchValue({ shipmentType: value });
+    this.shippingTypeForm.setValue({ shipmentType: value });
     this.onChange.emit(value);
   }
 }

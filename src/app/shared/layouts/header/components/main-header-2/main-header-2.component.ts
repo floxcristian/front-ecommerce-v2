@@ -19,6 +19,7 @@ import { RippleModule } from 'primeng/ripple';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { StyleClassModule } from 'primeng/styleclass';
 import { OverlayPanel, OverlayPanelModule } from 'primeng/overlaypanel';
+
 import { environment } from '@env/environment';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ControlsOf } from '@shared/models/controls.type';
@@ -36,7 +37,6 @@ const PRIME_MODULES = [
   SplitButtonModule,
   OverlayPanelModule,
 ];
-
 const NG_MODULES = [ReactiveFormsModule];
 
 export interface CurrencyOption {

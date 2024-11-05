@@ -13,7 +13,7 @@
     <div class="col-12 flex flex-column lg:flex-row field p-0 gap-3">
       @for(type of recipientTypes(); track $index){
       <div
-        class="flex p-3 mt-3 lg:mt-0 border-round border-1 surface-border w-full cursor-pointer flex align-items-center h-6rem"
+        class="flex p-3 border-round border-1 surface-border w-full cursor-pointer flex align-items-center h-6rem"
         [ngClass]="{
           'surface-border hover:border-400':
             recipientTypeField?.value !== type.value,

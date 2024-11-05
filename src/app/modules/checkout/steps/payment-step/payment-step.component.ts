@@ -51,6 +51,12 @@ export class PaymentStepComponent {
       value: 'KHIPU',
       description: 'Transferencia bancaria',
     },
+    {
+      name: 'Línea de crédito',
+      //image: 'assets/images/logos/logox.svg',
+      value: 'CREDIT_LINE',
+      description: 'Compra ahora y paga después',
+    },
   ];
 
   get paymentTypeField() {

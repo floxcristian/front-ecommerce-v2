@@ -36,13 +36,19 @@
         styleClass="mr-3"
       ></p-radioButton>
       <div class="mr-4 md:mr-8">
-        <div class="font-semibold mb-2">{{ type.name }}</div>
+        <div class="font-semibold" [ngClass]="{ 'mb-2': type.description }">
+          {{ type.name }}
+        </div>
+        @if(type.description){
         <span class="text-sm">{{ type.description }}</span>
+        }
       </div>
 
+      @if(type.image){
       <div class="p-1 ml-auto flex flex-nowrap">
         <img [src]="type.image" style="width: 80px" />
       </div>
+      }
     </div>
 
     }

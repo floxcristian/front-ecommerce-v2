@@ -1,27 +1,93 @@
-// bottom-sheet-precio.component.scss
 :host ::ng-deep {
   .p-sidebar {
-    padding: 0;
+    &.bottom-sheet {
+      height: auto !important;
 
-    &.p-sidebar-bottom {
-      height: auto;
-    }
-
-    .p-sidebar-content {
-      padding: 0;
+      .p-sidebar-content {
+        padding: 0;
+        height: auto !important;
+        overflow: hidden !important;
+      }
     }
   }
 }
 
 .drag-handle {
-  touch-action: none;
-  user-select: none;
-  padding: 8px 0;
+  padding: 12px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+  background: white;
+
+  .drag-indicator {
+    width: 40px;
+    height: 4px;
+    background-color: #e0e0e0;
+    border-radius: 2px;
+  }
 }
 
-.drag-indicator {
-  width: 40px;
-  height: 4px;
-  background-color: #e0e0e0;
-  border-radius: 2px;
+.details-section {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease-out;
+  background: white;
+
+  &.expanded {
+    height: auto;
+    padding-bottom: 16px;
+  }
+
+  .details-content {
+    padding: 0 16px;
+  }
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #f0f0f0;
+  }
+}
+
+.fixed-section {
+  padding: 16px;
+  border-top: 1px solid #e0e0e0;
+  background-color: white;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.total-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  h2 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  .total-amount {
+    font-weight: 600;
+  }
+}
+
+// Asegurarnos de que el contenido no cause scroll
+:host {
+  display: block;
+
+  ::ng-deep .p-sidebar-bottom {
+    max-height: min-content !important;
+  }
 }

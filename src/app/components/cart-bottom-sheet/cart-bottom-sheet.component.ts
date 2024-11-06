@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  ViewChild,
+} from '@angular/core';
 import { CdkDragDrop, DragDropModule } from '@angular/cdk/drag-drop';
 import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
@@ -19,18 +25,21 @@ interface DetallesPrecio {
 })
 export class CartBottomSheetComponent implements AfterViewInit {
   @ViewChild('dragHandle') dragHandle!: ElementRef;
+  @ViewChild('detailsSection') detailsSection!: ElementRef;
 
   visible: boolean = true;
   isExpanded: boolean = false;
-  dragPosition = { x: 0, y: 0 };
   private startY: number = 0;
   private currentY: number = 0;
+  private isDragging: boolean = false;
 
   detalles: DetallesPrecio = {
     subtotal: 89.99,
     impuestos: 7.2,
     envio: 5.0,
   };
+
+  constructor(private cdr: ChangeDetectorRef) {}
 
   get total(): number {
     return (
@@ -43,40 +52,47 @@ export class CartBottomSheetComponent implements AfterViewInit {
   }
 
   setupDragListeners() {
-    const element = this.dragHandle.nativeElement;
-    let isDragging = false;
+    const handle = this.dragHandle.nativeElement;
+    const details = this.detailsSection.nativeElement;
 
-    element.addEventListener('touchstart', (e: TouchEvent) => {
-      isDragging = true;
-      this.startY = e.touches[0].clientY;
-      this.currentY = this.startY;
-    });
+    handle.addEventListener(
+      'touchstart',
+      (e: TouchEvent) => {
+        this.isDragging = true;
+        this.startY = e.touches[0].clientY;
+        e.preventDefault();
+      },
+      { passive: false }
+    );
 
-    element.addEventListener('touchmove', (e: TouchEvent) => {
-      if (!isDragging) return;
+    handle.addEventListener(
+      'touchmove',
+      (e: TouchEvent) => {
+        if (!this.isDragging) return;
 
-      this.currentY = e.touches[0].clientY;
-      const deltaY = this.currentY - this.startY;
+        e.preventDefault();
+        this.currentY = e.touches[0].clientY;
+        const deltaY = this.currentY - this.startY;
 
-      // Si el deltaY es positivo, el usuario está deslizando hacia abajo
-      // Si es negativo, está deslizando hacia arriba
-      if (Math.abs(deltaY) > 50) {
-        // Umbral de 50px para el swipe
-        this.isExpanded = deltaY < 0;
-      }
-    });
+        if (Math.abs(deltaY) > 30) {
+          this.isExpanded = deltaY < 0;
+          this.cdr.detectChanges();
+        }
+      },
+      { passive: false }
+    );
 
     const endDrag = () => {
-      isDragging = false;
-      this.startY = 0;
-      this.currentY = 0;
+      this.isDragging = false;
+      this.cdr.detectChanges();
     };
 
-    element.addEventListener('touchend', endDrag);
-    element.addEventListener('touchcancel', endDrag);
+    handle.addEventListener('touchend', endDrag);
+    handle.addEventListener('touchcancel', endDrag);
   }
 
   toggleExpanded(): void {
     this.isExpanded = !this.isExpanded;
+    this.cdr.detectChanges();
   }
 }

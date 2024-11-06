@@ -104,4 +104,10 @@ export class CheckoutComponent {
       this.setNextStep();
     }
   }
+
+  goBack() {
+    if (this.step() > 1) {
+      this.step.update((value) => value - 1);
+    }
+  }
 }

@@ -55,3 +55,7 @@
     <!-- End::payment type -->
   </div>
 </form>
+
+@if(paymentTypeField?.value === 'CREDIT_LINE'){
+<app-purchase-order-form />
+}

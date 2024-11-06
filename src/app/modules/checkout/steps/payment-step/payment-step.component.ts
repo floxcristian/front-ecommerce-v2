@@ -13,14 +13,17 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { PaymentTypeOption } from './models/payment-type-option.interface';
 import { ControlsOf } from '@shared/models/controls.type';
 import { PaymentType } from './models/payment-type.type';
+// Components
+import { PurchaseOrderFormComponent } from './components/purchase-order-form/purchase-order-form.component';
 
 const NG_MODULES = [NgClass, ReactiveFormsModule];
 const PRIME_MODULES = [RadioButtonModule];
+const COMPONENTS = [PurchaseOrderFormComponent];
 
 @Component({
   selector: 'app-payment-step',
   standalone: true,
-  imports: [...NG_MODULES, ...PRIME_MODULES],
+  imports: [...NG_MODULES, ...PRIME_MODULES, ...COMPONENTS],
   templateUrl: './payment-step.component.html',
   styleUrl: './payment-step.component.scss',
   host: { class: 'w-full' },

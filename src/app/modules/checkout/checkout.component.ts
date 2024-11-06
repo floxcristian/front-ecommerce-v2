@@ -15,6 +15,8 @@ import { PhoneInputComponent } from '@shared/components/atomic/phone-input/phone
 import { ShippingStepComponent } from './steps/shipping-step/shipping-step.component';
 import { PaymentStepComponent } from './steps/payment-step/payment-step.component';
 import { ScrollService } from '@core/utils/scroll/scroll.service';
+import { AccordionModule } from 'primeng/accordion';
+import { CartBottomSheetComponent } from 'src/app/components/cart-bottom-sheet/cart-bottom-sheet.component';
 
 export const COMPONENTS = [ShippingStepComponent, PaymentStepComponent];
 
@@ -35,7 +37,9 @@ export const COMPONENTS = [ShippingStepComponent, PaymentStepComponent];
     RadioButtonModule,
     DocumentIdInputComponent,
     PhoneInputComponent,
+    AccordionModule,
     ...COMPONENTS,
+    CartBottomSheetComponent,
   ],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.scss',
@@ -110,4 +114,7 @@ export class CheckoutComponent {
       this.step.update((value) => value - 1);
     }
   }
+
+  showPriceDetails: boolean = false;
+  togglePriceDetails() {}
 }

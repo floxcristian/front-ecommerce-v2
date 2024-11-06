@@ -1,0 +1,27 @@
+// bottom-sheet-precio.component.scss
+:host ::ng-deep {
+  .p-sidebar {
+    padding: 0;
+
+    &.p-sidebar-bottom {
+      height: auto;
+    }
+
+    .p-sidebar-content {
+      padding: 0;
+    }
+  }
+}
+
+.drag-handle {
+  touch-action: none;
+  user-select: none;
+  padding: 8px 0;
+}
+
+.drag-indicator {
+  width: 40px;
+  height: 4px;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+}

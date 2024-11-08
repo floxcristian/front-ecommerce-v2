@@ -55,8 +55,8 @@
 }
 
 .fixed-section {
-  padding: 16px;
-  border-top: 1px solid #e0e0e0;
+  padding: 0 16px 16px 16px;
+  // border-top: 1px solid #e0e0e0;
   background-color: white;
 }
 
@@ -64,7 +64,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .total-content {

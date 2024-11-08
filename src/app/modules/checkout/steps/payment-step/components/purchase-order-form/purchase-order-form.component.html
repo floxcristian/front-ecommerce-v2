@@ -6,11 +6,155 @@
     >
     <!-- End::title -->
   </div>
-  <!-- Start::input nombre -->
+
+  <!-- Start::input código -->
   <div class="field mb-4 flex flex-column">
     <label for="code" class="font-semibold text-900">Código</label>
-    <input id="code" type="text" pInputText maxlength="25" spellcheck="false" />
-    <small id="code-help"> Ej: fc65d810 </small>
+    <input id="code" type="text" pInputText maxlength="30" spellcheck="false" />
   </div>
-  <!-- End::input nombre -->
+  <!-- End::input código -->
+
+  <!-- Start::input monto -->
+  <div class="field mb-4 flex flex-column">
+    <label for="amount" class="font-semibold text-900">Monto</label>
+    <app-number-input id="amount" />
+  </div>
+  <!-- End::input monto -->
+
+  <!-- Start::input centro de costo -->
+  <div class="field mb-4 flex flex-column">
+    <label for="code" class="font-semibold text-900">Centro de Costo</label>
+    <!-- <input id="code" type="text" pInputText maxlength="30" spellcheck="false" /> -->
+    <!-- Start::dirección -->
+    <div
+      class="flex p-4 mt-3 lg:mt-0 border-round border-1 border-primary bg-blue-50 w-full cursor-pointer flex align-items-center h-6rem"
+    >
+      <div class="mr-4 md:mr-6">
+        <div class="font-semibold mb-2">San Bernardo</div>
+        <span class="text-sm">C020</span>
+      </div>
+      <i class="fa-sharp fa-solid fa-angle-right text-xl ml-auto"></i>
+    </div>
+    <!-- End::dirección -->
+  </div>
+  <!-- End::input centro de costo -->
+
+  <div class="field mb-4 flex flex-column">
+    <label for="file" class="font-semibold text-900">Orden de compra</label>
+    <small id="file-help" class="mb-2">
+      Solo archivos .pdf con menos de 1mb.
+    </small>
+    <p-fileUpload
+      #fileUpload
+      (onUpload)="onUpload($event)"
+      (onSelect)="onFileSelect($event)"
+      (onRemove)="onFileRemove($event)"
+      invalidFileTypeMessageSummary="{0}:"
+      invalidFileTypeMessageDetail="formato de archivo no permitido."
+      invalidFileSizeMessageSummary="{0}:"
+      invalidFileSizeMessageDetail="tamaño de archivo excede el límite permitido."
+      [customUpload]="true"
+      [showUploadButton]="false"
+      [showCancelButton]="false"
+      accept="application/pdf"
+      maxFileSize="3000000"
+    >
+      <ng-template pTemplate="header"> </ng-template>
+
+      <!-- Start::contenido -->
+      <ng-template pTemplate="content">
+        <div
+          class="font-semibold flex flex-column justify-content-center align-items-center gap-3 py-4 surface-100"
+        >
+          <i class="fa-sharp-duotone fa-solid fa-file-arrow-up text-4xl"></i>
+          <div
+            class="flex flex-column justify-content-center align-items-center gap-2"
+          >
+            <span class="text-sm font-medium"
+              >Arrastra y suelta un archivo aquí o
+            </span>
+            <p-button
+              label="Selecciona un archivo de tu dispositivo"
+              severity="contrast"
+              size="small"
+              (click)="triggerFileInput()"
+            />
+          </div>
+        </div>
+        <!--<ul *ngIf="uploadedFiles.length">
+          <li *ngFor="let file of uploadedFiles">
+            {{ file.name }} - {{ file.size }} bytes
+          </li>
+        </ul>-->
+      </ng-template>
+      <!-- End::contenido -->
+
+      <!-- Start::archivo cargado -->
+      <ng-template pTemplate="file">
+        @if(fileField?.value){
+        <div
+          class="flex gap-3 align-items-center border-1 border-round p-2 mb-3 surface-border surface-card"
+        >
+          <div
+            class="border-round border-1 surface-border w-3rem h-3rem flex-wrap flex justify-content-center align-content-center"
+          >
+            <i
+              class="fa-sharp-duotone fa-solid fa-file-pdf text-2xl text-red-500 pl-1"
+            ></i>
+          </div>
+          <div class="flex flex-column flex-1 min-w-0">
+            <span
+              class="text-sm font-semibold mb-1"
+              style="
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: block;
+                max-width: 100%;
+              "
+            >
+              {{ fileField?.value?.name }}
+            </span>
+            <span class="text-xs text-500">
+              {{ fileField?.value?.size || 0 | fileSize }}
+            </span>
+          </div>
+
+          <p-button
+            icon="pi pi-times"
+            [rounded]="true"
+            [text]="true"
+            severity="danger"
+            class="ml-auto"
+            (click)="removeFile()"
+          />
+        </div>
+        }
+        <!--<div class="p-fileupload-row">
+        </div>-->
+      </ng-template>
+      <!-- End::archivo cargado -->
+
+      <!--<ng-template pTemplate="invalidfiletype" let-file>
+        <div class="p-message p-message-error p-3 w-full">
+          <i class="pi pi-times-circle mr-2"></i>
+          <span class="font-bold">{{ file.name }}</span
+          >: El archivo debe ser en formato PDF
+        </div>
+      </ng-template>-->
+    </p-fileUpload>
+
+    <!--<p-fileUpload
+      mode="basic"
+      chooseLabel="Choose"
+      chooseIcon="pi pi-upload"
+      name="demo[]"
+      url="https://www.primefaces.org/cdn/api/upload.php"
+      accept="image/*"
+      maxFileSize="1000000"
+      (onUpload)="onUpload($event)"
+    />-->
+    <!-- <app-number-input id="amount" /> -->
+    <!-- <small id="amount-help"> Ej: 9 1234 9876 </small> -->
+  </div>
 </form>

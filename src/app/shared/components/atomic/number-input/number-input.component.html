@@ -1,0 +1,11 @@
+<form [formGroup]="form">
+  <input
+    type="tel"
+    pInputText
+    formControlName="value"
+    maxlength="9"
+    (input)="onValueFieldInput($event)"
+    (blur)="onValueFieldBlur()"
+    class="w-full"
+  />
+</form>

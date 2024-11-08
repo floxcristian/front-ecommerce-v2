@@ -4,7 +4,7 @@
   [modal]="false"
   [showCloseIcon]="false"
   [baseZIndex]="10000"
-  styleClass="bottom-sheet"
+  styleClass="bottom-sheet shadow-8"
 >
   <div #dragHandle class="drag-handle">
     <div class="drag-indicator"></div>
@@ -32,7 +32,7 @@
   <div class="fixed-section">
     <div class="total-row">
       <div class="total-content">
-        <h2>Total a pagar</h2>
+        <h2>Total</h2>
         <span class="total-amount">${{ total.toFixed(2) }}</span>
       </div>
       <button

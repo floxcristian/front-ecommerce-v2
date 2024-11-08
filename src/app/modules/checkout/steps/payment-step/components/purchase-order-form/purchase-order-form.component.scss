@@ -1,0 +1,25 @@
+:host ::ng-deep .p-fileupload-content {
+  padding: 1rem;
+}
+
+:host ::ng-deep .p-message-icon {
+  display: flex;
+}
+
+:host ::ng-deep .p-message-wrapper .p-message-wrapper {
+  padding: 1rem 1.75rem;
+}
+
+/**
+  * Hide the toopbar of the file upload component.
+  */
+:host ::ng-deep .p-fileupload-buttonbar,
+:host ::ng-deep .p-fileupload-content .p-progressbar {
+  display: none;
+}
+
+:host ::ng-deep .p-fileupload .p-fileupload-content {
+  background-color: var(--surface-100) !important;
+  border-radius: 6px;
+  border: 1px dashed #d1d5db;
+}

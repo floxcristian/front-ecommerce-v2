@@ -42,7 +42,7 @@
   <div class="field mb-4 flex flex-column">
     <label for="file" class="font-semibold text-900">Orden de compra</label>
     <small id="file-help" class="mb-2 mt-0">
-      Solo archivos .pdf con menos de 1mb.
+      Solo archivos .pdf con menos de 1 MB.
     </small>
     <p-fileUpload
       #fileUpload
@@ -59,8 +59,6 @@
       accept="application/pdf"
       maxFileSize="3000000"
     >
-      <ng-template pTemplate="header"> </ng-template>
-
       <!-- Start::contenido -->
       <ng-template pTemplate="content">
         <div
@@ -135,11 +133,16 @@
       </ng-template>
       <!-- End::archivo cargado -->
 
+      <!-- No funciona, reemplaza al pTemplate="file" -->
       <!--<ng-template pTemplate="invalidfiletype" let-file>
-        <div class="p-message p-message-error p-3 w-full">
-          <i class="pi pi-times-circle mr-2"></i>
-          <span class="font-bold">{{ file.name }}</span
-          >: El archivo debe ser en formato PDF
+        <div class="error-container">
+          <div class="error-content">
+            <i class="pi pi-times-circle error-icon"></i>
+            <div class="error-message">
+              <span class="error-title">{{ file | json }}</span>
+              <span class="error-detail">Solo se permiten archivos PDF</span>
+            </div>
+          </div>
         </div>
       </ng-template>-->
     </p-fileUpload>

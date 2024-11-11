@@ -62,8 +62,8 @@ export class AddressInputComponent
   @ViewChild('searchAddress') searchRef!: ElementRef<HTMLInputElement>;
   onChangeAddress = output<string>();
 
-  private onChange!: (value: string) => void;
-  private onTouch!: () => void;
+  private onChange: (value: string) => void = () => {};
+  private onTouch: () => void = () => {};
 
   get searchField(): FormControl<string> {
     return this.form.controls.search;

@@ -58,8 +58,8 @@ export class PositionInputComponent
   private readonly contactService = inject(ContactService);
   form!: FormGroup<ControlsOf<{ position: string }>>;
 
-  private onChange!: (value: string) => void;
-  private onTouch!: () => void;
+  private onChange: (value: string) => void = () => {};
+  private onTouch: () => void = () => {};
 
   isLoading = signal(true);
   positions = signal<any[]>([]);

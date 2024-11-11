@@ -59,8 +59,8 @@ export class PasswordInputComponent implements ControlValueAccessor, Validator {
   private readonly fb = inject(FormBuilder);
   form!: FormGroup<ControlsOf<{ password: string }>>;
 
-  private onChange!: (value: string) => void;
-  private onTouch!: () => void;
+  private onChange: (value: string) => void = () => {};
+  private onTouch: () => void = () => {};
 
   errors = signal<Record<string, { value: boolean; message: string }>>({
     passwordLowercase: { value: true, message: 'Al menos una letra minúscula' },

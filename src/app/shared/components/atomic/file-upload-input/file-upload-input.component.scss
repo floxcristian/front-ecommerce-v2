@@ -1,0 +1,67 @@
+/* Add application styles & imports to this file! */
+.file-upload {
+  border: 1px dashed #d1d5db;
+  border-radius: 6px;
+  padding: 16px;
+  text-align: center;
+  background-color: var(--surface-100);
+  transition: border 0.3s ease;
+}
+
+.file-upload.dragover {
+  border-color: #2196f3;
+  background: #e3f2fd;
+}
+
+.upload-icon {
+  font-size: 48px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.file-list {
+  // margin-top: 20px;
+  text-align: left;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  margin: 4px 0;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.file-name {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.remove-file {
+  color: #f44336;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 4px 8px;
+}
+
+.upload-button {
+  background: #2196f3;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.upload-button:hover {
+  background: #1976d2;
+}
+
+.file-input {
+  display: none;
+}

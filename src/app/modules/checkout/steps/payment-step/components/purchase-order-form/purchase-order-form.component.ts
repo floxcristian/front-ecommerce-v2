@@ -16,10 +16,11 @@ import { NumberInputComponent } from '@shared/components/atomic/number-input/num
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { FileSizePipe } from '@shared/pipes/file-size/file-size.pipe';
+import { FileUploadInputComponent } from '@shared/components/atomic/file-upload-input/file-upload-input.component';
 
 const NG_MODULES = [ReactiveFormsModule, CommonModule];
 const PRIME_MODULES = [InputTextModule, FileUploadModule, ButtonModule];
-const COMPONENTS = [NumberInputComponent];
+const COMPONENTS = [NumberInputComponent, FileUploadInputComponent];
 const PIPES = [FileSizePipe];
 
 @Component({
@@ -53,13 +54,13 @@ export class PurchaseOrderFormComponent {
   }
 
   onFileSelect(event: any): void {
+    console.log('onFileSelect: ', event);
     if (!event.files?.[0]) return;
     this.purchaseOrderForm.patchValue({ file: event.files[0] });
   }
 
   onFileRemove(event: any) {
     console.log('onFileRemove');
-    //this.archivo = null;
     this.purchaseOrderForm.patchValue({
       file: null,
     });
@@ -71,10 +72,25 @@ export class PurchaseOrderFormComponent {
   }
 
   // Activar el input file oculto
-  triggerFileInput() {
+  triggerFileInput(event: any) {
+    console.log('triggerFileInput: ', event);
     this.fileUpload.choose();
     //this.fileInput.nativeElement.click();
   }
 
-  onUpload(event: any): void {}
+  onError(event: any): void {
+    console.log('onError: ', event);
+  }
+
+  onUpload(event: any): void {
+    console.log('onUpload: ', event);
+  }
+
+  uploadHandler(event: any): void {
+    console.log('uploadHandler: ', event);
+  }
+
+  onBeforeUpload(event: any): void {
+    console.log('onBeforeUpload: ', event);
+  }
 }

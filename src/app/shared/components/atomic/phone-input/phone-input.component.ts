@@ -66,8 +66,8 @@ export class PhoneInputComponent implements ControlValueAccessor, Validator {
   form!: FormGroup<ControlsOf<{ phone: string }>>;
   phoneCode = environment.phone.code;
 
-  private onChange!: (value: number) => void;
-  private onTouch!: () => void;
+  private onChange: (value: number) => void = () => {};
+  private onTouch: () => void = () => {};
 
   constructor() {
     this.buildForm();

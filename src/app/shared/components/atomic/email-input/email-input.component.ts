@@ -62,8 +62,8 @@ export class EmailInputComponent implements ControlValueAccessor, Validator {
   private readonly fb = inject(FormBuilder);
   form!: FormGroup<ControlsOf<{ email: string }>>;
 
-  private onChange!: (value: string) => void;
-  private onTouch!: () => void;
+  private onChange: (value: string) => void = () => {};
+  private onTouch: () => void = () => {};
 
   domains = ['gmail.com', 'hotmail.com', 'icloud.com', 'live.com', 'yahoo.com'];
   filteredDomains = signal<string[]>([]);

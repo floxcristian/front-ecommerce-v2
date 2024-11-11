@@ -77,8 +77,8 @@ export class DocumentIdInputComponent
   isLoading = EnterpriseValidator.isLoading;
   lastValue = EnterpriseValidator.lastValue;
 
-  private onChange!: (value: string) => void;
-  private onTouch!: () => void;
+  private onChange: (value: string) => void = () => {};
+  private onTouch: () => void = () => {};
 
   get documentIdField(): FormControl<string> {
     return this.form.controls.documentId;

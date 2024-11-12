@@ -2,8 +2,11 @@
   files: {{ files() | json }}
   detailedFiles: {{ detailedFiles() | json }}
 </pre> -->
+<small class="mt-0">
+  Solo archivos .pdf con menos de {{ maxFileSize() | fileSize }}.
+</small>
 <div
-  class="file-upload"
+  class="file-upload mt-1"
   [class.dragover]="isDragging()"
   (dragover)="onDragOver($event)"
   (dragleave)="onDragLeave($event)"
@@ -55,7 +58,8 @@
       class="border-round border-1 surface-border w-3rem h-3rem flex-wrap flex justify-content-center align-content-center"
     >
       <i
-        class="fa-sharp-duotone fa-solid fa-file-pdf text-2xl text-red-500 pl-1"
+        class="fa-sharp-duotone fa-solid text-2xl pl-1"
+        [ngClass]="[file.icon, file.hasError ? 'text-red-400' : 'text-primary']"
       ></i>
     </div>
     <!-- End:icono -->

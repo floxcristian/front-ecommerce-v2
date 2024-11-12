@@ -10,12 +10,13 @@ const PRIME_MODULES = [ButtonModule];
 const PIPES = [FileSizePipe];
 
 export interface FileData {
-  //file: File; // Mantener referencia al archivo original
   name: string;
   size: number;
+  type: string;
   lastModified: number;
   messageError: string | null;
   hasError: boolean;
+  icon?: string;
 }
 
 export interface FileError {
@@ -43,7 +44,7 @@ export class FileUploadInputComponent {
    * Tamaño máximo de archivo permitido en bytes.
    * Por defecto es 1MB.
    */
-  maxFileSize = input<number>(1024 * 1024);
+  maxFileSize = input<number>(1024 * 1024 * 10);
   /**
    * Número máximo de archivos que se pueden cargar.
    * + Por defecto es 1.
@@ -125,10 +126,13 @@ export class FileUploadInputComponent {
       const fileSize = file.size;
       const isValidFileType = this.isValidFileType(file);
       const isValidFileSize = fileSize <= this.maxFileSize();
+      const fileIcon = this.getFileIcon(file.type);
       const fileData: FileData = {
         name: file.name,
         size: file.size,
+        type: file.type,
         lastModified: file.lastModified,
+        icon: fileIcon,
         messageError: null,
         hasError: false,
       };
@@ -176,8 +180,34 @@ export class FileUploadInputComponent {
     const acceptedTypes = this.accept()
       .split(',')
       .map((type) => type.trim());
+
     return acceptedTypes.some(
       (type) => file.name.endsWith(type) || file.type === type
     );
+  }
+
+  getFileIcon(fileType: string): string {
+    if ('application/pdf' === fileType) {
+      return 'fa-file-pdf';
+    } else if (
+      [
+        'application/msword',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      ].includes(fileType)
+    ) {
+      return 'fa-file-word';
+    } else if (
+      [
+        'application/vnd.ms-excel',
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      ].includes(fileType)
+    ) {
+      return 'fa-file-excel';
+    } else if (['image/jpeg', 'image/png'].includes(fileType)) {
+      return 'fa-file-image';
+    }
+    // Agrega más tipos de archivo y sus iconos correspondientes según sea necesario
+
+    return 'fa-file'; // Icono por defecto
   }
 }

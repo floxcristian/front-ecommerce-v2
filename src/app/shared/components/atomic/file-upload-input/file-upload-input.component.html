@@ -3,7 +3,7 @@
   detailedFiles: {{ detailedFiles() | json }}
 </pre> -->
 <small class="mt-0">
-  Solo archivos .pdf con menos de {{ maxFileSize() | fileSize }}.
+  Solo archivos {{ acceptLabel() }} con menos de {{ maxFileSize() | fileSize }}.
 </small>
 <div
   class="file-upload mt-1"

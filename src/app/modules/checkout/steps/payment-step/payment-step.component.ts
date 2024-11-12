@@ -15,10 +15,11 @@ import { ControlsOf } from '@shared/models/controls.type';
 import { PaymentType } from './models/payment-type.type';
 // Components
 import { PurchaseOrderFormComponent } from './components/purchase-order-form/purchase-order-form.component';
+import { InvoiceFormComponent } from './components/invoice-form/invoice-form.component';
 
 const NG_MODULES = [NgClass, ReactiveFormsModule];
 const PRIME_MODULES = [RadioButtonModule];
-const COMPONENTS = [PurchaseOrderFormComponent];
+const COMPONENTS = [PurchaseOrderFormComponent, InvoiceFormComponent];
 
 @Component({
   selector: 'app-payment-step',

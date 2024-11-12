@@ -1,43 +1,26 @@
-<div class="border-bottom-1 surface-border mb-5">
-  <p class="text-base text-400">Paso 1 de {{ steps() }}</p>
-  <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">Datos de la empresa</h2>
-  <p class="mt-0 mb-5 text-700 font-normal text-base">
-    Ingresa los datos de tu empresa y disfruta de todos los beneficios.
-  </p>
-</div>
-<!--<pre style="background-color: yellow">
-businessLineField: {{ businessLineField.value }}</pre
->-->
-<!--<pre style="background-color: yellow">
-  lastValue: {{ lastValue() }}
-  businessName: {{ businessName() }}
-  5blurred: {{ blurred() }}
-  businessLineField: {{businessLineField.value}}
-</pre>-->
-<!--<pre style="background-color: yellow">
-  {{ enterpriseForm.value | json }}
-</pre>-->
-<form
-  [formGroup]="enterpriseForm"
-  (ngSubmit)="submit(enterpriseForm.getRawValue())"
->
-  <!--
-  <pre style="background-color: yellow">
- blurred: {{ blurred() }} businessName: {{ businessName() }}</pre
-  > -->
-  <!--
-  <pre style="background-color: pink">
-    businessName: {{ businessName() }}
-    businessLines: {{ businessLines() | json }}
-  </pre>-->
-  <!--<pre style="background-color: yellow">
+<!-- <pre style="background-color: yellow">
   hasAsyncData: {{ hasAsyncData() }}
   lastValue: {{ lastValue() }}
-  canExecuteAsyncValidate: {{ canExecuteAsyncValidate() }}
   value: {{ documentIdField.value }} 
   status: {{ documentIdField.status }}
-  errors: {{ documentIdField.errors | json }}
-</pre>-->
+</pre> -->
+<form [formGroup]="invoiceForm">
+  <!-- Start::title -->
+  <div class="field mb-4">
+    <span class="text-900 text-2xl block font-semibold mb-5"
+      >¿Necesitas una factura?</span
+    >
+  </div>
+  <!-- End::title -->
+
+  <div class="field mb-4 flex flex-column">
+    <label for="documentId" class="font-semibold text-900"
+      >Correo electrónico de contacto de la empresa</label
+    >
+    <app-email-input formControlName="email" id="email" />
+    <small id="email-help"> Ej: micorreo&#64;gmail.com </small>
+  </div>
+
   <!-- Start::input documentId -->
   <div class="field mb-4 flex flex-column">
     <label for="documentId" class="font-semibold text-900">{{
@@ -98,26 +81,4 @@ businessLineField: {{ businessLineField.value }}</pre
     <!-- <small id="businessLine-help"> Ej: Rojas </small> -->
   </div>
   <!-- End::giro comercial -->
-
-  <div
-    class="flex gap-3 fixed lg:static left-0 bottom-0 surface-card w-full p-3 lg:p-0"
-  >
-    <button
-      #backButton
-      type="button"
-      severity="secondary"
-      pButton
-      pRipple
-      label="Volver"
-      class="w-full py-3 font-medium hidden lg:block"
-      (click)="onGoBack.emit()"
-    ></button>
-    <button
-      type="submit"
-      pButton
-      pRipple
-      label="Continuar"
-      class="w-full py-3 font-medium"
-    ></button>
-  </div>
 </form>

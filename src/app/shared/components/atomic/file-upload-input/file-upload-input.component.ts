@@ -54,6 +54,13 @@ export class FileUploadInputComponent {
    * Indica si se permite cargar varios archivos.
    */
   isMultiple = computed<boolean>(() => this.fileLimit() > 1);
+
+  acceptLabel = computed<string>(() => {
+    const accept = this.accept().split(',');
+    if (accept.length === 1) return accept[0];
+    return accept.slice(0, -1).join(', ') + ' o ' + accept.slice(-1);
+  });
+
   files = signal<File[]>([]);
   detailedFiles = signal<FileData[]>([]);
   isDragging = signal(false);

@@ -56,7 +56,7 @@ const COMPONENTS = [DocumentIdInputComponent];
 @Component({
   selector: 'app-enterprise-form',
   standalone: true,
-  imports: [...NG_MODULES, ...PRIME_MODULES, ...DIRECTIVES, ...COMPONENTS],
+  imports: [NG_MODULES, PRIME_MODULES, DIRECTIVES, COMPONENTS],
   templateUrl: './enterprise-form.component.html',
   styleUrl: './enterprise-form.component.scss',
 })
@@ -74,7 +74,6 @@ export class EnterpriseFormComponent implements OnInit {
   businessName = EnterpriseValidator.businessName;
   businessLines = EnterpriseValidator.businessLines;
   canExecuteAsyncValidate = EnterpriseValidator.canExecuteAsyncValidate;
-  //
   isLoading = EnterpriseValidator.isLoading;
   lastValue = EnterpriseValidator.lastValue;
 

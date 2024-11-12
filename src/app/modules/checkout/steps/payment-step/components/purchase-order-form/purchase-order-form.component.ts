@@ -1,5 +1,6 @@
 // Angular
 import { Component, inject, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   FormGroup,
   NonNullableFormBuilder,
@@ -7,15 +8,15 @@ import {
 } from '@angular/forms';
 // PrimeNG
 import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
 import { FileUpload, FileUploadModule } from 'primeng/fileupload';
+// Pipes
+import { FileSizePipe } from '@shared/pipes/file-size/file-size.pipe';
 // Models
 import { ControlsOf } from '@shared/models/controls.type';
-import { PurchaseOrderForm } from './purchase-order-form.interface';
+import { PurchaseOrderForm } from './models/purchase-order-form.interface';
 // Components
 import { NumberInputComponent } from '@shared/components/atomic/number-input/number-input.component';
-import { CommonModule } from '@angular/common';
-import { ButtonModule } from 'primeng/button';
-import { FileSizePipe } from '@shared/pipes/file-size/file-size.pipe';
 import { FileUploadInputComponent } from '@shared/components/atomic/file-upload-input/file-upload-input.component';
 
 const NG_MODULES = [ReactiveFormsModule, CommonModule];

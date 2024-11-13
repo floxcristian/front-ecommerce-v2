@@ -24,7 +24,7 @@ const COMPONENTS = [PurchaseOrderFormComponent, InvoiceFormComponent];
 @Component({
   selector: 'app-payment-step',
   standalone: true,
-  imports: [...NG_MODULES, ...PRIME_MODULES, ...COMPONENTS],
+  imports: [NG_MODULES, PRIME_MODULES, COMPONENTS],
   templateUrl: './payment-step.component.html',
   styleUrl: './payment-step.component.scss',
   host: { class: 'w-full' },

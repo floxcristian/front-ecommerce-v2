@@ -7,9 +7,22 @@
     <!-- End::title -->
 
     <!-- Start::description -->
-    <p class="font-semibold underline mb-4 cursor-pointer">
+    <p
+      class="font-semibold underline mb-4 cursor-pointer"
+      (click)="isVisibleSidebar.set(true)"
+    >
       Información de los servicios disponibles
     </p>
+    <p-sidebar [(visible)]="isVisibleSidebar" position="right">
+      <ng-template pTemplate="header">
+        <div class="flex align-items-center gap-2">
+          <!--<p-avatar 
+                image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" 
+                shape="circle" />-->
+          <span class="font-bold"> Sobre nuestros servicios </span>
+        </div>
+      </ng-template>
+    </p-sidebar>
     <!-- End::description -->
 
     <!-- Start::shipment type -->

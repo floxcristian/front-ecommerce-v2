@@ -1,35 +1,21 @@
 // Angular
-import { CommonModule } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Component, computed, input, signal } from '@angular/core';
 // PrimeNG
 import { ButtonModule } from 'primeng/button';
 // Pipes
 import { FileSizePipe } from '@shared/pipes/file-size/file-size.pipe';
+// Models
+import { FileData } from './models/file-data.interface';
 
+const NG_MODULES = [NgClass];
 const PRIME_MODULES = [ButtonModule];
 const PIPES = [FileSizePipe];
-
-export interface FileData {
-  name: string;
-  size: number;
-  type: string;
-  lastModified: number;
-  messageError: string | null;
-  hasError: boolean;
-  icon?: string;
-}
-
-export interface FileError {
-  message: string | null;
-  hasError: boolean;
-}
-
-export type FileWithError = File;
 
 @Component({
   selector: 'app-file-upload-input',
   standalone: true,
-  imports: [...PRIME_MODULES, CommonModule, ...PIPES],
+  imports: [NG_MODULES, PRIME_MODULES, PIPES],
   templateUrl: './file-upload-input.component.html',
   styleUrl: './file-upload-input.component.scss',
 })
@@ -101,7 +87,6 @@ export class FileUploadInputComponent {
     event.stopPropagation();
     this.isDragging.set(false);
     if (!event.dataTransfer) return;
-    //const files = Array.from(event.dataTransfer.files);
     const files = event.dataTransfer.files;
     if (!files.length) return;
     this.addFiles(files);
@@ -119,9 +104,9 @@ export class FileUploadInputComponent {
   }
 
   addFiles(fileList: FileList): void {
-    console.log('addFiles: ', fileList);
     const files = Array.from(fileList);
     if (!this.isMultiple() && files.length > 1) {
+      // Añadir error de formulario.
       console.error('Solo se permite un archivo.');
       return;
     }
@@ -129,7 +114,6 @@ export class FileUploadInputComponent {
     const newDetailedFiles: FileData[] = [];
 
     files.forEach((file) => {
-      console.log('file: ', file);
       const fileSize = file.size;
       const isValidFileType = this.isValidFileType(file);
       const isValidFileSize = fileSize <= this.maxFileSize();
@@ -144,13 +128,11 @@ export class FileUploadInputComponent {
         hasError: false,
       };
       if (!isValidFileType || !isValidFileSize) fileData.hasError = true;
-      console.log('file: ', file);
       if (!isValidFileType) {
         fileData.messageError = 'Tipo de archivo no permitido.';
       } else if (!isValidFileSize) {
         fileData.messageError = 'Tamaño de archivo excedido.';
       } else {
-        // Añadir file al signale de files:
         this.files.update((prev) => [...prev, file]);
       }
       newDetailedFiles.push(fileData);
@@ -160,27 +142,25 @@ export class FileUploadInputComponent {
   }
 
   removeFile(index: number): void {
-    const detailedFile = this.detailedFiles()[index];
-
     this.detailedFiles.update((prev) => {
       prev.splice(index, 1);
       return prev;
     });
-    if (!detailedFile.hasError) {
-      const fileIndex = this.files().findIndex(
-        (file) =>
-          file.name === detailedFile.name &&
-          file.size === detailedFile.size &&
-          file.lastModified === detailedFile.lastModified
-      );
-      console.log('fileIndex: ', fileIndex);
-      if (fileIndex !== -1) {
-        this.files.update((prev) => {
-          prev.splice(fileIndex, 1);
-          return prev;
-        });
-      }
-    }
+    const detailedFile = this.detailedFiles()[index];
+    if (detailedFile.hasError) return;
+    const fileIndex = this.files().findIndex(
+      (file) =>
+        file.name === detailedFile.name &&
+        file.size === detailedFile.size &&
+        file.type === detailedFile.type &&
+        file.lastModified === detailedFile.lastModified
+    );
+
+    if (fileIndex === -1) return;
+    this.files.update((prev) => {
+      prev.splice(fileIndex, 1);
+      return prev;
+    });
   }
 
   private isValidFileType(file: File): boolean {

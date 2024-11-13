@@ -1,6 +1,13 @@
 // Angular
-import { NgClass, NgForOf } from '@angular/common';
-import { Component, inject, input, OnInit, output } from '@angular/core';
+import { NgClass } from '@angular/common';
+import {
+  Component,
+  inject,
+  input,
+  OnInit,
+  output,
+  signal,
+} from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -13,9 +20,10 @@ import { ShippingType } from '../../models/shipping-type.type';
 import { ShippingTypeOption } from './models/shipping-type-option.interface';
 // PrimeNG
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { SidebarModule } from 'primeng/sidebar';
 
-const NG_MODULES = [ReactiveFormsModule, NgClass, NgForOf];
-const PRIME_MODULES = [RadioButtonModule];
+const NG_MODULES = [ReactiveFormsModule, NgClass];
+const PRIME_MODULES = [RadioButtonModule, SidebarModule];
 
 /**
  * Componente para seleccionar el tipo de envío.
@@ -23,7 +31,7 @@ const PRIME_MODULES = [RadioButtonModule];
 @Component({
   selector: 'app-shipping-type-form',
   standalone: true,
-  imports: [...NG_MODULES, ...PRIME_MODULES],
+  imports: [NG_MODULES, PRIME_MODULES],
   templateUrl: './shipping-type-form.component.html',
   styleUrl: './shipping-type-form.component.scss',
   host: { class: 'w-full' },
@@ -31,12 +39,13 @@ const PRIME_MODULES = [RadioButtonModule];
 export class ShippingTypeFormComponent implements OnInit {
   shippingType = input.required<ShippingType>();
   onChange = output<ShippingType>();
-
-  private readonly fb = inject(NonNullableFormBuilder);
+  isVisibleSidebar = signal<boolean>(false);
 
   get shipmentTypeField() {
     return this.shippingTypeForm.get('shipmentType');
   }
+
+  private readonly fb = inject(NonNullableFormBuilder);
 
   shippingTypeForm!: FormGroup<ControlsOf<{ shipmentType: ShippingType }>>;
   shippingTypes: ShippingTypeOption[] = [

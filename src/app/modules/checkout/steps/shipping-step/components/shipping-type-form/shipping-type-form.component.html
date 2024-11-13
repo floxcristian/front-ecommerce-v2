@@ -13,14 +13,38 @@
     >
       Información de los servicios disponibles
     </p>
-    <p-sidebar [(visible)]="isVisibleSidebar" position="right">
+    <p-sidebar
+      [(visible)]="isVisibleSidebar"
+      position="right"
+      styleClass="w-screen lg:w-4"
+    >
       <ng-template pTemplate="header">
         <div class="flex align-items-center gap-2">
-          <!--<p-avatar 
-                image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" 
-                shape="circle" />-->
           <span class="font-bold"> Sobre nuestros servicios </span>
         </div>
+      </ng-template>
+      <ng-template pTemplate="content">
+        <p-accordion styleClass="mt-4" [activeIndex]="0">
+          <p-accordionTab header="Envío a domicilio">
+            <p>
+              <!--Recibe tu pedido en la dirección que elijas. El plazo de entrega
+              es de 3 a 5 días laborables. Despacho a domicilio considera todo
+              Chile continental.  -->
+              El costo del envío de tu pedido y la primera fecha disponible de
+              entrega dependerá del destino y tamaño de tu orden. El personal de
+              transporte no está autorizado ni capacitado para intervenir o
+              alterar los productos en el lugar de entrega. Luego de comprar
+              puedes hacer seguimiento de tu compra en nuestro portal de
+              seguimiento ("Rastrea tu pedido") con rut y orden de compra
+            </p>
+          </p-accordionTab>
+          <p-accordionTab header="Recogida en tienda">
+            <p>
+              Recoge tu pedido en la tienda que elijas. El plazo de entrega es
+              de 3 a 5 días laborables.
+            </p>
+          </p-accordionTab>
+        </p-accordion>
       </ng-template>
     </p-sidebar>
     <!-- End::description -->

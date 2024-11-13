@@ -21,9 +21,10 @@ import { ShippingTypeOption } from './models/shipping-type-option.interface';
 // PrimeNG
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { SidebarModule } from 'primeng/sidebar';
+import { AccordionModule } from 'primeng/accordion';
 
 const NG_MODULES = [ReactiveFormsModule, NgClass];
-const PRIME_MODULES = [RadioButtonModule, SidebarModule];
+const PRIME_MODULES = [RadioButtonModule, SidebarModule, AccordionModule];
 
 /**
  * Componente para seleccionar el tipo de envío.

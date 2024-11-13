@@ -12,9 +12,34 @@
   <!-- Start::nuevo item -->
 
   <!-- Start::description -->
-  <p class="font-semibold underline mb-4 cursor-pointer">
+  <p
+    class="font-semibold underline mb-4 cursor-pointer"
+    (click)="isVisibleSidebar.set(true)"
+  >
     Separamos tu pedido en {{ products.length }} grupos
   </p>
+  <p-sidebar
+    [(visible)]="isVisibleSidebar"
+    position="right"
+    styleClass="w-screen lg:w-4"
+  >
+    <ng-template pTemplate="header">
+      <div class="flex align-items-center gap-2">
+        <span class="font-bold"> ¿Por qué hay varias entregas? </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="content">
+      <p>
+        Separamos tu compra en múltiples entregas porque hay productos que
+        tienen otra fecha de despacho o son enviados desde lugares diferentes
+      </p>
+      <p>
+        Selecciona cuándo quieres que llegue cada entrega. Se cobrará un valor
+        diferente de acuerdo al tipo de envío escogido. Recuerda que al cambiar
+        tu dirección tus entregas pueden reorganizarse.
+      </p>
+    </ng-template>
+  </p-sidebar>
   <!-- End::description -->
 
   @for(group of products; track $index){

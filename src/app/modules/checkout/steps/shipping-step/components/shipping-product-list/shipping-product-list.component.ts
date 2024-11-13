@@ -1,21 +1,23 @@
 // Angular
 import { CurrencyPipe, NgClass } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 // PrimeNG
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
+import { SidebarModule } from 'primeng/sidebar';
 
 const NG_MODULES = [NgClass, CurrencyPipe];
-const PRIME_MODULES = [ButtonModule, TooltipModule];
+const PRIME_MODULES = [ButtonModule, TooltipModule, SidebarModule];
 
 @Component({
   selector: 'app-shipping-product-list',
   standalone: true,
-  imports: [...NG_MODULES, ...PRIME_MODULES],
+  imports: [NG_MODULES, PRIME_MODULES],
   templateUrl: './shipping-product-list.component.html',
   styleUrl: './shipping-product-list.component.scss',
 })
 export class ShippingProductListComponent {
+  isVisibleSidebar = signal<boolean>(false);
   products = [
     {
       price: 120000,

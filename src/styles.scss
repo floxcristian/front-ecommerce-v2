@@ -34,10 +34,15 @@ a {
 * Evitar que el contenido se desplace cuando se abre un overlay.
 * - Imita el comportamiento del ecommerce de Falabella.
 **/
-.no-overlay-scroll{
+.no-overlay-scroll {
   /*position: fixed;
   overflow-y: scroll;
   inline-size: 100%;*/
 }
 
 // añadir dark al div content when no-overlay-scroll::after
+
+body.p-overflow-hidden {
+  overflow: hidden !important;
+  padding-right: 0 !important; /* Esto evita el salto del contenido */
+}

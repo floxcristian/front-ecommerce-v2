@@ -14,18 +14,18 @@
   <!-- Start::description -->
   <p
     class="font-semibold underline mb-4 cursor-pointer"
-    (click)="isVisibleSidebar.set(true)"
+    (click)="isVisibleSidebarInfo.set(true)"
   >
     Separamos tu pedido en {{ products.length }} grupos
   </p>
   <p-sidebar
-    [(visible)]="isVisibleSidebar"
+    [(visible)]="isVisibleSidebarInfo"
     position="right"
     styleClass="w-screen lg:w-4"
   >
     <ng-template pTemplate="header">
       <div class="flex align-items-center gap-2">
-        <span class="font-bold"> ¿Por qué hay varias entregas? </span>
+        <span class="font-bold text-lg"> ¿Por qué hay varias entregas? </span>
       </div>
     </ng-template>
     <ng-template pTemplate="content">
@@ -104,12 +104,30 @@
     </ul>
     <div
       class="px-4 py-2 border-top-1 surface-border flex justify-content-between align-items-center cursor-pointer"
+      (click)="sidebar.show()"
     >
+      <!-- (click)="isVisibleSidebarDate.set(true)" -->
+      @if(selectedDate(); as itemDate){
       <p class="text-900">
-        Recíbelo el <span class="font-semibold">12 de noviembre</span>
+        Recíbelo el
+        <span class="font-semibold">{{ itemDate.date | shippingDate }}</span>
       </p>
+      }
+
       <i class="fa-sharp fa-solid fa-angle-right text-xl ml-auto"></i>
     </div>
+    <app-group-date-sidebar-2
+      [availableDates]="availableDates"
+      #sidebar
+      (onSubmit)="onSelectDate($event)"
+    ></app-group-date-sidebar-2>
+    <!--<p-sidebar
+      [(visible)]="isVisibleSidebarDate"
+      position="right"
+      styleClass="w-screen lg:w-4"
+    >
+      <app-group-date-sidebar />
+    </p-sidebar>-->
   </div>
   }
 </div>

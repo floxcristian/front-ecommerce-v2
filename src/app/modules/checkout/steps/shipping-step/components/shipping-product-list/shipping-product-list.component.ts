@@ -1,23 +1,62 @@
 // Angular
-import { CurrencyPipe, NgClass } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { CommonModule, CurrencyPipe, NgClass } from '@angular/common';
+import { Component, OnInit, signal, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 // PrimeNG
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
 import { SidebarModule } from 'primeng/sidebar';
+import { CalendarModule } from 'primeng/calendar';
+import { RadioButtonModule } from 'primeng/radiobutton';
+// Components
+import { GroupDateSidebarComponent } from '../group-date-sidebar/group-date-sidebar.component';
+import {
+  AvailableDate,
+  GroupDateSidebar2Component,
+} from '../group-date-sidebar-2/group-date-sidebar-2.component';
+import { ShippingDatePipe } from '@shared/pipes/shipping-date/shipping-date.pipe';
 
-const NG_MODULES = [NgClass, CurrencyPipe];
-const PRIME_MODULES = [ButtonModule, TooltipModule, SidebarModule];
+const NG_MODULES = [NgClass, CurrencyPipe, CommonModule, FormsModule];
+const PRIME_MODULES = [
+  ButtonModule,
+  TooltipModule,
+  SidebarModule,
+  CalendarModule,
+  RadioButtonModule,
+];
+const COMPONENTS = [GroupDateSidebarComponent, GroupDateSidebar2Component];
+const PIPES = [ShippingDatePipe];
 
 @Component({
   selector: 'app-shipping-product-list',
   standalone: true,
-  imports: [NG_MODULES, PRIME_MODULES],
+  imports: [NG_MODULES, PRIME_MODULES, COMPONENTS, PIPES],
   templateUrl: './shipping-product-list.component.html',
   styleUrl: './shipping-product-list.component.scss',
 })
-export class ShippingProductListComponent {
-  isVisibleSidebar = signal<boolean>(false);
+export class ShippingProductListComponent implements OnInit {
+  @ViewChild('sidebar') sidebar!: GroupDateSidebar2Component;
+
+  isVisibleSidebarInfo = signal<boolean>(false);
+  isVisibleSidebarDate = signal<boolean>(false);
+  disabledDates: Date[] = [];
+  availableDates: AvailableDate[] = [
+    {
+      id: '1',
+      date: new Date(), // 20 de marzo 2024
+      price: 1000,
+    },
+    {
+      id: '2',
+      date: new Date(2024, 11, 21), // 21 de marzo 2024
+      price: 1000,
+    },
+    {
+      id: '3',
+      date: new Date(2024, 11, 22), // 22 de marzo 2024
+      price: 0,
+    },
+  ];
   products = [
     {
       price: 120000,
@@ -65,4 +104,18 @@ export class ShippingProductListComponent {
       ],
     },
   ];
+  selectedDate = signal<AvailableDate | null>(null);
+
+  ngOnInit(): void {
+    this.selectedDate.set(this.availableDates[0]);
+  }
+
+  onSelectDate(selectedDate: AvailableDate): void {
+    console.log('onSelectDate: ', selectedDate);
+    this.selectedDate.set(selectedDate);
+  }
+
+  showSidebar(): void {
+    this.sidebar.show();
+  }
 }

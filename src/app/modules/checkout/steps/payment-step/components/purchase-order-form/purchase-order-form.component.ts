@@ -27,7 +27,7 @@ const PIPES = [FileSizePipe];
 @Component({
   selector: 'app-purchase-order-form',
   standalone: true,
-  imports: [...NG_MODULES, ...PRIME_MODULES, ...COMPONENTS, ...PIPES],
+  imports: [NG_MODULES, PRIME_MODULES, COMPONENTS, PIPES],
   templateUrl: './purchase-order-form.component.html',
   styleUrl: './purchase-order-form.component.scss',
 })

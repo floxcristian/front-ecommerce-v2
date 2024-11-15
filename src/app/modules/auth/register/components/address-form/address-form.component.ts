@@ -59,7 +59,7 @@ const DIRECTIVES = [
 @Component({
   selector: 'app-address-form',
   standalone: true,
-  imports: [...NG_MODULES, ...PRIME_MODULES, ...COMPONENTS, ...DIRECTIVES],
+  imports: [NG_MODULES, PRIME_MODULES, COMPONENTS, DIRECTIVES],
   templateUrl: './address-form.component.html',
   styleUrl: './address-form.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

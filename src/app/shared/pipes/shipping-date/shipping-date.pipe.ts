@@ -18,8 +18,7 @@ export class ShippingDatePipe implements PipeTransform {
       this.datePipe.transform(today, 'yyyy-MM-dd') ===
       this.datePipe.transform(inputDate, 'yyyy-MM-dd');
 
-    if (isToday) return 'Hoy';
-    const transformedDate = this.datePipe.transform(value, 'fullDate') || '';
-    return transformedDate.charAt(0).toUpperCase() + transformedDate.slice(1);
+    if (isToday) return 'hoy';
+    return this.datePipe.transform(value, "EEEE d 'de' MMMM") || '';
   }
 }

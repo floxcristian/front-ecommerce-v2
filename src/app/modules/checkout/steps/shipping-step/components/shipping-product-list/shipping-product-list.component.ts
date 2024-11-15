@@ -8,13 +8,14 @@ import { TooltipModule } from 'primeng/tooltip';
 import { SidebarModule } from 'primeng/sidebar';
 import { CalendarModule } from 'primeng/calendar';
 import { RadioButtonModule } from 'primeng/radiobutton';
+// Pipes
+import { ShippingDatePipe } from '@shared/pipes/shipping-date/shipping-date.pipe';
 // Components
 import { GroupDateSidebarComponent } from '../group-date-sidebar/group-date-sidebar.component';
 import {
   AvailableDate,
   GroupDateSidebar2Component,
 } from '../group-date-sidebar-2/group-date-sidebar-2.component';
-import { ShippingDatePipe } from '@shared/pipes/shipping-date/shipping-date.pipe';
 
 const NG_MODULES = [NgClass, CurrencyPipe, CommonModule, FormsModule];
 const PRIME_MODULES = [

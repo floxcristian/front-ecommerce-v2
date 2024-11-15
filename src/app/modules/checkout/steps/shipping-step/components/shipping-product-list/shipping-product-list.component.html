@@ -71,6 +71,7 @@
           [text]="true"
           [rounded]="true"
           pTooltip="Eliminar"
+          class="delete-button"
         />
       </div>
     </div>
@@ -110,7 +111,9 @@
       @if(selectedDate(); as itemDate){
       <p class="text-900">
         Recíbelo el
-        <span class="font-semibold">{{ itemDate.date | shippingDate }}</span>
+        <span class="font-semibold">{{ itemDate.date | shippingDate }}</span> -
+
+        {{ itemDate.price ? (itemDate.price | currency) : "Gratis" }}
       </p>
       }
 

@@ -1,60 +1,52 @@
-<!--<ng-template pTemplate="header">
-  <div class="flex align-items-center gap-2">
-    <span class="font-bold text-lg"> Elige una fecha de entrega </span>
-  </div>
-</ng-template> -->
-<!--<ng-template pTemplate="content">
-    <div class="flex flex-column field p-0 gap-3">
-      @for(item of availableDates; track $index){-->
-<!--  (click)="onSelectDate(item.id)" -->
-<!-- 
-           [ngClass]="{
-          'surface-border hover:border-400':
-            shipmentTypeField?.value !== item.id,
-          'border-primary bg-blue-50': shipmentTypeField?.value === item.id
-        }"
-        -->
-<!--<div
-        class="flex p-3 border-round border-1 surface-border w-full cursor-pointer flex align-items-center h-7rem md:h-6rem"
-      >-->
-<!--  [value]="item.id" -->
-<!-- formControlName="shipmentType" -->
-<!--<p-radioButton
-          name="shipmentType"
-          [value]="item.id"
-          styleClass="mr-3"
-        ></p-radioButton>-->
-<!--<div class="mr-4 md:mr-6">
-          <div class="font-semibold mb-2">
-            {{ item.date | date : "fullDate" }}
-          </div>
-          <span class="text-sm">{{ item.price | currency }}</span>
-        </div>
+<form [formGroup]="dateForm">
+  <p-sidebar
+    [(visible)]="visible"
+    position="right"
+    styleClass="w-screen lg:w-4"
+  >
+    <ng-template pTemplate="header">
+      <div class="flex align-items-center gap-2">
+        <span class="font-bold text-lg"> Elige una fecha de entrega </span>
       </div>
-      }
-    </div>
-  </ng-template> -->
-<!-- <ng-template pTemplate="footer">
-    <div class="flex justify-content-end">
-      <p-button label="Seleccionar" class="w-full" styleClass="w-full" />
-    </div>
-  </ng-template>-->
-
-<ng-template #headerTpl>
-  <div class="flex align-items-center gap-2">
-    <span class="font-bold text-lg">Elige una fecha de entrega</span>
-  </div>
-</ng-template>
-
-<ng-template #contentTpl>
-  <div class="p-3">
-    <!-- Tu contenido aquí -->
-  </div>
-</ng-template>
-
-<ng-template #footerTpl>
-  <div class="flex justify-content-end gap-2">
-    <p-button label="Cancelar" (onClick)="onClose.emit()"></p-button>
-    <p-button label="Guardar" (onClick)="onSave.emit()"></p-button>
-  </div>
-</ng-template>
+    </ng-template>
+    <ng-template pTemplate="content">
+      <div class="flex flex-column field p-0 gap-3">
+        @for(item of availableDates(); track $index){
+        <div
+          class="flex p-3 border-round border-1 surface-border w-full cursor-pointer flex align-items-center h-7rem md:h-6rem"
+          (click)="onSelectDate($index)"
+          [ngClass]="{
+            'surface-border hover:border-400': idField?.value !== item.id,
+            'border-primary bg-blue-50': idField?.value === item.id
+          }"
+        >
+          <p-radioButton
+            name="id"
+            [value]="item.id"
+            formControlName="id"
+            styleClass="mr-3"
+          ></p-radioButton>
+          <div class="mr-4 md:mr-6">
+            <div class="font-semibold mb-2 date-label">
+              {{ item.date | shippingDate }}
+            </div>
+            <span class="text-sm">{{
+              item.price ? (item.price | currency) : "Gratis"
+            }}</span>
+          </div>
+        </div>
+        }
+      </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <div class="flex justify-content-end">
+        <p-button
+          label="Seleccionar"
+          class="w-full"
+          styleClass="w-full"
+          (onClick)="saveDateAndClose()"
+        />
+      </div>
+    </ng-template>
+  </p-sidebar>
+</form>

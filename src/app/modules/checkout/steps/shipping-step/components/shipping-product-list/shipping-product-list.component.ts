@@ -11,11 +11,10 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 // Pipes
 import { ShippingDatePipe } from '@shared/pipes/shipping-date/shipping-date.pipe';
 // Components
-import { GroupDateSidebarComponent } from '../group-date-sidebar/group-date-sidebar.component';
 import {
   AvailableDate,
-  GroupDateSidebar2Component,
-} from '../group-date-sidebar-2/group-date-sidebar-2.component';
+  GroupDateSidebarComponent,
+} from '../group-date-sidebar/group-date-sidebar.component';
 
 const NG_MODULES = [NgClass, CurrencyPipe, CommonModule, FormsModule];
 const PRIME_MODULES = [
@@ -25,7 +24,7 @@ const PRIME_MODULES = [
   CalendarModule,
   RadioButtonModule,
 ];
-const COMPONENTS = [GroupDateSidebarComponent, GroupDateSidebar2Component];
+const COMPONENTS = [GroupDateSidebarComponent];
 const PIPES = [ShippingDatePipe];
 
 @Component({
@@ -36,7 +35,7 @@ const PIPES = [ShippingDatePipe];
   styleUrl: './shipping-product-list.component.scss',
 })
 export class ShippingProductListComponent implements OnInit {
-  @ViewChild('sidebar') sidebar!: GroupDateSidebar2Component;
+  @ViewChild('sidebar') sidebar!: GroupDateSidebarComponent;
 
   isVisibleSidebarInfo = signal<boolean>(false);
   isVisibleSidebarDate = signal<boolean>(false);
@@ -112,11 +111,6 @@ export class ShippingProductListComponent implements OnInit {
   }
 
   onSelectDate(selectedDate: AvailableDate): void {
-    console.log('onSelectDate: ', selectedDate);
     this.selectedDate.set(selectedDate);
-  }
-
-  showSidebar(): void {
-    this.sidebar.show();
   }
 }

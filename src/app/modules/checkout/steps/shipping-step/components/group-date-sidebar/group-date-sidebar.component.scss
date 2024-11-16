@@ -1,0 +1,29 @@
+::ng-deep .custom-sidebar {
+  height: 100vh !important;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+::ng-deep .custom-sidebar .p-sidebar {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/**
+  * Añadir un borde inferior a la cabecera del sidebar.
+  **/
+:host ::ng-deep .p-sidebar .p-sidebar-header {
+  border-bottom: 1px solid #dee2e6;
+}
+
+/**
+  * Añadir un padding al contenido del sidebar.
+  **/
+:host ::ng-deep .p-sidebar .p-sidebar-content {
+  padding: 1.25rem;
+}
+
+.date-label::first-letter {
+  text-transform: uppercase;
+}

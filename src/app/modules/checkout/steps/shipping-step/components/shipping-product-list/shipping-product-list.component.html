@@ -1,16 +1,4 @@
 <div class="field mb-4">
-  <!--
-  <div
-    class="flex p-4 mt-3 lg:mt-0 mb-4 border-round border-1 surface-border w-full flex align-items-center h-6rem"
-  >
-    <div class="mr-4 md:mr-6">
-      <div class="font-semibold mb-2">San Bernardo</div>
-      <span class="text-sm">Av. General Velásquez N° 10701</span>
-    </div>
-    <i class="fa-sharp fa-solid fa-angle-right text-xl ml-auto"></i>
-  </div>-->
-  <!-- Start::nuevo item -->
-
   <!-- Start::description -->
   <p
     class="font-semibold underline mb-4 cursor-pointer"
@@ -54,17 +42,6 @@
         <span class="text-900 font-semibold mr-3">{{
           group.price | currency
         }}</span>
-        <!--<button class="p-button p-component p-button-danger">
-            <span class="p-button-icon pi pi-trash"></span>
-          </button>-->
-
-        <!--<p-button
-            pRipple
-            label="Eliminar"
-            size="small"
-            [outlined]="true"
-            severity="danger"
-          />-->
         <p-button
           icon="pi pi-trash"
           severity="danger"
@@ -107,10 +84,9 @@
       class="px-4 py-2 border-top-1 surface-border flex justify-content-between align-items-center cursor-pointer"
       (click)="sidebar.show()"
     >
-      <!-- (click)="isVisibleSidebarDate.set(true)" -->
       @if(selectedDate(); as itemDate){
       <p class="text-900">
-        Recíbelo el
+        Recíbelo {{ (itemDate.date | shippingDate) === "hoy" ? "" : "el" }}
         <span class="font-semibold">{{ itemDate.date | shippingDate }}</span> -
 
         {{ itemDate.price ? (itemDate.price | currency) : "Gratis" }}
@@ -119,18 +95,11 @@
 
       <i class="fa-sharp fa-solid fa-angle-right text-xl ml-auto"></i>
     </div>
-    <app-group-date-sidebar-2
+    <app-group-date-sidebar
       [availableDates]="availableDates"
       #sidebar
       (onSubmit)="onSelectDate($event)"
-    ></app-group-date-sidebar-2>
-    <!--<p-sidebar
-      [(visible)]="isVisibleSidebarDate"
-      position="right"
-      styleClass="w-screen lg:w-4"
-    >
-      <app-group-date-sidebar />
-    </p-sidebar>-->
+    ></app-group-date-sidebar>
   </div>
   }
 </div>

@@ -13,7 +13,7 @@
       <div class="flex flex-column field p-0 gap-3">
         @for(item of availableDates(); track $index){
         <div
-          class="flex p-3 border-round border-1 surface-border w-full cursor-pointer flex align-items-center h-7rem md:h-6rem"
+          class="flex p-3 border-round border-1 surface-border w-full cursor-pointer flex align-items-center h-5rem md:h-6rem"
           (click)="onSelectDate($index)"
           [ngClass]="{
             'surface-border hover:border-400': idField?.value !== item.id,
@@ -27,7 +27,7 @@
             styleClass="mr-3"
           ></p-radioButton>
           <div class="mr-4 md:mr-6">
-            <div class="font-semibold mb-2 date-label">
+            <div class="font-semibold mb-1 md:mb-2 date-label">
               {{ item.date | shippingDate }}
             </div>
             <span class="text-sm">{{

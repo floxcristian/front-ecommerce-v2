@@ -1,6 +1,7 @@
 /** PrimeNG */
 @import "./../public/assets/theme/themes/lara-light-blue/theme.scss";
 @import "primeng/resources/primeng.css";
+@import "scss/vendors/primeng"; // Tus personalizaciones
 @import "primeflex/primeflex.css";
 @import "primeicons/primeicons.css";
 @import "scss/layout.scss";

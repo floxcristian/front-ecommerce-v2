@@ -1,0 +1,13 @@
+/**
+  * Añadir un borde inferior a la cabecera del sidebar.
+  **/
+:host ::ng-deep .p-sidebar .p-sidebar-header {
+  border-bottom: 1px solid #dee2e6;
+}
+
+/**
+    * Añadir un padding al contenido del sidebar.
+    **/
+:host ::ng-deep .p-sidebar .p-sidebar-content {
+  padding: 1.25rem;
+}

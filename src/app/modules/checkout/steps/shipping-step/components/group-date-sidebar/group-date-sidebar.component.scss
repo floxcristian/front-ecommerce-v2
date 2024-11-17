@@ -11,19 +11,8 @@
 }
 
 /**
-  * Añadir un borde inferior a la cabecera del sidebar.
+  * Transformar la primera letra de la etiqueta de fecha a mayúscula.
   **/
-:host ::ng-deep .p-sidebar .p-sidebar-header {
-  border-bottom: 1px solid #dee2e6;
-}
-
-/**
-  * Añadir un padding al contenido del sidebar.
-  **/
-:host ::ng-deep .p-sidebar .p-sidebar-content {
-  padding: 1.25rem;
-}
-
 .date-label::first-letter {
   text-transform: uppercase;
 }

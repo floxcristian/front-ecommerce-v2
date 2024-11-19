@@ -11,11 +11,11 @@ import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 // Components
 import { PersonalFormComponent } from './components/personal-form/personal-form.component';
-import { AddressFormComponent } from './components/address-form/address-form.component';
 import { AccountTypeFormComponent } from './components/account-type-form/account-type-form.component';
 import { EnterpriseFormComponent } from './components/enterprise-form/enterprise-form.component';
 import { TitleHeaderMobileComponent } from '@shared/layouts/title-header-mobile/title-header-mobile.component';
 import { FeaturePanelComponent } from './components/feature-panel/feature-panel.component';
+import { AddressStepComponent } from './components/address-step/address-step.component';
 // Services
 import { ScrollService } from 'src/app/core/utils/scroll/scroll.service';
 // Models
@@ -26,8 +26,8 @@ import { environment } from '@env/environment';
 const COMPONENTS = [
   AccountTypeFormComponent,
   PersonalFormComponent,
-  AddressFormComponent,
   EnterpriseFormComponent,
+  AddressStepComponent,
   TitleHeaderMobileComponent,
   FeaturePanelComponent,
 ];

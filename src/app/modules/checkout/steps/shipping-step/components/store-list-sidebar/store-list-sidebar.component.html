@@ -1,0 +1,51 @@
+<form [formGroup]="storeForm">
+  <p-sidebar
+    [(visible)]="visible"
+    position="right"
+    styleClass="w-screen lg:w-4"
+  >
+    <ng-template pTemplate="header">
+      <div class="flex align-items-center gap-2">
+        <span class="font-bold text-lg"> Seleccione una tienda </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="content">
+      <div class="flex flex-column field p-0 gap-3">
+        @for(item of stores(); track $index){
+
+        <div
+          class="flex p-3 border-round border-1 surface-border w-full cursor-pointer flex align-items-center h-5rem md:h-6rem"
+          (click)="onSelectItem($index)"
+          [ngClass]="{
+            'surface-border hover:border-400': codeField?.value !== item.code,
+            'border-primary bg-blue-50': codeField?.value === item.code
+          }"
+        >
+          <p-radioButton
+            name="code"
+            [value]="item.code"
+            formControlName="code"
+            styleClass="mr-3"
+          ></p-radioButton>
+          <div class="mr-4 md:mr-6">
+            <div class="font-semibold mb-1 md:mb-2 date-label">
+              {{ item.name }}
+            </div>
+            <span class="text-sm">{{ item.address }}</span>
+          </div>
+        </div>
+        }
+      </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <div class="flex justify-content-end">
+        <p-button
+          label="Seleccionar"
+          class="w-full"
+          styleClass="w-full"
+          (onClick)="submit()"
+        />
+      </div>
+    </ng-template>
+  </p-sidebar>
+</form>

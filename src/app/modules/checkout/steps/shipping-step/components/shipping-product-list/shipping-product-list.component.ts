@@ -40,23 +40,7 @@ export class ShippingProductListComponent implements OnInit {
   isVisibleSidebarInfo = signal<boolean>(false);
   isVisibleSidebarDate = signal<boolean>(false);
   disabledDates: Date[] = [];
-  availableDates: AvailableDate[] = [
-    {
-      id: '1',
-      date: new Date(), // 20 de marzo 2024
-      price: 1000,
-    },
-    {
-      id: '2',
-      date: new Date(2024, 11, 21), // 21 de marzo 2024
-      price: 1000,
-    },
-    {
-      id: '3',
-      date: new Date(2024, 11, 22), // 22 de marzo 2024
-      price: 0,
-    },
-  ];
+  availableDates = signal<AvailableDate[]>([]);
   products = [
     {
       price: 120000,
@@ -107,7 +91,26 @@ export class ShippingProductListComponent implements OnInit {
   selectedDate = signal<AvailableDate | null>(null);
 
   ngOnInit(): void {
-    this.selectedDate.set(this.availableDates[0]);
+    this.availableDates.set([
+      {
+        id: '1',
+        date: new Date(), // 20 de marzo 2024
+        price: 1000,
+      },
+      {
+        id: '2',
+        date: new Date(2024, 11, 21), // 21 de marzo 2024
+        price: 1000,
+      },
+      {
+        id: '3',
+        date: new Date(2024, 11, 22), // 22 de marzo 2024
+        price: 0,
+      },
+    ]);
+    if (this.availableDates().length) {
+      this.selectedDate.set(this.availableDates()[0]);
+    }
   }
 
   onSelectDate(selectedDate: AvailableDate): void {

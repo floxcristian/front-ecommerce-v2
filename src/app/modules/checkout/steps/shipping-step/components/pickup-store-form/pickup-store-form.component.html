@@ -8,13 +8,19 @@
   <!-- Start::dirección -->
   <div
     class="flex p-4 mt-3 lg:mt-0 mb-4 border-round border-1 border-primary bg-blue-50 w-full cursor-pointer flex align-items-center h-6rem"
+    (click)="sidebar.show()"
   >
     <div class="mr-4 md:mr-6">
-      <div class="font-semibold mb-2">San Bernardo</div>
-      <span class="text-sm">Av. General Velásquez N° 10701</span>
+      <div class="font-semibold mb-2">{{ selectedStore()?.name }}</div>
+      <span class="text-sm">{{ selectedStore()?.address }}</span>
     </div>
     <i class="fa-sharp fa-solid fa-angle-right text-xl ml-auto"></i>
   </div>
+  <app-store-list-sidebar
+    #sidebar
+    [stores]="stores()"
+    (onSubmit)="onSelectStore($event)"
+  />
   <!-- End::dirección -->
 
   <!-- Start::información -->

@@ -41,9 +41,6 @@ import { filter, map } from 'rxjs';
 // Utils
 import { removeSpecialCharacters } from './utils';
 
-// Eliminar
-// accountType, steps, onGoBack
-
 const NG_MODULES = [ReactiveFormsModule, GoogleMapsModule, MapMarker];
 const PRIME_MODULES = [
   InputTextModule,
@@ -62,18 +59,16 @@ const DIRECTIVES = [
 ];
 
 @Component({
-  selector: 'app-address-form',
+  selector: 'app-address-step',
   standalone: true,
   imports: [NG_MODULES, PRIME_MODULES, COMPONENTS, DIRECTIVES],
-  templateUrl: './address-form.component.html',
-  styleUrl: './address-form.component.scss',
+  templateUrl: './address-step.component.html',
+  styleUrl: './address-step.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AddressFormComponent implements AfterViewInit, OnInit {
-  submitLabel = input.required<string>();
-  showBackButton = input<boolean>(false);
-  /*accountType = input.required<string>();
-  steps = input.required<number>();*/
+export class AddressStepComponent implements AfterViewInit, OnInit {
+  accountType = input.required<string>();
+  steps = input.required<number>();
   onGoBack = output<void>();
   onSubmit = output<any>();
 

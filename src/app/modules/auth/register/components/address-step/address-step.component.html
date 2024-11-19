@@ -1,3 +1,22 @@
+<!-- Start::title -->
+<div class="border-bottom-1 surface-border mb-5">
+  <p class="text-base text-400">
+    Paso {{ accountType() === "personal" ? 2 : 3 }} de {{ steps() }}
+  </p>
+  <h2 class="mt-0 mb-2 text-900 font-bold text-4xl">
+    {{
+      accountType() === "personal"
+        ? "Dirección de despacho"
+        : "Dirección de facturación"
+    }}
+  </h2>
+  <p class="mt-0 mb-5 text-700 font-normal text-base">
+    Ingresa tus datos personales y disfruta de una experiencia de compra más
+    rápida.
+  </p>
+</div>
+<!-- End::title -->
+
 <form [formGroup]="addressForm" (ngSubmit)="submit(addressForm.value)">
   <div class="field mb-4 flex flex-column">
     <label class="font-medium text-900">Ingresa tu dirección completa</label>
@@ -48,9 +67,9 @@
     />
   </div>
   <!--<div class="field mb-4 flex flex-column">
-    <label for="region" class="font-medium text-900">Región</label>
-    <input id="region" type="text" pInputText formControlName="region" />
-  </div>-->
+      <label for="region" class="font-medium text-900">Región</label>
+      <input id="region" type="text" pInputText formControlName="region" />
+    </div>-->
   <div class="field mb-4 flex flex-column">
     <label for="commune" class="font-medium text-900">Comuna</label>
     <p-dropdown
@@ -73,19 +92,19 @@
     <label for="locality" class="font-medium text-900">Localidad</label>
     <input id="locality" type="text" pInputText formControlName="locality" />
     <!--<p-dropdown
-      [options]="localities()"
-      formControlName="locality"
-      optionLabel="city"
-      [filter]="true"
-      filterBy="city"
-      optionValue="id"
-      styleClass="w-full"
-      placeholder="Selecciona una localidad"
-      dropdownIcon="fa-sharp fa-solid fa-chevron-down"
-      loadingIcon="fa-sharp fa-solid fa-spinner-third fa-spin"
-      spellcheck="false"
-      [loading]="isLoadingCommunes()"
-    />-->
+        [options]="localities()"
+        formControlName="locality"
+        optionLabel="city"
+        [filter]="true"
+        filterBy="city"
+        optionValue="id"
+        styleClass="w-full"
+        placeholder="Selecciona una localidad"
+        dropdownIcon="fa-sharp fa-solid fa-chevron-down"
+        loadingIcon="fa-sharp fa-solid fa-spinner-third fa-spin"
+        spellcheck="false"
+        [loading]="isLoadingCommunes()"
+      />-->
   </div>
 
   <div class="field mb-4 flex flex-column">
@@ -152,7 +171,6 @@
   <div
     class="flex gap-3 fixed lg:static left-0 bottom-0 surface-card w-full p-3 lg:p-0"
   >
-    @if(showBackButton()){
     <button
       type="button"
       severity="secondary"
@@ -162,12 +180,11 @@
       class="w-full py-3 font-medium hidden lg:block"
       (click)="onGoBack.emit()"
     ></button>
-    }
     <button
       type="submit"
       pButton
       pRipple
-      [label]="submitLabel()"
+      label="Crear Cuenta"
       class="w-full py-3 font-medium"
     ></button>
   </div>

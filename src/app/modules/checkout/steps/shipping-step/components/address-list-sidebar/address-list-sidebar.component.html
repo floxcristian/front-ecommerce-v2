@@ -1,0 +1,83 @@
+<p-sidebar
+  [(visible)]="visible"
+  position="right"
+  styleClass="w-screen lg:w-4"
+  (onHide)="step.set(1)"
+>
+  <ng-template pTemplate="header">
+    <div class="flex align-items-center gap-3">
+      @if(step() === 2){
+      <i
+        class="fa-sharp fa-solid fa-angle-left text-xl cursor-pointer"
+        style="padding-top: 1px"
+        (click)="step.set(1)"
+      ></i>
+      }
+      <span class="font-bold text-lg">
+        {{
+          step() === 1 ? "Seleccione una dirección" : "Nueva dirección"
+        }}</span
+      >
+    </div>
+  </ng-template>
+  <ng-template pTemplate="content">
+    @if(step() === 1){
+    <form [formGroup]="itemForm">
+      <div class="flex flex-column field p-0 gap-3">
+        @for(item of items(); track $index){
+
+        <div
+          class="flex p-3 border-round border-1 surface-border w-full cursor-pointer flex align-items-center h-5rem md:h-6rem"
+          (click)="onSelectItem($index)"
+          [ngClass]="{
+            'surface-border hover:border-400': idField?.value !== item.id,
+            'border-primary bg-blue-50': idField?.value === item.id
+          }"
+        >
+          <p-radioButton
+            name="id"
+            [value]="item.id"
+            formControlName="id"
+            styleClass="mr-3"
+          ></p-radioButton>
+          <div class="mr-4 md:mr-6">
+            <div class="font-semibold mb-1 md:mb-2 date-label">
+              {{ item.address }}
+            </div>
+            <span class="text-sm">{{ item.city }}</span>
+          </div>
+        </div>
+        }
+      </div>
+    </form>
+    } @else if(step() === 2){
+    <app-address-form />
+    }
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <div class="flex flex-column gap-2 md:gap-3">
+      @if(step() === 1){
+      <p-button
+        label="Agregar otra dirección"
+        class="w-full"
+        styleClass="w-full"
+        [outlined]="true"
+        (onClick)="step.set(2)"
+      />
+      <p-button
+        label="Seleccionar"
+        class="w-full"
+        styleClass="w-full"
+        (onClick)="submit()"
+      />
+      } @else if(step() === 2){
+      <p-button
+        label="Guardar"
+        class="w-full"
+        styleClass="w-full"
+        (onClick)="step.set(1)"
+      />
+      }
+    </div>
+  </ng-template>
+</p-sidebar>

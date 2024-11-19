@@ -96,10 +96,10 @@
       <i class="fa-sharp fa-solid fa-angle-right text-xl ml-auto"></i>
     </div>
     <app-group-date-sidebar
-      [availableDates]="availableDates"
+      [availableDates]="availableDates()"
       #sidebar
       (onSubmit)="onSelectDate($event)"
-    ></app-group-date-sidebar>
+    />
   </div>
   }
 </div>

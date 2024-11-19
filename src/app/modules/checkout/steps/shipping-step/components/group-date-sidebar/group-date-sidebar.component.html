@@ -6,7 +6,7 @@
   >
     <ng-template pTemplate="header">
       <div class="flex align-items-center gap-2">
-        <span class="font-bold text-lg"> Elige una fecha de entrega </span>
+        <span class="font-bold text-lg"> Seleccione una fecha de entrega </span>
       </div>
     </ng-template>
     <ng-template pTemplate="content">
@@ -44,7 +44,7 @@
           label="Seleccionar"
           class="w-full"
           styleClass="w-full"
-          (onClick)="saveDateAndClose()"
+          (onClick)="submit()"
         />
       </div>
     </ng-template>

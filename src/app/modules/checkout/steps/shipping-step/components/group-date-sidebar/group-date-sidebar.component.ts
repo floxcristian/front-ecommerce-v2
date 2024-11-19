@@ -16,6 +16,8 @@ import {
 import { CurrencyPipe, NgClass } from '@angular/common';
 // Models
 import { ControlsOf } from '@shared/models/controls.type';
+// Utils
+import { validateNoNulls } from '@shared/services/form-utils';
 // Pipes
 import { ShippingDatePipe } from '@shared/pipes/shipping-date/shipping-date.pipe';
 // PrimeNG
@@ -82,10 +84,10 @@ export class GroupDateSidebarComponent implements OnInit {
     this.visible.set(true);
   }
 
-  saveDateAndClose(): void {
+  submit(): void {
     this.visible.set(false);
     const formData = this.dateForm.getRawValue();
-    if (this.validateNoNulls(formData)) {
+    if (validateNoNulls<AvailableDate>(formData)) {
       this.onSubmit.emit(formData);
     }
   }
@@ -97,9 +99,5 @@ export class GroupDateSidebarComponent implements OnInit {
       date: selectedDate.date,
       price: selectedDate.price,
     });
-  }
-
-  private validateNoNulls(data: FormAvailableDate): data is AvailableDate {
-    return Object.values(data).every((value) => value !== null);
   }
 }

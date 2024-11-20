@@ -72,8 +72,6 @@ const DIRECTIVES = [
 export class AddressFormComponent implements AfterViewInit, OnInit {
   submitLabel = input.required<string>();
   showBackButton = input<boolean>(false);
-  /*accountType = input.required<string>();
-  steps = input.required<number>();*/
   onGoBack = output<void>();
   onSubmit = output<any>();
 

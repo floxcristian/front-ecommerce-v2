@@ -10,7 +10,7 @@ import { validateNoNulls } from '@shared/services/form-utils';
 import { ButtonModule } from 'primeng/button';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { SidebarModule } from 'primeng/sidebar';
-import { AddressFormComponent } from '../address-form/address-form.component';
+import { AddressFormComponent } from 'src/app/modules/auth/register/components/address-form/address-form.component';
 
 export interface IAddress {
   id: string;

@@ -1,3 +1,5 @@
+<app-invoice-form />
+
 <form [formGroup]="paymentTypeForm">
   <div class="field mb-4">
     <!-- Start::title -->
@@ -59,5 +61,3 @@
 @if(paymentTypeField?.value === 'CREDIT_LINE'){
 <app-purchase-order-form />
 }
-
-<app-invoice-form />

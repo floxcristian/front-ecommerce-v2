@@ -1,27 +1,27 @@
-<form [formGroup]="recipientTypeForm">
+<form [formGroup]="documentTypeForm">
   <div class="field mb-4">
     <!-- Start::title -->
     <span class="text-900 text-2xl block font-semibold mb-5"
-      >¿Quién va a {{ shippingAction() }} la orden?</span
+      >¿Qué tipo de documento deseas?</span
     >
     <!-- End::title -->
 
     <!-- Start::recipient type -->
     <div class="flex flex-column lg:flex-row field p-0 gap-3">
-      @for(type of recipientTypes(); track $index){
+      @for(type of documentTypes; track $index){
       <div
         class="flex p-3 border-round border-1 surface-border w-full cursor-pointer flex align-items-center h-6rem"
         [ngClass]="{
           'surface-border hover:border-400':
-            recipientTypeField?.value !== type.value,
-          'border-primary bg-blue-50': recipientTypeField?.value === type.value
+            documentTypeField?.value !== type.value,
+          'border-primary bg-blue-50': documentTypeField?.value === type.value
         }"
-        (click)="onSelectRecipientType(type.value)"
+        (click)="onSelectDocumentType(type.value)"
       >
         <p-radioButton
-          name="recipientType"
+          name="documentType"
           [value]="type.value"
-          formControlName="recipientType"
+          formControlName="documentType"
           styleClass="mr-3"
         ></p-radioButton>
         <div class="mr-4 md:mr-6">

@@ -1,4 +1,11 @@
+<app-document-type-form
+  [documentType]="documentType()"
+  (onChange)="onDocumentTypeChange($event)"
+/>
+
+@if(documentType() === 'INVOICE'){
 <app-invoice-form />
+}
 
 <form [formGroup]="paymentTypeForm">
   <div class="field mb-4">

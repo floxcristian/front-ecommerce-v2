@@ -12,17 +12,19 @@ import { InputTextModule } from 'primeng/inputtext';
 import { Dropdown, DropdownModule } from 'primeng/dropdown';
 // Environment
 import { environment } from '@env/environment';
+// Rxjs
+import { distinctUntilChanged } from 'rxjs';
 // Models
 import { ControlsOf } from '@shared/models/controls.type';
 import { InvoiceForm } from './models/invoice-form.interface';
 // Components
 import { DocumentIdInputComponent } from '@shared/components/atomic/document-id-input/document-id-input.component';
-// Validators
-import { EnterpriseValidator } from '@shared/components/atomic/document-id-input/validators/enterprise.validator';
-import { distinctUntilChanged } from 'rxjs';
+import { EmailInputComponent } from '@shared/components/atomic/email-input/email-input.component';
+// Directives
 import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';
 import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
-import { EmailInputComponent } from '@shared/components/atomic/email-input/email-input.component';
+// Validators
+import { EnterpriseValidator } from '@shared/components/atomic/document-id-input/validators/enterprise.validator';
 
 const NG_MODULES = [ReactiveFormsModule];
 const PRIME_MODULES = [

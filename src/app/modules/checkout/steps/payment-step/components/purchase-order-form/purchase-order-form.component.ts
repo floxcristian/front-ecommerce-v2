@@ -1,5 +1,5 @@
 // Angular
-import { Component, inject, ViewChild } from '@angular/core';
+import { Component, inject, signal, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormGroup,
@@ -9,32 +9,39 @@ import {
 // PrimeNG
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
-import { FileUpload, FileUploadModule } from 'primeng/fileupload';
-// Pipes
-import { FileSizePipe } from '@shared/pipes/file-size/file-size.pipe';
 // Models
 import { ControlsOf } from '@shared/models/controls.type';
+import { CostCenter } from '../cost-center-sidebar/models/cost-center.interface';
 import { PurchaseOrderForm } from './models/purchase-order-form.interface';
 // Components
 import { NumberInputComponent } from '@shared/components/atomic/number-input/number-input.component';
 import { FileUploadInputComponent } from '@shared/components/atomic/file-upload-input/file-upload-input.component';
+import { CostCenterSidebarComponent } from '../cost-center-sidebar/cost-center-sidebar.component';
 
 const NG_MODULES = [ReactiveFormsModule, CommonModule];
-const PRIME_MODULES = [InputTextModule, FileUploadModule, ButtonModule];
-const COMPONENTS = [NumberInputComponent, FileUploadInputComponent];
-const PIPES = [FileSizePipe];
+const PRIME_MODULES = [InputTextModule, ButtonModule];
+const COMPONENTS = [
+  NumberInputComponent,
+  FileUploadInputComponent,
+  CostCenterSidebarComponent,
+];
 
 @Component({
   selector: 'app-purchase-order-form',
   standalone: true,
-  imports: [NG_MODULES, PRIME_MODULES, COMPONENTS, PIPES],
+  imports: [NG_MODULES, PRIME_MODULES, COMPONENTS],
   templateUrl: './purchase-order-form.component.html',
   styleUrl: './purchase-order-form.component.scss',
 })
 export class PurchaseOrderFormComponent {
-  @ViewChild('fileUpload') fileUpload!: FileUpload;
+  @ViewChild('sidebar') sidebar!: CostCenterSidebarComponent;
   purchaseOrderForm!: FormGroup<ControlsOf<PurchaseOrderForm>>;
   uploadedFiles: any[] = [];
+  selectedCostCenter = signal<CostCenter | null>({
+    name: 'San Bernardo',
+    code: 'C020',
+  });
+
   private readonly fb = inject(NonNullableFormBuilder);
 
   get fileField() {
@@ -54,44 +61,7 @@ export class PurchaseOrderFormComponent {
     });
   }
 
-  onFileSelect(event: any): void {
-    console.log('onFileSelect: ', event);
-    if (!event.files?.[0]) return;
-    this.purchaseOrderForm.patchValue({ file: event.files[0] });
-  }
-
-  onFileRemove(event: any) {
-    console.log('onFileRemove');
-    this.purchaseOrderForm.patchValue({
-      file: null,
-    });
-  }
-
-  removeFile() {
-    this.fileUpload.clear();
-    this.purchaseOrderForm.patchValue({ file: null });
-  }
-
-  // Activar el input file oculto
-  triggerFileInput(event: any) {
-    console.log('triggerFileInput: ', event);
-    this.fileUpload.choose();
-    //this.fileInput.nativeElement.click();
-  }
-
-  onError(event: any): void {
-    console.log('onError: ', event);
-  }
-
-  onUpload(event: any): void {
-    console.log('onUpload: ', event);
-  }
-
-  uploadHandler(event: any): void {
-    console.log('uploadHandler: ', event);
-  }
-
-  onBeforeUpload(event: any): void {
-    console.log('onBeforeUpload: ', event);
+  onSelectCostCenter(selectedCostCenter: CostCenter): void {
+    this.selectedCostCenter.set(selectedCostCenter);
   }
 }

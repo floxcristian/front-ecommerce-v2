@@ -1,6 +1,6 @@
 // Angular
 import { NgClass } from '@angular/common';
-import { Component, inject, output } from '@angular/core';
+import { Component, inject, output, signal } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -12,14 +12,21 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 // Models
 import { PaymentTypeOption } from './models/payment-type-option.interface';
 import { ControlsOf } from '@shared/models/controls.type';
+import { DocumentType } from '@shared/models/document-type.type';
 import { PaymentType } from './models/payment-type.type';
+
 // Components
 import { PurchaseOrderFormComponent } from './components/purchase-order-form/purchase-order-form.component';
 import { InvoiceFormComponent } from './components/invoice-form/invoice-form.component';
+import { DocumentTypeFormComponent } from './components/document-type-form/document-type-form.component';
 
 const NG_MODULES = [NgClass, ReactiveFormsModule];
 const PRIME_MODULES = [RadioButtonModule];
-const COMPONENTS = [PurchaseOrderFormComponent, InvoiceFormComponent];
+const COMPONENTS = [
+  PurchaseOrderFormComponent,
+  InvoiceFormComponent,
+  DocumentTypeFormComponent,
+];
 
 @Component({
   selector: 'app-payment-step',
@@ -31,6 +38,7 @@ const COMPONENTS = [PurchaseOrderFormComponent, InvoiceFormComponent];
 })
 export class PaymentStepComponent {
   onChange = output<PaymentType>();
+  documentType = signal<DocumentType>('RECEIPT');
 
   paymentTypeForm!: FormGroup<ControlsOf<{ paymentType: PaymentType }>>;
   payments: PaymentTypeOption[] = [
@@ -88,5 +96,13 @@ export class PaymentStepComponent {
   onSelectPaymentType(value: PaymentType): void {
     this.paymentTypeForm.setValue({ paymentType: value });
     this.onChange.emit(value);
+  }
+
+  /**
+   * Cambia el tipo de destinatario.
+   * @param type
+   */
+  onDocumentTypeChange(type: DocumentType): void {
+    this.documentType.set(type);
   }
 }

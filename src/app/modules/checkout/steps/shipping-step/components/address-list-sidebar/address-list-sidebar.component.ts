@@ -30,9 +30,9 @@ const COMPONENTS = [AddressFormComponent];
   styleUrl: './address-list-sidebar.component.scss',
 })
 export class AddressListSidebarComponent {
-  step = signal<number>(1);
   items = input.required<IAddress[]>();
   onSubmit = output<IAddress>();
+  step = signal<number>(1);
 
   itemForm!: FormGroup<ControlsOf<IAddress>>;
   visible = signal<boolean>(false);

@@ -59,10 +59,6 @@ export class RecipientTypeFormComponent {
     });
   }
 
-  submit(value: any): void {
-    console.log('Submit', value);
-  }
-
   /**
    * Handle the recipient type selection.
    * @param value

@@ -60,7 +60,7 @@ export class FooterMobileComponent {
     {
       label: 'Carro',
       icon: 'fa-sharp fa-cart-shopping ',
-      routerLink: 'checkout',
+      routerLink: 'cart',
     },
   ];
 }

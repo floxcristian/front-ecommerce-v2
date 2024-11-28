@@ -9,6 +9,7 @@ import {
   Inject,
   Input,
   Optional,
+  PLATFORM_ID,
   Self,
   ViewContainerRef,
 } from '@angular/core';
@@ -32,6 +33,7 @@ import { FormSubmitDirective } from '../form-submit/form-submit.directive';
 import { ControlErrorContainerDirective } from '../control-error-container/control-error-container.directive';
 // Form errors
 import { FORM_ERRORS } from '../../form-errors';
+import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
   selector: '[formControlName]',
@@ -55,6 +57,7 @@ export class ControlErrorsDirective implements AfterViewInit {
     private controlErrorAnchorParent: ControlErrorContainerDirective,
     private vcr: ViewContainerRef,
     elementRef: ElementRef
+    //private readonly platformId: Object = inject(PLATFORM_ID)
   ) {
     this.host = elementRef.nativeElement as HTMLElement;
     this.submit$ = this.form ? this.form.submit$ : EMPTY;
@@ -64,6 +67,7 @@ export class ControlErrorsDirective implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    //if (!isPlatformBrowser(this.platformId)) return;
     const helperTextId = this.host.id;
     if (helperTextId) {
       this.helperTextElement = document.getElementById(`${helperTextId}-help`);
@@ -86,7 +90,6 @@ export class ControlErrorsDirective implements AfterViewInit {
     );
 
     // FIXME: crear una activación manual de los errores
-
     merge(changesOnAsync$, changesOnBlur$, valueChanges$, this.submit$)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {

@@ -1,24 +1,40 @@
-import { Component, effect, inject, PLATFORM_ID, signal } from '@angular/core';
+// Angular
+import {
+  Component,
+  computed,
+  effect,
+  inject,
+  PLATFORM_ID,
+  signal,
+} from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+// PrimeNG
 import { StyleClassModule } from 'primeng/styleclass';
 import { RippleModule } from 'primeng/ripple';
 import { CheckboxModule } from 'primeng/checkbox';
-import { FormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { DividerModule } from 'primeng/divider';
 import { RadioButtonModule } from 'primeng/radiobutton';
-import { DocumentIdInputComponent } from '@shared/components/atomic/document-id-input/document-id-input.component';
-import { PhoneInputComponent } from '@shared/components/atomic/phone-input/phone-input.component';
+import { AccordionModule } from 'primeng/accordion';
+// Services
+import { ScrollService } from '@core/utils/scroll/scroll.service';
+// Components
 import { ShippingStepComponent } from './steps/shipping-step/shipping-step.component';
 import { PaymentStepComponent } from './steps/payment-step/payment-step.component';
-import { ScrollService } from '@core/utils/scroll/scroll.service';
-import { AccordionModule } from 'primeng/accordion';
-import { CartBottomSheetComponent } from 'src/app/components/cart-bottom-sheet/cart-bottom-sheet.component';
+import { ContactStepComponent } from './steps/contact-step/contact-step.component';
+// Constants
+import { BACK_BUTTON_LABELS, SUBMIT_BUTTON_LABEL } from './button-labels';
+import { Router } from '@angular/router';
 
-export const COMPONENTS = [ShippingStepComponent, PaymentStepComponent];
+export const COMPONENTS = [
+  ShippingStepComponent,
+  PaymentStepComponent,
+  ContactStepComponent,
+];
 
 @Component({
   selector: 'app-checkout',
@@ -35,11 +51,8 @@ export const COMPONENTS = [ShippingStepComponent, PaymentStepComponent];
     CommonModule,
     DividerModule,
     RadioButtonModule,
-    DocumentIdInputComponent,
-    PhoneInputComponent,
     AccordionModule,
     ...COMPONENTS,
-    CartBottomSheetComponent,
   ],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.scss',
@@ -47,9 +60,17 @@ export const COMPONENTS = [ShippingStepComponent, PaymentStepComponent];
 export class CheckoutComponent {
   private readonly scrollService = inject(ScrollService);
   private readonly platformId: Object = inject(PLATFORM_ID);
+  private readonly router = inject(Router);
 
-  step = signal<number>(2);
-  steps = signal<number>(2);
+  step = signal<number>(1);
+  steps = signal<number>(3);
+  backButtonLabel = computed(
+    () => BACK_BUTTON_LABELS[this.step() as keyof typeof BACK_BUTTON_LABELS]
+  );
+  submitButtonLabel = computed(
+    () => SUBMIT_BUTTON_LABEL[this.step() as keyof typeof SUBMIT_BUTTON_LABEL]
+  );
+
   products = [
     {
       name: 'Bateria 150 amp 900 cca borne estandar',
@@ -104,15 +125,15 @@ export class CheckoutComponent {
   }
 
   submit() {
-    if (this.step() < 3) {
-      this.setNextStep();
-    }
+    if (this.step() >= this.steps()) return;
+    this.setNextStep();
   }
 
   goBack() {
-    if (this.step() > 1) {
-      this.step.update((value) => value - 1);
-    }
+    if (this.step() === 1) {
+      this.router.navigate(['/cart']);
+    } else if (this.step() < 1) return;
+    this.step.update((value) => value - 1);
   }
 
   showPriceDetails: boolean = false;

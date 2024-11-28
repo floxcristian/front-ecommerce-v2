@@ -29,7 +29,7 @@ const DIRECTIVES = [FormSubmitDirective, ControlErrorsDirective];
 @Component({
   selector: 'app-recipient-another-form',
   standalone: true,
-  imports: [...NG_MODULES, ...PRIME_MODULES, ...COMPONENTS, ...DIRECTIVES],
+  imports: [NG_MODULES, PRIME_MODULES, COMPONENTS, DIRECTIVES],
   templateUrl: './recipient-another-form.component.html',
   styleUrl: './recipient-another-form.component.scss',
   host: { class: 'w-full' },

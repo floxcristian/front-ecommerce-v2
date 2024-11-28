@@ -40,4 +40,18 @@ export const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'cart',
+    loadComponent: () =>
+      import('./shared/layouts/simple-layout/simple-layout.component').then(
+        (m) => m.SimpleLayoutComponent
+      ),
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./modules/cart/cart.routes').then((m) => m.CART_ROUTES),
+      },
+    ],
+  },
 ];

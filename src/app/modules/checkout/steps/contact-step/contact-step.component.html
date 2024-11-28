@@ -1,0 +1,163 @@
+<!--
+<form [formGroup]="loginForm">
+  <div class="field mb-4">
+    <span class="text-900 text-2xl block font-semibold mb-5"
+      >Inicia sesión</span
+    >
+  </div>
+
+  <div class="field mb-4 flex flex-column">
+    <label for="email" class="font-semibold text-900">Correo eletrónico</label>
+    <app-email-input formControlName="email" id="email" />
+  </div>
+
+  <div class="field mb-4 flex flex-column">
+    <label for="password" class="font-semibold text-900">Contraseña</label>
+    <input id="password" type="password" pInputText />
+  </div>
+  <div class="flex align-items-center justify-content-end mb-5">
+    <a
+      class="font-medium text-blue-500 hover:text-blue-700 cursor-pointer transition-colors transition-duration-150 underline"
+      >Olvidé mi contraseña</a
+    >
+  </div>
+
+  <p-button
+    (click)="submit()"
+    label="Iniciar sesión"
+    class="w-full"
+    styleClass="w-full"
+  />
+
+  <p class="mt-4 text-700 font-normal text-base text-center">
+    ¿Eres nuevo en Implementos?
+    <a target="_blank" href="#" class="font-medium text-blue-500 no-underline"
+      >Crear cuenta</a
+    >
+  </p>
+</form>
+<p-divider class="w-full px-2 mb-3"></p-divider>
+-->
+
+<!--
+<div class="field mb-4">
+  <span class="text-900 text-2xl block font-semibold mb-5">Crea tu cuenta</span>
+</div>
+
+<div
+  class="p-4 mt-3 surface-100 flex align-items-center justify-content-between"
+>
+  <span class="mr-3 md:mr-5 text-sm">
+    Con tu registro, accedes a la información de tus compras y obtienes
+    múltiples beneficios.
+  </span>
+  <i class="fa-sharp-duotone fa-solid fa-circle-info text-4xl"></i>
+</div>
+
+<ul class="list-none px-0 py-6 m-0">
+
+  @for(feature of features; track $index){
+  <li class="flex align-items-center mb-4">
+    <div
+      class="flex align-items-center justify-content-center bg-purple-400"
+      style="width: 50px; height: 50px; border-radius: 10px"
+    >
+      <i
+        class="fa-sharp-duotone fa-solid text-2xl text-white"
+        [ngClass]="feature.icon"
+      ></i>
+    </div>
+    <div class="ml-4 flex-1">
+      @if(feature.title){
+      <span class="font-semibold text-900">{{ feature.title }}</span>
+      <p class="mt-2 mb-0 text-600 line-height-3">
+        {{ feature.description }}
+      </p>
+      } @else {
+      <p class="text-600 line-height-3">
+        {{ feature.description }}
+      </p>
+      }
+    </div>
+  </li>
+  }
+</ul>
+
+<p-button
+  (click)="submit()"
+  label="Crear cuenta"
+  class="w-full"
+  styleClass="w-full"
+/>
+
+<p-divider class="w-full px-2 mb-3"></p-divider>-->
+
+<!-- Con tu registro, accedes a la información de tus compras y obtienes múltiples beneficios.
+
+Conoce el estado de todas tus compras
+
+Pide cambios, devoluciones y reembolsos
+
+Descarga tus boletas y ¡mucho más! -->
+
+<form [formGroup]="contactForm">
+  <!-- Start::title -->
+  <div class="field mb-4">
+    <span class="text-900 text-2xl block font-semibold mb-5"
+      >Completa tus datos personales</span
+    >
+  </div>
+  <!-- End::title -->
+
+  <!-- Start::description -->
+  <div
+    class="p-4 mt-3 surface-100 flex align-items-center justify-content-between mb-4"
+  >
+    <span class="mr-3 md:mr-5 text-sm">
+      Ingresa tus datos para que podamos entregar tu compra de manera segura.
+      Estos datos se utilizarán para el envío de notificaciones de la compra.
+    </span>
+    <i class="fa-sharp-duotone fa-solid fa-circle-info text-4xl"></i>
+  </div>
+  <!-- End::description -->
+
+  <!-- Start::input nombre -->
+  <div class="field mb-4 flex flex-column">
+    <label for="name" class="font-semibold text-900">Nombre</label>
+    <input id="name" type="text" pInputText maxlength="25" spellcheck="false" />
+    <small id="name-help"> Ej: Nicolás </small>
+  </div>
+  <!-- End::input nombre -->
+
+  <!-- Start::input apellido -->
+  <div class="field mb-4 flex flex-column">
+    <label for="name" class="font-semibold text-900">Apellido</label>
+    <input id="name" type="text" pInputText maxlength="25" spellcheck="false" />
+    <small id="name-help"> Ej: Nicolás </small>
+  </div>
+  <!-- End::input apellido -->
+
+  <!-- Start::input documento -->
+  <div class="field mb-4 flex flex-column">
+    <label for="documentId" class="font-semibold text-900">RUT</label>
+    <app-document-id-input id="documentId" formControlName="documentId" />
+    <small id="documentId-help"> Ej: 12345678-9 </small>
+  </div>
+  <!-- End::input documento -->
+
+  <!-- Start::input teléfono -->
+  <div class="field mb-4 flex flex-column">
+    <label for="phone" class="font-semibold text-900">Teléfono</label>
+    <app-phone-input id="phone" formControlName="phone" />
+    <small id="phone-help"> Ej: 9 1234 9876 </small>
+  </div>
+  <!-- End::input teléfono -->
+
+  <!-- Start::input email -->
+  <div class="field mb-4 flex flex-column">
+    <label for="email" class="font-semibold text-900">Correo eletrónico</label>
+    <app-email-input formControlName="email" id="email" />
+    <small id="email-help"> Ej: micorreo&#64;gmail.com </small>
+  </div>
+  <!-- End::input email -->
+</form>

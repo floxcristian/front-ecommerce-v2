@@ -1,0 +1,105 @@
+<p-sidebar [(visible)]="visible" position="right" styleClass="w-screen lg:w-4">
+  <ng-template pTemplate="header"> </ng-template>
+  <ng-template pTemplate="content">
+    <div class="field mb-4">
+      <span class="text-900 text-2xl block font-bold mb-5"
+        >Comprar como invitado</span
+      >
+    </div>
+    <p class="text-700 font-normal text-base mb-5">
+      Con tu registro, accedes a la información de tus compras y obtienes
+      múltiples beneficios.
+    </p>
+
+    <p-button
+      (click)="submit()"
+      label="Continuar como invitado"
+      class="w-full"
+      styleClass="w-full"
+    />
+
+    <p-divider class="w-full px-2 mb-3" />
+    <form [formGroup]="loginForm">
+      <div class="field mb-4">
+        <span class="text-900 text-2xl block font-bold mb-5"
+          >Inicia sesión en tu cuenta</span
+        >
+      </div>
+      <!-- Start::input email -->
+      <div class="field mb-4 flex flex-column">
+        <label for="email" class="font-semibold text-900"
+          >Correo eletrónico</label
+        >
+        <app-email-input formControlName="email" id="email" />
+      </div>
+      <!-- End::input email -->
+
+      <!-- Start::input contraseña -->
+      <div class="field mb-4 flex flex-column">
+        <label for="password" class="font-semibold text-900">Contraseña</label>
+        <input id="password" type="password" pInputText />
+      </div>
+      <div class="flex align-items-center justify-content-end mb-5">
+        <a
+          class="font-medium text-blue-500 hover:text-blue-700 cursor-pointer transition-colors transition-duration-150 underline"
+          >Olvidé mi contraseña</a
+        >
+      </div>
+
+      <p-button
+        (click)="submit()"
+        label="Iniciar sesión"
+        class="w-full"
+        styleClass="w-full"
+      />
+
+      <p class="mt-4 text-700 font-normal text-base text-center">
+        ¿Eres nuevo en Implementos?
+        <a
+          target="_blank"
+          href="#"
+          class="font-medium text-blue-500 no-underline"
+          >Crear cuenta</a
+        >
+      </p>
+    </form>
+
+    <!-- <div class="flex flex-column field p-0 gap-3">
+          @for(item of availableDates(); track $index){
+          <div
+            class="flex p-3 border-round border-1 surface-border w-full cursor-pointer flex align-items-center h-5rem md:h-6rem"
+            (click)="onSelectDate($index)"
+            [ngClass]="{
+              'surface-border hover:border-400': idField?.value !== item.id,
+              'border-primary bg-blue-50': idField?.value === item.id
+            }"
+          >
+            <p-radioButton
+              name="id"
+              [value]="item.id"
+              formControlName="id"
+              styleClass="mr-3"
+            ></p-radioButton>
+            <div class="mr-4 md:mr-6">
+              <div class="font-semibold mb-1 md:mb-2 date-label">
+                {{ item.date | shippingDate }}
+              </div>
+              <span class="text-sm">{{
+                item.price ? (item.price | currency) : "Gratis"
+              }}</span>
+            </div>
+          </div>
+          }
+        </div>-->
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <!--<div class="flex justify-content-end">
+          <p-button
+            label="Seleccionar"
+            class="w-full"
+            styleClass="w-full"
+            (onClick)="submit()"
+          />
+        </div>-->
+  </ng-template>
+</p-sidebar>

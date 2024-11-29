@@ -34,7 +34,7 @@
   </div>
 </form>
 
-@if(useDeliveryAddress()){
+@if(!useDeliveryAddress()){
 <form [formGroup]="invoiceAddressForm">
   <div class="field mb-4">
     <!-- Start::title -->

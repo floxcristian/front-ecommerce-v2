@@ -38,8 +38,6 @@ export class DocumentTypeFormComponent implements OnInit {
 
   private readonly fb = inject(NonNullableFormBuilder);
 
-  constructor() {}
-
   ngOnInit(): void {
     this.buildForm();
   }

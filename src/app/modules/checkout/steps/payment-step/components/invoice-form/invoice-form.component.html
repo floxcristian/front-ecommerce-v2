@@ -1,9 +1,3 @@
-<!-- <pre style="background-color: yellow">
-  hasAsyncData: {{ hasAsyncData() }}
-  lastValue: {{ lastValue() }}
-  value: {{ documentIdField.value }} 
-  status: {{ documentIdField.status }}
-</pre> -->
 <form [formGroup]="invoiceForm">
   <!-- Start::title -->
   <div class="field mb-4">
@@ -13,6 +7,19 @@
   </div>
   <!-- End::title -->
 
+  <!-- Start::description -->
+  <div
+    class="p-4 mt-3 surface-100 flex align-items-center justify-content-between mb-4"
+  >
+    <span class="mr-3 md:mr-5 text-sm"
+      >Aseguráte de ingresar los datos exactos de tu empresa para evitar
+      errores.</span
+    >
+    <i class="fa-sharp-duotone fa-solid fa-circle-info text-4xl"></i>
+  </div>
+  <!-- End::description -->
+
+  <!-- Start::input email -->
   <div class="field mb-4 flex flex-column">
     <label for="documentId" class="font-semibold text-900"
       >Correo electrónico de contacto de la empresa</label
@@ -20,6 +27,7 @@
     <app-email-input formControlName="email" id="email" />
     <small id="email-help"> Ej: micorreo&#64;gmail.com </small>
   </div>
+  <!-- End::input email -->
 
   <!-- Start::input documentId -->
   <div class="field mb-4 flex flex-column">
@@ -38,7 +46,7 @@
   <!-- Start::input razón social -->
   <div class="field mb-4 flex flex-column">
     <label for="businessName" class="font-semibold text-900"
-      >Razón social</label
+      >Razón social o nombre de la empresa</label
     >
     <p-iconField iconPosition="right">
       <p-inputIcon
@@ -58,7 +66,7 @@
   <!-- End::input razón social -->
 
   <!-- Start::giro comercial -->
-  <div class="field mb-6 flex flex-column">
+  <div class="field mb-5 flex flex-column">
     <label for="businessLine" class="font-semibold text-900"
       >Giro comercial</label
     >
@@ -80,3 +88,8 @@
   </div>
   <!-- End::giro comercial -->
 </form>
+
+<app-invoice-address-form
+  [useDeliveryAddress]="useDeliveryAddress()"
+  (onChange)="onUseDeliveryChange($event)"
+/>

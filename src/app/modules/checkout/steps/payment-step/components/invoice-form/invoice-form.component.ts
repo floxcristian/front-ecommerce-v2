@@ -1,5 +1,11 @@
 // Angular
-import { ChangeDetectorRef, Component, inject, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  inject,
+  signal,
+  ViewChild,
+} from '@angular/core';
 import {
   FormGroup,
   NonNullableFormBuilder,
@@ -25,6 +31,7 @@ import { FormSubmitDirective } from '@shared/directives/validation-message/direc
 import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
 // Validators
 import { EnterpriseValidator } from '@shared/components/atomic/document-id-input/validators/enterprise.validator';
+import { InvoiceAddressFormComponent } from './components/invoice-address-form/invoice-address-form.component';
 
 const NG_MODULES = [ReactiveFormsModule];
 const PRIME_MODULES = [
@@ -33,7 +40,11 @@ const PRIME_MODULES = [
   InputTextModule,
   DropdownModule,
 ];
-const COMPONENTS = [DocumentIdInputComponent, EmailInputComponent];
+const COMPONENTS = [
+  DocumentIdInputComponent,
+  EmailInputComponent,
+  InvoiceAddressFormComponent,
+];
 const DIRECTIVES = [FormSubmitDirective, ControlErrorsDirective];
 
 @Component({
@@ -54,6 +65,7 @@ export class InvoiceFormComponent {
   businessLines = EnterpriseValidator.businessLines;
   documentIdLabel = environment.documentId.businessLabel;
   invoiceForm!: FormGroup<ControlsOf<InvoiceForm>>;
+  useDeliveryAddress = signal<boolean>(true);
   //#endregion
 
   //#region Getters
@@ -148,5 +160,9 @@ export class InvoiceFormComponent {
           )?.name,
         });
       });
+  }
+
+  onUseDeliveryChange(value: boolean): void {
+    this.useDeliveryAddress.set(value);
   }
 }

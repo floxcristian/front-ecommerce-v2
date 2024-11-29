@@ -1,3 +1,4 @@
+// Angular
 import { Component, inject, signal } from '@angular/core';
 import {
   FormGroup,
@@ -6,14 +7,18 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { EmailInputComponent } from '@shared/components/atomic/email-input/email-input.component';
-import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
-import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';
-import { ControlsOf } from '@shared/models/controls.type';
+// PrimeNG
 import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
 import { InputTextModule } from 'primeng/inputtext';
 import { SidebarModule } from 'primeng/sidebar';
+// Models
+import { ControlsOf } from '@shared/models/controls.type';
+// Directives
+import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
+import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';
+// Components
+import { EmailInputComponent } from '@shared/components/atomic/email-input/email-input.component';
 
 const NG_MODULES = [ReactiveFormsModule];
 const PRIME_MODULES = [
@@ -54,7 +59,19 @@ export class LoginSidebarComponent {
     this.visible.set(true);
   }
 
-  submit() {
+  goToCheckout(): void {
     this.router.navigate(['/checkout']);
+  }
+
+  goToCreateAccount(): void {
+    this.router.navigate(['/auth/register']);
+  }
+
+  login(): void {
+    if (this.loginForm.valid) {
+      //this.onSubmit.emit(value);
+    } else {
+      this.loginForm.markAllAsTouched();
+    }
   }
 }

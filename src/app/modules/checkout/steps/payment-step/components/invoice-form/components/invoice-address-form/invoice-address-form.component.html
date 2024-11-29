@@ -1,0 +1,74 @@
+<form [formGroup]="useDeliveryAddressForm">
+  <div class="field mb-4">
+    <!-- Start::title -->
+    <span class="text-900 text-2xl block font-semibold mb-5"
+      >Sobre la dirección de facturación</span
+    >
+    <!-- End::title -->
+
+    <!-- Start::recipient type -->
+    <div class="flex flex-column lg:flex-row field p-0 gap-3">
+      @for(type of useDeliveryAddressOptions; track $index){
+      <div
+        class="flex p-3 border-round border-1 surface-border w-full cursor-pointer flex align-items-center h-6rem"
+        [ngClass]="{
+          'surface-border hover:border-400':
+            useDeliveryAddressField?.value !== type.value,
+          'border-primary bg-blue-50':
+            useDeliveryAddressField?.value === type.value
+        }"
+        (click)="onSelectOption(type.value)"
+      >
+        <p-radioButton
+          name="useDeliveryAddress"
+          [value]="type.value"
+          formControlName="useDeliveryAddress"
+          styleClass="mr-3"
+        ></p-radioButton>
+        <div class="mr-4 md:mr-6">
+          <div class="font-semibold">{{ type.title }}</div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</form>
+
+@if(useDeliveryAddress()){
+<form [formGroup]="invoiceAddressForm">
+  <div class="field mb-4">
+    <!-- Start::title -->
+    <span class="text-900 text-2xl block font-semibold mb-5"
+      >Ingresa la dirección de facturación</span
+    >
+    <!-- End::title -->
+
+    <!-- Start::input código -->
+    <div class="field mb-4 flex flex-column">
+      <label for="code" class="font-semibold text-900">Calle</label>
+      <input
+        type="text"
+        pInputText
+        maxlength="30"
+        spellcheck="false"
+        formControlName="address"
+      />
+    </div>
+    <!-- End::input código -->
+
+    <!-- Start::input código -->
+    <div class="field mb-4 flex flex-column">
+      <label for="code" class="font-semibold text-900">Numero</label>
+      <input
+        type="text"
+        pInputText
+        maxlength="30"
+        spellcheck="false"
+        formControlName="number"
+      />
+    </div>
+    <!-- End::input código -->
+  </div>
+</form>
+
+}

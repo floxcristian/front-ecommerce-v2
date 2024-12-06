@@ -31,7 +31,7 @@ const COMPONENTS = [
   imports: [...PRIME_MODULES, ...COMPONENTS],
   templateUrl: './shipping-step.component.html',
   styleUrl: './shipping-step.component.scss',
-  host: { class: 'w-full' },
+  host: { class: 'w-full mb-6 lg:mb-0' },
 })
 export class ShippingStepComponent {
   shippingType = signal<ShippingType>('PICKUP');

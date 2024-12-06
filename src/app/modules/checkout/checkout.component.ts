@@ -78,14 +78,14 @@ export class CheckoutComponent {
       image: 'https://images.implementos.cl/img/150/POWBAT0036-1.jpg',
     },
     {
-      name: 'Bateria 150 amp 900 cca borne estandar',
+      name: 'Llanta disco 8.25x22.5 pulg europea aluminio',
       price: 137990,
-      image: 'https://images.implementos.cl/img/150/POWBAT0036-1.jpg',
+      image: 'https://images.implementos.cl/img/150/BETLLA0001-1.jpg',
     },
     {
-      name: 'Bateria 150 amp 900 cca borne estandar',
+      name: 'Aceite hidraulico indiana iso 68 19 lts',
       price: 137990,
-      image: 'https://images.implementos.cl/img/150/POWBAT0036-1.jpg',
+      image: 'https://images.implementos.cl/img/150/LUBIND0003-1.jpg',
     },
   ];
   retira!: string;

@@ -9,14 +9,16 @@ import { NgClass } from '@angular/common';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { ControlsOf } from '@shared/models/controls.type';
 import { InputTextModule } from 'primeng/inputtext';
+import { AddressFormControlContainerV2Component } from 'src/app/modules/auth/register/components/address-form-control-container-v2/address-form-control-container-v2.component';
 
 const NG_MODULES = [ReactiveFormsModule, NgClass];
 const PRIME_MODULES = [RadioButtonModule, InputTextModule];
+const COMPONENTS = [AddressFormControlContainerV2Component];
 
 @Component({
   selector: 'app-invoice-address-form',
   standalone: true,
-  imports: [NG_MODULES, PRIME_MODULES],
+  imports: [NG_MODULES, PRIME_MODULES, COMPONENTS],
   templateUrl: './invoice-address-form.component.html',
   styleUrl: './invoice-address-form.component.scss',
 })
@@ -29,9 +31,7 @@ export class InvoiceAddressFormComponent {
     { title: 'Usar dirección de facturación distinta', value: false },
   ];
 
-  invoiceAddressForm!: FormGroup<
-    ControlsOf<{ address: string; number: string }>
-  >;
+  invoiceAddressForm!: FormGroup;
 
   useDeliveryAddressForm!: FormGroup<
     ControlsOf<{ useDeliveryAddress: boolean }>
@@ -51,10 +51,7 @@ export class InvoiceAddressFormComponent {
     this.useDeliveryAddressForm = this.fb.group({
       useDeliveryAddress: this.useDeliveryAddress(),
     });
-    this.invoiceAddressForm = this.fb.group({
-      address: '',
-      number: '',
-    });
+    this.invoiceAddressForm = this.fb.group({});
   }
 
   /**

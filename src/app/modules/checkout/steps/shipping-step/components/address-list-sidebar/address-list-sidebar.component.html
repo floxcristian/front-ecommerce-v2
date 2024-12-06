@@ -51,7 +51,11 @@
       </div>
     </form>
     } @else if(step() === 2){
-    <app-address-form submitLabel="Guardar" />
+    <!-- <app-address-form submitLabel="Guardar" /> -->
+    <!-- <app-address-form-control-container controlKey="address" /> -->
+    <form [formGroup]="addressForm">
+      <app-address-form-control-container-v2 />
+    </form>
     }
   </ng-template>
   <ng-template pTemplate="footer">
@@ -75,7 +79,7 @@
         label="Guardar"
         class="w-full"
         styleClass="w-full"
-        (onClick)="step.set(1)"
+        (onClick)="saveAddress()"
       />
       }
     </div>

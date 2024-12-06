@@ -83,24 +83,30 @@ export class PersonalFormComponent implements OnInit {
     this.personalForm = this.fb.group({
       position: [null],
       name: [
-        this.data()?.name || '',
+        this.data()?.name || 'Cristian',
         [
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(50),
         ],
       ],
-      lastname: [this.data()?.lastname || '', Validators.required],
-      documentId: [this.data()?.documentId || '', Validators.required],
-      phone: [this.data()?.phone || null],
-      email: [this.data()?.email || '', [Validators.required]],
+      lastname: [this.data()?.lastname || 'Flores', Validators.required],
+      documentId: [this.data()?.documentId || '183139614', Validators.required],
+      phone: [this.data()?.phone || 937781523],
+      email: [
+        this.data()?.email || 'cristianflores.ee@gmail.com',
+        [Validators.required],
+      ],
       confirmEmail: [
-        this.data()?.confirmEmail || '',
+        this.data()?.confirmEmail || 'cristianflores.ee@gmail.com',
         [Validators.required, EmailValidator.matchEmails('email')],
       ],
-      password: [this.data()?.password || '', [Validators.required]],
+      password: [
+        this.data()?.password || 'Diciembre0812',
+        [Validators.required],
+      ],
       confirmPassword: [
-        this.data()?.confirmPassword || '',
+        this.data()?.confirmPassword || 'Diciembre0812',
         [Validators.required, , PasswordValidator.matchPasswords('password')],
       ],
     });

@@ -10,6 +10,8 @@ import { validateNoNulls } from '@shared/services/form-utils';
 import { ButtonModule } from 'primeng/button';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { SidebarModule } from 'primeng/sidebar';
+import { AddressFormControlContainerV2Component } from 'src/app/modules/auth/register/components/address-form-control-container-v2/address-form-control-container-v2.component';
+import { AddressFormControlContainerComponent } from 'src/app/modules/auth/register/components/address-form-control-container/address-form-control-container.component';
 import { AddressFormComponent } from 'src/app/modules/auth/register/components/address-form/address-form.component';
 
 export interface IAddress {
@@ -20,7 +22,10 @@ export interface IAddress {
 
 const NG_MODULES = [ReactiveFormsModule, NgClass];
 const PRIME_MODULES = [SidebarModule, ButtonModule, RadioButtonModule];
-const COMPONENTS = [AddressFormComponent];
+const COMPONENTS = [
+  AddressFormControlContainerComponent,
+  AddressFormControlContainerV2Component,
+];
 
 @Component({
   selector: 'app-address-list-sidebar',
@@ -35,6 +40,7 @@ export class AddressListSidebarComponent {
   step = signal<number>(1);
 
   itemForm!: FormGroup<ControlsOf<IAddress>>;
+  addressForm!: FormGroup;
   visible = signal<boolean>(false);
 
   get idField() {
@@ -53,6 +59,7 @@ export class AddressListSidebarComponent {
       address: '',
       city: '',
     });
+    this.addressForm = this.fb.group({});
   }
 
   show(): void {
@@ -66,6 +73,16 @@ export class AddressListSidebarComponent {
       address: selectedItem.address,
       city: selectedItem.city,
     });
+  }
+
+  saveAddress(): void {
+    const formData = this.addressForm.getRawValue();
+    console.log('addressForm value: ', this.addressForm);
+    /*this.visible.set(false);
+    const formData = this.addressForm.getRawValue();
+    if (validateNoNulls(formData)) {
+      this.onSubmit.emit(formData);
+    }*/
   }
 
   submit(): void {

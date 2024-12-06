@@ -150,19 +150,29 @@
               <span class="text-900 font-bold">$123.000</span>
             </div>
           </div>
+
+          @if(step() > 1){
           <p-button
-            (click)="goBack()"
-            [label]="backButtonLabel()"
+            label="Generar cotización"
             pRipple
             [outlined]="true"
-            class="w-full flex-order-2 lg:flex-order-1 hidden md:block"
+            class="w-full flex-order-1 lg:flex-order-1"
             styleClass="w-full"
           />
+          }
           <p-button
             (click)="submit()"
             [label]="submitButtonLabel()"
             pRipple
-            class="w-full flex-order-1 lg:flex-order-2"
+            class="w-full flex-order-2 lg:flex-order-2"
+            styleClass="w-full"
+          />
+          <p-button
+            (click)="goBack()"
+            [label]="backButtonLabel()"
+            pRipple
+            [text]="true"
+            class="w-full flex-order-3 lg:flex-order-3 hidden md:block"
             styleClass="w-full"
           />
         </div>
@@ -172,14 +182,27 @@
     <div
       class="col-12 lg:col-6 px-4 py-8 md:px-6 lg:px-8 surface-50 hidden lg:block"
     >
-      <div class="border-bottom-1 pb-3 surface-border">
-        <span class="text-900 font-semibold text-xl">Resumen de compra</span>
+      <div
+        class="border-bottom-1 pb-3 surface-border flex justify-content-between align-items-end"
+      >
+        <span class="text-900 text-lg"
+          ><b class="text-xl">Resumen de compra</b> ({{
+            products.length
+          }}
+          productos)</span
+        >
+        <a href="#" class="text-primary underline font-bold link">Editar</a>
       </div>
       @for(product of products; track $index){
       <div
-        class="flex flex-column lg:flex-row flex-wrap lg:align-items-center py-2 mt-3 border-bottom-1 surface-border"
+        class="flex flex-column lg:flex-row flex-wrap lg:align-9-center py-2 mt-3 border-bottom-1 surface-border"
       >
-        <img [src]="product.image" class="w-8rem h-8rem flex-shrink-0" />
+        <!-- class="w-8rem h-8rem flex-shrink-0"  -->
+        <img
+          [src]="product.image"
+          class="w-3rem sm:w-4rem flex-shrink-0 border-round border-1 surface-border"
+        />
+
         <div class="flex-auto mt-3 md:mt-0 md:ml-3">
           <div class="flex align-items-center justify-content-between mb-3">
             <span class="text-900 font-medium">{{ product.name }}</span>
@@ -188,7 +211,7 @@
             }}</span>
           </div>
           <!-- <div class="text-600 text-sm mb-3">Black | Large</div> -->
-          <div
+          <!--<div
             class="flex flex-auto justify-content-between align-items-center"
           >
             <p-inputNumber
@@ -210,7 +233,7 @@
               icon="pi pi-trash"
               class="p-button-text p-button-rounded"
             ></button>
-          </div>
+          </div>-->
         </div>
       </div>
       }
@@ -237,6 +260,7 @@
 
       <div class="py-2 mt-3">
         <div class="flex justify-content-between align-items-center mb-3">
+          <!-- • 9 artículos -->
           <span class="text-900 font-medium">Subtotal</span>
           <span class="text-900">$123.00</span>
         </div>

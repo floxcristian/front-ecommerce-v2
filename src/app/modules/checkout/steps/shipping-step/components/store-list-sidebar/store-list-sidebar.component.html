@@ -17,7 +17,6 @@
           formControlName="code"
           optionLabel="name"
           optionValue="code"
-          [showClear]="true"
           placeholder="Selecciona una tienda"
           styleClass="w-full"
           (onChange)="onSelectItem($event)"
@@ -29,7 +28,9 @@
               <div class="font-semibold mb-1">
                 {{ storeForm.get("name")?.value }}
               </div>
-              <span class="text-sm">{{ storeForm.get("address")?.value }}</span>
+              <span class="text-sm overflow-hidden text-overflow-ellipsis">{{
+                storeForm.get("address")?.value
+              }}</span>
             </div>
           </ng-template>
           <ng-template let-country pTemplate="item">

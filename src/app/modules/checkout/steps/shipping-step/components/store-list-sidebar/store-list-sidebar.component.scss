@@ -1,0 +1,6 @@
+/**
+* Para que se muestren las opciones de tiendas en varias líneas si es necesario y no se corte.
+**/
+:host ::ng-deep .p-dropdown-item.p-ripple {
+  white-space: normal;
+}

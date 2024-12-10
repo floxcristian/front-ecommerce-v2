@@ -1,0 +1,19 @@
+<div class="field mb-4 flex flex-column relative">
+  <google-map
+    height="600px"
+    width="auto"
+    [options]="options()"
+    (mapInitialized)="onMapLoaded()"
+  >
+    @for (marker of markerPositions(); track $index) { @if(marker.position){
+    <map-advanced-marker
+      [position]="marker.position"
+      [gmpDraggable]="isMarkerDraggable()"
+      (mapDragend)="mapDragend.emit($event)"
+    />
+    } }
+  </google-map>
+  @if(!isMapLoaded()){
+  <p-skeleton height="4rem" styleClass="absolute top-0 left-0" />
+  }
+</div>

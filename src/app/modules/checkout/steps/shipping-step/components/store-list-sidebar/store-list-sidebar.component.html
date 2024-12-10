@@ -3,6 +3,7 @@
     [(visible)]="visible"
     position="right"
     styleClass="w-screen lg:w-4"
+    (onShow)="onShow()"
   >
     <ng-template pTemplate="header">
       <div class="flex align-items-center gap-2">
@@ -11,7 +12,34 @@
     </ng-template>
     <ng-template pTemplate="content">
       <div class="flex flex-column field p-0 gap-3">
-        @for(item of stores(); track $index){
+        <p-dropdown
+          [options]="stores()"
+          formControlName="code"
+          optionLabel="name"
+          optionValue="code"
+          [showClear]="true"
+          placeholder="Selecciona una tienda"
+          styleClass="w-full"
+          (onChange)="onSelectItem($event)"
+          [filter]="true"
+          filterBy="name"
+        >
+          <ng-template pTemplate="selectedItem">
+            <div class="flex flex-column">
+              <div class="font-semibold mb-1">
+                {{ storeForm.get("name")?.value }}
+              </div>
+              <span class="text-sm">{{ storeForm.get("address")?.value }}</span>
+            </div>
+          </ng-template>
+          <ng-template let-country pTemplate="item">
+            <div class="flex flex-column align-items-start">
+              <div class="font-semibold mb-1">{{ country.name }}</div>
+              <span class="text-sm">{{ country.address }}</span>
+            </div>
+          </ng-template>
+        </p-dropdown>
+        <!--@for(item of stores(); track $index){
 
         <div
           class="flex p-3 border-round border-1 surface-border w-full cursor-pointer flex align-items-center h-5rem md:h-6rem"
@@ -34,8 +62,10 @@
             <span class="text-sm">{{ item.address }}</span>
           </div>
         </div>
-        }
+        }-->
       </div>
+
+      <app-map [isMarkerDraggable]="false" (isMapReady)="onMapReady()" />
     </ng-template>
     <ng-template pTemplate="footer">
       <div class="flex justify-content-end">

@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Router } from '@angular/router';
 // PrimeNG
 import { StyleClassModule } from 'primeng/styleclass';
 import { RippleModule } from 'primeng/ripple';
@@ -26,34 +27,35 @@ import { ScrollService } from '@core/utils/scroll/scroll.service';
 import { ShippingStepComponent } from './steps/shipping-step/shipping-step.component';
 import { PaymentStepComponent } from './steps/payment-step/payment-step.component';
 import { ContactStepComponent } from './steps/contact-step/contact-step.component';
+import { SummaryOrderComponent } from './components/summary-order/summary-order.component';
 // Constants
 import { BACK_BUTTON_LABELS, SUBMIT_BUTTON_LABEL } from './button-labels';
-import { Router } from '@angular/router';
+import { CartBottomSheetComponent } from 'src/app/components/cart-bottom-sheet/cart-bottom-sheet.component';
 
+const PRIME_MODULES = [
+  DropdownModule,
+  InputNumberModule,
+  ButtonModule,
+  InputTextModule,
+  CommonModule,
+  DividerModule,
+  RadioButtonModule,
+  AccordionModule,
+  RippleModule,
+  CheckboxModule,
+];
 export const COMPONENTS = [
   ShippingStepComponent,
   PaymentStepComponent,
   ContactStepComponent,
+  SummaryOrderComponent,
+  CartBottomSheetComponent,
 ];
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [
-    StyleClassModule,
-    RippleModule,
-    CheckboxModule,
-    FormsModule,
-    DropdownModule,
-    InputNumberModule,
-    ButtonModule,
-    InputTextModule,
-    CommonModule,
-    DividerModule,
-    RadioButtonModule,
-    AccordionModule,
-    ...COMPONENTS,
-  ],
+  imports: [StyleClassModule, FormsModule, COMPONENTS, PRIME_MODULES],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.scss',
 })
@@ -70,38 +72,6 @@ export class CheckoutComponent {
   submitButtonLabel = computed(
     () => SUBMIT_BUTTON_LABEL[this.step() as keyof typeof SUBMIT_BUTTON_LABEL]
   );
-
-  products = [
-    {
-      name: 'Bateria 150 amp 900 cca borne estandar',
-      price: 137990,
-      image: 'https://images.implementos.cl/img/150/POWBAT0036-1.jpg',
-    },
-    {
-      name: 'Llanta disco 8.25x22.5 pulg europea aluminio',
-      price: 137990,
-      image: 'https://images.implementos.cl/img/150/BETLLA0001-1.jpg',
-    },
-    {
-      name: 'Aceite hidraulico indiana iso 68 19 lts',
-      price: 137990,
-      image: 'https://images.implementos.cl/img/150/LUBIND0003-1.jpg',
-    },
-  ];
-  retira!: string;
-  tier2!: string;
-  tier1!: string;
-  quantities: number[] = [1, 1, 1];
-  animal: number = 0;
-
-  value1!: string;
-
-  checked1: boolean = true;
-
-  checked2: boolean = false;
-  selectedValue: string = '';
-  selectedValue2: string = '';
-  selectedCity!: string;
 
   constructor() {
     if (isPlatformBrowser(this.platformId)) {
@@ -124,18 +94,15 @@ export class CheckoutComponent {
     this.step.update((value) => value + 1);
   }
 
-  submit() {
+  submit(): void {
     if (this.step() >= this.steps()) return;
     this.setNextStep();
   }
 
-  goBack() {
+  goBack(): void {
     if (this.step() === 1) {
       this.router.navigate(['/cart']);
     } else if (this.step() < 1) return;
     this.step.update((value) => value - 1);
   }
-
-  showPriceDetails: boolean = false;
-  togglePriceDetails() {}
 }

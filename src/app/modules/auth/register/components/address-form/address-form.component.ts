@@ -21,7 +21,6 @@ import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { RippleModule } from 'primeng/ripple';
-import { AddressFormControlContainerComponent } from '../address-form-control-container/address-form-control-container.component';
 import { AddressFormControlContainerV2Component } from '../address-form-control-container-v2/address-form-control-container-v2.component';
 
 // Eliminar
@@ -39,10 +38,7 @@ const DIRECTIVES = [
   ControlErrorsDirective,
   ControlErrorContainerDirective,
 ];
-const COMPONENTS = [
-  AddressFormControlContainerComponent,
-  AddressFormControlContainerV2Component,
-];
+const COMPONENTS = [AddressFormControlContainerV2Component];
 
 @Component({
   selector: 'app-address-form',

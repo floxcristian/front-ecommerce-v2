@@ -9,6 +9,7 @@ import {
   OnInit,
   PLATFORM_ID,
   signal,
+  ViewChild,
 } from '@angular/core';
 import {
   ControlContainer,
@@ -31,9 +32,10 @@ import { filter, map } from 'rxjs';
 import { AddressInputComponent } from '@shared/components/atomic/address-input/address-input.component';
 // Services
 import { GeolocationService } from '@core/api/geolocation/geolocation.service';
-import { removeSpecialCharacters } from '../address-form-control-container/utils';
 // Directives
 import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
+import { removeSpecialCharacters } from './utils';
+import { MapComponent } from '@shared/components/blocks/map/map.component';
 
 const NG_MODULES = [ReactiveFormsModule, GoogleMapsModule, CommonModule];
 const PRIME_MODULES = [
@@ -42,7 +44,7 @@ const PRIME_MODULES = [
   SkeletonModule,
   DropdownModule,
 ];
-const COMPONENTS = [AddressInputComponent];
+const COMPONENTS = [AddressInputComponent, MapComponent];
 const DIRECTIVES = [ControlErrorsDirective];
 
 @Component({
@@ -54,7 +56,6 @@ const DIRECTIVES = [ControlErrorsDirective];
   viewProviders: [
     {
       provide: ControlContainer,
-      //useExisting: FormGroupDirective,
       useFactory: () => inject(ControlContainer, { skipSelf: true }),
     },
   ],
@@ -62,9 +63,12 @@ const DIRECTIVES = [ControlErrorsDirective];
 export class AddressFormControlContainerV2Component
   implements OnInit, AfterViewInit
 {
-  formGroupName = input<string>();
+  @ViewChild(MapComponent) mapComponent!: MapComponent;
 
-  center!: google.maps.LatLngLiteral;
+  formGroupName = input<string>();
+  useMap = input<boolean>(true);
+
+  /*center!: google.maps.LatLngLiteral;
 
   isMapLoaded = signal<boolean>(false);
   options = signal<google.maps.MapOptions>({
@@ -74,7 +78,7 @@ export class AddressFormControlContainerV2Component
   });
   advancedMarkerElement!: typeof google.maps.marker.AdvancedMarkerElement;
 
-  markerPositions = signal<google.maps.marker.AdvancedMarkerElement[]>([]);
+  markerPositions = signal<google.maps.marker.AdvancedMarkerElement[]>([]);*/
   communes = signal<any[]>([]);
   isLoadingCommunes = signal<boolean>(true);
 
@@ -82,7 +86,6 @@ export class AddressFormControlContainerV2Component
   parentForm!: FormGroup;
 
   get searchField() {
-    console.log('seatrchField');
     return this.formGroupName()
       ? this.parentForm.get(`${this.formGroupName()}.search`)
       : this.parentForm.get('search');
@@ -121,7 +124,7 @@ export class AddressFormControlContainerV2Component
     private geocoder: MapGeocoder,
     private readonly geolocationService: GeolocationService
   ) {
-    this.center = environment.defaultMapCenter;
+    //this.center = environment.defaultMapCenter;
   }
 
   ngOnInit(): void {
@@ -272,17 +275,21 @@ export class AddressFormControlContainerV2Component
    *******************************************************************************************************/
 
   async ngAfterViewInit(): Promise<void> {
-    if (!isPlatformBrowser(this.platformId)) return;
-    await this.initGooglePlacesService();
+    /*if (!isPlatformBrowser(this.platformId)) return;
+    await this.initGooglePlacesService();*/
   }
 
-  private async initGooglePlacesService(): Promise<void> {
+  /*private async initGooglePlacesService(): Promise<void> {
     const { AdvancedMarkerElement } = (await google.maps.importLibrary(
       'marker'
     )) as google.maps.MarkerLibrary;
     this.advancedMarkerElement = AdvancedMarkerElement; // Guardamos la referencia a la clase
-  }
+  }*/
 
+  /**
+   * Cambiar la dirección en el mapa a partir del placeId.
+   * @param placeId
+   */
   changeAddress(placeId: string): void {
     this.getGeocode({ placeId }).subscribe((result) => {
       if (!result) return;
@@ -291,19 +298,20 @@ export class AddressFormControlContainerV2Component
         return;
       }
       this.setAddress(result);
-      this.setMarker(result.geometry.location);
+      this.mapComponent.setMarker(result.geometry.location.toJSON());
+      //this.setMarker(result.geometry.location);
     });
   }
 
-  onMapReady(): void {
+  /*onMapReady(): void {
     this.isMapLoaded.set(true);
-  }
+  }*/
 
   /**
-   * Setear marcadore en el mapa y centrar el mapa en la ubicación del marcador.
+   * Setear marcador en el mapa y centrar el mapa en la ubicación del marcador.
    * @param location
    **/
-  private setMarker(location: google.maps.LatLng): void {
+  /*private setMarker(location: google.maps.LatLng): void {
     const marker = new this.advancedMarkerElement({
       position: location,
     });
@@ -314,7 +322,7 @@ export class AddressFormControlContainerV2Component
       zoom: 17,
       center: location.toJSON(),
     }));
-  }
+  }*/
 
   private getGeocode({
     placeId,

@@ -1,5 +1,6 @@
 @if(formGroupName()){
 <form [formGroupName]="formGroupName() ?? null">
+  @if(useMap()){
   <div class="field mb-4 flex flex-column">
     <label class="font-medium text-900">Ingresa tu dirección completa</label>
     <app-address-input
@@ -8,7 +9,8 @@
     />
   </div>
 
-  <div class="field mb-4 flex flex-column relative">
+  <app-map (mapDragend)="onDragEnd($event)" />
+  <!--<div class="field mb-4 flex flex-column relative">
     <google-map
       height="600px"
       width="auto"
@@ -26,7 +28,8 @@
     @if(!isMapLoaded()){
     <p-skeleton height="4rem" styleClass="absolute top-0 left-0" />
     }
-  </div>
+  </div>-->
+  }
 
   <div class="field mb-4 flex flex-column">
     <label for="street" class="font-medium text-900">Calle</label>
@@ -95,7 +98,7 @@
   </div>
 </form>
 
-} @else {
+} @else { @if(useMap()){
 <div class="field mb-4 flex flex-column">
   <label class="font-medium text-900">Ingresa tu dirección completa</label>
   <app-address-input
@@ -104,7 +107,8 @@
   />
 </div>
 
-<div class="field mb-4 flex flex-column relative">
+<app-map (mapDragend)="onDragEnd($event)" />
+<!--<div class="field mb-4 flex flex-column relative">
   <google-map
     height="600px"
     width="auto"
@@ -122,7 +126,8 @@
   @if(!isMapLoaded()){
   <p-skeleton height="4rem" styleClass="absolute top-0 left-0" />
   }
-</div>
+</div>-->
+}
 
 <div class="field mb-4 flex flex-column">
   <label for="street" class="font-medium text-900">Calle</label>

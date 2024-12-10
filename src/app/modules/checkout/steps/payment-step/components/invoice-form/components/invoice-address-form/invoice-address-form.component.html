@@ -36,7 +36,7 @@
 
 @if(!useDeliveryAddress()){
 <form [formGroup]="invoiceAddressForm">
-  <app-address-form-control-container-v2 />
+  <app-address-form-control-container-v2 [useMap]="false" />
 </form>
 
 }

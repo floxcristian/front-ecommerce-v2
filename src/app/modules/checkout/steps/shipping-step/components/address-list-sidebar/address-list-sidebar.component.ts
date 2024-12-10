@@ -1,3 +1,4 @@
+// Angular
 import { NgClass } from '@angular/common';
 import { Component, inject, input, output, signal } from '@angular/core';
 import {
@@ -5,14 +6,16 @@ import {
   NonNullableFormBuilder,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { ControlsOf } from '@shared/models/controls.type';
-import { validateNoNulls } from '@shared/services/form-utils';
+// PrimeNG
 import { ButtonModule } from 'primeng/button';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { SidebarModule } from 'primeng/sidebar';
+// Models
+import { ControlsOf } from '@shared/models/controls.type';
+// Services
+import { validateNoNulls } from '@shared/services/form-utils';
+// Components
 import { AddressFormControlContainerV2Component } from 'src/app/modules/auth/register/components/address-form-control-container-v2/address-form-control-container-v2.component';
-import { AddressFormControlContainerComponent } from 'src/app/modules/auth/register/components/address-form-control-container/address-form-control-container.component';
-import { AddressFormComponent } from 'src/app/modules/auth/register/components/address-form/address-form.component';
 
 export interface IAddress {
   id: string;
@@ -22,10 +25,7 @@ export interface IAddress {
 
 const NG_MODULES = [ReactiveFormsModule, NgClass];
 const PRIME_MODULES = [SidebarModule, ButtonModule, RadioButtonModule];
-const COMPONENTS = [
-  AddressFormControlContainerComponent,
-  AddressFormControlContainerV2Component,
-];
+const COMPONENTS = [AddressFormControlContainerV2Component];
 
 @Component({
   selector: 'app-address-list-sidebar',

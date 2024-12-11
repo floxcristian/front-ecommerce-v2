@@ -22,6 +22,7 @@ import { ShippingTypeOption } from './models/shipping-type-option.interface';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { SidebarModule } from 'primeng/sidebar';
 import { AccordionModule } from 'primeng/accordion';
+import { CheckoutService } from 'src/app/modules/checkout/services/checkout/checkout.service';
 
 const NG_MODULES = [ReactiveFormsModule, NgClass];
 const PRIME_MODULES = [RadioButtonModule, SidebarModule, AccordionModule];
@@ -38,14 +39,15 @@ const PRIME_MODULES = [RadioButtonModule, SidebarModule, AccordionModule];
   host: { class: 'w-full' },
 })
 export class ShippingTypeFormComponent implements OnInit {
-  shippingType = input.required<ShippingType>();
-  onChange = output<ShippingType>();
+  //shippingType!: ShippingType;
+  //onChange = output<ShippingType>();
   isVisibleSidebar = signal<boolean>(false);
 
   get shipmentTypeField() {
     return this.shippingTypeForm.get('shipmentType');
   }
 
+  public readonly checkoutService = inject(CheckoutService);
   private readonly fb = inject(NonNullableFormBuilder);
 
   shippingTypeForm!: FormGroup<ControlsOf<{ shipmentType: ShippingType }>>;
@@ -70,9 +72,12 @@ export class ShippingTypeFormComponent implements OnInit {
 
   private buildForm(): void {
     this.shippingTypeForm = this.fb.group({
-      shipmentType: new FormControl<ShippingType>(this.shippingType(), {
-        nonNullable: true,
-      }),
+      shipmentType: new FormControl<ShippingType>(
+        this.checkoutService.shippingType(),
+        {
+          nonNullable: true,
+        }
+      ),
     });
   }
 
@@ -82,6 +87,7 @@ export class ShippingTypeFormComponent implements OnInit {
    */
   onSelectShipmentType(value: ShippingType): void {
     this.shippingTypeForm.setValue({ shipmentType: value });
-    this.onChange.emit(value);
+    this.checkoutService.setShippingType(value);
+    // this.onChange.emit(value);
   }
 }

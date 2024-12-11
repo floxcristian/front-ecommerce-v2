@@ -127,7 +127,7 @@
         @if(step() === 1){
         <app-contact-step />
         } @else if(step() === 2){
-        <app-shipping-step shippingType="DELIVERY" />
+        <app-shipping-step />
         }
         <!-- <p-divider class="w-full px-2 mb-3"></p-divider> -->
         @else if(step() === 3){
@@ -137,6 +137,7 @@
           class="flex flex-column justify-content-center align-items-center lg:justify-content-end mt-6 gap-2 md:gap-3 fixed lg:static left-0 bottom-0 surface-card w-full p-3 lg:p-0 z-2 shadow-8 md:shadow-none"
         >
           <div class="px-2 w-full block lg:hidden">
+            <!--
             <div class="flex justify-content-between align-items-center mb-2">
               <span class="text-900 font-normal">Productos (10)</span>
               <span class="text-900">$123.000</span>
@@ -144,11 +145,29 @@
             <div class="flex justify-content-between align-items-center mb-2">
               <span class="text-900 font-normal">Envíos (2)</span>
               <span class="text-green-500 font-bold">Gratis</span>
-            </div>
+            </div> -->
+
             <div class="flex justify-content-between align-items-center mb-2">
               <span class="text-900 font-bold">Total a pagar</span>
               <span class="text-900 font-bold">$123.000</span>
             </div>
+            @if(step() === 3){
+            <div class="my-3 text-color">
+              <form [formGroup]="formGroup">
+                <p-checkbox
+                  formControlName="disclaimer"
+                  [binary]="true"
+                  inputId="disclaimer"
+                />
+                <label for="disclaimer" class="ml-2"
+                  >Acepto los
+                  <a class="text-color" target="_blank" href="#"
+                    >términos y condiciones</a
+                  >
+                </label>
+              </form>
+            </div>
+            }
           </div>
 
           @if(step() > 1){

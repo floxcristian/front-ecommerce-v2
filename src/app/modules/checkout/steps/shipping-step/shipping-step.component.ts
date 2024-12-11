@@ -1,5 +1,12 @@
 // Angular
-import { Component, computed, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  inject,
+  input,
+  signal,
+} from '@angular/core';
 // PrimeNG
 import { DividerModule } from 'primeng/divider';
 // Models
@@ -13,6 +20,7 @@ import { RecipientAnotherFormComponent } from './components/recipient-another-fo
 import { PickupStoreFormComponent } from './components/pickup-store-form/pickup-store-form.component';
 import { DeliveryAddressFormComponent } from './components/delivery-address-form/delivery-address-form.component';
 import { ShippingProductListComponent } from './components/shipping-product-list/shipping-product-list.component';
+import { CheckoutService } from '../../services/checkout/checkout.service';
 
 const PRIME_MODULES = [DividerModule];
 
@@ -28,25 +36,33 @@ const COMPONENTS = [
 @Component({
   selector: 'app-shipping-step',
   standalone: true,
-  imports: [...PRIME_MODULES, ...COMPONENTS],
+  imports: [PRIME_MODULES, COMPONENTS],
   templateUrl: './shipping-step.component.html',
   styleUrl: './shipping-step.component.scss',
   host: { class: 'w-full mb-6 lg:mb-0' },
 })
 export class ShippingStepComponent {
-  shippingType = signal<ShippingType>('PICKUP');
-  shippingAction = computed<ShippingTypeAction>(() =>
-    this.shippingType() === 'DELIVERY' ? 'recibir' : 'retirar'
-  );
+  //input.required<IStore[]>();
+  //shippingType = input.required<ShippingType>()//signal<ShippingType>('PICKUP');
+  shippingType!: ShippingType;
   recipientType = signal<RecipientType>('SELF');
+
+  public readonly checkoutService = inject(CheckoutService);
+
+  /*private getShippingType() {
+    this.shippingType = this.checkoutService.shippingType();
+    effect(() => {
+      this.shippingType = this.checkoutService.shippingType();
+    });
+  }*/
 
   /**
    * Cambia el tipo de entrega.
    * @param type
    */
-  onChangeShippingType(type: ShippingType): void {
+  /*onChangeShippingType(type: ShippingType): void {
     this.shippingType.set(type);
-  }
+  }*/
 
   /**
    * Cambia el tipo de destinatario.

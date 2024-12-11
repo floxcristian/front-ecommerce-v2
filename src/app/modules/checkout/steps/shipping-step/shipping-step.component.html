@@ -1,21 +1,14 @@
-<app-shipping-type-form
-  [shippingType]="shippingType()"
-  (onChange)="onChangeShippingType($event)"
-/>
+<app-shipping-type-form />
 
-@if(shippingType() === 'DELIVERY'){
+@if(checkoutService.shippingType() === 'DELIVERY'){
 <app-delivery-address-form />
-} @else if(shippingType() === 'PICKUP'){
+} @else if(checkoutService.shippingType() === 'PICKUP'){
 <app-pickup-store-form />
 }
 <app-shipping-product-list />
 
-<app-recipient-type-form
-  [shippingType]="shippingType()"
-  [shippingAction]="shippingAction()"
-  (onChange)="onRecipientTypeChange($event)"
-/>
+<app-recipient-type-form (onChange)="onRecipientTypeChange($event)" />
 
 @if(recipientType() === 'ANOTHER'){
-<app-recipient-another-form [shippingAction]="shippingAction()" />
+<app-recipient-another-form />
 }

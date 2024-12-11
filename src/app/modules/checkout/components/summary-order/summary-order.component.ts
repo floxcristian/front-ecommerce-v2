@@ -1,12 +1,15 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CheckboxModule } from 'primeng/checkbox';
 
-const NG_MODULES = [CurrencyPipe];
+const NG_MODULES = [CurrencyPipe, ReactiveFormsModule];
+const PRIME_MODULES = [CheckboxModule];
 
 @Component({
   selector: 'app-summary-order',
   standalone: true,
-  imports: [NG_MODULES],
+  imports: [NG_MODULES, PRIME_MODULES],
   templateUrl: './summary-order.component.html',
   styleUrl: './summary-order.component.scss',
   host: {
@@ -15,6 +18,7 @@ const NG_MODULES = [CurrencyPipe];
   },
 })
 export class SummaryOrderComponent {
+  formGroup!: FormGroup;
   products = [
     {
       name: 'Bateria 150 amp 900 cca borne estandar',
@@ -35,4 +39,14 @@ export class SummaryOrderComponent {
       image: 'https://images.implementos.cl/img/150/LUBIND0003-1.jpg',
     },
   ];
+  private readonly fb = inject(FormBuilder);
+  constructor() {
+    this.buildForm();
+  }
+
+  private buildForm(): void {
+    this.formGroup = this.fb.group({
+      condition: [],
+    });
+  }
 }

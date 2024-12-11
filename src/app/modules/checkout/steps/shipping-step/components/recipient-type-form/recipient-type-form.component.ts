@@ -1,5 +1,12 @@
 // Angular
-import { Component, computed, inject, input, output } from '@angular/core';
+import {
+  Component,
+  computed,
+  inject,
+  input,
+  OnInit,
+  output,
+} from '@angular/core';
 import { NgClass } from '@angular/common';
 import {
   FormGroup,
@@ -15,6 +22,7 @@ import { RecipientType } from '../../models/recipient-type.type';
 import { ControlsOf } from '@shared/models/controls.type';
 // PrimeNG
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { CheckoutService } from 'src/app/modules/checkout/services/checkout/checkout.service';
 
 const NG_MODULES = [ReactiveFormsModule, NgClass];
 const PRIME_MODULES = [RadioButtonModule];
@@ -30,14 +38,15 @@ const PRIME_MODULES = [RadioButtonModule];
   styleUrl: './recipient-type-form.component.scss',
   host: { class: 'w-full' },
 })
-export class RecipientTypeFormComponent {
-  shippingType = input.required<ShippingType>();
-  shippingAction = input.required<ShippingTypeAction>();
+export class RecipientTypeFormComponent implements OnInit {
+  //shippingType = input.required<ShippingType>();
+  //shippingAction = input.required<ShippingTypeAction>();
   onChange = output<RecipientType>();
 
-  recipientTypes = computed<RecipientTypeOption[]>(() => {
+  /*recipientTypes = computed<RecipientTypeOption[]>(() => {
     return this.formatRecipientType(this.shippingAction());
-  });
+  });*/
+  recipientTypes: RecipientTypeOption[] = [];
 
   recipientTypeForm!: FormGroup<ControlsOf<{ recipientType: RecipientType }>>;
 
@@ -45,10 +54,17 @@ export class RecipientTypeFormComponent {
     return this.recipientTypeForm.get('recipientType');
   }
 
+  public readonly checkoutService = inject(CheckoutService);
   private readonly fb = inject(NonNullableFormBuilder);
 
   constructor() {
     this.buildForm();
+  }
+
+  ngOnInit(): void {
+    this.recipientTypes = this.formatRecipientType(
+      this.checkoutService.shippingAction()
+    );
   }
 
   private buildForm(): void {

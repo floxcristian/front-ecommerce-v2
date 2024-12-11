@@ -17,6 +17,7 @@ import { PhoneInputComponent } from '@shared/components/atomic/phone-input/phone
 // Directives
 import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';
 import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
+import { CheckoutService } from 'src/app/modules/checkout/services/checkout/checkout.service';
 
 const NG_MODULES = [ReactiveFormsModule];
 const PRIME_MODULES = [InputTextModule];
@@ -35,9 +36,10 @@ const DIRECTIVES = [FormSubmitDirective, ControlErrorsDirective];
   host: { class: 'w-full' },
 })
 export class RecipientAnotherFormComponent {
-  shippingAction = input.required<ShippingTypeAction>();
+  //shippingAction = input.required<ShippingTypeAction>();
   recipientAnotherForm!: FormGroup<ControlsOf<RecipientAnother>>;
 
+  public readonly checkoutService = inject(CheckoutService);
   private readonly fb = inject(NonNullableFormBuilder);
 
   constructor() {

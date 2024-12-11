@@ -2,11 +2,12 @@
   <div class="field mb-4">
     <!-- Start::title -->
     <span class="text-900 text-2xl block font-semibold mb-5"
-      >Sobre la dirección de facturación</span
+      >Ingresa la dirección de facturación</span
     >
     <!-- End::title -->
 
     <!-- Start::recipient type -->
+    @if(checkoutService.shippingType() === 'DELIVERY'){
     <div class="flex flex-column lg:flex-row field p-0 gap-3">
       @for(type of useDeliveryAddressOptions; track $index){
       <div
@@ -31,6 +32,7 @@
       </div>
       }
     </div>
+    }
   </div>
 </form>
 

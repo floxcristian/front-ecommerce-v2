@@ -7,7 +7,12 @@ import {
   PLATFORM_ID,
   signal,
 } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 // PrimeNG
@@ -28,10 +33,13 @@ import { ShippingStepComponent } from './steps/shipping-step/shipping-step.compo
 import { PaymentStepComponent } from './steps/payment-step/payment-step.component';
 import { ContactStepComponent } from './steps/contact-step/contact-step.component';
 import { SummaryOrderComponent } from './components/summary-order/summary-order.component';
+import { CartBottomSheetComponent } from 'src/app/components/cart-bottom-sheet/cart-bottom-sheet.component';
 // Constants
 import { BACK_BUTTON_LABELS, SUBMIT_BUTTON_LABEL } from './button-labels';
-import { CartBottomSheetComponent } from 'src/app/components/cart-bottom-sheet/cart-bottom-sheet.component';
+import { ShippingType } from './steps/shipping-step/models/shipping-type.type';
+import { CheckoutService } from './services/checkout/checkout.service';
 
+const NG_MODULES = [ReactiveFormsModule];
 const PRIME_MODULES = [
   DropdownModule,
   InputNumberModule,
@@ -55,14 +63,24 @@ export const COMPONENTS = [
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [StyleClassModule, FormsModule, COMPONENTS, PRIME_MODULES],
+  imports: [
+    NG_MODULES,
+    StyleClassModule,
+    FormsModule,
+    COMPONENTS,
+    PRIME_MODULES,
+  ],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.scss',
 })
 export class CheckoutComponent {
+  //shippingType!: ShippingType;
+
+  //private readonly checkoutService = inject(CheckoutService);
   private readonly scrollService = inject(ScrollService);
   private readonly platformId: Object = inject(PLATFORM_ID);
   private readonly router = inject(Router);
+  private readonly fb = inject(FormBuilder);
 
   step = signal<number>(1);
   steps = signal<number>(3);
@@ -74,13 +92,22 @@ export class CheckoutComponent {
   );
 
   constructor() {
+    this.buildForm();
     if (isPlatformBrowser(this.platformId)) {
       effect(() => {
         this.step();
         this.scrollService.scrollToTop();
       });
     }
+    //this.getShippingType();
   }
+
+  /*getShippingType() {
+    this.shippingType = this.checkoutService.shippingType();
+    effect(() => {
+      this.shippingType = this.checkoutService.shippingType();
+    });
+  }*/
 
   /**
    * Incrementa el valor del paso actual en uno.
@@ -104,5 +131,33 @@ export class CheckoutComponent {
       this.router.navigate(['/cart']);
     } else if (this.step() < 1) return;
     this.step.update((value) => value - 1);
+  }
+
+  formGroup!: FormGroup;
+  products = [
+    {
+      name: 'Bateria 150 amp 900 cca borne estandar',
+      quantity: 2,
+      price: 137990,
+      image: 'https://images.implementos.cl/img/150/POWBAT0036-1.jpg',
+    },
+    {
+      name: 'Llanta disco 8.25x22.5 pulg europea aluminio',
+      quantity: 3,
+      price: 137990,
+      image: 'https://images.implementos.cl/img/150/BETLLA0001-1.jpg',
+    },
+    {
+      name: 'Aceite hidraulico indiana iso 68 19 lts',
+      quantity: 4,
+      price: 137990,
+      image: 'https://images.implementos.cl/img/150/LUBIND0003-1.jpg',
+    },
+  ];
+
+  private buildForm(): void {
+    this.formGroup = this.fb.group({
+      disclaimer: [],
+    });
   }
 }

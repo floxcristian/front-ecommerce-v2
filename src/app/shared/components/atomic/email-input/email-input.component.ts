@@ -21,6 +21,8 @@ import {
 } from '@angular/forms';
 // PrimeNG
 import { InputTextModule } from 'primeng/inputtext';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
 import {
   AutoCompleteCompleteEvent,
   AutoCompleteModule,
@@ -32,12 +34,17 @@ import { ControlsOf } from '@shared/models/controls.type';
 import { EmailValidator } from './validators/email.validator';
 
 const NG_MODULES = [ReactiveFormsModule];
-const PRIME_MODULES = [InputTextModule, AutoCompleteModule];
+const PRIME_MODULES = [
+  InputTextModule,
+  AutoCompleteModule,
+  IconFieldModule,
+  InputIconModule,
+];
 
 @Component({
   selector: 'app-email-input',
   standalone: true,
-  imports: [...NG_MODULES, ...PRIME_MODULES],
+  imports: [NG_MODULES, PRIME_MODULES],
   templateUrl: './email-input.component.html',
   styleUrl: './email-input.component.scss',
   providers: [
@@ -59,6 +66,7 @@ export class EmailInputComponent
   implements OnInit, ControlValueAccessor, Validator
 {
   isRequired = input<boolean>(true);
+  useEmailExistsValidator = input<boolean>(false);
 
   get emailField(): FormControl<string> {
     return this.form.controls.email;

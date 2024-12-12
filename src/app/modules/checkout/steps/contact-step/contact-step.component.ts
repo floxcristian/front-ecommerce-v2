@@ -8,6 +8,8 @@ import {
 // PrimeNG
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
+import { ButtonModule } from 'primeng/button';
+import { DividerModule } from 'primeng/divider';
 // Directives
 import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';
 import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
@@ -17,9 +19,6 @@ import { ControlsOf } from '@shared/models/controls.type';
 import { DocumentIdInputComponent } from '@shared/components/atomic/document-id-input/document-id-input.component';
 import { PhoneInputComponent } from '@shared/components/atomic/phone-input/phone-input.component';
 import { EmailInputComponent } from '@shared/components/atomic/email-input/email-input.component';
-import { ButtonModule } from 'primeng/button';
-import { DividerModule } from 'primeng/divider';
-import { NgClass } from '@angular/common';
 
 interface Guest {
   documentId: string;
@@ -29,7 +28,7 @@ interface Guest {
   email: string;
 }
 
-const NG_MODULES = [ReactiveFormsModule, NgClass];
+const NG_MODULES = [ReactiveFormsModule];
 const PRIME_MODULES = [
   InputTextModule,
   PasswordModule,

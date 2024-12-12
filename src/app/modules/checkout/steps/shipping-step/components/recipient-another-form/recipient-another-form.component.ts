@@ -8,7 +8,6 @@ import {
 // Models
 import { ControlsOf } from '@shared/models/controls.type';
 import { RecipientAnother } from './models/recipient-another.interface';
-import { ShippingTypeAction } from '../../models/shipping-type-action.type';
 // PrimeNG
 import { InputTextModule } from 'primeng/inputtext';
 // Components
@@ -17,6 +16,7 @@ import { PhoneInputComponent } from '@shared/components/atomic/phone-input/phone
 // Directives
 import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';
 import { ControlErrorsDirective } from '@shared/directives/validation-message/directives/control-errors/control-errors.directive';
+// Services
 import { CheckoutService } from 'src/app/modules/checkout/services/checkout/checkout.service';
 
 const NG_MODULES = [ReactiveFormsModule];
@@ -36,7 +36,6 @@ const DIRECTIVES = [FormSubmitDirective, ControlErrorsDirective];
   host: { class: 'w-full' },
 })
 export class RecipientAnotherFormComponent {
-  //shippingAction = input.required<ShippingTypeAction>();
   recipientAnotherForm!: FormGroup<ControlsOf<RecipientAnother>>;
 
   public readonly checkoutService = inject(CheckoutService);

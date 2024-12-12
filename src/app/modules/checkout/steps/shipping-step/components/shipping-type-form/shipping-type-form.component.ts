@@ -1,21 +1,14 @@
 // Angular
 import { NgClass } from '@angular/common';
-import {
-  Component,
-  inject,
-  input,
-  OnInit,
-  output,
-  signal,
-} from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import {
   FormControl,
   FormGroup,
   NonNullableFormBuilder,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { ControlsOf } from '@shared/models/controls.type';
 // Models
+import { ControlsOf } from '@shared/models/controls.type';
 import { ShippingType } from '../../models/shipping-type.type';
 import { ShippingTypeOption } from './models/shipping-type-option.interface';
 // PrimeNG
@@ -23,6 +16,8 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { SidebarModule } from 'primeng/sidebar';
 import { AccordionModule } from 'primeng/accordion';
 import { CheckoutService } from 'src/app/modules/checkout/services/checkout/checkout.service';
+// Constants
+import { shippingTypes } from './contants/shipping-types';
 
 const NG_MODULES = [ReactiveFormsModule, NgClass];
 const PRIME_MODULES = [RadioButtonModule, SidebarModule, AccordionModule];
@@ -39,8 +34,6 @@ const PRIME_MODULES = [RadioButtonModule, SidebarModule, AccordionModule];
   host: { class: 'w-full' },
 })
 export class ShippingTypeFormComponent implements OnInit {
-  //shippingType!: ShippingType;
-  //onChange = output<ShippingType>();
   isVisibleSidebar = signal<boolean>(false);
 
   get shipmentTypeField() {
@@ -51,20 +44,7 @@ export class ShippingTypeFormComponent implements OnInit {
   private readonly fb = inject(NonNullableFormBuilder);
 
   shippingTypeForm!: FormGroup<ControlsOf<{ shipmentType: ShippingType }>>;
-  shippingTypes: ShippingTypeOption[] = [
-    {
-      title: 'Retiro en tienda',
-      description: 'Selecciona la tienda y el día en que prefieres retirar',
-      icon: 'fa-store',
-      value: 'PICKUP',
-    },
-    {
-      title: 'Despacho a domicilio',
-      description: 'Selecciona la fecha de entrega',
-      icon: 'fa-truck',
-      value: 'DELIVERY',
-    },
-  ];
+  shippingTypes: ShippingTypeOption[] = shippingTypes;
 
   ngOnInit(): void {
     this.buildForm();

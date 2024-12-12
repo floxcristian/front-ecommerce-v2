@@ -1,12 +1,5 @@
 // Angular
-import {
-  Component,
-  computed,
-  inject,
-  input,
-  OnInit,
-  output,
-} from '@angular/core';
+import { Component, effect, inject, output } from '@angular/core';
 import { NgClass } from '@angular/common';
 import {
   FormGroup,
@@ -15,7 +8,6 @@ import {
   FormControl,
 } from '@angular/forms';
 // Models
-import { ShippingType } from '../../models/shipping-type.type';
 import { ShippingTypeAction } from '../../models/shipping-type-action.type';
 import { RecipientTypeOption } from './models/recipient-type-option.interface';
 import { RecipientType } from '../../models/recipient-type.type';
@@ -33,21 +25,15 @@ const PRIME_MODULES = [RadioButtonModule];
 @Component({
   selector: 'app-recipient-type-form',
   standalone: true,
-  imports: [...NG_MODULES, ...PRIME_MODULES],
+  imports: [NG_MODULES, PRIME_MODULES],
   templateUrl: './recipient-type-form.component.html',
   styleUrl: './recipient-type-form.component.scss',
   host: { class: 'w-full' },
 })
-export class RecipientTypeFormComponent implements OnInit {
-  //shippingType = input.required<ShippingType>();
-  //shippingAction = input.required<ShippingTypeAction>();
+export class RecipientTypeFormComponent {
   onChange = output<RecipientType>();
 
-  /*recipientTypes = computed<RecipientTypeOption[]>(() => {
-    return this.formatRecipientType(this.shippingAction());
-  });*/
   recipientTypes: RecipientTypeOption[] = [];
-
   recipientTypeForm!: FormGroup<ControlsOf<{ recipientType: RecipientType }>>;
 
   get recipientTypeField() {
@@ -59,12 +45,18 @@ export class RecipientTypeFormComponent implements OnInit {
 
   constructor() {
     this.buildForm();
+    this.setRecipientTypes();
   }
 
-  ngOnInit(): void {
+  private setRecipientTypes(): void {
     this.recipientTypes = this.formatRecipientType(
       this.checkoutService.shippingAction()
     );
+    effect(() => {
+      this.recipientTypes = this.formatRecipientType(
+        this.checkoutService.shippingAction()
+      );
+    });
   }
 
   private buildForm(): void {

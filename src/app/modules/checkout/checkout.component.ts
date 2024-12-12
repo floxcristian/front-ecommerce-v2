@@ -36,10 +36,8 @@ import { SummaryOrderComponent } from './components/summary-order/summary-order.
 import { CartBottomSheetComponent } from 'src/app/components/cart-bottom-sheet/cart-bottom-sheet.component';
 // Constants
 import { BACK_BUTTON_LABELS, SUBMIT_BUTTON_LABEL } from './button-labels';
-import { ShippingType } from './steps/shipping-step/models/shipping-type.type';
-import { CheckoutService } from './services/checkout/checkout.service';
 
-const NG_MODULES = [ReactiveFormsModule];
+const NG_MODULES = [ReactiveFormsModule, FormsModule];
 const PRIME_MODULES = [
   DropdownModule,
   InputNumberModule,
@@ -51,6 +49,7 @@ const PRIME_MODULES = [
   AccordionModule,
   RippleModule,
   CheckboxModule,
+  StyleClassModule,
 ];
 export const COMPONENTS = [
   ShippingStepComponent,
@@ -63,20 +62,11 @@ export const COMPONENTS = [
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [
-    NG_MODULES,
-    StyleClassModule,
-    FormsModule,
-    COMPONENTS,
-    PRIME_MODULES,
-  ],
+  imports: [NG_MODULES, COMPONENTS, PRIME_MODULES],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.scss',
 })
 export class CheckoutComponent {
-  //shippingType!: ShippingType;
-
-  //private readonly checkoutService = inject(CheckoutService);
   private readonly scrollService = inject(ScrollService);
   private readonly platformId: Object = inject(PLATFORM_ID);
   private readonly router = inject(Router);
@@ -99,15 +89,7 @@ export class CheckoutComponent {
         this.scrollService.scrollToTop();
       });
     }
-    //this.getShippingType();
   }
-
-  /*getShippingType() {
-    this.shippingType = this.checkoutService.shippingType();
-    effect(() => {
-      this.shippingType = this.checkoutService.shippingType();
-    });
-  }*/
 
   /**
    * Incrementa el valor del paso actual en uno.

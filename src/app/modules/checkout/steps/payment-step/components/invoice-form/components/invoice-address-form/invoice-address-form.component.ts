@@ -61,7 +61,6 @@ export class InvoiceAddressFormComponent {
     if (this.checkoutService.shippingType() === 'PICKUP') {
       this.useDeliveryAddressForm.setValue({ useDeliveryAddress: false });
       this.onChange.emit(false);
-      // this.useDeliveryAddress.se
     }
     this.invoiceAddressForm = this.fb.group({});
   }

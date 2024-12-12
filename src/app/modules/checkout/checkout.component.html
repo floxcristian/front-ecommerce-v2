@@ -186,6 +186,8 @@
             class="w-full flex-order-2 lg:flex-order-2"
             styleClass="w-full"
           />
+          @if(!authService.isLoggedIn() || (authService.isLoggedIn() && step()
+          >= 3)){
           <p-button
             (click)="goBack()"
             [label]="backButtonLabel()"
@@ -194,6 +196,7 @@
             class="w-full flex-order-3 lg:flex-order-3 hidden md:block"
             styleClass="w-full"
           />
+          }
         </div>
       </div>
     </div>

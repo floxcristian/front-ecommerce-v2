@@ -68,7 +68,7 @@ export const COMPONENTS = [
   styleUrl: './checkout.component.scss',
 })
 export class CheckoutComponent {
-  private readonly authService = inject(AuthService);
+  public readonly authService = inject(AuthService);
   private readonly scrollService = inject(ScrollService);
   private readonly platformId: Object = inject(PLATFORM_ID);
   private readonly router = inject(Router);

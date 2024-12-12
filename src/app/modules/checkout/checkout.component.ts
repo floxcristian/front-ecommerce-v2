@@ -36,6 +36,7 @@ import { SummaryOrderComponent } from './components/summary-order/summary-order.
 import { CartBottomSheetComponent } from 'src/app/components/cart-bottom-sheet/cart-bottom-sheet.component';
 // Constants
 import { BACK_BUTTON_LABELS, SUBMIT_BUTTON_LABEL } from './button-labels';
+import { AuthService } from '@core/services/auth/auth.service';
 
 const NG_MODULES = [ReactiveFormsModule, FormsModule];
 const PRIME_MODULES = [
@@ -67,12 +68,13 @@ export const COMPONENTS = [
   styleUrl: './checkout.component.scss',
 })
 export class CheckoutComponent {
+  private readonly authService = inject(AuthService);
   private readonly scrollService = inject(ScrollService);
   private readonly platformId: Object = inject(PLATFORM_ID);
   private readonly router = inject(Router);
   private readonly fb = inject(FormBuilder);
 
-  step = signal<number>(1);
+  step = signal<number>(this.authService.isLoggedIn() ? 2 : 1);
   steps = signal<number>(3);
   backButtonLabel = computed(
     () => BACK_BUTTON_LABELS[this.step() as keyof typeof BACK_BUTTON_LABELS]

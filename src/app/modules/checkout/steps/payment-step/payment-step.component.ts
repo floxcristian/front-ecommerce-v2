@@ -19,6 +19,8 @@ import { PaymentType } from './models/payment-type.type';
 import { PurchaseOrderFormComponent } from './components/purchase-order-form/purchase-order-form.component';
 import { InvoiceFormComponent } from './components/invoice-form/invoice-form.component';
 import { DocumentTypeFormComponent } from './components/document-type-form/document-type-form.component';
+import { AuthService } from '@core/services/auth/auth.service';
+import { paymentTypes } from './constants/payment-types';
 
 const NG_MODULES = [NgClass, ReactiveFormsModule];
 const PRIME_MODULES = [RadioButtonModule];
@@ -41,44 +43,24 @@ export class PaymentStepComponent {
   documentType = signal<DocumentType>('RECEIPT');
 
   paymentTypeForm!: FormGroup<ControlsOf<{ paymentType: PaymentType }>>;
-  payments: PaymentTypeOption[] = [
-    {
-      name: 'Webpay Plus',
-      image: 'https://www.implementos.cl/assets/images/web-pay.svg',
-      value: 'WEBPAY',
-      description: 'Tarjeta de débito, crédito o prepago',
-    },
-    // sin CVV (Código de seguridad de 3 dígitos)
-    {
-      name: 'Mercado Pago',
-      image: 'https://www.implementos.cl/assets/images/mercado-pago.svg',
-      value: 'MERCADO_PAGO',
-      description:
-        'Tarjeta de débito, crédito, prepago o dinero en Mercadopago',
-    },
-    {
-      name: 'Khipu',
-      image:
-        'https://s3.amazonaws.com/static.khipu.com/buttons/2024/200x75-color.svg',
-      value: 'KHIPU',
-      description: 'Transferencia bancaria',
-    },
-    {
-      name: 'Línea de crédito',
-      //image: 'assets/images/logos/logox.svg',
-      value: 'CREDIT_LINE',
-      description: 'Compra ahora y paga después',
-    },
-  ];
+  payments: PaymentTypeOption[] = [];
 
   get paymentTypeField() {
     return this.paymentTypeForm.get('paymentType');
   }
 
+  private readonly authService = inject(AuthService);
   private readonly fb = inject(NonNullableFormBuilder);
 
   constructor() {
+    this.setPaymentTypes();
     this.buildForm();
+  }
+
+  setPaymentTypes() {
+    this.payments = this.authService.isLoggedIn()
+      ? paymentTypes
+      : paymentTypes.filter((payment) => !payment.requiresLogin);
   }
 
   private buildForm(): void {

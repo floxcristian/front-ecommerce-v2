@@ -4,6 +4,8 @@ import {
   Component,
   forwardRef,
   inject,
+  input,
+  OnInit,
   signal,
 } from '@angular/core';
 import {
@@ -16,7 +18,6 @@ import {
   ReactiveFormsModule,
   ValidationErrors,
   Validator,
-  Validators,
 } from '@angular/forms';
 // PrimeNG
 import { InputTextModule } from 'primeng/inputtext';
@@ -54,7 +55,11 @@ const PRIME_MODULES = [InputTextModule, AutoCompleteModule];
   host: { class: 'w-full' },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EmailInputComponent implements ControlValueAccessor, Validator {
+export class EmailInputComponent
+  implements OnInit, ControlValueAccessor, Validator
+{
+  isRequired = input<boolean>(true);
+
   get emailField(): FormControl<string> {
     return this.form.controls.email;
   }
@@ -69,7 +74,7 @@ export class EmailInputComponent implements ControlValueAccessor, Validator {
   filteredDomains = signal<string[]>([]);
   currentInputValue = signal<string>('');
 
-  constructor() {
+  ngOnInit(): void {
     this.buildForm();
   }
 
@@ -80,7 +85,7 @@ export class EmailInputComponent implements ControlValueAccessor, Validator {
    **/
   private buildForm(): void {
     this.form = this.fb.nonNullable.group({
-      email: ['', [Validators.required, EmailValidator.isValidEmail]],
+      email: ['', [EmailValidator.isValidEmail(this.isRequired())]],
     });
   }
 

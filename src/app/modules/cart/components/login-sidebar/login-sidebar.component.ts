@@ -19,6 +19,7 @@ import { ControlErrorsDirective } from '@shared/directives/validation-message/di
 import { FormSubmitDirective } from '@shared/directives/validation-message/directives/form-submit/form-submit.directive';
 // Components
 import { EmailInputComponent } from '@shared/components/atomic/email-input/email-input.component';
+import { AuthService } from '@core/services/auth/auth.service';
 
 const NG_MODULES = [ReactiveFormsModule];
 const PRIME_MODULES = [
@@ -43,6 +44,7 @@ export class LoginSidebarComponent {
 
   private readonly fb = inject(NonNullableFormBuilder);
   private readonly router = inject(Router);
+  private readonly authService = inject(AuthService);
 
   constructor() {
     this.buildForm();
@@ -50,8 +52,8 @@ export class LoginSidebarComponent {
 
   private buildForm(): void {
     this.loginForm = this.fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
+      email: [''], //  Validators.required
+      password: [''], // Validators.required
     });
   }
 
@@ -69,7 +71,9 @@ export class LoginSidebarComponent {
 
   login(): void {
     if (this.loginForm.valid) {
+      this.authService.setIsLoggedIn(true);
       //this.onSubmit.emit(value);
+      this.goToCheckout();
     } else {
       this.loginForm.markAllAsTouched();
     }

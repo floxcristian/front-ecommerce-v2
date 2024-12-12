@@ -5,4 +5,5 @@ export interface PaymentTypeOption {
   image?: string;
   value: PaymentType;
   description?: string;
+  requiresLogin?: boolean;
 }

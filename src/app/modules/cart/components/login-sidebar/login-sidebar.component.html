@@ -1,4 +1,9 @@
-<p-sidebar [(visible)]="visible" position="right" styleClass="w-screen lg:w-4">
+<p-sidebar
+  [(visible)]="visible"
+  position="right"
+  styleClass="w-screen lg:w-4"
+  appendTo="body"
+>
   <ng-template pTemplate="header"> </ng-template>
   <ng-template pTemplate="content">
     <div class="field mb-4">

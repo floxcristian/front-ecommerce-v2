@@ -49,7 +49,7 @@ export class FileUploadInputComponent {
 
   files = signal<File[]>([]);
   detailedFiles = signal<FileData[]>([]);
-  isDragging = signal(false);
+  isDragging = signal<boolean>(false);
 
   /**
    * Maneja el evento de arrastrar sobre el componente.

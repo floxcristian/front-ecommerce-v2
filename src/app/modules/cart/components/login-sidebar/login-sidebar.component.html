@@ -43,7 +43,11 @@
       <!-- Start::input contraseña -->
       <div class="field mb-4 flex flex-column">
         <label for="password" class="font-semibold text-900">Contraseña</label>
-        <input type="password" pInputText formControlName="password" />
+        <p-password
+          formControlName="password"
+          [feedback]="false"
+          [toggleMask]="true"
+        />
       </div>
 
       <div class="flex align-items-center justify-content-end mb-5">

@@ -12,6 +12,7 @@ import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
 import { InputTextModule } from 'primeng/inputtext';
 import { SidebarModule } from 'primeng/sidebar';
+import { PasswordModule } from 'primeng/password';
 // Models
 import { ControlsOf } from '@shared/models/controls.type';
 // Directives
@@ -27,6 +28,7 @@ const PRIME_MODULES = [
   ButtonModule,
   DividerModule,
   InputTextModule,
+  PasswordModule,
 ];
 const COMPONENTS = [EmailInputComponent];
 const DIRECTIVES = [FormSubmitDirective, ControlErrorsDirective];

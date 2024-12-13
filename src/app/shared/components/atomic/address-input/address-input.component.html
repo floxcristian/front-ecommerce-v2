@@ -1,22 +1,8 @@
 <form [formGroup]="form">
-  <!--<input
-    type="text"
-    pInputText
-    spellcheck="false"
-    #searchAddress
-    formControlName="search"
-  /> -->
-  <!--<pre style="background-color: yellow">
-    value: {{ searchField.value | json }}
-    errors: {{ searchField.errors | json }}
-  </pre> -->
-
   <p-autoComplete
     spellcheck="false"
-    styleClass="w-full"
     maxlength="100"
     formControlName="search"
-    inputStyleClass="w-full"
     [suggestions]="predictionList()"
     (completeMethod)="search($event)"
     showEmptyMessage="false"

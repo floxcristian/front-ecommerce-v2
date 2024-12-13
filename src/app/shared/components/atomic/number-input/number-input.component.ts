@@ -28,7 +28,7 @@ const PRIME_MODULES = [InputTextModule];
 @Component({
   selector: 'app-number-input',
   standalone: true,
-  imports: [...NG_MODULES, ...PRIME_MODULES],
+  imports: [NG_MODULES, PRIME_MODULES],
   templateUrl: './number-input.component.html',
   styleUrl: './number-input.component.scss',
   providers: [

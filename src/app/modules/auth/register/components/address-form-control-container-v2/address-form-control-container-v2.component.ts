@@ -24,8 +24,6 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { SkeletonModule } from 'primeng/skeleton';
-// Environment
-import { environment } from '@env/environment';
 // Rxjs
 import { filter, map } from 'rxjs';
 // Components

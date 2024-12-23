@@ -12,10 +12,14 @@ export const defaultErrors: ErrorsMap = {
     `Expect ${requiredLength} but got ${actualLength}`,
   // Document ID Personal
   documentIdRequired: `El ${environment.documentId.personalLabel} es un campo requerido.`,
-  documentIdInvalid: `El ${environment.documentId.businessLabel} ingresado no es válido.`,
+  documentIdInvalid: `El ${environment.documentId.personalLabel} ingresado no es válido.`,
+  documentIdAlreadyExists: `El ${environment.documentId.personalLabel} ya existe en nuestros registros.`,
+  documentIdServer: `Ha ocurrido un error al validar el ${environment.documentId.personalLabel}. Por favor intente más tarde.`,
   // Document ID Business
+  documentIdBusinessRequired: `El ${environment.documentId.businessLabel} es un campo requerido.`,
+  documentIdBusinessInvalid: `El ${environment.documentId.businessLabel} ingresado no es válido.`,
   documentIdBusinessAlreadyExists: `La empresa ya existe en nuestros registros.`,
-  documentIdBusinessLinesEmpty: `La empresa no tiene giros comerciales asociados.`,
+  documentIdBusinessLinesEmpty: `La empresa no tiene giros asociados.`,
   documentIdBusinessServer: `Ha ocurrido un error al validar el RUT. Por favor intente más tarde.`,
   // Password
   passwordRequired: `La contraseña es un campo requerido.`,
@@ -27,6 +31,8 @@ export const defaultErrors: ErrorsMap = {
   passwordConfirmInvalid: `Las contraseñas no coinciden.`,
   // Email
   emailInvalid: `El correo electrónico ingresado no es válido.`,
+  emailAlreadyExists: `El correo electrónico ya existe en nuestros registros.`,
+  emailServer: `Ha ocurrido un error al validar el correo electrónico. Por favor intente más tarde.`,
   // Confirm Email
   emailConfirmInvalid: `Los correos electrónicos no coinciden.`,
   // Phone

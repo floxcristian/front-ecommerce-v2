@@ -38,7 +38,7 @@ const PRIME_MODULES = [InputTextModule, AutoCompleteModule];
 @Component({
   selector: 'app-address-input',
   standalone: true,
-  imports: [...NG_MODULES, ...PRIME_MODULES],
+  imports: [NG_MODULES, PRIME_MODULES],
   templateUrl: './address-input.component.html',
   styleUrl: './address-input.component.scss',
   providers: [
@@ -123,7 +123,7 @@ export class AddressInputComponent
 
   onSearchFieldInput(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
-    const formattedValue = inputElement.value; //.replace(/\s/g, '')
+    const formattedValue = inputElement.value;
     this.searchField?.setValue(formattedValue);
     this.onChange(formattedValue);
   }

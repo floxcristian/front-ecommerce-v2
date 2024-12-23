@@ -6,6 +6,7 @@ import {
   inject,
   input,
   OnInit,
+  output,
   signal,
 } from '@angular/core';
 import {
@@ -32,6 +33,8 @@ import {
 import { ControlsOf } from '@shared/models/controls.type';
 // Validators
 import { EmailValidator } from './validators/email.validator';
+// Constants
+import { EMAIL_DOMAINS } from './constants/domains';
 
 const NG_MODULES = [ReactiveFormsModule];
 const PRIME_MODULES = [
@@ -66,21 +69,23 @@ export class EmailInputComponent
   implements OnInit, ControlValueAccessor, Validator
 {
   isRequired = input<boolean>(true);
-  useEmailExistsValidator = input<boolean>(false);
+  useExistsValidator = input<boolean>(false);
+  alreadyExistsError = output<void>();
 
   get emailField(): FormControl<string> {
     return this.form.controls.email;
   }
 
   private readonly fb = inject(FormBuilder);
-  form!: FormGroup<ControlsOf<{ email: string }>>;
 
   private onChange: (value: string) => void = () => {};
   private onTouch: () => void = () => {};
 
-  domains = ['gmail.com', 'hotmail.com', 'icloud.com', 'live.com', 'yahoo.com'];
   filteredDomains = signal<string[]>([]);
   currentInputValue = signal<string>('');
+  canExecuteAsyncValidate = signal<boolean>(false);
+  isLoading = signal<boolean>(false);
+  form!: FormGroup<ControlsOf<{ email: string }>>;
 
   ngOnInit(): void {
     this.buildForm();
@@ -134,11 +139,11 @@ export class EmailInputComponent
     if (!query.includes('@')) {
       this.filteredDomains.set([]);
     } else if (query.endsWith('@')) {
-      this.filteredDomains.set(this.domains);
+      this.filteredDomains.set(EMAIL_DOMAINS);
     } else {
       const [_, domain] = query.split('@');
       this.filteredDomains.set(
-        this.domains.filter((d) => d.startsWith(domain))
+        EMAIL_DOMAINS.filter((item) => item.startsWith(domain))
       );
     }
   }
